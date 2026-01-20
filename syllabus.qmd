@@ -1,0 +1,8 @@
+---
+title: "Kursübersicht"
+---
+
+## Lernziele
+- Verständnis zentraler Monitoringmethoden
+- Anwendung statistischer Auswertungen
+- Interpretation von Felddaten

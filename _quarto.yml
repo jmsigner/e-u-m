@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "Erfassung und Monitoring von Wildtieren"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Start
+      - href: syllabus.qmd
+        text: Kursübersicht
+      - href: material.qmd
+        text: Materialien
+      - href: about.qmd
+        text: Über den Kurs
+
+format:
+  html:
+    theme: litera
+    toc: true
+

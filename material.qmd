@@ -1,0 +1,7 @@
+---
+title: "Kursmaterialien"
+---
+
+- Skripte
+- Datensätze
+- R-Beispiele

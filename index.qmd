@@ -1,0 +1,14 @@
+---
+title: "Willkommen"
+---
+
+## Erfassung und Monitoring von Wildtieren
+
+Dieser Kurs behandelt Methoden zur Erfassung, Analyse und Überwachung
+von Wildtierpopulationen.
+
+### Inhalte
+- Kamerafallen
+- Telemetrie
+- Populationsschätzung
+- Langzeitmonitoring
