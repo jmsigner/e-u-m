@@ -1,0 +1,54 @@
+---
+title: "Einführung"
+---
+
+# Vorbereitung
+
+Hören Sie diesen [Podcast](https://www.youtube.com/watch?v=5_gFgu9DZF0&list=PLDnrS2QsXM7qDDOvCyku1RjorYG5-iVGp&index=14) zu Wildtiermangement an und überlegen Sie sich kurz Antworten zu folgenden Punkten. 
+
+
+# Vorlesung
+
+## Einführung <!-- 30 min -->
+<iframe
+  src="{{< relref /slides/v01_einfuehrung.html >}}"
+  width="100%"
+  height="700"
+  style="border: 1px solid #ddd;"
+  allowfullscreen>
+</iframe>
+
+<p>
+  <a href="slides/v01_einfuehrung.html" target="_blank">
+    Open slides fullscreen
+  </a>
+</p>
+
+
+
+
+## Was ist Monitoring? <!-- 20 min -->
+
+### Inhalt
+- Was versteht man unter Monitoring
+- Welche Ansätze gibt es
+- Was ist mit Erfassung gemeint
+
+### Folien
+- S10 - S30
+
+
+## Gesetzliche Grundlage <!-- 30 min -->
+
+- Die Fauna-Flora-Habitat Richtlinie
+- Berner Konvention
+
+## Art Porträt: Biber <!-- 15 min -->
+
+
+
+:::{.callout-tip}
+# Wichtig
+- basdf
+- asdfj 
+:::

@@ -1,0 +1,36 @@
+---
+title: "Prüfungsleistungen"
+date: "2026-01-20"
+author: "Johannes Signer"
+---
+
+Die Benotung für dieses Modul erfolgt anhand einer strukturierten Hausarbeit. Um für die Hausarbeit zugelassen zu werden, muss eine Prüfungsvorleistung absolviert werden, darin werden die wichtigsten Konzepte, Methoden und Begriffe der Vorlesung in einem Multiple-Choice-Test abgefragt. 
+
+# Prüfungsvorleistung
+
+## Literatur
+Eine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:
+
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+
+Sie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden Antworten auf spezifische Fragen schnell. Es werden keine Fragen zu technischen/statistischen Details gestellt.
+
+## Terminologie
+Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können. 
+
+## Statistik
+Es werden **keine** R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen. 
+
+
+# Prüfungsleistung
+
+
+
+

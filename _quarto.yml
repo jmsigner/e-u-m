@@ -8,15 +8,51 @@ website:
     left:
       - href: index.qmd
         text: Start
-      - href: syllabus.qmd
-        text: Kursübersicht
-      - href: material.qmd
-        text: Materialien
-      - href: about.qmd
-        text: Über den Kurs
+      - text: Vorlesungen
+        menu:
+          - text: "Einführung"
+          - href: vorlesungen/01-vorlesung.qmd
+            text: "Vorlesung 1: Einführung"
+          - href: vorlesungen/02-vorlesung.qmd
+            text: "Vorlesung 2: Methoden"
+          - text: "-------"
+          - text: "Vorkommen"
+          - text: "Vorlesung 3: Wo kommt eine Art vor?"
+          - text: "Vorlesung 4: Vorkommen vorhersagen"
+          - text: "Vorlesung 5: Occupancy Modelle"
+          - text: "Vorlesung 6: Was, wenn man nicht alle sieht?"
+          - text: "----"
+          - text: "Popuation"
+          - text: "Vorlesung 7: Populationsgrößenschätzung (Distance sampling)"
+          - text: "Vorlesung 8: Fang-Wiederfang-Methoden"
+          - text: "Vorlesung 9: Methoden"
+          - text: "----"
+          - text: "Bewegung"
+          - text: "Vorlesung 10: Streifgebiete"
+          - text: "Vorlesung 11: Habitatselektion 1"
+          - text: "Vorlesung 12: Habitatselektion 2"
+      - text: Übungen
+        menu:
+          - text: "**Grundlagen in R**"
+          - href: uebung1.qmd
+            text: "Übung 1: Kamerafallen"
+          - href: uebung1.qmd
+            text: "Übung 1: Kamerafallen"
+          - href: uebung1.qmd
+            text: "Übung 1: Kamerafallen"
+          - text: "-----"
+          - text: "**R Übungen**"
+          - href: uebung2.qmd
+            text: "Übung 2: Telemetrie"
+      - text: Prüfungsleistungen
+        href: pruefungen/pruefungen.qmd
+
 
 format:
   html:
+    lang: de
     theme: litera
     toc: true
+    code-fold: true
+    code-summary: "Code anzeigen"
 

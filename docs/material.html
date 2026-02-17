@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -53,17 +87,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
   }
 }</script>
 
@@ -81,8 +115,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Erfassung und Monitoring von Wildtieren</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -91,17 +125,67 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Start</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html"> 
-<span class="menu-text">Kursübersicht</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-vorlesungen" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Vorlesungen</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-vorlesungen">    
+        <li class="dropdown-header">Einführung</li>
+        <li>
+    <a class="dropdown-item" href="./vorlesungen/01-vorlesung.html">
+ <span class="dropdown-text">Vorlesung 1: Einführung</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./material.html" aria-current="page"> 
-<span class="menu-text">Materialien</span></a>
+        <li>
+    <a class="dropdown-item" href="./vorlesungen/02-vorlesung.html">
+ <span class="dropdown-text">Vorlesung 2: Methoden</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Vorkommen</li>
+        <li class="dropdown-header">Vorlesung 3: Wo kommt eine Art vor?</li>
+        <li class="dropdown-header">Vorlesung 4: Vorkommen vorhersagen</li>
+        <li class="dropdown-header">Vorlesung 5: Occupancy Modelle</li>
+        <li class="dropdown-header">Vorlesung 6: Was, wenn man nicht alle sieht?</li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Popuation</li>
+        <li class="dropdown-header">Vorlesung 7: Populationsgrößenschätzung (Distance sampling)</li>
+        <li class="dropdown-header">Vorlesung 8: Fang-Wiederfang-Methoden</li>
+        <li class="dropdown-header">Vorlesung 9: Methoden</li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Bewegung</li>
+        <li class="dropdown-header">Vorlesung 10: Streifgebiete</li>
+        <li class="dropdown-header">Vorlesung 11: Habitatselektion 1</li>
+        <li class="dropdown-header">Vorlesung 12: Habitatselektion 2</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bungen" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Übungen</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-bungen">    
+        <li class="dropdown-header"><strong>Grundlagen in R</strong></li>
+        <li>
+    <a class="dropdown-item" href="./uebung1.html">
+ <span class="dropdown-text">Übung 1: Kamerafallen</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./uebung1.html">
+ <span class="dropdown-text">Übung 1: Kamerafallen</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./uebung1.html">
+ <span class="dropdown-text">Übung 1: Kamerafallen</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header"><strong>R Übungen</strong></li>
+        <li>
+    <a class="dropdown-item" href="./uebung2.html">
+ <span class="dropdown-text">Übung 2: Telemetrie</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Über den Kurs</span></a>
+    <a class="nav-link" href="./pruefungen/pruefungen.qmd"> 
+<span class="menu-text">Prüfungsleistungen</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -114,8 +198,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#skripte" id="toc-skripte" class="nav-link active" data-scroll-target="#skripte">Skripte</a></li>
+  <li><a href="#datensätze" id="toc-datensätze" class="nav-link" data-scroll-target="#datensätze">Datensätze</a></li>
+  <li><a href="#r-beispiele" id="toc-r-beispiele" class="nav-link" data-scroll-target="#r-beispiele">R-Beispiele</a>
+  <ul class="collapse">
+  <li><a href="#data.frame" id="toc-data.frame" class="nav-link" data-scroll-target="#data.frame"><code>data.frame</code></a></li>
+  <li><a href="#das-auch" id="toc-das-auch" class="nav-link" data-scroll-target="#das-auch">Das auch</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -139,13 +235,44 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ul>
-<li>Skripte</li>
-<li>Datensätze</li>
-<li>R-Beispiele</li>
-</ul>
+<section id="skripte" class="level1">
+<h1>Skripte</h1>
+</section>
+<section id="datensätze" class="level1">
+<h1>Datensätze</h1>
+</section>
+<section id="r-beispiele" class="level1">
+<h1>R-Beispiele</h1>
+<section id="data.frame" class="level2">
+<h2 class="anchored" data-anchor-id="data.frame"><code>data.frame</code></h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">:</span><span class="dv">4</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3 4</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="material_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="das-auch" class="level2">
+<h2 class="anchored" data-anchor-id="das-auch">Das auch</h2>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -191,12 +318,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Kopiert");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

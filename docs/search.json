@@ -40,5 +40,390 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "material.html#das-geht-gut",
+    "href": "material.html#das-geht-gut",
+    "title": "Kursmaterialien",
+    "section": "Das geht gut",
+    "text": "Das geht gut"
+  },
+  {
+    "objectID": "material.html#das-auch",
+    "href": "material.html#das-auch",
+    "title": "Kursmaterialien",
+    "section": "Das auch",
+    "text": "Das auch"
+  },
+  {
+    "objectID": "material.html#data.frame",
+    "href": "material.html#data.frame",
+    "title": "Kursmaterialien",
+    "section": "data.frame",
+    "text": "data.frame\n\n\nCode anzeigen\na &lt;- 1:10\n3:4\n\n\n[1] 3 4\n\n\nCode anzeigen\nplot(a)"
+  },
+  {
+    "objectID": "vorlesung2.html",
+    "href": "vorlesung2.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\nCode anzeigen\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "uebung1.html",
+    "href": "uebung1.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\nCode anzeigen\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "exkursion.html",
+    "href": "exkursion.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\nCode anzeigen\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "uebung2.html",
+    "href": "uebung2.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\nCode anzeigen\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "vorlesung1.html",
+    "href": "vorlesung1.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\nCode anzeigen\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "vorlesungen/01-vorlesung.html",
+    "href": "vorlesungen/01-vorlesung.html",
+    "title": "Einführung",
+    "section": "",
+    "text": "Hören Sie diesen Podcast zu Wildtiermangement an und überlegen Sie sich kurz Antworten zu folgenden Punkten."
+  },
+  {
+    "objectID": "vorlesungen/02-vorlesung.html",
+    "href": "vorlesungen/02-vorlesung.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\nCode anzeigen\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "pruefung/index.html",
+    "href": "pruefung/index.html",
+    "title": "Prüfungsleistungen",
+    "section": "",
+    "text": "Die Benotung für dieses Modul erfolgt anhand einer strukturierten Hausarbeit. Um für die Hausarbeit zugelassen zu werden, muss eine Prüfungsvorleistung absolviert werden, darin werden die wichtigsten Konzepte, Methoden und Begriffe der Vorlesung in einem Multiple-Choice-Test abgefragt."
+  },
+  {
+    "objectID": "pruefung/index.html#literatur",
+    "href": "pruefung/index.html#literatur",
+    "title": "Prüfungsleistungen",
+    "section": "Literatur",
+    "text": "Literatur\nEine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:\n\n\n\n\n\n\n\n\n\n\nSie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden Antworten auf spezifische Fragen schnell."
+  },
+  {
+    "objectID": "pruefung/index.html#terminologie",
+    "href": "pruefung/index.html#terminologie",
+    "title": "Prüfungsleistungen",
+    "section": "Terminologie",
+    "text": "Terminologie\nIch erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können."
+  },
+  {
+    "objectID": "pruefung/index.html#statistik",
+    "href": "pruefung/index.html#statistik",
+    "title": "Prüfungsleistungen",
+    "section": "Statistik",
+    "text": "Statistik\nEs werden keine R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen."
+  },
+  {
+    "objectID": "pruefung/pruefungen.html",
+    "href": "pruefung/pruefungen.html",
+    "title": "Prüfungsleistungen",
+    "section": "",
+    "text": "Die Benotung für dieses Modul erfolgt anhand einer strukturierten Hausarbeit. Um für die Hausarbeit zugelassen zu werden, muss eine Prüfungsvorleistung absolviert werden, darin werden die wichtigsten Konzepte, Methoden und Begriffe der Vorlesung in einem Multiple-Choice-Test abgefragt."
+  },
+  {
+    "objectID": "pruefung/pruefungen.html#literatur",
+    "href": "pruefung/pruefungen.html#literatur",
+    "title": "Prüfungsleistungen",
+    "section": "Literatur",
+    "text": "Literatur\nEine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:\n\n\n\n\n\n\n\n\n\n\nSie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden Antworten auf spezifische Fragen schnell. Es werden keine Fragen zu technischen/statistischen Details gestellt."
+  },
+  {
+    "objectID": "pruefung/pruefungen.html#terminologie",
+    "href": "pruefung/pruefungen.html#terminologie",
+    "title": "Prüfungsleistungen",
+    "section": "Terminologie",
+    "text": "Terminologie\nIch erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können."
+  },
+  {
+    "objectID": "pruefung/pruefungen.html#statistik",
+    "href": "pruefung/pruefungen.html#statistik",
+    "title": "Prüfungsleistungen",
+    "section": "Statistik",
+    "text": "Statistik\nEs werden keine R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen."
+  },
+  {
+    "objectID": "vorlesungen/01-vorlesung.html#einführung",
+    "href": "vorlesungen/01-vorlesung.html#einführung",
+    "title": "Einführung",
+    "section": "Einführung ",
+    "text": "Einführung \n&lt;iframe src=“{{&lt; relref /slides/v01_einfuehrung.html &gt;}}” width=“100%” height=“700” style=“border: 1px solid #ddd;” allowfullscreen&gt; \n\n Open slides fullscreen"
+  },
+  {
+    "objectID": "vorlesungen/01-vorlesung.html#was-ist-monitoring",
+    "href": "vorlesungen/01-vorlesung.html#was-ist-monitoring",
+    "title": "Einführung",
+    "section": "Was ist Monitoring? ",
+    "text": "Was ist Monitoring? \n\nInhalt\n\nWas versteht man unter Monitoring\nWelche Ansätze gibt es\nWas ist mit Erfassung gemeint\n\n\n\nFolien\n\nS10 - S30"
+  },
+  {
+    "objectID": "vorlesungen/01-vorlesung.html#gesetzliche-grundlage",
+    "href": "vorlesungen/01-vorlesung.html#gesetzliche-grundlage",
+    "title": "Einführung",
+    "section": "Gesetzliche Grundlage ",
+    "text": "Gesetzliche Grundlage \n\nDie Fauna-Flora-Habitat Richtlinie\nBerner Konvention"
+  },
+  {
+    "objectID": "vorlesungen/01-vorlesung.html#art-porträt-biber",
+    "href": "vorlesungen/01-vorlesung.html#art-porträt-biber",
+    "title": "Einführung",
+    "section": "Art Porträt: Biber ",
+    "text": "Art Porträt: Biber \n\n\n\n\n\n\nWichtig\n\n\n\n\nbasdf\nasdfj"
+  },
+  {
+    "objectID": "slides/01-einfuehrung.html#learning-objectives",
+    "href": "slides/01-einfuehrung.html#learning-objectives",
+    "title": "Lecture Title",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nAfter this lecture, you should be able to:\n\nunderstand the basic concepts\napply key methods\ninterpret monitoring data"
+  },
+  {
+    "objectID": "slides/01-einfuehrung.html#outline",
+    "href": "slides/01-einfuehrung.html#outline",
+    "title": "Lecture Title",
+    "section": "Outline",
+    "text": "Outline\n\nMotivation\nMethods\nExamples\nDiscussion"
+  },
+  {
+    "objectID": "slides/01-einfuehrung.html#motivation",
+    "href": "slides/01-einfuehrung.html#motivation",
+    "title": "Lecture Title",
+    "section": "Motivation",
+    "text": "Motivation\nWhy do we monitor wildlife populations?"
+  },
+  {
+    "objectID": "slides/01-einfuehrung.html#methods",
+    "href": "slides/01-einfuehrung.html#methods",
+    "title": "Lecture Title",
+    "section": "Methods",
+    "text": "Methods\nCamera traps\n\nPassive monitoring\nLarge spatial coverage\n\nTelemetry\n\nHigh temporal resolution\nIndividual-based data"
+  },
+  {
+    "objectID": "slides/01-einfuehrung.html#example-camera-trap-data",
+    "href": "slides/01-einfuehrung.html#example-camera-trap-data",
+    "title": "Lecture Title",
+    "section": "Example: Camera trap data",
+    "text": "Example: Camera trap data\n\n\nCode anzeigen\nhist(cars$speed, main = \"Example histogram\")"
+  },
+  {
+    "objectID": "slides/template.html",
+    "href": "slides/template.html",
+    "title": "Lecture Title",
+    "section": "",
+    "text": "After this lecture, you should be able to:\n\nunderstand the basic concepts\napply key methods\ninterpret monitoring data"
+  },
+  {
+    "objectID": "slides/template.html#learning-objectives",
+    "href": "slides/template.html#learning-objectives",
+    "title": "Lecture Title",
+    "section": "",
+    "text": "After this lecture, you should be able to:\n\nunderstand the basic concepts\napply key methods\ninterpret monitoring data"
+  },
+  {
+    "objectID": "slides/template.html#outline",
+    "href": "slides/template.html#outline",
+    "title": "Lecture Title",
+    "section": "Outline",
+    "text": "Outline\n\nMotivation\nMethods\nExamples\nDiscussion"
+  },
+  {
+    "objectID": "slides/template.html#motivation",
+    "href": "slides/template.html#motivation",
+    "title": "Lecture Title",
+    "section": "Motivation",
+    "text": "Motivation\nWhy do we monitor wildlife populations?"
+  },
+  {
+    "objectID": "slides/template.html#methods",
+    "href": "slides/template.html#methods",
+    "title": "Lecture Title",
+    "section": "Methods",
+    "text": "Methods\n\nCamera traps\n\nPassive monitoring\nLarge spatial coverage\n\n\n\nTelemetry\n\nHigh temporal resolution\nIndividual-based data"
+  },
+  {
+    "objectID": "slides/template.html#example-camera-trap-data",
+    "href": "slides/template.html#example-camera-trap-data",
+    "title": "Lecture Title",
+    "section": "Example: Camera trap data",
+    "text": "Example: Camera trap data\n#| echo: true hist(cars$speed, main = “Example histogram”)"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#was-ist-die-ramsar-konvention",
+    "href": "slides/01-einfuehrung1.html#was-ist-die-ramsar-konvention",
+    "title": "Einführung",
+    "section": "Was ist die Ramsar-Konvention?",
+    "text": "Was ist die Ramsar-Konvention?\n\nInternationales völkerrechtliches Abkommen\nSchutz von Feuchtgebieten von internationaler Bedeutung\nAbgeschlossen 1971 in Ramsar (Iran)\nÜber 170 Vertragsstaaten\nEines der ältesten globalen Naturschutzabkommen"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#ziele-der-ramsar-konvention",
+    "href": "slides/01-einfuehrung1.html#ziele-der-ramsar-konvention",
+    "title": "Einführung",
+    "section": "Ziele der Ramsar-Konvention",
+    "text": "Ziele der Ramsar-Konvention\n\nErhaltung von Feuchtgebieten\nNachhaltige Nutzung („wise use“)\nSchutz von Wasser- und Zugvögeln\nFörderung der internationalen Zusammenarbeit\nBeitrag zu Biodiversitäts-, Wasser- und Klimaschutz"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#nachhaltige-nutzung-wise-use",
+    "href": "slides/01-einfuehrung1.html#nachhaltige-nutzung-wise-use",
+    "title": "Einführung",
+    "section": "Nachhaltige Nutzung („wise use“)",
+    "text": "Nachhaltige Nutzung („wise use“)\n\nGilt für alle Feuchtgebiete, nicht nur Ramsar-Gebiete\nNutzung darf Zugvögel und Lebensräume nicht beeinträchtigen\nIntegration in Raumplanung, Land- und Wassernutzung\nErfordert begleitendes ökologisches Monitoring"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#monitoring-des-ökologischen-charakters",
+    "href": "slides/01-einfuehrung1.html#monitoring-des-ökologischen-charakters",
+    "title": "Einführung",
+    "section": "Monitoring des ökologischen Charakters",
+    "text": "Monitoring des ökologischen Charakters\n\nRegelmäßige Beobachtung von Feuchtgebieten\nWichtige Indikatoren:\n\nBestände von Wasser- und Zugvögeln\nBrut- und Rastzahlen\nZustand der Lebensräume\n\nUmsetzung durch nationale Programme und internationale Vogelzählungen"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#feuchtgebiete-und-ramsar-gebiete",
+    "href": "slides/01-einfuehrung1.html#feuchtgebiete-und-ramsar-gebiete",
+    "title": "Einführung",
+    "section": "Feuchtgebiete und Ramsar-Gebiete",
+    "text": "Feuchtgebiete und Ramsar-Gebiete\nFeuchtgebiete (weite Definition): - Moore, Sümpfe, Auen (z.B. ) - Seen, Flüsse, Feuchtwiesen (z.B. ) - Küstenzonen, Watt, Lagunen (z.B. ) - Auch künstliche Feuchtgebiete (z.B. )\nRamsar-Gebiete: - Von Vertragsstaaten benannte Gebiete - Aufnahme in die Ramsar-Liste - Verpflichtung zum Erhalt des ökologischen Charakters"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#rechtliche-bedeutung-und-umsetzung",
+    "href": "slides/01-einfuehrung1.html#rechtliche-bedeutung-und-umsetzung",
+    "title": "Einführung",
+    "section": "Rechtliche Bedeutung und Umsetzung",
+    "text": "Rechtliche Bedeutung und Umsetzung\n\nKeine direkte Rechtswirkung für Bürger:innen\nUmsetzung über:\n\nnationales Naturschutzrecht\nEU-Recht (FFH- und Vogelschutzrichtlinie)\n\nRamsar-Gebiete oft Teil von Natura 2000\nReferenzabkommen für Umwelt-Monitoring und Naturschutzpolitik"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#internationale-zusammenarbeit-entlang-der-zugrouten",
+    "href": "slides/01-einfuehrung1.html#internationale-zusammenarbeit-entlang-der-zugrouten",
+    "title": "Einführung",
+    "section": "Internationale Zusammenarbeit entlang der Zugrouten",
+    "text": "Internationale Zusammenarbeit entlang der Zugrouten\n\nKooperation zwischen Staaten entlang von Zugwegen (Flyways)\nSchutz grenzüberschreitender Feuchtgebiete\nZusammenarbeit mit:\n\nAEWA\nCMS (Bonner Konvention)\nEU-Vogelschutzrichtlinie\n\nGrundlage für koordiniertes Zugvogel-Monitoring"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#berner-konvention-überblick-ziele",
+    "href": "slides/01-einfuehrung1.html#berner-konvention-überblick-ziele",
+    "title": "Einführung",
+    "section": "Berner Konvention – Überblick & Ziele",
+    "text": "Berner Konvention – Überblick & Ziele\n\nInternationales Übereinkommen zum Naturschutz in Europa\nVerabschiedet 1979 in Bern\nVölkerrechtliches Abkommen des Europarats\nFokus auf Arten- und Lebensraumschutz\nErhaltung der biologischen Vielfalt in Europa\nSchutz wildlebender Tier- und Pflanzenarten"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#schutzinstrumente-der-berner-konvention",
+    "href": "slides/01-einfuehrung1.html#schutzinstrumente-der-berner-konvention",
+    "title": "Einführung",
+    "section": "Schutzinstrumente der Berner Konvention",
+    "text": "Schutzinstrumente der Berner Konvention\n\nListen geschützter Arten (Anhänge I–III):\n\nAnhang I: streng geschützte Pflanzen\nAnhang II: streng geschützte Tiere\nAnhang III: geschützte Tiere (regulierte Nutzung)\n\nVerbot von:\n\nabsichtlicher Tötung und Fang\nZerstörung von Fortpflanzungs- und Ruhestätten\n\nRegulierung von Jagd, Fang und Nutzung"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#monitoring-umsetzung-und-bedeutung",
+    "href": "slides/01-einfuehrung1.html#monitoring-umsetzung-und-bedeutung",
+    "title": "Einführung",
+    "section": "Monitoring, Umsetzung und Bedeutung",
+    "text": "Monitoring, Umsetzung und Bedeutung\n\nMonitoring von Artenbeständen und Lebensräumen\nBerichtspflichten der Vertragsstaaten\nStändiger Ausschuss (Standing Committee) überwacht Umsetzung\nGrundlage für EU-Naturschutzrecht:\n\nVogelschutzrichtlinie\nFFH-Richtlinie\n\nZentrales europäisches Artenschutzabkommen"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#vergleich-berner-konvention-vs.-ramsar-konvention",
+    "href": "slides/01-einfuehrung1.html#vergleich-berner-konvention-vs.-ramsar-konvention",
+    "title": "Einführung",
+    "section": "Vergleich: Berner Konvention vs. Ramsar-Konvention",
+    "text": "Vergleich: Berner Konvention vs. Ramsar-Konvention\n\n\n\n\n\n\n\n\nAspekt\nBerner Konvention\nRamsar-Konvention\n\n\n\n\nRechtsnatur\nInternationales Übereinkommen (Europarat)\nInternationales Übereinkommen (global)\n\n\nGeografischer Fokus\nEuropa (plus wenige weitere Staaten)\nWeltweit\n\n\nSchutzfokus\nWildlebende Tier- und Pflanzenarten\nFeuchtgebiete\n\n\nBezug zu Zugvögeln\nSchutz wandernder Arten durch Art- und Habitatregelungen\nSchutz zentraler Rast-, Brut- und Überwinterungsgebiete\n\n\nMonitoring\nMonitoring von Artenbeständen und Lebensräumen\nMonitoring des ökologischen Charakters von Feuchtgebieten\n\n\nBedeutung für die EU\nGrundlage für FFH- und Vogelschutzrichtlinie\nReferenz für Feuchtgebietsschutz, oft Natura-2000-Bezug"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#folie-1-bonner-konvention-cms-überblick",
+    "href": "slides/01-einfuehrung1.html#folie-1-bonner-konvention-cms-überblick",
+    "title": "Einführung",
+    "section": "Folie 1: Bonner Konvention (CMS) – Überblick",
+    "text": "Folie 1: Bonner Konvention (CMS) – Überblick\n\nInternationales Übereinkommen zum Schutz wandernder Tierarten\nOffizieller Name: „Übereinkommen zur Erhaltung der wandernden wildlebenden Tierarten“\nVerabschiedet 1979 in Bonn\nVölkerrechtliches Abkommen der Vereinten Nationen (UNEP)\nFokus auf grenzüberschreitenden Artenschutz"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#folie-2-ziele-der-bonner-konvention",
+    "href": "slides/01-einfuehrung1.html#folie-2-ziele-der-bonner-konvention",
+    "title": "Einführung",
+    "section": "Folie 2: Ziele der Bonner Konvention",
+    "text": "Folie 2: Ziele der Bonner Konvention\n\nSchutz wandernder (migratorischer) Tierarten\nErhaltung und Wiederherstellung von Lebensräumen\nSicherung von Zugwegen (Flyways)\nVermeidung von Gefährdungen entlang der gesamten Wanderroute\nFörderung internationaler Zusammenarbeit zwischen Staaten"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#folie-3-artenschutzinstrumente-anhänge-i-und-ii",
+    "href": "slides/01-einfuehrung1.html#folie-3-artenschutzinstrumente-anhänge-i-und-ii",
+    "title": "Einführung",
+    "section": "Folie 3: Artenschutzinstrumente – Anhänge I und II",
+    "text": "Folie 3: Artenschutzinstrumente – Anhänge I und II\n\nAnhang I (streng geschützt):\n\nVom Aussterben bedrohte wandernde Arten\nVerpflichtung zu strengem Schutz\nVerbot von Fang, Tötung und Störung\n\nAnhang II (Kooperationsarten):\n\nArten mit ungünstigem Erhaltungszustand\nBedarf an international abgestimmten Schutzmaßnahmen"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#folie-4-umsetzungsinstrumente-abkommen-und-mous",
+    "href": "slides/01-einfuehrung1.html#folie-4-umsetzungsinstrumente-abkommen-und-mous",
+    "title": "Einführung",
+    "section": "Folie 4: Umsetzungsinstrumente – Abkommen und MoUs",
+    "text": "Folie 4: Umsetzungsinstrumente – Abkommen und MoUs\n\nSpezielle regionale oder taxonomische Abkommen\nBeispiele:\n\nAEWA (afrikanisch-eurasische Wasservögel)\nEUROBATS (Fledermäuse)\n\nInhalte:\n\nSchutzmaßnahmen\nMonitoring und Forschung\nDatenaustausch und Koordination entlang von Zugrouten"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#folie-5-monitoring-umsetzung-und-bedeutung",
+    "href": "slides/01-einfuehrung1.html#folie-5-monitoring-umsetzung-und-bedeutung",
+    "title": "Einführung",
+    "section": "Folie 5: Monitoring, Umsetzung und Bedeutung",
+    "text": "Folie 5: Monitoring, Umsetzung und Bedeutung\n\nMonitoring von Beständen wandernder Arten\nRegelmäßige nationale Berichte\nWissenschaftlicher Beirat (Scientific Council)\nZentrale Rolle im internationalen Zugvogel- und Artenschutz\nErgänzt Ramsar- und Berner Konvention auf globaler Ebene"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#folie-1-un-konvention-über-die-biologische-vielfalt-cbd-überblick",
+    "href": "slides/01-einfuehrung1.html#folie-1-un-konvention-über-die-biologische-vielfalt-cbd-überblick",
+    "title": "Einführung",
+    "section": "Folie 1: UN-Konvention über die biologische Vielfalt (CBD) – Überblick",
+    "text": "Folie 1: UN-Konvention über die biologische Vielfalt (CBD) – Überblick\n\nInternationales Übereinkommen zum Schutz der biologischen Vielfalt\nOffizieller Name: „Übereinkommen über die biologische Vielfalt“\nVerabschiedet 1992 auf dem Erdgipfel in Rio de Janeiro\nIn Kraft seit 1993\nNahezu weltweite Mitgliedschaft\nZentrales globales Abkommen zum Biodiversitätsschutz"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#folie-2-die-drei-hauptziele-der-cbd",
+    "href": "slides/01-einfuehrung1.html#folie-2-die-drei-hauptziele-der-cbd",
+    "title": "Einführung",
+    "section": "Folie 2: Die drei Hauptziele der CBD",
+    "text": "Folie 2: Die drei Hauptziele der CBD\n\nErhaltung der biologischen Vielfalt\nNachhaltige Nutzung ihrer Bestandteile\nGerechte Aufteilung der Vorteile aus der Nutzung genetischer Ressourcen (Access and Benefit-Sharing, ABS)\nIntegration von Biodiversität in alle Politikbereiche"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#folie-3-zentrale-instrumente-der-cbd",
+    "href": "slides/01-einfuehrung1.html#folie-3-zentrale-instrumente-der-cbd",
+    "title": "Einführung",
+    "section": "Folie 3: Zentrale Instrumente der CBD",
+    "text": "Folie 3: Zentrale Instrumente der CBD\n\nNationale Biodiversitätsstrategien und Aktionspläne (NBSAPs)\nSchutz von Ökosystemen, Arten und genetischer Vielfalt\nUmweltverträglichkeitsprüfungen (UVP)\nForschung, Monitoring und Datenaustausch\nFörderung von Bildung, Bewusstsein und Beteiligung"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#folie-4-protokolle-und-globale-rahmenwerke",
+    "href": "slides/01-einfuehrung1.html#folie-4-protokolle-und-globale-rahmenwerke",
+    "title": "Einführung",
+    "section": "Folie 4: Protokolle und globale Rahmenwerke",
+    "text": "Folie 4: Protokolle und globale Rahmenwerke\n\nCartagena-Protokoll (2000):\n\nBiosicherheit und Umgang mit gentechnisch veränderten Organismen\n\nNagoya-Protokoll (2010):\n\nZugang zu genetischen Ressourcen\nGerechter Vorteilsausgleich (ABS)\n\nGlobal Biodiversity Framework (Kunming–Montreal, 2022):\n\nGlobale Ziele bis 2030 („30×30“-Ziel)"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#folie-5-umsetzung-monitoring-und-bedeutung",
+    "href": "slides/01-einfuehrung1.html#folie-5-umsetzung-monitoring-und-bedeutung",
+    "title": "Einführung",
+    "section": "Folie 5: Umsetzung, Monitoring und Bedeutung",
+    "text": "Folie 5: Umsetzung, Monitoring und Bedeutung\n\nNationale Berichte der Vertragsstaaten\nGlobale Indikatoren und Zielsysteme\nWissenschaftliche Unterstützung durch IPBES\nReferenzrahmen für:\n\ninternationale Naturschutzpolitik\nEU-Biodiversitätsstrategie\nnationale Naturschutzgesetze\n\nDachkonvention für Ramsar-, Berner- und Bonn-Konvention"
+  },
+  {
+    "objectID": "slides/01-einfuehrung1.html#cites-washingtoner-artenschutzübereinkommen-1973",
+    "href": "slides/01-einfuehrung1.html#cites-washingtoner-artenschutzübereinkommen-1973",
+    "title": "Einführung",
+    "section": "CITES – Washingtoner Artenschutzübereinkommen (1973)",
+    "text": "CITES – Washingtoner Artenschutzübereinkommen (1973)\n\nInternationales Übereinkommen zur Regulierung des Handels mit bedrohten Tier- und Pflanzenarten\nOffizieller Name: Convention on International Trade in Endangered Species of Wild Fauna and Flora\nZiel: Sicherstellen, dass internationaler Handel das Überleben von Arten nicht gefährdet\nZentrales Instrument: Artenschutz-Anhänge\n\nAnhang I: Handel grundsätzlich verboten\nAnhang II: Handel streng reguliert\nAnhang III: Schutz auf Antrag einzelner Staaten\n\nStarker Vollzugsfokus:\n\nGenehmigungspflichten\nKontrollen durch Behörden und Zoll\n\nErgänzt Ramsar-, Bonn-, Berner Konvention und CBD im globalen Artenschutz"
   }
 ]

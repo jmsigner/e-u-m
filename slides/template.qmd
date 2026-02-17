@@ -1,0 +1,65 @@
+---
+title: "Lecture Title"
+subtitle: "Erfassung und Monitoring von Wildtieren"
+author: "Your Name"
+date: "Semester YYYY"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    chalkboard: true
+    preview-links: true
+    transition: fade
+    incremental: true
+    toc: false
+    center: true
+    width: 1280
+    height: 720
+    code-fold: true
+    code-summary: "Code anzeigen"
+    footer: "Erfassung und Monitoring von Wildtieren"
+---
+
+## Learning objectives
+
+After this lecture, you should be able to:
+
+- understand the basic concepts
+- apply key methods
+- interpret monitoring data
+
+---
+
+## Outline
+
+- Motivation
+- Methods
+- Examples
+- Discussion
+
+---
+
+## Motivation
+
+Why do we monitor wildlife populations?
+
+---
+
+## Methods
+
+### Camera traps
+- Passive monitoring
+- Large spatial coverage
+
+### Telemetry
+- High temporal resolution
+- Individual-based data
+
+---
+
+## Example: Camera trap data
+
+```{r}
+#| echo: true
+hist(cars$speed, main = "Example histogram")
+
