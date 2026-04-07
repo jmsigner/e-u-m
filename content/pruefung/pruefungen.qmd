@@ -1,0 +1,57 @@
+---
+title: "Prüfungsleistungen"
+date: last-modified
+---
+
+Die Benotung für dieses Modul erfolgt anhand einer strukturierten Hausarbeit. Um für die Hausarbeit zugelassen zu werden, muss eine Prüfungsvorleistung absolviert werden, darin werden die wichtigsten Konzepte, Methoden und Begriffe der Vorlesung in einem Multiple-Choice-Test abgefragt. 
+
+# Prüfungsvorleistung
+
+## Literatur
+Eine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:
+
+1. Gibbs et al. 1999 [Effective monitoring for adaptive wildlife management: lessons from the Galapagos Islands](https://www.jstor.org/stable/3802825?casa_token=7LfXkQCd1jsAAAAA%3At3dgIsmsP6hDShtrSV1louPOMpZkayFCfMHGyherPmNfBkqXEoM65MiaWuQ6MTC9T7MIDv0xp2NR8Nf1I9Bv9L_q8qlkNyx_xvkAbC1QVxzsVvnIEkc)
+2. Månsson et al. 2023 [Understanding and overcoming obstacles in adaptive management](https://www.cell.com/trends/ecology-evolution/fulltext/S0169-5347(22)00217-8#f0005)
+3. Louvrier et al. 2017 [Mapping and explaining wolf recolonization in France using dynamic occupancy models and opportunistic data](https://nsojournals.onlinelibrary.wiley.com/doi/abs/10.1111/ecog.02874)
+4. Sliwinski et al. 2021 [Comparison of spotlighting monitoring data of European brown hare (Lepus europaeus) relative population densities with infrared thermography in agricultural landscapes in Northern Germany](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0254084)
+5. Ausband et al. 2022 [Estimating wolf abundance from cameras](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3933)
+6. Telemetriestudie
+
+Sie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden Antworten auf spezifische Fragen schnell. Es werden keine Fragen zu technischen/statistischen Details gestellt.
+
+## Terminologie
+Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können. 
+
+## Statistik
+Es werden **keine** R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen. 
+
+
+# Prüfungsleistung
+
+Die Prüfungsleistung besteht aus einer strukturierten Hausarbeit. 
+
+Stellen Sie eine Hypothese/Erwartung  auf und analysieren Sie dazu einen bereits vorhandenen Datensatz.  
+
+-	Analysen (40%)
+-	Schriftliche Ausarbeitung (60%)
+
+
+## Analysen
+1. Code ist reproduzierbar. (60%)
+2. Der Code ist ausreichend dokumentiert und logisch sinnvoll aufgebaut. 	(25%)
+3. Es gibt eine README-Datei, die beschreibt, wie man den Code und die Analyse ausführen kann.	(15%)
+
+## Hausarbeit
+
+
+| Was             | Bewertung | Detaillierte Bewertung |
+|-----------------|-----------|------------------------|
+| Einleitung      | 15 %      | 1. Worum geht es (1–2 Absätze); 30 %<br>2. Stand der Dinge (1 Absatz); 20 %<br>3. Ziel dieser Hausarbeit; 20 %<br>4. Literatur (3–5 peer-reviewed Veröffentlichungen); 30 % |
+| Methoden        | 25 %      | 1. Datenquellen, wie wurden die Daten aufgenommen; 20 %<br>2. Modellbeschreibung (welches Modell wurde verwendet, wie wurde es parametrisiert); 40 %<br>3. Aufschreiben und Beschreiben der Modellgleichung; 30 %<br>4. Richtige Zitation aller Software; 10 % |
+| Ergebnisse      | 25 %      | - Beschreibung der Ergebnisse, die für die Fragestellung relevant sind; 20 %<br>- Zwei Abbildungen, die die Ergebnisse untermauern und das Modell visualisieren; 60 %<br>- Eine Tabelle, die für die Fragestellung relevante Rohdaten oder Modelloutput zusammenfasst |
+| Diskussion      | 15 %      | Jeweils ein Absatz, der:<br>1. die Ergebnisse zusammenfasst und in Verbindung mit den Hypothese(n) bringt; 35 %<br>2. mögliche Schwachstellen, Erweiterungen etc. diskutiert; 30 %<br>3. die Ergebnisse im Kontext der aktuellen begutachteten Literatur (>2020) darstellt (3–5 Referenzen); 40 % |
+| Referenzen      | 5 %       | Alle verwendeten Quellen (inkl. Software) sind in einem Literaturverzeichnis einheitlich zitiert |
+| Zusammenfassung | 5 %       | Dem Text ist eine Zusammenfassung von einem Absatz vorangestellt (max. 200 Wörter) |
+| Form            | 5 %       | Die Arbeit ist einheitlich und ansprechend formatiert |
+| Ausdruck        | 5 %       | Die Arbeit ist verständlich und fehlerfrei geschrieben |
+

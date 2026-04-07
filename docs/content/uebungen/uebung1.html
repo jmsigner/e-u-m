@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Johannes Signer">
+
+<title>Übung Woche 1: Einführung in R – Erfassung und Monitoring von Wildtieren</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Erfassung und Monitoring von Wildtieren</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/index.html"> 
+<span class="menu-text">Start</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-vorlesungen" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Vorlesungen</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-vorlesungen">    
+        <li class="dropdown-header">Einführung</li>
+        <li>
+    <a class="dropdown-item" href="../../content/vorlesungen/01-vorlesung.html">
+ <span class="dropdown-text">Vorlesung 1: Einführung</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/vorlesungen/02-vorlesung.qmd">
+ <span class="dropdown-text">Vorlesung 2: Methoden</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Vorkommen</li>
+        <li class="dropdown-header">Vorlesung 3: Wo kommt eine Art vor?</li>
+        <li class="dropdown-header">Vorlesung 4: Vorkommen vorhersagen</li>
+        <li class="dropdown-header">Vorlesung 5: Occupancy Modelle</li>
+        <li class="dropdown-header">Vorlesung 6: Was, wenn man nicht alle sieht?</li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Popuation</li>
+        <li class="dropdown-header">Vorlesung 7: Populationsgrößenschätzung (Distance sampling)</li>
+        <li class="dropdown-header">Vorlesung 8: Fang-Wiederfang-Methoden</li>
+        <li class="dropdown-header">Vorlesung 9: Methoden</li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Bewegung</li>
+        <li class="dropdown-header">Vorlesung 10: Streifgebiete</li>
+        <li class="dropdown-header">Vorlesung 11: Habitatselektion 1</li>
+        <li class="dropdown-header">Vorlesung 12: Habitatselektion 2</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bungen" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Übungen</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-bungen">    
+        <li class="dropdown-header"><strong>Grundlagen in R</strong></li>
+        <li>
+    <a class="dropdown-item" href="../../content/uebungen/uebung1.html">
+ <span class="dropdown-text">Übung 1: Datenstrukturen in R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../uebung2.qmd">
+ <span class="dropdown-text">Übung 1: Kamerafallen</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../uebung3.qmd">
+ <span class="dropdown-text">Übung 1: Kamerafallen</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header"><strong>R Übungen</strong></li>
+        <li>
+    <a class="dropdown-item" href="../../uebung2.qmd">
+ <span class="dropdown-text">Übung 2: Telemetrie</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-folien" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Folien</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-folien">    
+        <li>
+    <a class="dropdown-item" href="../../content/slides/01-einfuehrung.qmd">
+ <span class="dropdown-text"></span></a>
+  </li>  
+        <li class="dropdown-header">Einführung</li>
+        <li>
+    <a class="dropdown-item" href="../../blub.qmd">
+ <span class="dropdown-text"></span></a>
+  </li>  
+        <li class="dropdown-header">Vorkommen</li>
+        <li>
+    <a class="dropdown-item" href="../../blub.qmd">
+ <span class="dropdown-text"></span></a>
+  </li>  
+        <li class="dropdown-header">Population</li>
+        <li>
+    <a class="dropdown-item" href="../../blub.qmd">
+ <span class="dropdown-text"></span></a>
+  </li>  
+        <li class="dropdown-header">Bewegung</li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/pruefung/pruefungen.html"> 
+<span class="menu-text">Prüfungsleistungen</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#vorbereitung-vor-der-übung" id="toc-vorbereitung-vor-der-übung" class="nav-link active" data-scroll-target="#vorbereitung-vor-der-übung">Vorbereitung (<em>vor</em> der Übung)</a>
+  <ul class="collapse">
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#datentypen" id="toc-datentypen" class="nav-link" data-scroll-target="#datentypen">Datentypen</a></li>
+  </ul></li>
+  <li><a href="#übung" id="toc-übung" class="nav-link" data-scroll-target="#übung">Übung</a>
+  <ul class="collapse">
+  <li><a href="#einführung" id="toc-einführung" class="nav-link" data-scroll-target="#einführung">Einführung</a>
+  <ul class="collapse">
+  <li><a href="#ziele" id="toc-ziele" class="nav-link" data-scroll-target="#ziele">Ziele</a></li>
+  <li><a href="#arbeiten-mit-projekten-in-rstudio" id="toc-arbeiten-mit-projekten-in-rstudio" class="nav-link" data-scroll-target="#arbeiten-mit-projekten-in-rstudio">Arbeiten mit Projekten in RStudio</a></li>
+  <li><a href="#arbeiten-mit-paketen" id="toc-arbeiten-mit-paketen" class="nav-link" data-scroll-target="#arbeiten-mit-paketen">Arbeiten mit Paketen</a></li>
+  <li><a href="#arbeiten-mit-vektoren-und-tibbles" id="toc-arbeiten-mit-vektoren-und-tibbles" class="nav-link" data-scroll-target="#arbeiten-mit-vektoren-und-tibbles">Arbeiten mit Vektoren und <code>tibble</code>s</a></li>
+  <li><a href="#einlesen-von-daten" id="toc-einlesen-von-daten" class="nav-link" data-scroll-target="#einlesen-von-daten">Einlesen von Daten</a></li>
+  </ul></li>
+  <li><a href="#aufgabe-1-fotofallen" id="toc-aufgabe-1-fotofallen" class="nav-link" data-scroll-target="#aufgabe-1-fotofallen">Aufgabe 1: Fotofallen</a>
+  <ul class="collapse">
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben">Aufgaben:</a></li>
+  <li><a href="#lösungsvorschläge" id="toc-lösungsvorschläge" class="nav-link" data-scroll-target="#lösungsvorschläge">Lösungsvorschläge</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#nachbereitung-nach-der-übung" id="toc-nachbereitung-nach-der-übung" class="nav-link" data-scroll-target="#nachbereitung-nach-der-übung">Nachbereitung (<em>nach</em> der Übung)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Übung Woche 1: Einführung in R</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code zeigen</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code verbergen</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Quellcode anzeigen</a></li></ul></div></div>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autor:in</div>
+  <div class="quarto-title-meta-heading">Zugehörigkeit</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Johannes Signer <a href="mailto:jsigner@uni-goettingen.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Georg-August Universität Göttingen
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">30. März 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="vorbereitung-vor-der-übung" class="level1">
+<h1>Vorbereitung (<em>vor</em> der Übung)</h1>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>Für einen reibungslosen Ablauf in den Übungen laden Sie bitte die aktuelle Version von R (<a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>) und RStuido herunter (<a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a>). Falls Sie Probleme bei der Installation haben, melden Sie sich bitte bei mir.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Werden Sie aktiv">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Werden Sie aktiv
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Überlegen Sie sich was der Unterschied zwischen R und RStudio ist?</p>
+</div>
+</div>
+<p>Bei Publikationen ist es wichtig, dass Software richtig zitiert wird, um die Reproduzierbarkeit zu erhöhen.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Werden Sie aktiv">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Werden Sie aktiv
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recherchieren Sie, wie man R und RStudio richtig zitiert.</p>
+</div>
+</div>
+</section>
+<section id="datentypen" class="level2">
+<h2 class="anchored" data-anchor-id="datentypen">Datentypen</h2>
+<p>Wenn Sie noch nie mit R gearbeitet haben, lesen Sie bitte Kapitel 3 zu Variablen, Funktionen und Datentypen: <a href="https://github.com/Forest-Economics-Goettingen/KursskriptRBsc/blob/main/skript.pdf" class="uri">https://github.com/Forest-Economics-Goettingen/KursskriptRBsc/blob/main/skript.pdf</a>.</p>
+</section>
+</section>
+<section id="übung" class="level1">
+<h1>Übung</h1>
+<section id="einführung" class="level2">
+<h2 class="anchored" data-anchor-id="einführung">Einführung</h2>
+<section id="ziele" class="level3">
+<h3 class="anchored" data-anchor-id="ziele">Ziele</h3>
+<ul>
+<li>Arbeiten mit Projekten in RStudio</li>
+<li>Arbeiten mit Paketen</li>
+<li>Einlesen von Daten</li>
+<li>Arbeiten mit Vektoren und <code>tibble</code>s</li>
+</ul>
+</section>
+<section id="arbeiten-mit-projekten-in-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="arbeiten-mit-projekten-in-rstudio">Arbeiten mit Projekten in RStudio</h3>
+<p>Projekte in RStudio bieten eine einfache Möglichkeit Workflows zu vereinfachen. Dabei wird eine lokale Umgebung erstellt und alle Pfadnamen beziehen sich auf das Verzeichnis des Projekts und sie müsse keine absoluten Pfade angeben. Das hat unter anderem folgende Vorteile:</p>
+<ol type="1">
+<li>Sie können Ihre R-Session direkt in dem Projekt starten.</li>
+<li>R-Projekte können zwischen unterschiedlichen Rechnern geöffnet werden, ohne dass der Pfad angepasst werden muss.</li>
+</ol>
+<section id="erstellen-eines-projektes" class="level4">
+<h4 class="anchored" data-anchor-id="erstellen-eines-projektes">Erstellen eines Projektes</h4>
+<p>Zum Erstellen eines Projektes müssen folgende Schritte durchlaufen werden, diese sind in Abbildung 3 zusammengefasst.</p>
+<ol type="1">
+<li>Gehen Sie zu <code>File &gt; New Project ...</code>.</li>
+<li>Wählen Sie <code>New Project</code>.</li>
+<li>Geben Sie einen Namen für das Projekt ein (z.B. den Namen einer Lehrveranstaltung) und ein neuer Ordner mit dem Projektnamen wird erstellt.</li>
+<li>Drücken Sie auf <code>Create Project</code>.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../img/rstudio_projekt.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Worklfow zum Erstellen eines Projekts.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Sobald ein Projekt einmal erstellt wurde, können Sie einfach wieder auf das Projekt-Icon klicken und das Projekt wieder öffnen.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../img/open_proj.PNG" class="img-fluid figure-img" width="218"></p>
+<figcaption>Öffnen eines RStudio Projekts.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Alternativ kann über <code>File &gt; Open Project</code> in RStudio oder durch Auswählen des Projektnamens (siehe folgende Abbildung) geöffnet werden.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../img/open_proj2.PNG" class="img-fluid figure-img" width="154"></p>
+<figcaption>Öffnen von Projekten.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="arbeiten-mit-paketen" class="level3">
+<h3 class="anchored" data-anchor-id="arbeiten-mit-paketen">Arbeiten mit Paketen</h3>
+<p>Pakete sind <strong>Erweiterungen für R</strong> und enthalten fertige Funktionen, um mit Daten zu arbeiten. Anstatt alles selber zu programmieren, kann man die Funktionen aus Paketen nutzen. Damit man mit Paketen arbeiten kann, muss man sie einmalig installieren und vor dem Verwenden laden.</p>
+<ul>
+<li>Paket installieren (nur einmal nötig): <code>install.packages("&lt;Name des Pakets&gt;")</code>.</li>
+<li>Paket laden (bei jeder neuen Session): <code>library(&lt;Name des Pakets&gt;)</code></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Beispiel">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beispiel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installieren eines Pakets</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vor dem Verwenden</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="arbeiten-mit-vektoren-und-tibbles" class="level3">
+<h3 class="anchored" data-anchor-id="arbeiten-mit-vektoren-und-tibbles">Arbeiten mit Vektoren und <code>tibble</code>s</h3>
+<p>Ein <code>data.frame</code> ist eine <strong>Tabelle in R</strong>:</p>
+<ul>
+<li><strong>Zeilen</strong> = Beobachtungen (z. B. Personen, Messungen)<br>
+</li>
+<li><strong>Spalten</strong> = Variablen (z. B. Alter, Gewicht)</li>
+</ul>
+<p>Jede Spalte enthält <strong>einen Datentyp</strong>, aber verschiedene Spalten können unterschiedliche Typen haben.</p>
+<p><strong>Tibbles</strong> sind eine moderne Variante von Data Frames (aus dem tidyverse): - bessere Anzeige - konsistenteres Verhalten</p>
+<p>Wir erzeugen drei Vektoren (alle Vektoren sind gleich lang).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ids <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>anzahl_rehe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">85</span>, <span class="dv">203</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>revier <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Daraus wird ein <code>data.frame</code> (Tabelle)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>monitoring <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID =</span> ids,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">anzahl_rehe =</span> anzahl_rehe,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">revier =</span> revier</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Anzeigen der Tabelle:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>monitoring</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID anzahl_rehe revier
+1  1         120      A
+2  2          85      B
+3  3         203      A</code></pre>
+</div>
+</div>
+<p>Enige wichtige Funktionen, um mit <code>data.frame</code>s zu arbeiten</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Erste Zeilen anzeigen</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(monitoring)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID anzahl_rehe revier
+1  1         120      A
+2  2          85      B
+3  3         203      A</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Anzahl Zeilen und Spalten</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(monitoring)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(monitoring)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Struktur (Datentypen)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(monitoring)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   3 obs. of  3 variables:
+ $ ID         : int  1 2 3
+ $ anzahl_rehe: num  120 85 203
+ $ revier     : chr  "A" "B" "A"</code></pre>
+</div>
+</div>
+<p>Zugreifen auf Daten in einem <code>data.frame</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Einzelner Wert: Zeile 1, Spalte 2</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>monitoring[<span class="dv">1</span>, <span class="dv">2</span>]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zugriff über Spaltenname (empfohlen)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>monitoring[<span class="dv">1</span>, <span class="st">"anzahl_rehe"</span>]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ganze Spalte (zwei Varianten)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>monitoring<span class="sc">$</span>anzahl_rehe</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120  85 203</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>monitoring[, <span class="st">"anzahl_rehe"</span>]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120  85 203</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mehrere Zeilen</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>monitoring[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID anzahl_rehe revier
+1  1         120      A
+2  2          85      B</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mehrere Spalten</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>monitoring[, <span class="fu">c</span>(<span class="st">"anzahl_rehe"</span>, <span class="st">"revier"</span>)]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  anzahl_rehe revier
+1         120      A
+2          85      B
+3         203      A</code></pre>
+</div>
+</div>
+<p>Mit dem <code>$</code>-Zeichen kann bei <code>data.frame</code>s direkt auf eine Spalte zugegriffen werden. Diese Möglichkeit hat den Vorteil, dass R Studio den Spaltennamen automatisch ausfüllen kann. Beim Tippen werden mögliche Spaltennamen vorgeschlagen. Sie wählen den Vorschlag aus, in dem Sie Tabulator-Taste drücken. Danach können Sie diesen resultierenden Vektor wie einen einfachen Vektor behandeln und verarbeiten.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>monitoring[monitoring<span class="sc">$</span>anzahl_rehe <span class="sc">&gt;</span> <span class="dv">100</span>, ]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID anzahl_rehe revier
+1  1         120      A
+3  3         203      A</code></pre>
+</div>
+</div>
+<section id="mit-dplyr" class="level4">
+<h4 class="anchored" data-anchor-id="mit-dplyr">Mit <code>dplyr</code></h4>
+<p><code>dpylr</code> ist ein eine Erweiterung von R (ein Paket), die das Ziel hat, den Umgang mit Daten einfacher und schneller zu machen.</p>
+<p><code>dplyr</code> definiert 5 Verben, um mit Daten zu arbeiten. Diese sind:</p>
+<ul>
+<li><code>filter</code></li>
+<li><code>select</code></li>
+<li><code>arragne</code></li>
+<li><code>mutate</code></li>
+<li><code>summarise</code></li>
+</ul>
+<p>Damit die Funktionen aus <code>dplyr</code> verwendet werden können, müssen wir als erstes das Paket <code>dplyr</code> laden. The online Resource <a href="https://r4ds.hadley.nz/"><code>R for Data Science</code></a> gibt einen sehr guten, tieferen Eindruck in die Arbeit mit <code>dplyr</code> und erklärt auch die <code>dplyr</code> Philosophie noch Mal sehr genau für Beginner.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.5.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+</div>
+<p>Sollte dies zu einer Fehlermeldung führen, dann müssen Sie das Paket <code>dplyr</code> erst installieren. Dafür müssen Sie <strong>einmalig</strong> <code>install.packages("dplyr")</code> installieren.</p>
+<p><code>dplyr</code> stellt unterschiedliche Funktionen zum Arbeiten mit Daten zur Verfügung. Es gibt fünf Grundfunktionen für die am häufigsten vorkommenden Operationen. Mit der Funktion <code>filter()</code> können unterschiedliche Beobachtungen gefiltert werden:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">filter</span>(anzahl_rehe <span class="sc">&gt;</span> <span class="dv">100</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID anzahl_rehe revier
+1  1         120      A
+2  3         203      A</code></pre>
+</div>
+</div>
+<p>Eine weitere Funktion aus dem Paket <code>dplyr</code> ist <code>select()</code>. Damit können Spalten aus einem <code>data.frame</code> ausgewählt werden. Dabei können auch die Spaltennamen unbenannt werden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">select</span>(anzahl_rehe)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  anzahl_rehe
+1         120
+2          85
+3         203</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="at">n =</span> anzahl_rehe)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    n
+1 120
+2  85
+3 203</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>anzahl_rehe)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID revier
+1  1      A
+2  2      B
+3  3      A</code></pre>
+</div>
+</div>
+<p>Mit der Funktion <code>arrange()</code> können die Beobachtungen in einem <code>data.frame</code> sortiert werden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">arrange</span>(anzahl_rehe)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID anzahl_rehe revier
+1  2          85      B
+2  1         120      A
+3  3         203      A</code></pre>
+</div>
+</div>
+<p>Mit der Funktion <code>mutate()</code> kann man eine neue Spalte hinzufügen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">m =</span> <span class="fu">mean</span>(anzahl_rehe))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID anzahl_rehe revier   m
+1  1         120      A 136
+2  2          85      B 136
+3  3         203      A 136</code></pre>
+</div>
+</div>
+<p>Mit der Funktion <code>summarise()</code> können Spalten zusammengefasst werden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">summarise</span>(</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> <span class="fu">mean</span>(anzahl_rehe)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  mean
+1  136</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Merke
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>data.frame = Tabelle (Zeilen + Spalten)</li>
+<li>Zugriff mit <code>[Zeile, Spalte]</code> oder <code>$</code></li>
+<li><code>dplyr</code> macht Code lesbarer und einfacher</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="einlesen-von-daten" class="level3">
+<h3 class="anchored" data-anchor-id="einlesen-von-daten">Einlesen von Daten</h3>
+<p>Oft bekommen Sie Daten aus Felderhebungen, Sensoren oder sonstigen Quellen. Diese Daten müssen dann in R eingelesen werden. Daten liegen meist in einer tabellarischen Form und als Textdatei vor<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Die Funktion <code>read.table()</code> erlaubt es eine Textdatei in R einzulesen. Dabei sind fürs Erste drei Argumente wichtig:</p>
+<ul>
+<li><code>file</code>: Der Pfad zur Datei die eingelesen werden soll. Dieser kann <em>absolut</em> oder <em>relativ</em> sein. Ein absoluter Pfad gibt den Ort der Datei, die gelesen werden soll, komplett an (auf einem Windows Rechner wäre das wahrscheinlich <code>C:/Users/...</code>). Im Gegensatz dazu gibt ein relativer Pfad den Ort an, an dem die Datei, die eingelesen werden soll, relativ zum aktuellen Arbeitsverzeichnis (working directory) von R an. Man kann das Arbeitsverzeichnis von R mit der Funktion <code>setwd()</code> setzen, es hat sich jedoch als sinnvoller erwiesen mit <strong>R Studio-Projekten</strong> zu arbeiten. Sie müssen den Pfad dann nur ab dem Ordner eintippen, in dem das Projekt liegt.</li>
+<li><code>header</code>: Dieses Argument gibt an, ob die erste Zeile eine Kopfzeile mit den Spaltenüberschriften ist. Meist haben wir eine Kopfzeile, dann wäre <code>header = TRUE</code> richtig.</li>
+<li><code>sep</code>: Das Trennzeichen zwischen verschiedenen Spalten. Es ist meist ein Leerzeichen (<code></code>), Komma (<code>,</code>) oder Strichpunkt (<code>;</code>).</li>
+</ul>
+<p>Die Datei <code>fotofallen_uni_goe.csv</code> finden Sie auf StudIP und kann einfach heruntergeladen werden. Sie können sich die Datei mit jedem Texteditor oder auch mit Excel oder Libre Office ansehen. Die Datei kann mit dem folgenden Befehl in R eingelesen werden. Hier wurde die Datei in einem R Studio-Projekt in ein Unterverzeichnis <code>daten</code> abgelegt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.table</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"daten/fotofallen_uni_goe.csv"</span>), </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  standort_id gattung  art  name                 zeit
+1           2    &lt;NA&gt; &lt;NA&gt; Blank 2021-10-09T09:07:43Z
+2           2    &lt;NA&gt; &lt;NA&gt; Blank 2021-10-11T14:47:48Z
+3           1    &lt;NA&gt; &lt;NA&gt; Blank 2021-10-03T06:38:02Z</code></pre>
+</div>
+</div>
+<p>Es gibt viele Varianten der Funktion <code>read.table()</code>. Beispielsweise hat die Funktion <code>read.csv()</code> bereits die Argumente <code>sep = ','</code> und <code>header = TRUE</code> gesetzt. Die Funktion <code>read.csv2()</code> hat die in Deutschland üblichen Argument <code>sep = ';'</code> und <code>dec = ','</code> gesetzt. Sie müssen natürlich darauf achten, dass sie die csv Dateien mit den gleichen Spezifikationen einlesen, mit denen sie gespeichert wurde. Siehe dazu auch die Hilfeseite von <code>read.table()</code>.</p>
+<p>Mit der Funktion <code>write.table()</code> kann ein <code>data.frame</code> auf die Festplatte geschrieben werden.</p>
+</section>
+</section>
+<section id="aufgabe-1-fotofallen" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-1-fotofallen">Aufgabe 1: Fotofallen</h2>
+<p>Im Rahmen des Projektes <a href="https://www.ab.mpg.de/358074/snapshot-europe">Snapshot Europe</a> wurde ein Kamerafallenmonitoring im Göttinger-Umland durchgeführt. Für an 14 Standorten wurde für zwei Monate eine Fotofallen ausgebracht. Die bereits klassifizierten Daten dafür finden Sie in der Datei <code>daten/fotofallen_uni_goe.csv</code>.</p>
+<p>Etwas Hintergrund zum Arbeiten mit R finden Sie im Kursskript zu der Veranstaltung: “Einführung in die Datenanalyse mit R”. Das Skript ist hier (<a href="https://github.com/Forest-Economics-Goettingen/KursskriptRBsc/blob/main/skript.pdf" class="uri">https://github.com/Forest-Economics-Goettingen/KursskriptRBsc/blob/main/skript.pdf</a>) hinterlegt.</p>
+<section id="aufgaben" class="level3">
+<h3 class="anchored" data-anchor-id="aufgaben">Aufgaben:</h3>
+<ol type="a">
+<li>Lesen Sie den Datensatz <code>daten/fotofallen_uni_goe.csv</code> in R ein.</li>
+<li>Wie viele Fotos wurden in diesem Zeitraum erhoben?</li>
+<li>Wie viele Standorte finden Sie in dem Datensatz (Spalte <code>standort_id</code>).</li>
+<li>An welchem Standort wurden am meisten Fotos aufgenommen?</li>
+<li>An welchem Standort wurden am meisten Rehe fotografiert?</li>
+<li>Finden Sie alle Standorte, an denen mindestens einmal ein Reh fotografiert wurde.</li>
+<li>Welche Tierart kam am häufigsten vor?</li>
+</ol>
+</section>
+<section id="lösungsvorschläge" class="level3">
+<h3 class="anchored" data-anchor-id="lösungsvorschläge">Lösungsvorschläge</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co"># a. Lesen Sie den Datensatz `daten/fotofallen_uni_goe.csv` in R ein. </span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"daten/fotofallen_uni_goe.csv"</span>))</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co"># b. Wie viele Fotos wurden in diesem Zeitraum erhoben?</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dat)</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="co"># c. Wie viele Standorte finden Sie in dem Datensatz (Spalte `standort_id`). </span></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(dat<span class="sc">$</span>standort_id))</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="co"># d. An welchem Standort werden am meisten Fotos aufgenommen?</span></span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> <span class="fu">count</span>(standort_id) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="sc">-</span>n)</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a><span class="co"># e. An welchem Standort wurden am meisten Rehe fotografiert?</span></span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(dat<span class="sc">$</span>name)</span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"European Roe Deer"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(standort_id) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="sc">-</span>n)</span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a><span class="co"># f. Finden Sie alle Standorte, an denen mindestens einmal ein Reh fotografiert wurde.</span></span>
+<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"European Roe Deer"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-21"><a href="#cb49-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(standort_id) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb49-22"><a href="#cb49-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-23"><a href="#cb49-23" aria-hidden="true" tabindex="-1"></a><span class="co"># g. Welche Tierart kam am häufigsten vor?</span></span>
+<span id="cb49-24"><a href="#cb49-24" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> <span class="fu">count</span>(name) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="sc">-</span>n)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<section id="nachbereitung-nach-der-übung" class="level1">
+<h1>Nachbereitung (<em>nach</em> der Übung)</h1>
+<p>Stellen Sie sicher, dass sie Ordner mit deinem R-Studio Projekt für diese Veranstaltung haben. Z.B. <code>C:/users/jsigner/uni/master/2-semester/erfassung-und-monitoring-von-wilditeren/</code>. In diesem Verzeichnis sollten sie mindestens zwei weitere Ordner haben: 1) <code>daten</code> für alle Daten für diesen Kurzs und 2) <code>skirpte</code> darin legen Sie die Skripte ab.</p>
+<p>Im Ordner <code>daten</code> sollten Sie eine Datei haben <code>fotofallen-uni-goe.csv</code> und im Ordner <code>skripte</code> eine weitere Datei. Diese könnte z.B. mit <code>uebungen-einheit-1.R</code> benannt sein.</p>
+
+
+<!-- -->
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fußnoten</h2>
+
+<ol>
+<li id="fn1"><p>Natürlich gibt es viele weitere Formate wie Daten vorliegen können, diese werden aber an dieser Stelle nicht weiter behandelt, aber siehe z.B. das Paket <code>readxl</code> für Daten von MS Excel.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb50" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Übung Woche 1: Einführung in R"</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Johannes Signer</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co">    orcid: 0000-0002-1771-7775</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co">    email: jsigner@uni-goettingen.de</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations: Georg-August Universität Göttingen</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Vorbereitung (*vor* der Übung)</span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation</span></span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>Für einen reibungslosen Ablauf in den Übungen laden Sie bitte die aktuelle Version von R (<span class="ot">&lt;https://cran.r-project.org/&gt;</span>) und RStuido herunter (<span class="ot">&lt;https://posit.co/download/rstudio-desktop/&gt;</span>). Falls Sie Probleme bei der Installation haben, melden Sie sich bitte bei mir. </span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip title="Werden Sie aktiv"}</span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>Überlegen Sie sich was der Unterschied zwischen R und RStudio ist? </span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a>Bei Publikationen ist es wichtig, dass Software richtig zitiert wird, um die Reproduzierbarkeit zu erhöhen. </span>
+<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip title="Werden Sie aktiv"}</span>
+<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a>Recherchieren Sie, wie man R und RStudio richtig zitiert.</span>
+<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb50-26"><a href="#cb50-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-27"><a href="#cb50-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-28"><a href="#cb50-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Datentypen</span></span>
+<span id="cb50-29"><a href="#cb50-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-30"><a href="#cb50-30" aria-hidden="true" tabindex="-1"></a>Wenn Sie noch nie mit R gearbeitet haben, lesen Sie bitte Kapitel 3 zu Variablen, Funktionen und Datentypen: <span class="ot">&lt;https://github.com/Forest-Economics-Goettingen/KursskriptRBsc/blob/main/skript.pdf&gt;</span>.</span>
+<span id="cb50-31"><a href="#cb50-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-32"><a href="#cb50-32" aria-hidden="true" tabindex="-1"></a><span class="fu"># Übung</span></span>
+<span id="cb50-33"><a href="#cb50-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-34"><a href="#cb50-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Einführung</span></span>
+<span id="cb50-35"><a href="#cb50-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-36"><a href="#cb50-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ziele</span></span>
+<span id="cb50-37"><a href="#cb50-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Arbeiten mit Projekten in RStudio</span>
+<span id="cb50-38"><a href="#cb50-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Arbeiten mit Paketen</span>
+<span id="cb50-39"><a href="#cb50-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Einlesen von Daten</span>
+<span id="cb50-40"><a href="#cb50-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Arbeiten mit Vektoren und <span class="in">`tibble`</span>s</span>
+<span id="cb50-41"><a href="#cb50-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-42"><a href="#cb50-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### Arbeiten mit Projekten in RStudio</span></span>
+<span id="cb50-43"><a href="#cb50-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-44"><a href="#cb50-44" aria-hidden="true" tabindex="-1"></a>Projekte in RStudio bieten eine einfache Möglichkeit Workflows zu vereinfachen. Dabei wird eine lokale Umgebung erstellt und alle Pfadnamen beziehen sich auf das Verzeichnis des Projekts und sie müsse keine absoluten Pfade angeben. Das hat unter anderem folgende Vorteile:</span>
+<span id="cb50-45"><a href="#cb50-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-46"><a href="#cb50-46" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Sie können Ihre R-Session direkt in dem Projekt starten.</span>
+<span id="cb50-47"><a href="#cb50-47" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>R-Projekte können zwischen unterschiedlichen Rechnern geöffnet werden, ohne dass der Pfad angepasst werden muss. </span>
+<span id="cb50-48"><a href="#cb50-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-49"><a href="#cb50-49" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Erstellen eines Projektes</span></span>
+<span id="cb50-50"><a href="#cb50-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-51"><a href="#cb50-51" aria-hidden="true" tabindex="-1"></a>Zum Erstellen eines Projektes müssen folgende Schritte durchlaufen werden, diese sind in Abbildung 3 zusammengefasst. </span>
+<span id="cb50-52"><a href="#cb50-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-53"><a href="#cb50-53" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Gehen Sie zu <span class="in">`File &gt; New Project ...`</span>. </span>
+<span id="cb50-54"><a href="#cb50-54" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Wählen Sie <span class="in">`New Project`</span>.</span>
+<span id="cb50-55"><a href="#cb50-55" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Geben Sie einen Namen für das Projekt ein (z.B. den Namen einer Lehrveranstaltung) und ein neuer Ordner mit dem Projektnamen wird erstellt.</span>
+<span id="cb50-56"><a href="#cb50-56" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Drücken Sie auf <span class="in">`Create Project`</span>.</span>
+<span id="cb50-57"><a href="#cb50-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-58"><a href="#cb50-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r rpoj1, echo=FALSE, fig.align="center", out.width="80%", fig.cap="Worklfow zum Erstellen eines Projekts."}</span></span>
+<span id="cb50-59"><a href="#cb50-59" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(here::here("img/rstudio_projekt.png"))</span></span>
+<span id="cb50-60"><a href="#cb50-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-61"><a href="#cb50-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-62"><a href="#cb50-62" aria-hidden="true" tabindex="-1"></a>Sobald ein Projekt einmal erstellt wurde, können Sie einfach wieder auf das Projekt-Icon klicken und das Projekt wieder öffnen.</span>
+<span id="cb50-63"><a href="#cb50-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-64"><a href="#cb50-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r rproj2, echo = FALSE, fig.align="center", fig.cap="Öffnen eines RStudio Projekts."}</span></span>
+<span id="cb50-65"><a href="#cb50-65" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(here::here("img/open_proj.PNG"))</span></span>
+<span id="cb50-66"><a href="#cb50-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-67"><a href="#cb50-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-68"><a href="#cb50-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-69"><a href="#cb50-69" aria-hidden="true" tabindex="-1"></a>Alternativ kann über <span class="in">`File &gt; Open Project`</span> in RStudio oder durch Auswählen des Projektnamens (siehe folgende Abbildung) geöffnet werden.</span>
+<span id="cb50-70"><a href="#cb50-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-71"><a href="#cb50-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, fig.align="center", fig.cap= "Öffnen von Projekten."}</span></span>
+<span id="cb50-72"><a href="#cb50-72" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(here::here("img/open_proj2.PNG"))</span></span>
+<span id="cb50-73"><a href="#cb50-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-74"><a href="#cb50-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-75"><a href="#cb50-75" aria-hidden="true" tabindex="-1"></a><span class="fu">### Arbeiten mit Paketen</span></span>
+<span id="cb50-76"><a href="#cb50-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-77"><a href="#cb50-77" aria-hidden="true" tabindex="-1"></a>Pakete sind **Erweiterungen für R** und enthalten fertige Funktionen, um mit Daten zu arbeiten. Anstatt alles selber zu programmieren, kann man die Funktionen aus Paketen nutzen. Damit man mit Paketen arbeiten kann, muss man sie einmalig installieren und vor dem Verwenden laden. </span>
+<span id="cb50-78"><a href="#cb50-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-79"><a href="#cb50-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Paket installieren (nur einmal nötig): <span class="in">`install.packages("&lt;Name des Pakets&gt;")`</span>. </span>
+<span id="cb50-80"><a href="#cb50-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Paket laden (bei jeder neuen Session): <span class="in">`library(&lt;Name des Pakets&gt;)`</span></span>
+<span id="cb50-81"><a href="#cb50-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-82"><a href="#cb50-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-83"><a href="#cb50-83" aria-hidden="true" tabindex="-1"></a>:::{.callout-note title="Beispiel"}</span>
+<span id="cb50-86"><a href="#cb50-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-87"><a href="#cb50-87" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb50-88"><a href="#cb50-88" aria-hidden="true" tabindex="-1"></a><span class="co"># Installieren eines Pakets</span></span>
+<span id="cb50-89"><a href="#cb50-89" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb50-90"><a href="#cb50-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-91"><a href="#cb50-91" aria-hidden="true" tabindex="-1"></a><span class="co"># Vor dem Verwenden</span></span>
+<span id="cb50-92"><a href="#cb50-92" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb50-93"><a href="#cb50-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb50-94"><a href="#cb50-94" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb50-95"><a href="#cb50-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-96"><a href="#cb50-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-97"><a href="#cb50-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### Arbeiten mit Vektoren und `tibble`s</span></span>
+<span id="cb50-98"><a href="#cb50-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-99"><a href="#cb50-99" aria-hidden="true" tabindex="-1"></a>Ein <span class="in">`data.frame`</span> ist eine **Tabelle in R**:</span>
+<span id="cb50-100"><a href="#cb50-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-101"><a href="#cb50-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Zeilen** = Beobachtungen (z. B. Personen, Messungen)  </span>
+<span id="cb50-102"><a href="#cb50-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Spalten** = Variablen (z. B. Alter, Gewicht)  </span>
+<span id="cb50-103"><a href="#cb50-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-104"><a href="#cb50-104" aria-hidden="true" tabindex="-1"></a>Jede Spalte enthält **einen Datentyp**, aber verschiedene Spalten können unterschiedliche Typen haben.</span>
+<span id="cb50-105"><a href="#cb50-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-106"><a href="#cb50-106" aria-hidden="true" tabindex="-1"></a>**Tibbles** sind eine moderne Variante von Data Frames (aus dem tidyverse):</span>
+<span id="cb50-107"><a href="#cb50-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>bessere Anzeige</span>
+<span id="cb50-108"><a href="#cb50-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>konsistenteres Verhalten</span>
+<span id="cb50-109"><a href="#cb50-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-110"><a href="#cb50-110" aria-hidden="true" tabindex="-1"></a>Wir erzeugen drei Vektoren (alle Vektoren sind gleich lang).</span>
+<span id="cb50-111"><a href="#cb50-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-114"><a href="#cb50-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-115"><a href="#cb50-115" aria-hidden="true" tabindex="-1"></a>ids <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb50-116"><a href="#cb50-116" aria-hidden="true" tabindex="-1"></a>anzahl_rehe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">85</span>, <span class="dv">203</span>)</span>
+<span id="cb50-117"><a href="#cb50-117" aria-hidden="true" tabindex="-1"></a>revier <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>)</span>
+<span id="cb50-118"><a href="#cb50-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-119"><a href="#cb50-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-120"><a href="#cb50-120" aria-hidden="true" tabindex="-1"></a>Daraus wird ein <span class="in">`data.frame`</span> (Tabelle)</span>
+<span id="cb50-121"><a href="#cb50-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-124"><a href="#cb50-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-125"><a href="#cb50-125" aria-hidden="true" tabindex="-1"></a>monitoring <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb50-126"><a href="#cb50-126" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID =</span> ids,</span>
+<span id="cb50-127"><a href="#cb50-127" aria-hidden="true" tabindex="-1"></a>  <span class="at">anzahl_rehe =</span> anzahl_rehe,</span>
+<span id="cb50-128"><a href="#cb50-128" aria-hidden="true" tabindex="-1"></a>  <span class="at">revier =</span> revier</span>
+<span id="cb50-129"><a href="#cb50-129" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb50-130"><a href="#cb50-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-131"><a href="#cb50-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-132"><a href="#cb50-132" aria-hidden="true" tabindex="-1"></a>Anzeigen der Tabelle:</span>
+<span id="cb50-133"><a href="#cb50-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-136"><a href="#cb50-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-137"><a href="#cb50-137" aria-hidden="true" tabindex="-1"></a>monitoring</span>
+<span id="cb50-138"><a href="#cb50-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-139"><a href="#cb50-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-140"><a href="#cb50-140" aria-hidden="true" tabindex="-1"></a>Enige wichtige Funktionen, um mit <span class="in">`data.frame`</span>s zu arbeiten</span>
+<span id="cb50-141"><a href="#cb50-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-144"><a href="#cb50-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-145"><a href="#cb50-145" aria-hidden="true" tabindex="-1"></a><span class="co"># Erste Zeilen anzeigen</span></span>
+<span id="cb50-146"><a href="#cb50-146" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(monitoring)</span>
+<span id="cb50-147"><a href="#cb50-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-148"><a href="#cb50-148" aria-hidden="true" tabindex="-1"></a><span class="co"># Anzahl Zeilen und Spalten</span></span>
+<span id="cb50-149"><a href="#cb50-149" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(monitoring)</span>
+<span id="cb50-150"><a href="#cb50-150" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(monitoring)</span>
+<span id="cb50-151"><a href="#cb50-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-152"><a href="#cb50-152" aria-hidden="true" tabindex="-1"></a><span class="co"># Struktur (Datentypen)</span></span>
+<span id="cb50-153"><a href="#cb50-153" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(monitoring)</span>
+<span id="cb50-154"><a href="#cb50-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-155"><a href="#cb50-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-156"><a href="#cb50-156" aria-hidden="true" tabindex="-1"></a>Zugreifen auf Daten in einem <span class="in">`data.frame`</span>: </span>
+<span id="cb50-157"><a href="#cb50-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-160"><a href="#cb50-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-161"><a href="#cb50-161" aria-hidden="true" tabindex="-1"></a><span class="co"># Einzelner Wert: Zeile 1, Spalte 2</span></span>
+<span id="cb50-162"><a href="#cb50-162" aria-hidden="true" tabindex="-1"></a>monitoring[<span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb50-163"><a href="#cb50-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-164"><a href="#cb50-164" aria-hidden="true" tabindex="-1"></a><span class="co"># Zugriff über Spaltenname (empfohlen)</span></span>
+<span id="cb50-165"><a href="#cb50-165" aria-hidden="true" tabindex="-1"></a>monitoring[<span class="dv">1</span>, <span class="st">"anzahl_rehe"</span>]</span>
+<span id="cb50-166"><a href="#cb50-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-167"><a href="#cb50-167" aria-hidden="true" tabindex="-1"></a><span class="co"># Ganze Spalte (zwei Varianten)</span></span>
+<span id="cb50-168"><a href="#cb50-168" aria-hidden="true" tabindex="-1"></a>monitoring<span class="sc">$</span>anzahl_rehe</span>
+<span id="cb50-169"><a href="#cb50-169" aria-hidden="true" tabindex="-1"></a>monitoring[, <span class="st">"anzahl_rehe"</span>]</span>
+<span id="cb50-170"><a href="#cb50-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-171"><a href="#cb50-171" aria-hidden="true" tabindex="-1"></a><span class="co"># Mehrere Zeilen</span></span>
+<span id="cb50-172"><a href="#cb50-172" aria-hidden="true" tabindex="-1"></a>monitoring[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ]</span>
+<span id="cb50-173"><a href="#cb50-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-174"><a href="#cb50-174" aria-hidden="true" tabindex="-1"></a><span class="co"># Mehrere Spalten</span></span>
+<span id="cb50-175"><a href="#cb50-175" aria-hidden="true" tabindex="-1"></a>monitoring[, <span class="fu">c</span>(<span class="st">"anzahl_rehe"</span>, <span class="st">"revier"</span>)]</span>
+<span id="cb50-176"><a href="#cb50-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-177"><a href="#cb50-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-178"><a href="#cb50-178" aria-hidden="true" tabindex="-1"></a>Mit dem <span class="in">`$`</span>-Zeichen kann bei <span class="in">`data.frame`</span>s direkt auf eine Spalte zugegriffen werden. Diese Möglichkeit hat den Vorteil, dass R Studio den Spaltennamen automatisch ausfüllen kann. Beim Tippen werden mögliche Spaltennamen vorgeschlagen. Sie wählen den Vorschlag aus, in dem Sie Tabulator-Taste drücken. Danach können Sie diesen resultierenden Vektor wie einen einfachen Vektor behandeln und verarbeiten.</span>
+<span id="cb50-179"><a href="#cb50-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-180"><a href="#cb50-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-183"><a href="#cb50-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-184"><a href="#cb50-184" aria-hidden="true" tabindex="-1"></a>monitoring[monitoring<span class="sc">$</span>anzahl_rehe <span class="sc">&gt;</span> <span class="dv">100</span>, ]</span>
+<span id="cb50-185"><a href="#cb50-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-186"><a href="#cb50-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-187"><a href="#cb50-187" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Mit `dplyr` </span></span>
+<span id="cb50-188"><a href="#cb50-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-189"><a href="#cb50-189" aria-hidden="true" tabindex="-1"></a><span class="in">`dpylr`</span> ist ein eine Erweiterung von R (ein Paket), die das Ziel hat, den Umgang mit Daten einfacher und schneller zu machen.</span>
+<span id="cb50-190"><a href="#cb50-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-191"><a href="#cb50-191" aria-hidden="true" tabindex="-1"></a><span class="in">`dplyr`</span> definiert 5 Verben, um mit Daten zu arbeiten. Diese sind:</span>
+<span id="cb50-192"><a href="#cb50-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-193"><a href="#cb50-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`filter`</span></span>
+<span id="cb50-194"><a href="#cb50-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`select`</span></span>
+<span id="cb50-195"><a href="#cb50-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`arragne`</span></span>
+<span id="cb50-196"><a href="#cb50-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`mutate`</span></span>
+<span id="cb50-197"><a href="#cb50-197" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`summarise`</span></span>
+<span id="cb50-198"><a href="#cb50-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-199"><a href="#cb50-199" aria-hidden="true" tabindex="-1"></a>Damit die Funktionen aus <span class="in">`dplyr`</span> verwendet werden können, müssen wir als</span>
+<span id="cb50-200"><a href="#cb50-200" aria-hidden="true" tabindex="-1"></a>erstes das Paket <span class="in">`dplyr`</span> laden. The online Resource <span class="co">[</span><span class="ot">`R for Data Science`</span><span class="co">](https://r4ds.hadley.nz/)</span> gibt einen sehr guten, tieferen Eindruck in die Arbeit mit <span class="in">`dplyr`</span> und erklärt auch die <span class="in">`dplyr`</span> Philosophie noch Mal sehr genau für Beginner.</span>
+<span id="cb50-201"><a href="#cb50-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-204"><a href="#cb50-204" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-205"><a href="#cb50-205" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb50-206"><a href="#cb50-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-207"><a href="#cb50-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-208"><a href="#cb50-208" aria-hidden="true" tabindex="-1"></a>Sollte dies zu einer Fehlermeldung führen, dann müssen Sie das Paket</span>
+<span id="cb50-209"><a href="#cb50-209" aria-hidden="true" tabindex="-1"></a><span class="in">`dplyr`</span> erst installieren. Dafür müssen Sie **einmalig**</span>
+<span id="cb50-210"><a href="#cb50-210" aria-hidden="true" tabindex="-1"></a><span class="in">`install.packages("dplyr")`</span> installieren.</span>
+<span id="cb50-211"><a href="#cb50-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-212"><a href="#cb50-212" aria-hidden="true" tabindex="-1"></a><span class="in">`dplyr`</span> stellt unterschiedliche Funktionen zum Arbeiten mit Daten zur</span>
+<span id="cb50-213"><a href="#cb50-213" aria-hidden="true" tabindex="-1"></a>Verfügung. Es gibt fünf Grundfunktionen für die am häufigsten</span>
+<span id="cb50-214"><a href="#cb50-214" aria-hidden="true" tabindex="-1"></a>vorkommenden Operationen. Mit der Funktion <span class="in">`filter()`</span> können</span>
+<span id="cb50-215"><a href="#cb50-215" aria-hidden="true" tabindex="-1"></a>unterschiedliche Beobachtungen gefiltert werden:</span>
+<span id="cb50-216"><a href="#cb50-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-219"><a href="#cb50-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-220"><a href="#cb50-220" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">filter</span>(anzahl_rehe <span class="sc">&gt;</span> <span class="dv">100</span>)</span>
+<span id="cb50-221"><a href="#cb50-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-222"><a href="#cb50-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-223"><a href="#cb50-223" aria-hidden="true" tabindex="-1"></a>Eine weitere Funktion aus dem Paket <span class="in">`dplyr`</span> ist <span class="in">`select()`</span>. Damit können</span>
+<span id="cb50-224"><a href="#cb50-224" aria-hidden="true" tabindex="-1"></a>Spalten aus einem <span class="in">`data.frame`</span> ausgewählt werden. Dabei können auch die</span>
+<span id="cb50-225"><a href="#cb50-225" aria-hidden="true" tabindex="-1"></a>Spaltennamen unbenannt werden.</span>
+<span id="cb50-226"><a href="#cb50-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-229"><a href="#cb50-229" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-230"><a href="#cb50-230" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">select</span>(anzahl_rehe)</span>
+<span id="cb50-231"><a href="#cb50-231" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="at">n =</span> anzahl_rehe)</span>
+<span id="cb50-232"><a href="#cb50-232" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>anzahl_rehe)</span>
+<span id="cb50-233"><a href="#cb50-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-234"><a href="#cb50-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-235"><a href="#cb50-235" aria-hidden="true" tabindex="-1"></a>Mit der Funktion <span class="in">`arrange()`</span> können die Beobachtungen in einem</span>
+<span id="cb50-236"><a href="#cb50-236" aria-hidden="true" tabindex="-1"></a><span class="in">`data.frame`</span> sortiert werden.</span>
+<span id="cb50-237"><a href="#cb50-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-240"><a href="#cb50-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-241"><a href="#cb50-241" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">arrange</span>(anzahl_rehe)</span>
+<span id="cb50-242"><a href="#cb50-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-243"><a href="#cb50-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-244"><a href="#cb50-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-245"><a href="#cb50-245" aria-hidden="true" tabindex="-1"></a>Mit der Funktion <span class="in">`mutate()`</span> kann man eine neue Spalte hinzufügen.</span>
+<span id="cb50-246"><a href="#cb50-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-249"><a href="#cb50-249" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-250"><a href="#cb50-250" aria-hidden="true" tabindex="-1"></a>monitoring <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">m =</span> <span class="fu">mean</span>(anzahl_rehe))</span>
+<span id="cb50-251"><a href="#cb50-251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-252"><a href="#cb50-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-253"><a href="#cb50-253" aria-hidden="true" tabindex="-1"></a>Mit der Funktion <span class="in">`summarise()`</span> können Spalten zusammengefasst werden.</span>
+<span id="cb50-254"><a href="#cb50-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-255"><a href="#cb50-255" aria-hidden="true" tabindex="-1"></a><span class="in">```{r remedy021aa}</span></span>
+<span id="cb50-256"><a href="#cb50-256" aria-hidden="true" tabindex="-1"></a><span class="in">monitoring |&gt; summarise(</span></span>
+<span id="cb50-257"><a href="#cb50-257" aria-hidden="true" tabindex="-1"></a><span class="in">  mean = mean(anzahl_rehe)</span></span>
+<span id="cb50-258"><a href="#cb50-258" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb50-259"><a href="#cb50-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-260"><a href="#cb50-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-261"><a href="#cb50-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-262"><a href="#cb50-262" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb50-263"><a href="#cb50-263" aria-hidden="true" tabindex="-1"></a><span class="fu"># Merke</span></span>
+<span id="cb50-264"><a href="#cb50-264" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>data.frame = Tabelle (Zeilen + Spalten)</span>
+<span id="cb50-265"><a href="#cb50-265" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Zugriff mit <span class="in">`[Zeile, Spalte]`</span> oder <span class="in">`$`</span></span>
+<span id="cb50-266"><a href="#cb50-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dplyr`</span> macht Code lesbarer und einfacher</span>
+<span id="cb50-267"><a href="#cb50-267" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb50-268"><a href="#cb50-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-269"><a href="#cb50-269" aria-hidden="true" tabindex="-1"></a><span class="fu">### Einlesen von Daten </span></span>
+<span id="cb50-270"><a href="#cb50-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-271"><a href="#cb50-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-272"><a href="#cb50-272" aria-hidden="true" tabindex="-1"></a>Oft bekommen Sie Daten aus Felderhebungen, Sensoren oder sonstigen Quellen. Diese Daten müssen dann in R eingelesen werden. Daten liegen meist in einer tabellarischen Form und als Textdatei vor^<span class="co">[</span><span class="ot">Natürlich gibt es viele weitere Formate wie Daten vorliegen können, diese werden aber an dieser Stelle nicht weiter behandelt, aber siehe z.B. das Paket `readxl` für Daten von MS Excel.</span><span class="co">]</span>. </span>
+<span id="cb50-273"><a href="#cb50-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-274"><a href="#cb50-274" aria-hidden="true" tabindex="-1"></a>Die Funktion <span class="in">`read.table()`</span> erlaubt es eine Textdatei in R einzulesen. Dabei sind fürs Erste drei Argumente wichtig: </span>
+<span id="cb50-275"><a href="#cb50-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-276"><a href="#cb50-276" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`file`</span>: Der Pfad zur Datei die eingelesen werden soll. Dieser kann *absolut* oder *relativ* sein. Ein absoluter Pfad gibt den Ort der Datei, die gelesen werden soll, komplett an (auf einem Windows Rechner wäre das wahrscheinlich `C:/Users/...`). Im Gegensatz dazu gibt ein relativer Pfad den Ort an, an dem die Datei, die eingelesen werden soll, relativ zum aktuellen Arbeitsverzeichnis (working directory) von R an. Man kann das Arbeitsverzeichnis von R mit der Funktion `setwd()` setzen, es hat sich jedoch als sinnvoller erwiesen mit **R Studio-Projekten** zu arbeiten. Sie müssen den Pfad dann nur ab dem Ordner eintippen, in dem das Projekt liegt.</span>
+<span id="cb50-277"><a href="#cb50-277" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`header`</span>: Dieses Argument gibt an, ob die erste Zeile eine Kopfzeile mit den Spaltenüberschriften ist. Meist haben wir eine Kopfzeile, dann wäre <span class="in">`header = TRUE`</span> richtig.</span>
+<span id="cb50-278"><a href="#cb50-278" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`sep`</span>: Das Trennzeichen zwischen verschiedenen Spalten. Es ist meist ein Leerzeichen (<span class="in">` `</span>), Komma (<span class="in">`,`</span>) oder Strichpunkt (<span class="in">`;`</span>).</span>
+<span id="cb50-279"><a href="#cb50-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-280"><a href="#cb50-280" aria-hidden="true" tabindex="-1"></a>Die Datei <span class="in">`fotofallen_uni_goe.csv`</span> finden Sie auf StudIP und kann einfach heruntergeladen werden. Sie können sich die Datei mit jedem Texteditor oder auch mit Excel oder Libre Office ansehen. Die Datei kann mit dem folgenden Befehl in R eingelesen werden. Hier wurde die Datei in einem R Studio-Projekt in ein Unterverzeichnis <span class="in">`daten`</span> abgelegt.</span>
+<span id="cb50-281"><a href="#cb50-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-284"><a href="#cb50-284" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-285"><a href="#cb50-285" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.table</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"daten/fotofallen_uni_goe.csv"</span>), </span>
+<span id="cb50-286"><a href="#cb50-286" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb50-287"><a href="#cb50-287" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat, <span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb50-288"><a href="#cb50-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-289"><a href="#cb50-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-290"><a href="#cb50-290" aria-hidden="true" tabindex="-1"></a>Es gibt viele Varianten der Funktion <span class="in">`read.table()`</span>. Beispielsweise hat die Funktion <span class="in">`read.csv()`</span> bereits die Argumente <span class="in">`sep = ','`</span> und <span class="in">`header = TRUE`</span> gesetzt. Die Funktion <span class="in">`read.csv2()`</span> hat die in Deutschland üblichen Argument <span class="in">`sep = ';'`</span> und <span class="in">`dec = ','`</span> gesetzt. Sie müssen natürlich darauf achten, dass sie die csv Dateien mit den gleichen Spezifikationen einlesen, mit denen sie gespeichert wurde. Siehe dazu auch die Hilfeseite von <span class="in">`read.table()`</span>.</span>
+<span id="cb50-291"><a href="#cb50-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-292"><a href="#cb50-292" aria-hidden="true" tabindex="-1"></a>Mit der Funktion <span class="in">`write.table()`</span> kann ein <span class="in">`data.frame`</span> auf die Festplatte geschrieben werden.</span>
+<span id="cb50-293"><a href="#cb50-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-294"><a href="#cb50-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-295"><a href="#cb50-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aufgabe 1: Fotofallen</span></span>
+<span id="cb50-296"><a href="#cb50-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-297"><a href="#cb50-297" aria-hidden="true" tabindex="-1"></a>Im Rahmen des Projektes <span class="co">[</span><span class="ot">Snapshot Europe</span><span class="co">](https://www.ab.mpg.de/358074/snapshot-europe)</span> wurde ein Kamerafallenmonitoring im Göttinger-Umland durchgeführt. Für an 14 Standorten wurde für zwei Monate eine Fotofallen ausgebracht. Die bereits klassifizierten Daten dafür finden Sie in der Datei <span class="in">`daten/fotofallen_uni_goe.csv`</span>.</span>
+<span id="cb50-298"><a href="#cb50-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-299"><a href="#cb50-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-300"><a href="#cb50-300" aria-hidden="true" tabindex="-1"></a>Etwas Hintergrund zum Arbeiten mit R finden Sie im Kursskript zu der Veranstaltung: "Einführung in die Datenanalyse mit R". Das Skript ist hier (<span class="ot">&lt;https://github.com/Forest-Economics-Goettingen/KursskriptRBsc/blob/main/skript.pdf&gt;</span>) hinterlegt. </span>
+<span id="cb50-301"><a href="#cb50-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-302"><a href="#cb50-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-303"><a href="#cb50-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgaben: </span></span>
+<span id="cb50-304"><a href="#cb50-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-305"><a href="#cb50-305" aria-hidden="true" tabindex="-1"></a>a. Lesen Sie den Datensatz <span class="in">`daten/fotofallen_uni_goe.csv`</span> in R ein. </span>
+<span id="cb50-306"><a href="#cb50-306" aria-hidden="true" tabindex="-1"></a>b. Wie viele Fotos wurden in diesem Zeitraum erhoben?</span>
+<span id="cb50-307"><a href="#cb50-307" aria-hidden="true" tabindex="-1"></a>c. Wie viele Standorte finden Sie in dem Datensatz (Spalte <span class="in">`standort_id`</span>). </span>
+<span id="cb50-308"><a href="#cb50-308" aria-hidden="true" tabindex="-1"></a>d. An welchem Standort wurden am meisten Fotos aufgenommen?</span>
+<span id="cb50-309"><a href="#cb50-309" aria-hidden="true" tabindex="-1"></a>e. An welchem Standort wurden am meisten Rehe fotografiert?</span>
+<span id="cb50-310"><a href="#cb50-310" aria-hidden="true" tabindex="-1"></a>f. Finden Sie alle Standorte, an denen mindestens einmal ein Reh fotografiert wurde.</span>
+<span id="cb50-311"><a href="#cb50-311" aria-hidden="true" tabindex="-1"></a>g. Welche Tierart kam am häufigsten vor?</span>
+<span id="cb50-312"><a href="#cb50-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-313"><a href="#cb50-313" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lösungsvorschläge</span></span>
+<span id="cb50-314"><a href="#cb50-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-315"><a href="#cb50-315" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, }</span></span>
+<span id="cb50-316"><a href="#cb50-316" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-fold: true</span></span>
+<span id="cb50-317"><a href="#cb50-317" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb50-318"><a href="#cb50-318" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb50-319"><a href="#cb50-319" aria-hidden="true" tabindex="-1"></a><span class="in"># a. Lesen Sie den Datensatz `daten/fotofallen_uni_goe.csv` in R ein. </span></span>
+<span id="cb50-320"><a href="#cb50-320" aria-hidden="true" tabindex="-1"></a><span class="in">dat &lt;- read_csv(here::here("daten/fotofallen_uni_goe.csv"))</span></span>
+<span id="cb50-321"><a href="#cb50-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-322"><a href="#cb50-322" aria-hidden="true" tabindex="-1"></a><span class="in"># b. Wie viele Fotos wurden in diesem Zeitraum erhoben?</span></span>
+<span id="cb50-323"><a href="#cb50-323" aria-hidden="true" tabindex="-1"></a><span class="in">nrow(dat)</span></span>
+<span id="cb50-324"><a href="#cb50-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-325"><a href="#cb50-325" aria-hidden="true" tabindex="-1"></a><span class="in"># c. Wie viele Standorte finden Sie in dem Datensatz (Spalte `standort_id`). </span></span>
+<span id="cb50-326"><a href="#cb50-326" aria-hidden="true" tabindex="-1"></a><span class="in">length(unique(dat$standort_id))</span></span>
+<span id="cb50-327"><a href="#cb50-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-328"><a href="#cb50-328" aria-hidden="true" tabindex="-1"></a><span class="in"># d. An welchem Standort werden am meisten Fotos aufgenommen?</span></span>
+<span id="cb50-329"><a href="#cb50-329" aria-hidden="true" tabindex="-1"></a><span class="in">dat %&gt;% count(standort_id) %&gt;% arrange(-n)</span></span>
+<span id="cb50-330"><a href="#cb50-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-331"><a href="#cb50-331" aria-hidden="true" tabindex="-1"></a><span class="in"># e. An welchem Standort wurden am meisten Rehe fotografiert?</span></span>
+<span id="cb50-332"><a href="#cb50-332" aria-hidden="true" tabindex="-1"></a><span class="in">unique(dat$name)</span></span>
+<span id="cb50-333"><a href="#cb50-333" aria-hidden="true" tabindex="-1"></a><span class="in">dat %&gt;% filter(name == "European Roe Deer") %&gt;% </span></span>
+<span id="cb50-334"><a href="#cb50-334" aria-hidden="true" tabindex="-1"></a><span class="in">    count(standort_id) %&gt;% arrange(-n)</span></span>
+<span id="cb50-335"><a href="#cb50-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-336"><a href="#cb50-336" aria-hidden="true" tabindex="-1"></a><span class="in"># f. Finden Sie alle Standorte, an denen mindestens einmal ein Reh fotografiert wurde.</span></span>
+<span id="cb50-337"><a href="#cb50-337" aria-hidden="true" tabindex="-1"></a><span class="in">dat %&gt;% filter(name == "European Roe Deer") %&gt;% </span></span>
+<span id="cb50-338"><a href="#cb50-338" aria-hidden="true" tabindex="-1"></a><span class="in">    count(standort_id) %&gt;% filter(n &gt; 0)</span></span>
+<span id="cb50-339"><a href="#cb50-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-340"><a href="#cb50-340" aria-hidden="true" tabindex="-1"></a><span class="in"># g. Welche Tierart kam am häufigsten vor?</span></span>
+<span id="cb50-341"><a href="#cb50-341" aria-hidden="true" tabindex="-1"></a><span class="in">dat %&gt;% count(name) %&gt;% arrange(-n)</span></span>
+<span id="cb50-342"><a href="#cb50-342" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-343"><a href="#cb50-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-344"><a href="#cb50-344" aria-hidden="true" tabindex="-1"></a><span class="fu"># Nachbereitung (*nach* der Übung)</span></span>
+<span id="cb50-345"><a href="#cb50-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-346"><a href="#cb50-346" aria-hidden="true" tabindex="-1"></a>Stellen Sie sicher, dass sie Ordner mit deinem R-Studio Projekt für diese Veranstaltung haben. Z.B.</span>
+<span id="cb50-347"><a href="#cb50-347" aria-hidden="true" tabindex="-1"></a><span class="in">`C:/users/jsigner/uni/master/2-semester/erfassung-und-monitoring-von-wilditeren/`</span>. In diesem Verzeichnis sollten sie mindestens zwei weitere Ordner haben: 1) <span class="in">`daten`</span> für alle Daten für diesen Kurzs und 2) <span class="in">`skirpte`</span> darin legen Sie die Skripte ab. </span>
+<span id="cb50-348"><a href="#cb50-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-349"><a href="#cb50-349" aria-hidden="true" tabindex="-1"></a>Im Ordner <span class="in">`daten`</span> sollten Sie eine Datei haben <span class="in">`fotofallen-uni-goe.csv`</span> und im Ordner <span class="in">`skripte`</span> eine weitere Datei. Diese könnte z.B. mit <span class="in">`uebungen-einheit-1.R`</span> benannt sein. </span>
+</code><button title="In die Zwischenablage kopieren" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

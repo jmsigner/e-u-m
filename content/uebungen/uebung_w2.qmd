@@ -1,0 +1,242 @@
+---
+title: "Übung Woche 2: Einführung Bayes"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen
+date: last-modified
+---
+
+# Vorbereitung (*vor* der Übung)
+
+Schauen Sie sich als Vorbereitung für diese Einheit das folgende Video an: 
+
+{{< video https://www.youtube.com/watch?v=1LzdESG6-2E >}}
+
+
+:::{.callout-tip title="Werden Sie aktiv"}
+Recherchieren Sie, wie man R und RStudio richtig zitiert.
+:::
+
+
+# Übung
+
+## Lernziele 
+- den Unterschied zwischen frequentistischer und bayesianischer Denkweise erklären
+- Prior, Likelihood und Posterior verbal beschreiben und einem Beispiel zuordnen
+- ein diskretes Bayes-Update per Hand durchführen und normalisieren
+- die Beta-Verteilung als Prior für eine Wahrscheinlichkeit interpretieren
+
+## Einführung
+
+Die zentrale Fragestellung für die heutige Übung ist: 
+
+> Wir stellen eine Kamerafalle im Wald auf. Nach einer Woche haben wir 10 Fotos, davon zeigen 3 einen Luchs. Wie groß ist die Wahrscheinlichkeit, dass der nächste Auslöser ein Luchs ist?
+
+Wir können uns dieser Fragestellung mit zwei unterschiedlichen Denkenweisen annähern: 
+
+1. **Frequentistisch:** Wahrscheinlichkeit = relative Häufigkeit auf lange Sicht. Nur die Daten zählen. $p = 3/10 = 0.3$
+2. **Bayesianisch:** Wahrscheinlichkeit = Grad der Überzeugung. Vorwissen und Daten. z.B.: "Ich weiß , dass Luchse selten sind..."
+
+
+In der klassischen, **frequentistischen** Statistik ist Wahrscheinlichkeit gleichbedeutend mit relativer Häufigkeit: Wenn unsere Kamerafalle in 10 Nächten 3-mal einen Luchs zeigt, schätzen wir $p = 3/10 = 0.3$. Diese Zahl beschreibt, was passieren würde, wenn wir das Experiment unendlich oft wiederholen könnten. Der Parameter p gilt dabei als fest und wahr — wir kennen ihn nur nicht. Vorwissen, Expertenmeinungen oder Ergebnisse früherer Studien spielen in diesem Rahmen formal keine Rolle: Es zählen allein die vorliegenden Daten. Je mehr daten wir haben, desto geringer wird die Unsicherheit (kleiners Konfidenzinterval). 
+
+Die **bayesianische** Statistik denkt grundlegend anders. Wahrscheinlichkeit ist hier kein Naturgesetz, sondern ein Ausdruck unserer Unsicherheit — ein Grad der Überzeugung, der sich mit neuen Informationen verändern darf. Wenn wir wissen, dass Luchse in unserer Region selten sind, fließt dieses Vorwissen explizit ins Modell ein. Die Kamerafallen-Daten *updaten* dann unsere Überzeugung systematisch: Wir kombinieren das, was wir vorher wussten, mit dem, was wir beobachtet haben, und erhalten als Ergebnis keine einzelne Schätzung, sondern eine ganze Verteilung — die beschreibt, welche Werte von p nach unseren Daten noch plausibel sind, und welche nicht.
+
+|  | **Frequentistisch** | **Bayesianisch** |
+|---|---|---|
+| Wahrscheinlichkeit ist ... | relative Häufigkeit bei unendlich vielen Wiederholungen | Grad der Überzeugung / Unsicherheit |
+| Parameter p ist ... | fest & unbekannt | unsicher, beschrieben durch eine Verteilung |
+| Vorwissen | nicht erlaubt | explizit eingebaut (Prior) |
+| Ergebnis | Punktschätzung + Konfidenzintervall | Posterior-Verteilung |
+| Kernfrage | Wie wahrscheinlich sind diese Daten, wenn p = x? | Wie plausibel ist p = x, gegeben diese Daten? |
+
+## Die drei Zutaten des Bayes'schen Denkens
+
+Bayes'sche Statistik kombiniert immer drei Dinge: was wir vorher wissen, was die Daten sagen, und was daraus folgt. Diese drei Zutaten haben feste Namen.
+
+Der **Prior** (Vorverteilung) beschreibt unsere Überzeugung *vor* der Datenerhebung. Er muss nicht vage sein — wenn wir aus der Literatur wissen, dass Luchse in unserer Region selten sind, können wir das präzise ausdrücken. Der Prior ist kein Fehler oder eine Schwäche des Modells, sondern eine ehrliche Nutzung von vorhandenem Wissen.
+
+Die **Likelihood** beschreibt, wie gut die beobachteten Daten zu einem bestimmten Parameterwert passen. Konkret fragen wir: „Wie wahrscheinlich wäre es, genau diese Detektionshistorie zu sehen, wenn p einen bestimmten Wert hätte?" Die Likelihood ist das Bindeglied zwischen Modell und Daten — sie ist in beiden statistischen Denkweisen zentral.
+
+Der **Posterior** (Nachverteilung) ist das Ergebnis: unsere aktualisierte Überzeugung über p, nachdem wir die Daten gesehen haben. Er ist das Produkt aus Prior und Likelihood — formal ausgedrückt als:
+
+$$P(\theta \mid \text{Daten}) \;\propto\; P(\text{Daten} \mid \theta) \;\cdot\; P(\theta)$$
+
+Der Posterior ist keine einzelne Zahl, sondern eine Verteilung. Sie zeigt, welche Werte von p nach unseren Daten noch plausibel sind — und wie sicher wir uns dabei sind.
+
+| Begriff | Bedeutung | Beispiel |
+|---|---|---|
+| **Prior** $P(\theta)$ | Was wir vorher glauben | Luchs ist selten in dieser Region |
+| **Likelihood** $P(\text{Daten} \mid \theta)$ | Wie wahrscheinlich sind die Daten, gegeben θ? | 3 von 10 Auslösungen wenn p = 0.3 |
+| **Posterior** $P( \theta\mid\text{Daten})$ | Unser Glaube nach den Daten | Update: vielleicht doch häufiger? |
+
+---
+
+## Übung 1 — Bayes per Hand (mit oder ohne R)
+
+**Situation:** Eine Kamerafalle läuft 5 Nächte. Der Luchs wird in **2 Nächten** detektiert.
+
+Wir nehmen an, $p$ kann nur drei Werte annehmen: 0.1, 0.3 oder 0.5.
+
+**Aufgabe:** Fülle die Tabelle aus. Die Likelihood berechnet sich als:
+
+$$P(\text{Daten} \mid p) = \binom{5}{2} \cdot p^2 \cdot (1-p)^3$$
+
+*Hinweis: $\binom{5}{2} = 10$. In R können Sie Funktion `choose(5, 2)` verwenden.*. 
+
+| $p$ | Prior $P(p)$ | Likelihood P(Daten\|p) | Prior × Likelihood | Posterior P(p\|Daten) |
+|---|---|---|---|---|
+| 0.1 | 0.5 | | | |
+| 0.3 | 0.3 | | | |
+| 0.5 | 0.2 | | | |
+
+> **Hinweis:** Den Posterior erhält man durch Normalisierung — d.h. jede Zeile in der Spalte „Prior × Likelihood" wird durch die Summe aller Zeilen geteilt, sodass die Posterior-Werte sich zu 1 addieren.
+
+**Diskussionsfragen:**
+
+1. Welcher Wert von p ist nach den Daten am plausibelsten?
+2. Was passiert, wenn wir den Prior ändern — z.B. alle drei Werte gleich wahrscheinlich machen?
+3. Was würde sich ändern, wenn wir 20 statt 5 Nächte beobachtet hätten?
+
+---
+
+## Die Beta-Verteilung — vom diskreten zum kontinuierlichen Prior
+
+In der Übung oben hat $p$ nur drei mögliche Werte. In der Realität kann $p$ jeden Wert zwischen 0 und 1 annehmen. Die *Beta-Verteilung* ist ein guter Prior für Wahrscheinlichkeiten.
+
+Die *Beta-Verteilung* wird durch zwei Parameter beschrieben: $\alpha$ (Alpha) und $\beta$ (Beta), die man sich als „bisherige Erfolge" und „bisherige Misserfolge" vorstellen kann:
+
+- $Beta(1, 1)$: völlig uninformativ — alle Werte von $p$ sind gleich wahrscheinlich
+- $Beta(2, 8)$: Vorwissen „$p$ ist eher klein" — passend für seltene Arten
+- $Beta(5, 5)$: Vorwissen „$p$ liegt irgendwo in der Mitte"
+
+Das Besonders Elegante: Das Update vom Prior zum Posterior ist bei der Beta-Verteilung ganz einfach. Wenn wir *k* Detektionen in *n* Nächten beobachten:
+
+$$\text{Prior: Beta}(\alpha,\, \beta) \quad \xrightarrow{\text{k Detektionen, n Nächte}} \quad \text{Posterior: Beta}(\alpha + k,\, \beta + n - k)$$
+
+Wir addieren einfach die beobachteten Erfolge und Misserfolge zu den Prior-Parametern.
+
+
+## Übung 2: Beta-Verteilung und vom Prior zum Posterior 
+
+Verwenden Sie nun R und bearbeiten Sie folgende Teilaufgaben: 
+
+### Teilaufgabe 1: Plotten einer Beta-Verteilung
+
+Plotten Sie die drei Beta-Verteilunn. *Hinweis: Verwenden Sie die Funktion `dbeta()` zum Berechnen der Dichten.*
+
+- $Beta(1, 1)$: völlig uninformativ — alle Werte von $p$ sind gleich wahrscheinlich
+- $Beta(2, 8)$: Vorwissen „$p$ ist eher klein" — passend für seltene Arten
+- $Beta(5, 5)$: Vorwissen „$p$ liegt irgendwo in der Mitte"
+- Parametrisieren Sie Beta-Verteilung so, dass $p$ eher groß ist.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+# Für alle gleich
+x <- seq(0, 1, length = 100)
+
+# a 
+plot(x, dbeta(x, 1, 1)) 
+
+# Tipps: mit type = "l" bekommen sie eine Linie und mit xlab und ylab können Sie
+# die Achsenbeschritung anpassen. 
+plot(x, dbeta(x, 1, 1), type = "l", xlab = "p", ylab = "Dichte") 
+
+# b
+plot(x, dbeta(x, 2, 8), type = "l", xlab = "p", ylab = "Dichte") 
+
+# c
+plot(x, dbeta(x, 5, 5), type = "l", xlab = "p", ylab = "Dichte") 
+
+# d
+plot(x, dbeta(x, 10, 1), type = "l", xlab = "p", ylab = "Dichte") 
+
+```
+Zusatzaufgabe: Falls sie mit der ersten Teilaufgabe schon fertig sind, erstellen Sie einen Plot, auf dem alle vier Parametrisierungen der Beta-Verteilung enthalten sind. 
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+x <- seq(0, 1, length = 100)
+plot(x, dbeta(x, 1, 1), type = "l", xlab = "p", ylab = "Dichte", 
+     ylim = c(0, 10)) 
+lines(x, dbeta(x, 2, 8), col = "forestgreen")
+lines(x, dbeta(x, 5, 5), col = "darkred")
+lines(x, dbeta(x, 10, 1), col = "grey44")
+
+# Hinzufügen einer Legende
+legend(
+  "topleft", 
+  legend = c("a = 1, b = 1", "a = 2, b = 8", "a = b = 5", "a = 10, b = 1"), 
+  col = c("black", "forestgreen", "darkred", "grey44"), 
+  lwd = 2)
+```
+
+### Teilaufgabe 2: Vom Prior zum Posterior
+
+1. Führen Sie den Code aus. Was was stellen Sie fest?
+2. Änderen Sie `alpha_prior = 2`, `beta_prior = 8`, was ändert sich? Warum?
+3. Erhöhen Sie `n` auf 50 und `k` auf 15, was heißt das jetzt?. Was passiert mit dem Posterior?
+4. **Zusatzfrage:** Was passiert, wenn Prior und Daten sich „widersprechen"? (z.B. `Beta(1, 9)` als Prior, aber 8 von 10 Detektionen). 
+
+
+```{r}
+#| eval: false
+# Unsere Daten: Kamerafalle: 10 Nächte, 3 Luchse fotografiert
+n <- 10   # Anzahl Nächte
+k <- 3    # Anzahl Luchsfotos
+
+# Prior: Was glauben wir vorher?
+alpha_prior <- 1   
+beta_prior <- 1  
+
+# Posterior: einfach addieren
+alpha_post <- alpha_prior + k
+beta_post  <- beta_prior  + (n - k) # Überlegen Sie sich, wieso n - k?
+
+p <- seq(0, 1, length.out = 100)
+
+prior <- dbeta(p, alpha_prior, beta_prior)
+posterior <- dbeta(p, alpha_post,  beta_post)
+
+plot(
+  p, 
+  posterior, 
+  type = "l", 
+  col = "forestgreen", 
+  ylab = "Dichte", 
+  xlab = "Detektionswahrscheinlichkeit p",
+  main = "Bayes-Update: Prior zu Posterior")
+lines(
+  p, prior, col = "darkred", 
+  lwd = 2, lty = 2)
+legend(
+  "topright",
+  legend = c("Posterior", "Prior"),
+  col    = c("forestgreen", "darkred"),
+  lwd    = 2, lty = c(1, 2))
+
+```
+
+
+
+
+
+# Nachbereitung (*nach* der Übung)
+
+- Stellen Sie sicher, dass Sie mit folgenden Begriffen vertraut sind: 
+  - Likelihood
+  - Posterior
+  - Prior
+  - Parameter
+- Überlegen Sie nochmals welche Parametrisierungenn der Beta-Verteilung zu ungefähr welchen Verteilungen führen.
+- Verdeutlichen Sie sich nochmals den Unterschied zwischen $P(Data|p)$ und $P(p|Data)$ und somit den Unterschied zwischen einer Bayesianischen und Frequentistischen Sicht. 
+
+## Optional: Diskussion zu Frequentist vs. Bayes
+
+{{< video https://www.youtube.com/watch?v=GEFxFVESQXc >}}

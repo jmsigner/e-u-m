@@ -1,0 +1,280 @@
+---
+title: "Einheit 4: Einstieg in JAGS: Beta-Binomial & Lineares Modell"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen
+date: last-modified
+---
+
+
+# Übung
+
+## Rückblick 
+
+In der letzten Einheit haben wir gesehen: Die **Likelihood** beschreibt, wie gut ein Parameterwert zu den Daten passt. Kombiniert mit dem Prior ergibt sich der Posterior. Bisher haben wir das analytisch gelöst — heute lernen wir JAGS kennen, ein Werkzeug das diese Berechnung für beliebig komplexe Modelle übernimmt.
+
+
+## Was ist JAGS?
+
+JAGS steht für **J**ust **A**nother **G**ibbs **S**ampler. Es ist eine Software, die Bayes'sche Modelle durch numerische Approximation löst — auch dann, wenn keine analytische Lösung existiert. Wir kommunizieren mit JAGS aus R über das Paket `rjags`.
+
+Das Prinzip ist einfach: Wir schreiben das Modell als Text (Prior + Likelihood), übergeben die Daten, und JAGS liefert Stichproben aus dem Posterior — via **MCMC** (Markov Chain Monte Carlo).
+
+
+## JAGS-Grundstruktur
+
+Jedes JAGS-Modell folgt derselben Struktur:
+
+```r
+model {
+  # 1. Priors — was glauben wir vor den Daten?
+  p ~ dbeta(2, 8)
+
+  # 2. Likelihood — wie entstehen die Daten?
+  k ~ dbin(p, n)
+}
+```
+
+Zwei zentrale Operatoren:
+
+- **`~`** bedeutet „ist verteilt als" und drückt eine stochastische Beziehung aus (Parameter oder Beobachtung folgt einer Verteilung)
+- **`<-`** bedeutet „wird berechnet als" und drückt eine deterministische Beziehung aus (ein Wert wird aus anderen berechnet)
+
+Verteilungsnamen in JAGS sind fast identisch mit R: `dbeta`, `dbin`, `dnorm`, `dgamma` usw.
+
+
+## Warum brauchen wir JAGS?
+
+Das Beta-Binomial-Modell aus der 2. Woche hat eine elegante analytische Lösung — weil Beta und Binomial *konjugiert* sind. Das ist eine mathematische Ausnahme. Sobald das Modell komplexer wird, gibt es keine geschlossene Formel mehr:
+
+| Modell | Analytische Lösung | JAGS |
+|---|---|---|
+| Beta-Prior + Binomial-Likelihood | Beta-Posterior | ja |
+| Normalverteilung + unbekanntes $\sigma$ | ️ kompliziert |ja |
+| Lineare Regression |  nur mit konjugierten Priors | ja |
+| GLM (logistisch, Poisson) |  keine geschlossene Lösung | ja |
+| Hierarchische Modelle (Occupancy) | keine geschlossene Lösung  | ja|
+
+JAGS löst all diese Modelle durch numerische Approximation des Posteriors — immer nach demselben Prinzip.
+
+---
+
+## MCMC — intuitiv erklärt
+
+JAGS approximiert den Posterior durch eine clevere Zufallswanderung im Parameterraum. Das Ergebnis ist keine Formel, sondern eine große Sammlung von Stichproben — die gemeinsam den Posterior beschreiben.
+
+Wichtige Begriffe:
+
+- **Chain:** eine Sequenz von MCMC-Stichproben — wie eine Wanderung durch den Parameterraum
+- **Burn-in:** die ersten Schritte werden verworfen, während das Modell den Posterior „findet"
+- **Traceplot:** zeigt die Chain über die Zeit — ein guter Traceplot sieht aus wie weißes Rauschen, ohne Trends oder Sprünge
+- **Konvergenz:** mehrere unabhängige Chains mischen sich gut.
+
+
+## Von der Formel zum JAGS-Code
+
+| Mathematik | JAGS |
+|---|---|
+| p ~ Beta(2, 8) | `p ~ dbeta(2, 8)` |
+| k ~ Binomial(p, n) | `k ~ dbin(p, n)` |
+| α ~ Normal(0, 1000) | `alpha ~ dnorm(0, 0.001)` |
+| μᵢ = α + β·xᵢ | `mu[i] <- alpha + beta * x[i]` |
+| yᵢ ~ Normal(μᵢ, σ²) | `y[i] ~ dnorm(mu[i], tau)` |
+
+---
+
+## Credible Interval vs. Konfidenzintervall
+
+Ein zentrales Ergebnis jeder Bayes'schen Analyse ist das **Credible Interval** — und es ist fundamental anders als das frequentistische Konfidenzintervall.
+
+**Das Konfidenzintervall (frequentistisch):**
+
+> „Wenn ich dieses Experiment 100-mal wiederholen würde, würden 95 der berechneten Intervalle den wahren Parameter enthalten."
+
+Das klingt intuitiv, erlaubt aber *nicht* die Aussage: „Der wahre Wert liegt mit 95% Wahrscheinlichkeit in diesem Intervall." Der wahre Wert ist ja fix — er liegt entweder drin oder nicht.
+
+**Das Credible Interval (bayesianisch):**
+
+> „Mit 95% Wahrscheinlichkeit liegt der wahre Parameter in diesem Intervall — gegeben unsere Daten und unser Vorwissen."
+
+Das ist die Aussage, die wir eigentlich wollen. Sie ist direkt und intuitiv interpretierbar.
+
+**Zwei Varianten des Credible Intervals:**
+
+| Typ | Beschreibung | Wann verwenden? |
+|---|---|---|
+| **Equal-tailed** (ETI) | 2.5% der Masse links und rechts abgeschnitten | Symmetrische Posteriors |
+| **Highest Density Interval** (HDI) | Schmalstmögliches Intervall mit 95% der Masse | Asymmetrische Posteriors — gilt als Standard |
+
+Bei asymmetrischen Posteriors können ETI und HDI deutlich voneinander abweichen. Das HDI ist fast immer die sinnvollere Wahl, da es den plausibelsten Bereich des Parameters beschreibt.
+
+---
+
+## Übung 1 — JAGS-Code lesen (ohne R)
+
+Die Studierenden bekommen zwei JAGS-Modelle und vergleichen sie:
+
+**Modell A — Beta-Binomial:**
+```r
+model {
+  p ~ dbeta(2, 8)
+  k ~ dbin(p, n)
+}
+```
+
+**Modell B — Lineares Modell:**
+```r
+model {
+  alpha ~ dnorm(0, 0.001)
+  beta  ~ dnorm(0, 0.001)
+  tau   ~ dgamma(0.01, 0.01)
+  sigma <- 1/sqrt(tau)
+
+  for(i in 1:n) {
+    mu[i] <- alpha + beta * x[i]
+    y[i]  ~ dnorm(mu[i], tau)
+  }
+}
+```
+
+**Fragen:**
+
+1. Markiere in beiden Modellen: welche Zeilen sind **Prior**, welche **Likelihood**?
+2. Was bedeutet `~` vs. `<-`? Nenne je ein Beispiel aus Modell B.
+3. Modell A hat einen Parameter (`p`), Modell B hat drei (`alpha`, `beta`, `tau`). Warum braucht das lineare Modell mehr Parameter?
+4. Was ist `mu[i]` in Modell B — ein Parameter, eine Beobachtung, oder etwas anderes?
+5. `tau ~ dgamma(0.01, 0.01)` ist der Prior für die Präzision τ = 1/σ². Warum steht bei `sigma <- 1/sqrt(tau)` ein `<-` statt `~`?
+
+---
+
+## Übung 2 — JAGS in R: Beta-Binomial & Lineares Modell
+
+```r
+# ── Einheit 3: Einstieg in JAGS ───────────────────────────────────────────────
+library(rjags)
+library(coda)
+library(HDInterval)
+
+# ════════════════════════════════════════════════════════════════════════════════
+# Teil 1: Beta-Binomial — JAGS vs. analytische Lösung
+# ════════════════════════════════════════════════════════════════════════════════
+
+# Daten
+n <- 10   # Nächte
+k <- 4    # Detektionen
+
+# ── Analytische Lösung (aus Einheit 1) ────────────────────────────────────────
+alpha_post <- 2 + k
+beta_post  <- 8 + (n - k)
+p_seq      <- seq(0, 1, length.out = 300)
+posterior_analytisch <- dbeta(p_seq, alpha_post, beta_post)
+
+# ── JAGS-Modell ───────────────────────────────────────────────────────────────
+bb_modell <- "
+model {
+  p ~ dbeta(2, 8)
+  k ~ dbin(p, n)
+}
+"
+daten_bb <- list(k = k, n = n)
+
+m1 <- jags.model(textConnection(bb_modell),
+                 data     = daten_bb,
+                 n.chains = 3,
+                 n.adapt  = 1000)
+update(m1, 1000)
+samples_bb <- coda.samples(m1, variable.names = "p", n.iter = 5000)
+
+# ── Vergleich: JAGS vs. analytisch ───────────────────────────────────────────
+p_samples <- unlist(samples_bb)
+
+hist(p_samples, freq = FALSE, breaks = 50,
+     col = "lightblue", border = "white",
+     xlab = "p", main = "JAGS vs. analytischer Posterior")
+lines(p_seq, posterior_analytisch, col = "red", lwd = 2)
+legend("topright",
+       legend = c("JAGS (MCMC)", "Analytisch (Beta)"),
+       col    = c("lightblue", "red"),
+       lwd    = 2)
+
+# ── Credible Intervals ────────────────────────────────────────────────────────
+# Equal-tailed interval (ETI)
+quantile(p_samples, c(0.025, 0.975))
+
+# Highest Density Interval (HDI)
+hdi(p_samples, credMass = 0.95)
+
+# Zum Vergleich: frequentistisches Konfidenzintervall
+prop.test(k, n)$conf.int
+
+# ════════════════════════════════════════════════════════════════════════════════
+# Teil 2: Lineares Modell — Kameraauslösungen ~ Temperatur
+# ════════════════════════════════════════════════════════════════════════════════
+
+set.seed(42)
+n_lm <- 30
+temp <- runif(n_lm, -5, 15)
+ausl <- 5 + 0.8 * temp + rnorm(n_lm, 0, 2)   # wahres alpha = 5, beta = 0.8
+
+lm_modell <- "
+model {
+  alpha ~ dnorm(0, 0.001)
+  beta  ~ dnorm(0, 0.001)
+  tau   ~ dgamma(0.01, 0.01)
+  sigma <- 1/sqrt(tau)
+
+  for(i in 1:n) {
+    mu[i] <- alpha + beta * x[i]
+    y[i]  ~ dnorm(mu[i], tau)
+  }
+}
+"
+daten_lm <- list(y = ausl, x = temp, n = n_lm)
+
+m2 <- jags.model(textConnection(lm_modell),
+                 data     = daten_lm,
+                 n.chains = 3,
+                 n.adapt  = 1000)
+update(m2, 1000)
+samples_lm <- coda.samples(m2,
+                            variable.names = c("alpha", "beta", "sigma"),
+                            n.iter = 3000)
+
+# Traceplots & Zusammenfassung
+plot(samples_lm)
+summary(samples_lm)
+
+# HDI für beta
+beta_samples <- unlist(samples_lm[, "beta"])
+hdi(beta_samples, credMass = 0.95)
+```
+
+**Aufgaben:**
+
+1. **Teil 1:** Stimmen JAGS-Posterior und analytischer Posterior überein? Was bedeutet das?
+2. **Teil 1:** Vergleiche ETI, HDI und frequentistisches Konfidenzintervall — wie ähnlich sind sie hier? Warum?
+3. **Teil 1:** Wie würdest du das HDI einem Nicht-Statistiker erklären?
+4. **Teil 2:** Wo liegen die Posterior-Mittelwerte für α und β? Vergleiche mit den wahren Werten (α = 5, β = 0.8).
+5. **Teil 2:** Schau dir die Traceplots an — sehen die Chains gut aus? Was wäre ein Zeichen schlechter Konvergenz?
+6. **Bonusfrage:** Ändere `n.chains = 1` — was passiert mit dem Traceplot? Warum empfiehlt man mehrere Chains?
+
+---
+
+## Lernziele — Einheit 3
+
+Am Ende dieser Einheit kannst du ...
+
+- ✅ die Grundstruktur eines JAGS-Modells lesen und erklären (`~` vs. `<-`, Prior, Likelihood)
+- ✅ ein Beta-Binomial-Modell in JAGS formulieren und mit der analytischen Lösung vergleichen
+- ✅ erklären, warum JAGS nötig ist wenn keine konjugierten Priors existieren
+- ✅ MCMC konzeptuell erklären (Chains, Burn-in, Konvergenz)
+- ✅ den Unterschied zwischen Credible Interval und Konfidenzintervall erklären
+- ✅ ETI und HDI aus JAGS-Samples berechnen und interpretieren
+
+
+
+
+# Nachbereitung (*nach* der Übung)
+

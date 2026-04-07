@@ -1,0 +1,233 @@
+---
+title: "Einheit 5: Bayes'sches GLM in JAGS: Logistische Regression"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen
+date: last-modified
+---
+
+# Vorbereitung (*vor* der Übung)
+
+Schauen Sie sich als Vorbereitung für diese Einheit das folgende Video an: 
+
+{{< video https://www.youtube.com/watch?v=1LzdESG6-2E >}}
+
+
+:::{.callout-tip title="Werden Sie aktiv"}
+Recherchieren Sie, wie man R und RStudio richtig zitiert.
+:::
+
+
+
+
+## Rückblick Einheit 3
+
+In Einheit 3 haben wir JAGS kennengelernt und ein lineares Modell angepasst — Kameraauslösungen in Abhängigkeit von der Temperatur. Das funktioniert gut für kontinuierliche Antworten. Heute gehen wir einen Schritt weiter: Was tun wir, wenn die Antwort binär ist — Luchs detektiert: ja oder nein?
+
+---
+
+## Problem des linearen Modells
+
+Das lineare Modell sagt:
+
+$$p_i = \alpha + \beta \cdot x_i$$
+
+Das Problem: Für extreme Kovariaten-Werte kann das Werte unter 0 oder über 1 liefern — keine gültige Wahrscheinlichkeit. Wir brauchen eine Funktion, die jeden reellen Wert auf den Bereich [0, 1] abbildet.
+
+---
+
+## Der Logit-Link
+
+Die Lösung ist die **logistische Funktion**:
+
+$$p = \frac{1}{1 + e^{-\eta}} \qquad \text{mit } \eta = \alpha + \beta_1 \cdot x_1 + \beta_2 \cdot x_2$$
+
+Intuitiv:
+- Sehr große positive Werte von η → p nahe 1
+- Sehr große negative Werte von η → p nahe 0
+- η = 0 → p = 0.5
+
+Umgekehrt ist der **Logit** der natürliche Logarithmus der Odds:
+
+$$\text{logit}(p) = \log\left(\frac{p}{1-p}\right) = \eta$$
+
+Wir modellieren also nicht p direkt, sondern den Logit von p — und transformieren zurück. Der Logit darf jeden reellen Wert annehmen, was die lineare Modellierung ermöglicht.
+
+---
+
+## Das Modell
+
+Wir modellieren die Luchs-Detektion (ja/nein) in Abhängigkeit von zwei Kovariaten:
+
+- **Temperatur** (kontinuierlich) — beeinflusst die Aktivität des Luchses
+- **Habitat** (kategorisch: Wald = 1, Offenland = 0) — beeinflusst die Detektionswahrscheinlichkeit
+
+$$\text{logit}(p_i) = \alpha + \beta_1 \cdot \text{Temperatur}_i + \beta_2 \cdot \text{Habitat}_i$$
+$$y_i \sim \text{Bernoulli}(p_i)$$
+
+In JAGS:
+
+```r
+model {
+  # Priors
+  alpha  ~ dnorm(0, 1)
+  beta1  ~ dnorm(0, 1)
+  beta2  ~ dnorm(0, 1)
+
+  # Likelihood
+  for(i in 1:n) {
+    logit(p[i]) <- alpha + beta1 * temp[i] + beta2 * habitat[i]
+    y[i] ~ dbern(p[i])
+  }
+}
+```
+
+> **Hinweis Priors:** `dnorm(0, 1)` auf der Logit-Skala ist oft sinnvoller als das sehr flache `dnorm(0, 0.001)` — es entspricht der Erwartung dass p meistens zwischen 0.1 und 0.9 liegt, und verhindert Konvergenzprobleme.
+
+---
+
+## Übung 1 — Logit und Wahrscheinlichkeiten per Hand (ohne R)
+
+### Teil A — Logit-Werte umrechnen
+
+Fülle die Tabelle aus — rechne Logit-Werte in Wahrscheinlichkeiten um:
+
+$$p = \frac{1}{1 + e^{-\eta}}$$
+
+> **Hinweis:** $e^{0} = 1$, $e^{-1} \approx 0.37$, $e^{-3} \approx 0.05$, $e^{1} \approx 2.72$, $e^{3} \approx 20.1$
+
+| η (Logit) | p (Wahrscheinlichkeit) | Interpretation |
+|---|---|---|
+| -3 | | |
+| -1 | | |
+|  0 | | |
+|  1 | | |
+|  3 | | |
+
+### Teil B — Modell interpretieren
+
+Angenommen das Modell liefert folgende Posterior-Mittelwerte:
+
+- α = -1.0
+- β₁ = 0.15 (Temperatur)
+- β₂ = 1.2 (Habitat: Wald = 1)
+
+Berechne die geschätzte Detektionswahrscheinlichkeit für die folgenden Szenarien:
+
+| Szenario | Temperatur | Habitat | η = α + β₁·T + β₂·H | p = ? |
+|---|---|---|---|---|
+| Kalte Nacht, Offenland | 0°C | 0 | | |
+| Warme Nacht, Offenland | 10°C | 0 | | |
+| Kalte Nacht, Wald | 0°C | 1 | | |
+| Warme Nacht, Wald | 10°C | 1 | | |
+
+**Diskussionsfragen:**
+
+1. Was ist der Effekt des Habitats auf p? Ist er additiv auf der Logit-Skala oder auf der p-Skala?
+2. Warum ist es schwieriger, β direkt als „Änderung in p" zu interpretieren als beim linearen Modell?
+3. Wie würde man β₁ = 0.15 einem Nicht-Statistiker erklären?
+
+---
+
+## Übung 2 — Logistische Regression in JAGS
+
+```r
+# ── Einheit 4: Logistische Regression in JAGS ─────────────────────────────────
+library(rjags)
+library(coda)
+library(HDInterval)
+
+# ── Simulierte Daten ──────────────────────────────────────────────────────────
+set.seed(42)
+n       <- 50
+temp    <- runif(n, -5, 15)
+habitat <- rbinom(n, 1, 0.5)          # 0 = Offenland, 1 = Wald
+
+# Wahre Parameter: alpha = -1, beta1 = 0.15, beta2 = 1.2
+eta <- -1 + 0.15 * temp + 1.2 * habitat
+p   <- 1 / (1 + exp(-eta))
+y   <- rbinom(n, 1, p)                # Detektion ja/nein
+
+# ── JAGS-Modell ───────────────────────────────────────────────────────────────
+logit_modell <- "
+model {
+  # Priors
+  alpha  ~ dnorm(0, 1)
+  beta1  ~ dnorm(0, 1)
+  beta2  ~ dnorm(0, 1)
+
+  # Likelihood
+  for(i in 1:n) {
+    logit(p[i]) <- alpha + beta1 * temp[i] + beta2 * habitat[i]
+    y[i] ~ dbern(p[i])
+  }
+}
+"
+
+daten <- list(y = y, temp = temp, habitat = habitat, n = n)
+
+m <- jags.model(textConnection(logit_modell),
+                data     = daten,
+                n.chains = 3,
+                n.adapt  = 1000)
+update(m, 1000)
+samples <- coda.samples(m,
+                        variable.names = c("alpha", "beta1", "beta2"),
+                        n.iter = 5000)
+
+# ── Ergebnisse ────────────────────────────────────────────────────────────────
+# Traceplots & Zusammenfassung
+plot(samples)
+summary(samples)
+
+# HDI für alle Parameter
+samp_matrix <- as.matrix(samples)
+hdi(samp_matrix[, "beta1"], credMass = 0.95)
+hdi(samp_matrix[, "beta2"], credMass = 0.95)
+
+# ── Vorhersagekurve: p ~ Temperatur, getrennt nach Habitat ───────────────────
+temp_seq <- seq(-5, 15, length.out = 100)
+alpha_m  <- mean(samp_matrix[, "alpha"])
+beta1_m  <- mean(samp_matrix[, "beta1"])
+beta2_m  <- mean(samp_matrix[, "beta2"])
+
+p_offenland <- 1 / (1 + exp(-(alpha_m + beta1_m * temp_seq + beta2_m * 0)))
+p_wald      <- 1 / (1 + exp(-(alpha_m + beta1_m * temp_seq + beta2_m * 1)))
+
+plot(temp_seq, p_wald, type = "l", col = "darkgreen", lwd = 2,
+     ylim = c(0, 1), xlab = "Temperatur (°C)",
+     ylab = "Detektionswahrscheinlichkeit p",
+     main = "Logistische Regression: p ~ Temperatur + Habitat")
+lines(temp_seq, p_offenland, col = "darkorange", lwd = 2)
+points(temp, y, pch = 16,
+       col = ifelse(habitat == 1, "darkgreen", "darkorange"))
+legend("topleft",
+       legend = c("Wald", "Offenland"),
+       col    = c("darkgreen", "darkorange"),
+       lwd    = 2)
+```
+
+**Aufgaben:**
+
+1. Vergleiche die Posterior-Mittelwerte für α, β₁ und β₂ mit den wahren Werten. Wie gut hat JAGS die Parameter gefunden?
+2. Schau dir die HDIs für β₁ und β₂ an — schließen sie die Null ein? Was bedeutet das inhaltlich?
+3. Was zeigt die Vorhersagekurve? Ist der Habitat-Effekt gut sichtbar?
+4. **Bonusfrage:** Ändere den Prior für β₂ auf `dnorm(0, 0.001)` — ändert sich das Ergebnis? Was passiert mit den Traceplots?
+
+---
+
+## Lernziele — Einheit 4
+
+Am Ende dieser Einheit kannst du ...
+
+- ✅ erklären, warum das lineare Modell für binäre Daten ungeeignet ist
+- ✅ den Logit-Link intuitiv beschreiben und Logit-Werte in Wahrscheinlichkeiten umrechnen
+- ✅ ein logistisches Modell mit zwei Kovariaten in JAGS formulieren
+- ✅ Koeffizienteneffekte auf der Logit-Skala interpretieren
+- ✅ Vorhersagekurven aus JAGS-Samples berechnen und visualisieren
+
+
+# Nachbereitung (*nach* der Übung)
+

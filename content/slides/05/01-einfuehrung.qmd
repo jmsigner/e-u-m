@@ -1,0 +1,56 @@
+---
+title: "Artporträts"
+subtitle: "Erfassung und Monitoring von Wildtieren (SoSe 2026)"
+format: 
+  clean-revealjs:
+    progress: true
+    code-line-numbers: false
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen, Abteilung Wildtierwissenschaften
+date: last-modified
+execute:
+  echo: true
+  warning: false
+  message: false
+filters: 
+  - timer
+revealjs-plugins:
+  - codefocus
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.height = 4.5,
+  fig.width = 4.5
+)
+```
+
+
+
+# Überblick
+
+# Biber
+
+## Vorkommen
+
+## Merkmale
+
+## Monitoring
+
+## Berichtspflichten
+
+## Beispiel: 
+
+<https://besjournals.onlinelibrary.wiley.com/doi/full/10.1002/2688-8319.12168>
+
+
+

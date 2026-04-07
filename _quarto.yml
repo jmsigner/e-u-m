@@ -6,46 +6,50 @@ website:
   title: "Erfassung und Monitoring von Wildtieren"
   navbar:
     left:
-      - href: index.qmd
+      - href: content/index.qmd
         text: Start
       - text: Vorlesungen
         menu:
           - text: "Einführung"
-          - href: vorlesungen/01-vorlesung.qmd
-            text: "Vorlesung 1: Einführung"
-          - href: vorlesungen/02-vorlesung.qmd
-            text: "Vorlesung 2: Methoden"
+#          - href: content/vorlesungen/01-vorlesung.qmd
+            text: "01. Einführung"
+#          - href: content/vorlesungen/02-vorlesung.qmd
+            text: "02. Methoden"
           - text: "-------"
           - text: "Vorkommen"
-          - text: "Vorlesung 3: Wo kommt eine Art vor?"
-          - text: "Vorlesung 4: Vorkommen vorhersagen"
-          - text: "Vorlesung 5: Occupancy Modelle"
-          - text: "Vorlesung 6: Was, wenn man nicht alle sieht?"
+          - text: "03. Wo kommt eine Art vor?"
+          - text: "04. Vorkommen vorhersagen"
+          - text: "05. Occupancy Modelle"
+          - text: "06. Was, wenn man nicht alle sieht?"
           - text: "----"
-          - text: "Popuation"
-          - text: "Vorlesung 7: Populationsgrößenschätzung (Distance sampling)"
-          - text: "Vorlesung 8: Fang-Wiederfang-Methoden"
-          - text: "Vorlesung 9: Methoden"
+          - text: "Abundanz"
+          - text: "07. Populationsgrößenschätzung (Distance sampling)"
+          - text: "08. Fang-Wiederfang-Methoden"
           - text: "----"
-          - text: "Bewegung"
-          - text: "Vorlesung 10: Streifgebiete"
-          - text: "Vorlesung 11: Habitatselektion 1"
-          - text: "Vorlesung 12: Habitatselektion 2"
+          - text: "Telemetrie"
+          - text: "09. Einführung"
+          - text: "10. Streifgebiete"
+          - text: "11. Habitatselektion 1"
+          - text: "12. Habitatselektion 2"
       - text: Übungen
         menu:
           - text: "**Grundlagen in R**"
-          - href: uebung1.qmd
-            text: "Übung 1: Kamerafallen"
-          - href: uebung1.qmd
-            text: "Übung 1: Kamerafallen"
-          - href: uebung1.qmd
-            text: "Übung 1: Kamerafallen"
-          - text: "-----"
-          - text: "**R Übungen**"
-          - href: uebung2.qmd
-            text: "Übung 2: Telemetrie"
+          - href: content/uebungen/uebung_w1.qmd
+            text: "1. Einführung in R"
+#         - text: "-----"
+#          - text: "**Occupancy**"
+#          - href: content/uebungen/uebung_w2.qmd
+#            text: "2. Bayes"
+#          - href: content/uebungen/uebung_w3.qmd
+#            text: "3. Likelihood"
+#          - href: content/uebungen/uebung_w4.qmd
+#            text: "4. Lineares Model"
+#          - href: content/uebungen/uebung_w5.qmd
+#            text: "5. Generalisiertes Lineares Model"
+#          - href: content/uebungen/uebung_w6.qmd
+#            text: "6. Occupancy Model"
       - text: Prüfungsleistungen
-        href: pruefungen/pruefungen.qmd
+#        href: content/pruefung/pruefungen.qmd
 
 
 format:
@@ -53,6 +57,8 @@ format:
     lang: de
     theme: litera
     toc: true
-    code-fold: true
-    code-summary: "Code anzeigen"
-
+    code-fold: false
+    #code-tools: true
+    code-summary: "Lösung anzeigen"
+    css: styles.css
+#    include-before-body: _setup.qmd

@@ -1,0 +1,188 @@
+---
+title: "Übung Woche 3: Die Sache mit der Likelihood"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen
+date: last-modified
+---
+
+# Übung
+
+## Rückblick 
+
+In der letzten haben wir gesehen: Bayes'sche Statistik kombiniert **Prior** und **Likelihood** zum **Posterior**:
+
+$$P(\theta \mid \text{Daten}) \;\propto\; P(\text{Daten} \mid \theta) \;\cdot\; P(\theta)$$
+
+
+## Was ist ein statistisches Modell?
+
+Ein statistisches Modell ist eine vereinfachte, mathematische Beschreibung davon, wie Daten entstehen. Es besteht immer aus drei Teilen:
+
+- **Parameter** — die unbekannten Größen, die wir schätzen wollen (z.B. p)
+- **Verteilung** — eine mathematische Annahme darüber, wie die Daten entstehen
+- **Vorhersagen** — was das Modell für neue Daten erwarten würde
+
+Unser Modell für die Kamerafalle lautet: In jeder Nacht wird der Luchs mit Wahrscheinlichkeit $p$ fotografiert, unabhängig von anderen Nächten. Das kann mit der *Binomialverteilung* beschrieben werden.
+
+
+## Die Binomialverteilung
+
+Wenn wir $n$ Nächte beobachten und $p$ die Detektionswahrscheinlichkeit ist, dann gilt für die Wahrscheinlichkeit, genau $k$ Detektionen zu beobachten:
+
+$$P(k \mid n, p) = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}$$
+
+:::{.callout-note}
+# Binomialkoeffizient
+
+Der Binomialkoeffizient $\binom{n}{k}$ beantwortet die Frage: *Auf wie viele Arten kann ich $k$ Elemente aus $n$ Elementen auswählen, ohne Reihenfolge?*
+
+Die Formel lautet:
+
+$$\binom{n}{k} = \frac{n!}{k! \cdot (n-k)!}$$
+
+In R gibt es die eingebaute Funktion `choose(n, k)`.
+:::
+
+**Beispiel:** Kamerafalle, 10 Nächte, 3 Detektionen — wie wahrscheinlich ist das für verschiedene p?
+
+| p | P(k = 3 \| n = 10, p) |
+|---|---|
+| 0.1 | 0.057 |
+| 0.3 | 0.267 |
+| 0.8 | 0.001 |
+
+Dieselben Daten, drei verschiedene $p$s — und die Wahrscheinlichkeit ist sehr unterschiedlich. Das ist die Kernidee der **Likelihood**.
+
+
+## Was ist Likelihood?
+
+Wenn wir die Daten als fix betrachten und stattdessen $p$ variieren, nennen wir diese Funktion die **Likelihood**:
+
+$$\mathcal{L}(p \mid \text{Daten}) = P(\text{Daten} \mid p)$$
+
+Die Likelihood besagt: „Für welche Werte von $p$ sind die Daten am plausibelsten?"
+
+Zwei wichtige Punkte:
+
+- Die Likelihood ist **keine** Wahrscheinlichkeitsverteilung über $p$ — sie integriert nicht zu 1.
+- Der Wert von $p$, der die Likelihood maximiert, heißt **Maximum-Likelihood-Schätzung (MLE)** (= Frequentistischer Ansatz). Im bayesianischen Ansatz wird die Likelihood mit dem Prior multipliziert, um den Posterior zu erhalten.
+
+
+## Likelihood vs. Posterior
+
+Die Likelihood alleine berücksichtigt kein Vorwissen. In der Bayesianischen Statistik multipliziert man die Likelihood mit dem Prior — und bekommt den Posterior. Drei Szenarien im Vergleich:
+
+| Szenario | Prior | Likelihood | Posterior |
+|---|---|---|---|
+| Uninformativer Prior | flach | Peak bei p = 0.4 | ≈ Likelihood |
+| Informativer Prior (p klein) | Peak bei p = 0.1 | Peak bei p = 0.4 | Kompromiss |
+| Sehr viele Daten | egal | sehr scharfer Peak | ≈ Likelihood |
+
+**Wichtig:** Mit wenig Daten dominiert der Prior. Mit vielen Daten dominieren die Daten — der Prior wird unwichtig.
+
+  
+## Übung 1 — Gruppenarbeit: „Neue Daten!"
+ 
+Jede Gruppe startet mit demselben Prior — $Beta(2, 8)$, d.h. Vorwissen „Luchs ist eher selten" 
+ 
+| Gruppe | Nächte (n) | Detektionen (k) |
+|---|---|---|
+| A | 1 | 1 |
+| B | 5 | 2 |
+| C | 20 | 8 |
+| D | 100 | 40 |
+ 
+**Aufgabe pro Gruppe (10 min):**
+
+Berechnen Sie den Posterior mit der Beta-Update-Formel aus Einheit 1:
+ 
+$$\text{Posterior} = \text{Beta}(\alpha + k,\; \beta + n - k) \qquad \text{mit Prior Beta}(2, 8)$$
+ 
+Füllen Sie die folgende Tabelle aus und plotten Sie den Prior und den Posterior:
+ 
+| | Alpha (posterior) | Beta (posterior) | Modus = $\frac{\alpha-1}{\alpha+\beta-2}$ | Breite der Verteilung |
+|---|---|---|---|---|
+| Gruppe A | | | | breit / schmal? |
+| Gruppe B | | | | breit / schmal? |
+| Gruppe C | | | | breit / schmal? |
+| Gruppe D | | | | breit / schmal? |
+ 
+> **Hinweis Modus:** Der Modus ist der wahrscheinlichste Wert im Posterior — der „Peak" der Verteilung.
+ 
+
+ 
+**Plenumsdiskussion (10 min):**
+ 
+- Vergleicht die Modus-Werte: Wandern sie alle in Richtung 0.4 (= k/n)?
+- Welche Gruppe ist sich am sichersten? Welche am unsichersten?
+- Was passiert mit dem Einfluss des Priors Beta(2, 8) wenn n größer wird?
+- **Kernbotschaft:** Mit wachsender Datenmenge „vergisst" das Modell den Prior — die Daten übernehmen die Kontrolle.
+
+
+## Übung 2 — Likelihood & Binomialverteilung in R visualisieren
+
+1. Was zeigt der erste Plot? Wo liegt unsere Beobachtung (rote Linie)?
+2. Bei welchem $p$ liegt das Maximum der Likelihood-Kurve? Entspricht das k/n?
+3. Im dritten Plot: Wie beeinflusst der Prior Beta(2, 8) den Posterior? Wo liegt er relativ zur Likelihood?
+4. Änderen Sie `n = 100`, `k = 40` — was passiert mit dem Einfluss des Priors?
+
+```{r}
+#| eval: false
+
+# Daten
+n <- 10 # Anzahl Nächte
+k <- 4 # Anzahl Fotos
+
+# Binomialverteilung ----
+# Wie verteilen sich mögliche Detektionszahlen, wenn p = 0.4?
+x <- 0:n
+wahrscheinlichkeit <- dbinom(x, size = n, prob = 0.4)
+
+barplot(wahrscheinlichkeit, names.arg = x,
+        xlab = "Anzahl Detektionen k",
+        ylab = "Wahrscheinlichkeit P(k | p = 0.4)",
+        main = "Binomialverteilung: n = 10, p = 0.4")
+abline(v = k + 0.5, col = "red", lwd = 2, lty = 2)  # unsere Beobachtung
+
+# Likelihood -----
+p <- seq(0, 1, length.out = 300)
+likelihood <- dbinom(k, size = n, prob = p)
+
+plot(
+  p, likelihood, type = "l", col = "darkred", lwd = 2,
+  xlab = "Detektionswahrscheinlichkeit p",
+  ylab = "Likelihood L(p | Daten)",
+  main = "Likelihood-Kurve: k = 4, n = 10")
+abline(v = k/n, col = "grey44", lwd = 2, lty = 2)
+legend(
+  "topright",
+  legend = c("Likelihood", "MLE (k/n = 0.4)"),
+  col = c("darkred", "grey44"),
+  lwd = 2, lty = c(1, 2))
+
+# Likelihood * Prior = Posterior 
+alpha_prior <- 2
+beta_prior  <- 8   # Vorwissen: Luchs ist selten
+
+prior <- dbeta(p, alpha_prior, beta_prior)
+posterior <- dbeta(p, alpha_prior + k, beta_prior + (n - k))
+
+# Likelihood skalieren für Vergleich im Plot
+lik_scaled <- likelihood / max(likelihood) * max(posterior)
+
+plot(p, posterior, type = "l", col = "steelblue", lwd = 2,
+     xlab = "p", ylab = "Dichte / skalierte Likelihood",
+     main = "Prior, Likelihood & Posterior im Vergleich",
+     ylim = c(0, max(posterior) * 1.2))
+lines(p, prior,        col = "grey60",     lwd = 2, lty = 2)
+lines(p, lik_scaled,   col = "darkorange",  lwd = 2, lty = 3)
+legend("topright",
+       legend = c("Prior", "Likelihood (skaliert)", "Posterior"),
+       col    = c("grey60", "darkorange", "steelblue"),
+       lwd    = 2, lty = c(2, 3, 1))
+```
+
+

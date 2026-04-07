@@ -1,0 +1,310 @@
+---
+title: "Einheit 6: Das Occupancy-Modell in JAGS"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen
+date: last-modified
+---
+
+# Vorbereitung (*vor* der Übung)
+
+Schauen Sie sich als Vorbereitung für diese Einheit das folgende Video an: 
+
+{{< video https://www.youtube.com/watch?v=1LzdESG6-2E >}}
+
+
+:::{.callout-tip title="Werden Sie aktiv"}
+Recherchieren Sie, wie man R und RStudio richtig zitiert.
+:::
+
+# Einheit 5 — 
+
+---
+
+## Rückblick Einheit 4
+
+In Einheit 4 haben wir die logistische Regression in JAGS kennengelernt — binäre Antwort, Logit-Link, zwei Kovariaten. Heute bauen wir darauf auf und fügen eine entscheidende neue Idee hinzu: **latente Zustände**. Das Occupancy-Modell ist im Kern zwei verschachtelte logistische Modelle — eines für die Besetzung, eines für die Detektion.
+
+---
+
+## Das fundamentale Problem: Imperfect Detection
+
+Wir haben eine Kamerafalle aufgestellt und den Luchs nicht detektiert. Was schließen wir daraus?
+
+Zwei Möglichkeiten:
+- Der Luchs ist **nicht da** — echter Abwesend
+- Der Luchs ist **da, aber wir haben ihn nicht gesehen** — falsch negativ
+
+Wenn wir diese beiden Fälle nicht trennen, unterschätzen wir systematisch die wahre Besetzungswahrscheinlichkeit ψ. Das ist das Problem der *imperfect detection* — und genau das löst das Occupancy-Modell.
+
+---
+
+## Zwei Prozesse, zwei Parameter
+
+Das Occupancy-Modell besteht aus zwei hierarchisch verschachtelten Prozessen:
+
+**Ökologischer Prozess — ist der Luchs da?**
+
+$$z_i \sim \text{Bernoulli}(\psi_i)$$
+
+- $z_i$ = latenter Zustand: 1 wenn Standort i besetzt, 0 wenn nicht
+- $\psi_i$ = Besetzungswahrscheinlichkeit (occupancy probability)
+- $z_i$ ist **nie direkt beobachtbar** — es ist eine latente Variable
+
+**Beobachtungsprozess — sehen wir ihn?**
+
+$$y_{ij} \sim \text{Bernoulli}(z_i \cdot p_{ij})$$
+
+- $y_{ij}$ = Beobachtung: 1 wenn Luchs bei Besuch j an Standort i detektiert
+- $p_{ij}$ = Detektionswahrscheinlichkeit
+- Wenn $z_i = 0$: $y_{ij}$ ist immer 0 — man kann nichts detektieren was nicht da ist
+
+---
+
+## Kovariaten
+
+In unserem Modell hängen beide Prozesse von Kovariaten ab:
+
+- **ψ** hängt ab von: Habitattyp (Wald/Offenland)
+- **p** hängt ab von: Temperatur
+
+$$\text{logit}(\psi_i) = \alpha_\psi + \beta_\psi \cdot \text{Habitat}_i$$
+$$\text{logit}(p_{ij}) = \alpha_p + \beta_p \cdot \text{Temperatur}_{ij}$$
+
+---
+
+## Das Modell in JAGS
+
+```r
+model {
+  # Priors occupancy
+  alpha.psi ~ dnorm(0, 1)
+  beta.psi  ~ dnorm(0, 1)
+
+  # Priors detection
+  alpha.p ~ dnorm(0, 1)
+  beta.p  ~ dnorm(0, 1)
+
+  for(i in 1:nSites) {
+    # Ökologischer Prozess
+    logit(psi[i]) <- alpha.psi + beta.psi * habitat[i]
+    z[i] ~ dbern(psi[i])
+
+    for(j in 1:nVisits) {
+      # Beobachtungsprozess
+      logit(p[i,j]) <- alpha.p + beta.p * temp[i,j]
+      y[i,j] ~ dbern(z[i] * p[i,j])
+    }
+  }
+
+  # Abgeleitete Größe: mittlere Besetzungswahrscheinlichkeit
+  mean.psi <- mean(psi[])
+}
+```
+
+---
+
+## Grenzen des Modells
+
+Das Occupancy-Modell ruht auf Annahmen — ihre Verletzung kann zu verzerrten Schätzungen führen:
+
+| Annahme | Was wenn sie verletzt wird? |
+|---|---|
+| **Geschlossene Population** — z ändert sich nicht zwischen Besuchen | Tiere wandern ein/aus → z nicht stabil → dynamisches Modell nötig |
+| **Unabhängige Besuche** — Detektionen sind unabhängig voneinander | Gewöhnung oder Scheu → p verändert sich systematisch |
+| **Keine falsch-positiven** — y = 1 bedeutet immer echte Detektion | Fehlidentifikation → ψ wird überschätzt |
+| **Homogenität innerhalb Standort** — alle Teile gleich wahrscheinlich besetzt | Mikrohabitat-Variation → latente Heterogenität |
+
+---
+
+## Modellvergleich: WAIC & LOO
+
+Wie vergleichen wir zwei Modelle — z.B. mit und ohne Habitat-Kovariate für ψ?
+
+- **WAIC** (Widely Applicable Information Criterion): misst Vorhersagequalität, bestraft Modellkomplexität
+- **LOO** (Leave-One-Out Cross-Validation): ähnlich, robuster bei schwierigen Posteriors
+- Beide sind bayesianische Alternativen zu AIC — niedrigerer Wert = besseres Modell
+- In R: Paket `loo` — funktioniert direkt mit JAGS-Samples
+
+> **Wichtig:** WAIC und LOO sagen uns welches Modell besser *vorhersagt* — nicht welches „wahr" ist. Ein einfacheres Modell kann trotzdem besser sein.
+
+---
+
+## Übung 1 — Latente Zustände & Modellstruktur (ohne R)
+
+### Teil A — Detektionshistorien interpretieren
+
+Gegeben sind Detektionshistorien von 5 Standorten, je 4 Besuche:
+
+| Standort | Besuch 1 | Besuch 2 | Besuch 3 | Besuch 4 | z sicher? |
+|---|---|---|---|---|---|
+| A | 0 | 0 | 0 | 0 | |
+| B | 1 | 0 | 1 | 0 | |
+| C | 0 | 1 | 0 | 0 | |
+| D | 0 | 0 | 0 | 1 | |
+| E | 0 | 0 | 0 | 0 | |
+
+**Fragen:**
+
+1. Für welche Standorte ist z = 1 mit Sicherheit bekannt? Für welche nicht?
+2. Standort A und E haben dieselbe Historie (0, 0, 0, 0). Bedeutet das, dass z = 0 für beide?
+3. Wie würde sich deine Einschätzung für Standort A ändern, wenn p = 0.8 wäre? Und wenn p = 0.1?
+4. Was passiert mit der Schätzung von ψ, wenn wir imperfect detection ignorieren und einfach den Anteil der Standorte mit mindestens einer Detektion nehmen?
+
+### Teil B — JAGS-Code lesen
+
+Beziehe dich auf den JAGS-Code oben und beantworte folgende Fragen:
+
+1. Wo ist der ökologische Prozess im Code? Wo der Beobachtungsprozess?
+2. Was bedeutet `z[i] * p[i,j]` in der letzten Zeile — warum die Multiplikation?
+3. Wie viele Parameter hat dieses Modell insgesamt?
+4. Was wäre der Unterschied wenn wir `y[i,j] ~ dbern(p[i,j])` schreiben würden — also ohne `z[i]`?
+5. Warum ist `mean.psi <- mean(psi[])` mit `<-` geschrieben und nicht mit `~`?
+
+---
+
+## Übung 2 — Occupancy-Modell in JAGS
+
+```r
+# ── Einheit 5: Occupancy-Modell in JAGS ──────────────────────────────────────
+library(rjags)
+library(coda)
+library(HDInterval)
+
+# ── Simulierte Daten ──────────────────────────────────────────────────────────
+set.seed(42)
+nSites  <- 50
+nVisits <- 4
+
+habitat <- rbinom(nSites, 1, 0.5)              # 0 = Offenland, 1 = Wald
+temp    <- matrix(runif(nSites * nVisits, -5, 15),
+                  nrow = nSites, ncol = nVisits)
+
+# Wahre Parameter
+alpha.psi <- -0.5;  beta.psi <- 1.5    # psi ~ Habitat
+alpha.p   <- -1.0;  beta.p   <- 0.1    # p ~ Temperatur
+
+psi <- plogis(alpha.psi + beta.psi * habitat)
+z   <- rbinom(nSites, 1, psi)
+
+y <- matrix(NA, nSites, nVisits)
+for(i in 1:nSites) {
+  p_ij  <- plogis(alpha.p + beta.p * temp[i,])
+  y[i,] <- rbinom(nVisits, 1, z[i] * p_ij)
+}
+
+# ── JAGS-Modell ───────────────────────────────────────────────────────────────
+occ_modell <- "
+model {
+  # Priors occupancy
+  alpha.psi ~ dnorm(0, 1)
+  beta.psi  ~ dnorm(0, 1)
+
+  # Priors detection
+  alpha.p ~ dnorm(0, 1)
+  beta.p  ~ dnorm(0, 1)
+
+  for(i in 1:nSites) {
+    logit(psi[i]) <- alpha.psi + beta.psi * habitat[i]
+    z[i] ~ dbern(psi[i])
+
+    for(j in 1:nVisits) {
+      logit(p[i,j]) <- alpha.p + beta.p * temp[i,j]
+      y[i,j] ~ dbern(z[i] * p[i,j])
+    }
+  }
+
+  mean.psi <- mean(psi[])
+}
+"
+
+daten <- list(y       = y,
+              habitat = habitat,
+              temp    = temp,
+              nSites  = nSites,
+              nVisits = nVisits)
+
+# Initialwerte für z — wichtig für Konvergenz!
+inits <- function() list(z = apply(y, 1, max))
+
+m <- jags.model(textConnection(occ_modell),
+                data     = daten,
+                inits    = inits,
+                n.chains = 3,
+                n.adapt  = 2000)
+update(m, 2000)
+samples <- coda.samples(m,
+                        variable.names = c("alpha.psi", "beta.psi",
+                                           "alpha.p",   "beta.p",
+                                           "mean.psi"),
+                        n.iter = 5000)
+
+# ── Ergebnisse ────────────────────────────────────────────────────────────────
+plot(samples)
+summary(samples)
+
+samp_m <- as.matrix(samples)
+hdi(samp_m[, "beta.psi"], credMass = 0.95)
+hdi(samp_m[, "beta.p"],   credMass = 0.95)
+
+# ── Posterior-Vorhersagen: psi ~ Habitat ─────────────────────────────────────
+psi_offenland <- plogis(samp_m[,"alpha.psi"] + samp_m[,"beta.psi"] * 0)
+psi_wald      <- plogis(samp_m[,"alpha.psi"] + samp_m[,"beta.psi"] * 1)
+
+boxplot(cbind(psi_offenland, psi_wald),
+        names = c("Offenland", "Wald"),
+        col   = c("darkorange", "darkgreen"),
+        ylab  = "Besetzungswahrscheinlichkeit psi",
+        main  = "Posterior von psi nach Habitat")
+
+# Naiver Vergleich: psi ohne imperfect detection
+psi_naiv <- mean(apply(y, 1, max))
+abline(h = psi_naiv, lty = 2, col = "red", lwd = 2)
+legend("topright",
+       legend = "Naive Schätzung",
+       col    = "red", lty = 2, lwd = 2)
+```
+
+**Aufgaben:**
+
+1. Vergleiche die Posterior-Mittelwerte mit den wahren Parametern — wie gut hat JAGS die Parameter gefunden?
+2. Schau dir `mean.psi` an: Was ist die mittlere geschätzte Besetzungswahrscheinlichkeit?
+3. Was zeigt der Boxplot? Ist der Habitat-Effekt auf ψ klar sichtbar?
+4. Die rote Linie zeigt die naive Schätzung. Ist sie höher oder tiefer als der Posterior von ψ? Warum?
+5. **Bonusfrage:** Was passiert wenn du `inits <- function() list(z = apply(y, 1, max))` entfernst? Warum sind Initialwerte für z hier besonders wichtig?
+
+---
+
+## Ausblick — Erweiterungen des Occupancy-Modells *(optional)*
+
+Das einfache Occupancy-Modell ist der Einstieg in eine ganze Familie von Modellen:
+
+| Erweiterung | Neue Idee | Anwendung |
+|---|---|---|
+| **Dynamisches Occupancy** | z ändert sich über Saisons: Kolonisierung & Extinktion | Langzeit-Monitoring |
+| **Multi-species** | ψ und p über Arten geteilt — information borrowing | Community-Monitoring, seltene Arten |
+| **Multi-scale** | Verschachtelte Raumskalen (Landschaft → Standort → Besuch) | Habitatanalyse |
+| **False-positive** | Falsch-positive Detektionen erlaubt | eDNA, akustisches Monitoring |
+| **Occupancy + Abundance** | N-mixture Modelle — Abundanz statt nur An/Abwesenheit | Zähldaten |
+
+---
+
+## Lernziele — Einheit 5
+
+Am Ende dieser Einheit kannst du ...
+
+- ✅ das Problem der imperfect detection erklären und warum es ψ verzerrt
+- ✅ den ökologischen und den Beobachtungsprozess im Occupancy-Modell unterscheiden
+- ✅ latente Zustände z verstehen und Detektionshistorien interpretieren
+- ✅ ein volles Occupancy-Modell mit Kovariaten in JAGS formulieren und anpassen
+- ✅ Posterior-Vorhersagen für ψ visualisieren und mit naiven Schätzungen vergleichen
+- ✅ die wichtigsten Modellannahmen und ihre Verletzungen benennen
+- ✅ WAIC und LOO als Werkzeuge für den Modellvergleich konzeptuell erklären
+
+
+
+
+# Nachbereitung (*nach* der Übung)
+

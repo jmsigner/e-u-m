@@ -1,0 +1,256 @@
+---
+title: "Erfassung von Wildtieren (E2)"
+subtitle: "Erfassung und Monitoring von Wildtieren (SoSe 2026)"
+format: 
+  clean-revealjs:
+    progress: true
+    code-line-numbers: false
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen, Abteilung Wildtierwissenschaften
+date: last-modified
+execute:
+  echo: true
+  warning: false
+  message: false
+filters: 
+  - timer
+revealjs-plugins:
+  - codefocus
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(here)
+
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.height = 4.5,
+  fig.width = 4.5
+)
+```
+
+# Erfassung von Wildtieren
+
+## Kurze Wiederholung/Vorschau
+
+![](images/clipboard-4233619795.png)
+
+## Motivation
+
+-   Für alle Monitoringvorhaben brauchen wir Daten. Diese müssen wir
+    'erfassen'.
+-   Unter Erfassung ist hier das indirekte oder direkte Beobachten,
+    Zählen oder Messen von Wildtieren in freier Wildbahn gemeint.
+
+- Reinhardt et al. (2015) Monitoring von Wolf, Luchs und Bär in Deutschland BfN Skript 413 (<https://www.bfn.de/fileadmin/>
+BfN/service/Dokumente/skripten/Skript413.pdf)
+
+## Was macht es so schwierig Wildtiere zu erfassen?
+
+-   Auffinden der Tiere kann schwierig sein.
+-   Die meisten Tiere, die wir untersuchen, bewegen sich.
+-   Die Dichten der Tiere variieren in Gebieten und zwischen Tierarten
+    (z.B. Amsel vs. Luchs).
+
+------------------------------------------------------------------------
+
+```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: https://twitter.com/amymacbiologist/status/1278764537487876096"}
+knitr::include_graphics(("img/mlion.jpeg"))
+```
+
+
+## Unterschiedliche Methoden für unterschiedliche Fragestellungen
+
+-   Was möchte ich wissen?
+-   Welche Methode kann ich dafür anwenden?
+-   Welche Daten brauche ich für welche Methode?
+
+
+Silvy, N. J., Lopez, R. R., & Peterson, M. J. (2012). Techniques for
+marking wildlife. The wildlife techniques manual, 1, 230-257.
+
+## Der Versuch einer Einteilung
+
+Wir müssen Entscheidungen treﬀen, die in folgende Kategorien fallen:
+
+1.  Was für Daten benötigen wir?
+    a.  Nachweise
+    b.  Anzahlen
+        i.  Anzahl Sichtungen
+        ii. Anzahl gesehener Tiere
+    c.  Individuelle Daten (z.B. Gewicht, Position)
+        i.  einmalig
+        ii. mehrmalig
+
+------------------------------------------------------------------------
+
+2.  Methoden der Erfassung
+    a.  Aktiv (Beobachtung der Tiere im Feld)
+        i.  direkt
+        ii. indirekt
+    b.  Passiv (Beobachtung der Tiere durch technische Hilfsmittel)
+        i.  stationär (z.B. Fotofallen)
+        ii. mobil (z.B. Telemetrie)
+3.  Eingriﬀe am Tier
+    a.  keine
+    b.  Markierung
+        i.  natürlich
+        ii. künstlich
+
+## Methoden der Erfassung
+
+-   Die klassische Methode der Erfassung von Wildtieren ist die direkte
+    oder indirekte Feldbeobachtung mit oder ohne technische Hilfsmittel
+    (z.B. Fernglas).
+-   In den vergangen Jahrzehnten sind eine Vielzahl von sensorbasierten
+    Erfassungsmethoden hinzugekommen (z.B. satellitenbasierte Telemetrie
+    oder Fotofallen).
+
+```{r, echo = FALSE, out.width="50%", fig.align='center', fig.cap="Foto: J. Signer"}
+knitr::include_graphics(("img/fotofalle.png"))
+```
+
+------------------------------------------------------------------------
+
+### Aktiv (Beobachtung der Tiere im Feld)
+
+1.  Direkte Beobachtung: Dies kann die ganz klassische Zählung oder
+    Beobachtung von Tieren im Feld sein.
+2.  Indirekte Beobachtung: Suchen bzw. Sammeln von Nachweisen, die auf
+    eine Art hindeuten. Z.B. Federn, Trittsiegel oder Losungen.
+
+\pause
+
+Bei direkten und indirekten Verfahren gilt:
+
+-   Man sollte die Tiere möglichst nicht beeinﬂussen.
+-   Oft sind die Verfahren zeitaufwendig und man braucht freiwillige
+    HelferInnen (-\> Citizen Science).
+
+------------------------------------------------------------------------
+
+Passiv (Beobachtung der Tiere durch technische Hilfsmittel)
+
+Eine unvollständige Liste an Möglichkeiten:
+
+-   Fotofallen, Satellitenbilder, Wärmebildkameras.
+-   Telemetriesysteme (z.B. VHF, GPS, stationäre Systeme).
+-   Akustisches Monitoring.
+
+## Übung 1: Fotos klassifizieren - Datenstruktur
+
+- Ziel der heutigen Übung ist es, 25 Fotofallenfotos zu klassifizieren und die Klassifizierungsergebnisse zu vergleichen.
+
+Überlegen Sie in Kleingruppen (2 bis 3 Studierende), wie Sie die gesammelten Daten aus den Fotofallen so organisieren können, dass wir in einem nächsten Schritt: 
+
+1. die Daten zusammenführen und 
+2. vergleichen können, wie die Daten klassifiziert wurden.
+
+## Markierung von Tieren
+
+### Natürliche Markierung
+
+-   Einige Tierarten haben eindeutige natürliche Merkmale, die eine
+    individuelle Identiﬁkation möglich machen. Bei vielen Katzen (z.B.
+    Tiger, Luchs) weißt das Fell eindeutige Muster auf.
+-   Johansson et al. 2020[^4] untersuchten die Auswirkungen von
+    Fehlklassiﬁkationen auf Populationsgrößenschätzungen. Sie können
+    auch versuchen Schneeleoparden zu klassiﬁzieren (https:
+    //camtraining.globalsnowleopard.org/leppe/login/).
+
+[^4]: Johansson, Ö., Samelius, G., Wikberg, E., Chapron, G., Mishra, C.,
+    & Low, M. (2020). Identification errors in camera-trap studies
+    result in systematic population overestimation. Scientific reports,
+    10(1), 1-10.
+
+------------------------------------------------------------------------
+
+## Künstliche Markierung
+
+-   Invasiv
+    -   Transponder (z.B. PIT-Tags[^5])
+    -   Radioaktive Marker
+    -   Ohrmarken, Muster im Fell
+-   Nichtinvasiv
+    -   Halsbänder
+    -   Beringung
+    -   Farbe
+
+[^5]: Die Abkürzung PIT steht für Passive Integrated Transponders
+
+## Fangen von Tieren
+
+
+
+```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: J. Signer"}
+knitr::include_graphics(("img/katti1.jpg"))
+```
+
+-----------
+
+```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: M. Meißner"}
+knitr::include_graphics(("img/netzfang.jpg"))
+```
+
+-----------
+
+```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: M. Meißner"}
+knitr::include_graphics(("img/krall.JPG"))
+```
+
+-----
+
+
+```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: S. Appleby"}
+knitr::include_graphics(("img/scott_1.jpg"))
+```
+
+
+
+## Markieren von Tieren
+
+
+```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: S. Appleby"}
+knitr::include_graphics(("img/scott_2.jpg"))
+```
+
+## Verfolgen von Tieren
+
+```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: Nationalpark Harz/Bayeerischer Wald"}
+knitr::include_graphics(("img/telemetrie.jpg"))
+```
+
+## Übung 2: Fotos klassifizieren 
+
+Klassifizieren Sie die Fotos (`daten/woche_2_fotos`) und laden Sie die Ergebnisse in StudIP in den Order `daten/woche_2_fotos_ergebnisse` hoch.
+
+
+## Qualität von Nachweisen
+
+Hinweise (meist von Karnivoren) werden nach ihrer Überprüfbarkeit in
+
+-   Nachweise (C1),
+-   bestätigte Hinweise (C2) und
+-   unbestätigte Hinweise (C3)
+
+eingeteilt. Diese Kriterien wurden für SCALP (Status and Conservation of
+the Alpine Lynx Population) in der Schweiz entwickelt.
+
+------------------------------------------------------------------------
+
+-   **Eindeutiger Nachweis (C1)** Lebendfang, Totfund, genetischer
+    Nachweis
+-   **Bestätigter Hinweis (C2)** Ein Hinweis, der von einer erfahrenen
+    Person bestätigt wird (z.B. Riss, Trittsiegel)
+-   **Unbestätigter Hinweis (C3)** Eine Beobachtung, unscharfe Fotos,
+    etc.
+
+## Übung 3: Zusammenführen der Daten
+
+Führen Sie die Daten aus Aufgabe 2 zusammen und finden Sie das Foto, bei dem die Klassifizierung am unsichersten war.
