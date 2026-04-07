@@ -683,14 +683,14 @@
     "href": "content/index.html",
     "title": "Willkommen",
     "section": "",
-    "text": "Dieser Kurs behandelt Methoden zur Erfassung, Analyse und Überwachung von Wildtierpopulationen.\n\n\n\nKamerafallen\nTelemetrie\nPopulationsschätzung\nLangzeitmonitoring"
+    "text": "Dieser Kurs behandelt Methoden zur Erfassung, Analyse und Überwachung von Wildtierpopulationen."
   },
   {
     "objectID": "content/index.html#erfassung-und-monitoring-von-wildtieren",
     "href": "content/index.html#erfassung-und-monitoring-von-wildtieren",
     "title": "Willkommen",
     "section": "",
-    "text": "Dieser Kurs behandelt Methoden zur Erfassung, Analyse und Überwachung von Wildtierpopulationen.\n\n\n\nKamerafallen\nTelemetrie\nPopulationsschätzung\nLangzeitmonitoring"
+    "text": "Dieser Kurs behandelt Methoden zur Erfassung, Analyse und Überwachung von Wildtierpopulationen."
   },
   {
     "objectID": "content/slides/01-einfuehrung1.html#was-ist-die-ramsar-konvention",
@@ -1243,7 +1243,7 @@
     "href": "content/slides/01/01-einfuehrung.html",
     "title": "Einführung",
     "section": "",
-    "text": "Johannes Signer (Wissenschaftlicher Mitarbeiter in der Abteilung Wildtierwissenschaften)\n\nForschungsinteressen: Bewegungsökologie, statistische Methoden in der Ökologie\nWerdegang: Ökologie (BSc), Geoinformatik (MSc), angewandte Statistik (MSc) und Forstwissenschaften (PhD)\n\n\n\n\n\n\nEmail:jsigner@uni-goettingen.de\nVerwenden Sie auch das Forum bei StudIP, dort beantworten wir am liebsten Ihre Fragen.\n\n\n\n\n\n\n\n\n\nJeden Montag findet eine Einheit von 9:00 - 12:00 statt, diese besteht aus Vorlesung und Übung.\nDie Vorlesung findet in Präsenz statt im Raum FSR 1.1 (Büsgenweg 1).\nFür die Übungen brauchen wir meist Laptop. Sollten Sie kein Laptop zur Verfügung haben, melden Sie sich bitte bei mir.\n\n\n\n\n\nPrüfungsvorlesitung: ein 60-Minütiger Multiple-Choice Test zu den wichtigsten Konzepten der Vorlesung.\nEine Hausarbeit (siehe Website zu Details)\n\nBei der Prüfung wird nicht nach Programmierkenntnissen in R gefragt, sondern nur nach der Interpretation von Ergebnissen.\n\n\n\n\nArtporträts: Wie funktioniert Monitoring bei einzelnen Arten\nThemen für die Hausarbeit: Zu wissenschaftlichen Arbeiten und Datenanalyse\n\n\n\n\n\nWie kann man Wildtiere überhaupt erfassen?\nAktive vs. passive Erfassung.\nFür welche Methoden braucht man welche Daten?\n\n\n\n\n\nDie meisten Methoden erfordern eine statistische Grundausbildung.\nRegressionen sind sehr oft das Mittel der Wahl, deshalb müssen wir einige Grundlagen wiederholen bzw. anlegen.\nKeine Angst, dies ist kein Statistikkurs, sondern Statistik ist ein Hilfsmittel.\n\n\n\n\n\nImmer mehr Daten:\n\nEin Fotofallenmonitoring mit 50 Fotofallen, die acht Wochen im Feld sind (mit 30 Fotos pro Kamera und Tag) = 8.4^{4} Fotos.\nEin durchschnittliches Telemetrieprojekt mit 20 Tieren, 1 Lokalisierung pro Stunde und Tier für ein Jahr = 1.728^{5} Datenpunkte.\nATLAS-Telemetriesystem: 30 Vögel für 50 Tage mit einer Lokalisierung pro 8 Sekunden: 1.62^{7} Datenpunkte.\n\n\n\n\n\nDesignfehler sind nur sehr, sehr schwer im Nachhinein zu beheben.\nDaten von Anfang an “richtig” strukturieren, macht später das Leben einfacher.\nWir können meist nur eine kleine Stichprobe einer Population untersuchen. Diese Stichprobe muss richtig gewählt werden.\n\n\n\n\n\nWelche Gebiete bewohnt eine Art? Welche Kovariaten können das Vorkommen einer Art beschreiben?\nEntkoppeln des Beobachtungsprozesses vom biologischen Prozess.\n\n\n\n\n\n\nSchätzen von Populationsgrößen, wenn Individuen nicht eindeutig zugeordnet werden können.\n\n\n\n\n\nSchätzen von Populationsgrößen, wenn Individuen eindeutig zugeordnet werden können.\nBerücksichtigung der Raumnutzung.\n\n\n\n\n\n\nWas sind die Grundlagen für Vernetzung?\nWie kann man Wanderung von Tieren quantifizieren?\nFindet genetischer Austausch statt oder nicht?\n\n\n\n\n\n\nWoher stammen sie und was kann damit gemacht werden.\nFinden von Migrationsmuster.\n\n\n\n\n\nWo halten sich Tiere auf und wie ändern sich Raumansprüche über die Zeit?\nHaben männliche und weibliche Tiere unterschiedliche Raumansprüche?\n\n\n\n\n\nGibt es Präferenzen für bestimmte Habitate?\nWie kann die Verfügbarkeit von Habitaten quantifiziert werden?\n\n\n\n\n\n\n14.4.2025: Einführung\n28.4.2025: Erfassung von Wildtieren\n5.5.2025: Ein kurzer statistischer Rundumblick\n12.5.2025: Fortsetzung zur Statistik und Studiendesign\n19.5.2025: Occupancy-Modelle\n26.5.2025: Schätzung von Abundanzen\n2.6.2025: N-Mixture und Distance Sampling (Video und Selbststudium)\n9.6.2025: Keine Vorlesung (Pfingsten/Exkursionswoche)\n\n\n\n16.6.2025: Fang-Wiederfang Methoden\n23.6.2025: Landschaftskonnektivität\n30.6.2025: Telemetriedaten & Streifgebiete\n7.7.2025: Streifgebiete\n14.7.2025 Habitatselektion 1\n11.8.2025: Prüfung (Vorschlag)\n25.8.2025: Klausureinsicht\n\n\n\n\n\n\nOft gibt es eine Podcast-Episode als Einführung in ein Thema. Bitte hören Sie sich diese vor der Vorlesung an.\nNach einer Vorlesung gibt es eine kurze Literaturrecherche, die wir in der folgenden Woche besprechen."
+    "text": "Johannes Signer (Wissenschaftlicher Mitarbeiter in der Abteilung Wildtierwissenschaften)\n\nForschungsinteressen: Bewegungsökologie, statistische Methoden in der Ökologie\nWerdegang: Ökologie (BSc), Geoinformatik (MSc), angewandte Statistik (MSc) und Forstwissenschaften (PhD)\n\n\n\n\n\n\nEmail:jsigner@uni-goettingen.de\nVerwenden Sie auch das Forum bei StudIP, dort beantworten wir am liebsten Ihre Fragen.\n\n\n\n\n\n\n\n\n\n12 Termine (10 davon in präsenz)\nPräsentztermine Mo: von 9:15 bis ca. 11:45 (Vorlesung und Übung)\nFür die Übungen brauchen Sie meist einen Laptop. Sollten Sie kein Laptop zur Verfügung haben, melden Sie sich bitte bei mir.\n\n\n\n\n\nPrüfungsvorlesitung: ein 60-Minütiger Multiple-Choice Test zu den wichtigsten Konzepten der Vorlesung.\nEine Hausarbeit (siehe Website zu Details)\n\nBei der Prüfung wird nicht nach Programmierkenntnissen in R gefragt, sondern nur nach der Interpretation von Ergebnissen.\n\n\n\n\nArtporträts: Wie funktioniert Monitoring bei einzelnen Arten\nThemen für die Hausarbeit: Zu wissenschaftlichen Arbeiten und Datenanalyse\n\n\n\n\n\nWie kann man Wildtiere überhaupt erfassen?\nAktive vs. passive Erfassung.\nFür welche Methoden braucht man welche Daten?\n\n\n\n\n\nDie meisten Methoden erfordern eine statistische Grundausbildung.\nRegressionen sind sehr oft das Mittel der Wahl, deshalb müssen wir einige Grundlagen wiederholen bzw. anlegen.\nKeine Angst, dies ist kein Statistikkurs, sondern Statistik ist ein Hilfsmittel.\nWelche Gebiete bewohnt eine Art? Welche Kovariaten können das Vorkommen einer Art beschreiben?\nEntkoppeln des Beobachtungsprozesses vom biologischen Prozess.\n\n\n\n\n\nImmer mehr Daten:\n\nEin Fotofallenmonitoring mit 50 Fotofallen, die acht Wochen im Feld sind (mit 30 Fotos pro Kamera und Tag) = 8.4^{4} Fotos.\nEin durchschnittliches Telemetrieprojekt mit 20 Tieren, 1 Lokalisierung pro Stunde und Tier für ein Jahr = 1.728^{5} Datenpunkte.\nATLAS-Telemetriesystem: 30 Vögel für 50 Tage mit einer Lokalisierung pro 8 Sekunden: 1.62^{7} Datenpunkte.\n\n\n\n\n\nSchätzen von Populationsgrößen, wenn Individuen nicht eindeutig zugeordnet werden können.\nSchätzen von Populationsgrößen, wenn Individuen eindeutig zugeordnet werden können.\nBerücksichtigung der Raumnutzung.\n\n\n\n\n\n\nWoher stammen sie und was kann damit gemacht werden.\nFinden von Migrationsmuster.\n\n\n\n\n\nWo halten sich Tiere auf und wie ändern sich Raumansprüche über die Zeit?\nHaben männliche und weibliche Tiere unterschiedliche Raumansprüche?\n\n\n\n\n\nGibt es Präferenzen für bestimmte Habitate?\nWie kann die Verfügbarkeit von Habitaten quantifiziert werden?\n\n\n\n\n\n\n13.04.2026: E01: Einführung\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n25.06.2026: Keine Vorlesung (Pfingsten/Exkursionswoche)\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n\n\n\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion\n13.07.2026: Test\n31.08.2026: Abgabe der Hausarbeit\n\n\n\n\n\n\nOft gibt es eine Podcast-Episode als Einführung in ein Thema. Bitte hören Sie sich diese vor der Vorlesung an.\nNach einer Vorlesung gibt es eine kurze Literaturrecherche, die wir in der folgenden Woche besprechen.\n\n\n\n\n\n\nBestände von Wildtiere nehmen zu (z.B. die Wolfspopulation wächst stetig in D).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKonflikte zwischen unterschiedlichen Interessen (Land- und Forstwirtschaft, Naturschutz, Freizeit, …).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWildtiere sind oft nicht das eigentliche Problem.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVerbreitungen von Krankheiten.\n\n\n\n\n\n\n\n\n\n\n\n\n\nNach Yoccoz et al. 20011, ist Monitoring:\n\nEin Prozess zum Beobachten von Zustandsvariablen über die Zeit mit dem Ziel den Zustand des Systems zu untersuchen und Inferenz zu betreiben.\n\n\n\nZustandsvariablen sind Messgrößen, die ein System charakterisieren (z.B. die Abundanz einer Tierart, Biodiviersitätsindeces oder Biomasse, genetische Vielfalt).\nUnter Inferenz versteht man, dass man (statistisch) gesicherte Aussagen über das System machen möchte. Beispiele hierfür sind zu untersuchen, ob bestimmte Kovariate einen Populationstrend beeinflussen oder Vorhersagen für die Zustandsvariable in der Zukunft zu machen.\n\n\n\n\n\nWieso soll überhaupt ein Monitoring durchgeführt werden?\nWas soll untersucht bzw. aufgenommen werden?\nWie soll das Monitoring durchgeführt werden?\n\n\n\n\n\nEin Monitoring kann unterschiedliche Motivationen haben:\n\nBeantworten von wissenschaftlichen Fragestellungen. (experimentelle) Ansätze zum Testen von a priori Hypothesen. Z.B. wie wirkt sich Fragmentierung von Wald auf die Artenzahl aus?2\n\n\n\n\n\n\n\n\n\n\n\n\nManagement Grundlage: Für ein objektives Management von (Wildtier)population braucht man verlässliche quantitative Grundlagen. Unterschiedliche Monitorings bieten dafür eine Möglichkeit. Dabei sollten anhand der untersuchten Zustandsvariablen (z.B. Dichte, Verbissintensität, etc.) konkrete Managementempfehlungen abgeleitet werden.\n\n\n\n\n\nJe nach dem Ziel des Monitorings, leiten sich unterschiedliche Zustandsvariablen ab, die untersucht werden. Typische Beispiele sind z.B. Populationsdichte (bzw. -größe), Verbiss, Überlebensraten, Änderung in der Raumnutzung.\n\n\n\n\nBei der konkreten Durchführung eines Monitorings müssen folgende Punkte festgelegt werden:\n\nWie oft wird das Monitoring durchgeführt.\nWelche Flächen/Populationen werden ins Monitoring eingeschlossen.\nWie wird Fehlern begegnet, dass Tiere\n\nnicht gesehen werden, bzw.\ndie Dichte sich räumlich ändert.\n\n\n\n\n\n\n\nForschung\nWirtschaftliche Interessen\nRechtliche Rahmenbedingungen (z.B. FFH)"
   },
   {
     "objectID": "content/slides/01/01-einfuehrung.html#ask-your-partner",
@@ -1256,15 +1256,15 @@
     "objectID": "content/slides/01/01-einfuehrung.html#team",
     "href": "content/slides/01/01-einfuehrung.html#team",
     "title": "Einführung",
-    "section": "Team",
-    "text": "Team\n\nJohannes Signer (Wissenschaftlicher Mitarbeiter in der Abteilung Wildtierwissenschaften)\n\nForschungsinteressen: Bewegungsökologie, statistische Methoden in der Ökologie\nWerdegang: Ökologie (BSc), Geoinformatik (MSc), angewandte Statistik (MSc) und Forstwissenschaften (PhD)"
+    "section": "",
+    "text": "Johannes Signer (Wissenschaftlicher Mitarbeiter in der Abteilung Wildtierwissenschaften)\n\nForschungsinteressen: Bewegungsökologie, statistische Methoden in der Ökologie\nWerdegang: Ökologie (BSc), Geoinformatik (MSc), angewandte Statistik (MSc) und Forstwissenschaften (PhD)"
   },
   {
     "objectID": "content/slides/01/01-einfuehrung.html#kontakt",
     "href": "content/slides/01/01-einfuehrung.html#kontakt",
     "title": "Einführung",
-    "section": "Kontakt",
-    "text": "Kontakt\n\nEmail:jsigner@uni-goettingen.de\nVerwenden Sie auch das Forum bei StudIP, dort beantworten wir am liebsten Ihre Fragen."
+    "section": "",
+    "text": "Email:jsigner@uni-goettingen.de\nVerwenden Sie auch das Forum bei StudIP, dort beantworten wir am liebsten Ihre Fragen."
   },
   {
     "objectID": "content/slides/01/01-einfuehrung.html#wer-sind-sie",
@@ -1284,22 +1284,22 @@
     "objectID": "content/slides/01/01-einfuehrung.html#ausblick",
     "href": "content/slides/01/01-einfuehrung.html#ausblick",
     "title": "Einführung",
-    "section": "Ausblick",
-    "text": "Ausblick\n\nArtporträts: Wie funktioniert Monitoring bei einzelnen Arten\nThemen für die Hausarbeit: Zu wissenschaftlichen Arbeiten und Datenanalyse"
+    "section": "",
+    "text": "Artporträts: Wie funktioniert Monitoring bei einzelnen Arten\nThemen für die Hausarbeit: Zu wissenschaftlichen Arbeiten und Datenanalyse\n\n\n\n\n\nWie kann man Wildtiere überhaupt erfassen?\nAktive vs. passive Erfassung.\nFür welche Methoden braucht man welche Daten?\n\n\n\n\n\nDie meisten Methoden erfordern eine statistische Grundausbildung.\nRegressionen sind sehr oft das Mittel der Wahl, deshalb müssen wir einige Grundlagen wiederholen bzw. anlegen.\nKeine Angst, dies ist kein Statistikkurs, sondern Statistik ist ein Hilfsmittel.\nWelche Gebiete bewohnt eine Art? Welche Kovariaten können das Vorkommen einer Art beschreiben?\nEntkoppeln des Beobachtungsprozesses vom biologischen Prozess."
   },
   {
     "objectID": "content/slides/01/01-einfuehrung.html#was-hat-programmierung-in-einem-wildbio-kurs-verloren",
     "href": "content/slides/01/01-einfuehrung.html#was-hat-programmierung-in-einem-wildbio-kurs-verloren",
     "title": "Einführung",
-    "section": "Was hat Programmierung in einem Wildbio Kurs verloren?",
-    "text": "Was hat Programmierung in einem Wildbio Kurs verloren?\nImmer mehr Daten:\n\nEin Fotofallenmonitoring mit 50 Fotofallen, die acht Wochen im Feld sind (mit 30 Fotos pro Kamera und Tag) = 8.4^{4} Fotos.\nEin durchschnittliches Telemetrieprojekt mit 20 Tieren, 1 Lokalisierung pro Stunde und Tier für ein Jahr = 1.728^{5} Datenpunkte.\nATLAS-Telemetriesystem: 30 Vögel für 50 Tage mit einer Lokalisierung pro 8 Sekunden: 1.62^{7} Datenpunkte."
+    "section": "",
+    "text": "Immer mehr Daten:\n\nEin Fotofallenmonitoring mit 50 Fotofallen, die acht Wochen im Feld sind (mit 30 Fotos pro Kamera und Tag) = 8.4^{4} Fotos.\nEin durchschnittliches Telemetrieprojekt mit 20 Tieren, 1 Lokalisierung pro Stunde und Tier für ein Jahr = 1.728^{5} Datenpunkte.\nATLAS-Telemetriesystem: 30 Vögel für 50 Tage mit einer Lokalisierung pro 8 Sekunden: 1.62^{7} Datenpunkte.\n\n\n\n\n\nSchätzen von Populationsgrößen, wenn Individuen nicht eindeutig zugeordnet werden können.\nSchätzen von Populationsgrößen, wenn Individuen eindeutig zugeordnet werden können.\nBerücksichtigung der Raumnutzung.\n\n\n\n\n\n\nWoher stammen sie und was kann damit gemacht werden.\nFinden von Migrationsmuster.\n\n\n\n\n\nWo halten sich Tiere auf und wie ändern sich Raumansprüche über die Zeit?\nHaben männliche und weibliche Tiere unterschiedliche Raumansprüche?\n\n\n\n\n\nGibt es Präferenzen für bestimmte Habitate?\nWie kann die Verfügbarkeit von Habitaten quantifiziert werden?\n\n\n\n\n\n\n13.04.2026: E01: Einführung\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n25.06.2026: Keine Vorlesung (Pfingsten/Exkursionswoche)\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n\n\n\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion\n13.07.2026: Test\n31.08.2026: Abgabe der Hausarbeit\n\n\n\n\n\n\nOft gibt es eine Podcast-Episode als Einführung in ein Thema. Bitte hören Sie sich diese vor der Vorlesung an.\nNach einer Vorlesung gibt es eine kurze Literaturrecherche, die wir in der folgenden Woche besprechen."
   },
   {
     "objectID": "content/slides/01/01-einfuehrung.html#bewertung",
     "href": "content/slides/01/01-einfuehrung.html#bewertung",
     "title": "Einführung",
-    "section": "Bewertung",
-    "text": "Bewertung\n\nPrüfungsvorlesitung: ein 60-Minütiger Multiple-Choice Test zu den wichtigsten Konzepten der Vorlesung.\nEine Hausarbeit (siehe Website zu Details)\n\nBei der Prüfung wird nicht nach Programmierkenntnissen in R gefragt, sondern nur nach der Interpretation von Ergebnissen."
+    "section": "",
+    "text": "Prüfungsvorlesitung: ein 60-Minütiger Multiple-Choice Test zu den wichtigsten Konzepten der Vorlesung.\nEine Hausarbeit (siehe Website zu Details)\n\nBei der Prüfung wird nicht nach Programmierkenntnissen in R gefragt, sondern nur nach der Interpretation von Ergebnissen."
   },
   {
     "objectID": "content/slides/05/01-einfuehrung.html#vorkommen",
@@ -1998,15 +1998,15 @@
     "objectID": "content/slides/01/01-einfuehrung.html#ablauf",
     "href": "content/slides/01/01-einfuehrung.html#ablauf",
     "title": "Einführung",
-    "section": "Ablauf",
-    "text": "Ablauf\n\n12 Termine (10 davon in präsenz)\nPräsentztermine Mo: von 9:15 bis ca. 11:45 (Vorlesung und Übung)\nFür die Übungen brauchen Sie meist einen Laptop. Sollten Sie kein Laptop zur Verfügung haben, melden Sie sich bitte bei mir."
+    "section": "",
+    "text": "12 Termine (10 davon in präsenz)\nPräsentztermine Mo: von 9:15 bis ca. 11:45 (Vorlesung und Übung)\nFür die Übungen brauchen Sie meist einen Laptop. Sollten Sie kein Laptop zur Verfügung haben, melden Sie sich bitte bei mir."
   },
   {
     "objectID": "content/slides/01/01-einfuehrung.html#motivation",
     "href": "content/slides/01/01-einfuehrung.html#motivation",
     "title": "Einführung",
-    "section": "Motivation",
-    "text": "Motivation\n\nBestände von Wildtiere nehmen zu (z.B. die Wolfspopulation wächst stetig in D)."
+    "section": "",
+    "text": "Bestände von Wildtiere nehmen zu (z.B. die Wolfspopulation wächst stetig in D).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKonflikte zwischen unterschiedlichen Interessen (Land- und Forstwirtschaft, Naturschutz, Freizeit, …).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWildtiere sind oft nicht das eigentliche Problem.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVerbreitungen von Krankheiten."
   },
   {
     "objectID": "content/slides/01/01-einfuehrung.html#wilditermanagement-ist-interdisziplinär",
@@ -2019,15 +2019,15 @@
     "objectID": "content/slides/01/01-einfuehrung.html#was-ist-monitoring",
     "href": "content/slides/01/01-einfuehrung.html#was-ist-monitoring",
     "title": "Einführung",
-    "section": "Was ist Monitoring?",
-    "text": "Was ist Monitoring?\nNach Yoccoz et al. 20011, ist Monitoring:\n\nEin Prozess zum Beobachten von Zustandsvariablen über die Zeit mit dem Ziel den Zustand des Systems zu untersuchen und Inferenz zu betreiben.\n\nYoccoz, N. G., Nichols, J. D., & Boulinier, T. (2001). Monitoring of biological diversity in space and time. Trends in ecology & evolution, 16(8), 446-453."
+    "section": "",
+    "text": "Nach Yoccoz et al. 20011, ist Monitoring:\n\nEin Prozess zum Beobachten von Zustandsvariablen über die Zeit mit dem Ziel den Zustand des Systems zu untersuchen und Inferenz zu betreiben.\n\n\n\nZustandsvariablen sind Messgrößen, die ein System charakterisieren (z.B. die Abundanz einer Tierart, Biodiviersitätsindeces oder Biomasse, genetische Vielfalt).\nUnter Inferenz versteht man, dass man (statistisch) gesicherte Aussagen über das System machen möchte. Beispiele hierfür sind zu untersuchen, ob bestimmte Kovariate einen Populationstrend beeinflussen oder Vorhersagen für die Zustandsvariable in der Zukunft zu machen.\n\n\n\n\n\nWieso soll überhaupt ein Monitoring durchgeführt werden?\nWas soll untersucht bzw. aufgenommen werden?\nWie soll das Monitoring durchgeführt werden?\n\n\n\n\n\nEin Monitoring kann unterschiedliche Motivationen haben:\n\nBeantworten von wissenschaftlichen Fragestellungen. (experimentelle) Ansätze zum Testen von a priori Hypothesen. Z.B. wie wirkt sich Fragmentierung von Wald auf die Artenzahl aus?2\n\n\n\n\n\n\n\n\n\n\n\n\nManagement Grundlage: Für ein objektives Management von (Wildtier)population braucht man verlässliche quantitative Grundlagen. Unterschiedliche Monitorings bieten dafür eine Möglichkeit. Dabei sollten anhand der untersuchten Zustandsvariablen (z.B. Dichte, Verbissintensität, etc.) konkrete Managementempfehlungen abgeleitet werden.\n\n\n\n\n\nJe nach dem Ziel des Monitorings, leiten sich unterschiedliche Zustandsvariablen ab, die untersucht werden. Typische Beispiele sind z.B. Populationsdichte (bzw. -größe), Verbiss, Überlebensraten, Änderung in der Raumnutzung.\n\n\n\n\nBei der konkreten Durchführung eines Monitorings müssen folgende Punkte festgelegt werden:\n\nWie oft wird das Monitoring durchgeführt.\nWelche Flächen/Populationen werden ins Monitoring eingeschlossen.\nWie wird Fehlern begegnet, dass Tiere\n\nnicht gesehen werden, bzw.\ndie Dichte sich räumlich ändert."
   },
   {
     "objectID": "content/slides/01/01-einfuehrung.html#motivation-für-ein-monitoring",
     "href": "content/slides/01/01-einfuehrung.html#motivation-für-ein-monitoring",
     "title": "Einführung",
-    "section": "Motivation für ein Monitoring",
-    "text": "Motivation für ein Monitoring\n\nForschung\nWirtschaftliche Interessen\nRechtliche Rahmenbedingungen (z.B. FFH)"
+    "section": "",
+    "text": "Forschung\nWirtschaftliche Interessen\nRechtliche Rahmenbedingungen (z.B. FFH)"
   },
   {
     "objectID": "content/slides/01/01-einfuehrung.html#fauna-flora-habitat-richtlinie-ffh-richtlinien",
@@ -2245,5 +2245,19 @@
     "title": "Erfassung von Wildtieren (E2)",
     "section": "Übung 3: Zusammenführen der Daten",
     "text": "Übung 3: Zusammenführen der Daten\nFühren Sie die Daten aus Aufgabe 2 zusammen und finden Sie das Foto, bei dem die Klassifizierung am unsichersten war."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#ramsar-konvention",
+    "href": "content/slides/01/01-einfuehrung.html#ramsar-konvention",
+    "title": "Einführung",
+    "section": "Ramsar-Konvention",
+    "text": "Ramsar-Konvention"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#footnotes",
+    "href": "content/slides/01/01-einfuehrung.html#footnotes",
+    "title": "Einführung",
+    "section": "Fußnoten",
+    "text": "Fußnoten\n\n\nYoccoz, N. G., Nichols, J. D., & Boulinier, T. (2001). Monitoring of biological diversity in space and time. Trends in ecology & evolution, 16(8), 446-453.↩︎\nFerraz, G. et al. (2007). A large-scale deforestation experiment: effects of patch area and isolation on Amazon birds. Science, 315(5809), 238-241.↩︎"
   }
 ]

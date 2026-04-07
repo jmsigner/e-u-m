@@ -11,10 +11,8 @@ website:
       - text: Vorlesungen
         menu:
           - text: "Einführung"
-#          - href: content/vorlesungen/01-vorlesung.qmd
-            text: "01. Einführung"
-#          - href: content/vorlesungen/02-vorlesung.qmd
-            text: "02. Methoden"
+          - text: "01. Einführung"
+          - text: "02. Methoden"
           - text: "-------"
           - text: "Vorkommen"
           - text: "03. Wo kommt eine Art vor?"
