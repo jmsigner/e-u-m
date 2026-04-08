@@ -6,7 +6,7 @@ website:
   title: "Erfassung und Monitoring von Wildtieren"
   navbar:
     left:
-      - href: content/index.qmd
+      - href: index.qmd
         text: Start
       - text: Vorlesungen
         menu:
