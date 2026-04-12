@@ -2,45 +2,21 @@
 title: "Einführung"
 ---
 
-# Vorbereitung
-
-Hören Sie diesen [Podcast](https://www.youtube.com/watch?v=5_gFgu9DZF0&list=PLDnrS2QsXM7qDDOvCyku1RjorYG5-iVGp&index=14) zu Wildtiermangement an und überlegen Sie sich kurz Antworten zu folgenden Punkten. 
-
 
 # Vorlesung
 
-- [Logistik und Rahmenbedingungen](/content/slides/01/01-einfuehrung.html){target="_blank"}
-- [Übersicht](/content/slides/01/01-einfuehrung.html#/was-hat-programmierung-in-einem-wildbio-kurs-verloren){target="_blank"}
-- [Gesetzliche Rahmenbedingungen](vorlesung1.html)
-- [Was jetzt](vorlesung1.html)
-- [Artporträt: Biber]()
-- [Der Publikationsprozess]()
+- [Logistik](/content/slides/01/01-einfuehrung.html){target="_blank"}
+- [Motivation & Rahmen](/content/slides/01/01-einfuehrung.html#/motivation){target="_blank"}
+- Kurze Pause
+- [Übung](/content/uebungen/uebung_w1.html){target="_blank"}
+- Artporträt: Biber
 
 
-## Übung 1: Abgrenzung von Begriffen
+# Folien
+- [Alle Folien](/content/slides/01/01-einfuehrung.html){target="_blank"}
 
-Diskutieren Sie in Klingruppen (2-3 Studierende) folgende Fragen
-aus dem Podcast:
-
-1. Wie ist der Titel bzw. die Aussage "Wildtiere sind der Spiegel dessen, wie der Mensch mit der Landschaft umgeht" zu verstehen?
-2. Ist Wildtiermanagement einfach ein moderner Begriff für Jagd? Begründen Sie Ihre Antwort kurz. 
-3. Wie unterscheidet sich Monitoring vom Wildtiermanagement bzw. welche Rolle übernimmt das Monitoring? 
-4. Versuchen Sie für die folgenden drei Begriffe eine Definition zu erarbeiten: Wildtiermanagement, Jagd und Monitoring.
+# Literatur (optional)
 
 
 
-
-## Art Porträt: Biber <!-- 15 min -->
-
-
-::: {.callout-note collapse = true}
-
-## Wichtige Wörter
-
-- BON
-- GeoBON
-- FFH
-- Berner Konvention
-
-:::
 

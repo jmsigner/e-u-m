@@ -189,6 +189,335 @@
     "text": "Was zeigt der erste Plot? Wo liegt unsere Beobachtung (rote Linie)?\nBei welchem \\(p\\) liegt das Maximum der Likelihood-Kurve? Entspricht das k/n?\nIm dritten Plot: Wie beeinflusst der Prior Beta(2, 8) den Posterior? Wo liegt er relativ zur Likelihood?\nÄnderen Sie n = 100, k = 40 — was passiert mit dem Einfluss des Priors?\n\n\n# Daten\nn &lt;- 10 # Anzahl Nächte\nk &lt;- 4 # Anzahl Fotos\n\n# Binomialverteilung ----\n# Wie verteilen sich mögliche Detektionszahlen, wenn p = 0.4?\nx &lt;- 0:n\nwahrscheinlichkeit &lt;- dbinom(x, size = n, prob = 0.4)\n\nbarplot(wahrscheinlichkeit, names.arg = x,\n        xlab = \"Anzahl Detektionen k\",\n        ylab = \"Wahrscheinlichkeit P(k | p = 0.4)\",\n        main = \"Binomialverteilung: n = 10, p = 0.4\")\nabline(v = k + 0.5, col = \"red\", lwd = 2, lty = 2)  # unsere Beobachtung\n\n# Likelihood -----\np &lt;- seq(0, 1, length.out = 300)\nlikelihood &lt;- dbinom(k, size = n, prob = p)\n\nplot(\n  p, likelihood, type = \"l\", col = \"darkred\", lwd = 2,\n  xlab = \"Detektionswahrscheinlichkeit p\",\n  ylab = \"Likelihood L(p | Daten)\",\n  main = \"Likelihood-Kurve: k = 4, n = 10\")\nabline(v = k/n, col = \"grey44\", lwd = 2, lty = 2)\nlegend(\n  \"topright\",\n  legend = c(\"Likelihood\", \"MLE (k/n = 0.4)\"),\n  col = c(\"darkred\", \"grey44\"),\n  lwd = 2, lty = c(1, 2))\n\n# Likelihood * Prior = Posterior \nalpha_prior &lt;- 2\nbeta_prior  &lt;- 8   # Vorwissen: Luchs ist selten\n\nprior &lt;- dbeta(p, alpha_prior, beta_prior)\nposterior &lt;- dbeta(p, alpha_prior + k, beta_prior + (n - k))\n\n# Likelihood skalieren für Vergleich im Plot\nlik_scaled &lt;- likelihood / max(likelihood) * max(posterior)\n\nplot(p, posterior, type = \"l\", col = \"steelblue\", lwd = 2,\n     xlab = \"p\", ylab = \"Dichte / skalierte Likelihood\",\n     main = \"Prior, Likelihood & Posterior im Vergleich\",\n     ylim = c(0, max(posterior) * 1.2))\nlines(p, prior,        col = \"grey60\",     lwd = 2, lty = 2)\nlines(p, lik_scaled,   col = \"darkorange\",  lwd = 2, lty = 3)\nlegend(\"topright\",\n       legend = c(\"Prior\", \"Likelihood (skaliert)\", \"Posterior\"),\n       col    = c(\"grey60\", \"darkorange\", \"steelblue\"),\n       lwd    = 2, lty = c(2, 3, 1))"
   },
   {
+    "objectID": "content/vorlesungen/02-vorlesung.html",
+    "href": "content/vorlesungen/02-vorlesung.html",
+    "title": "Einführung",
+    "section": "",
+    "text": "Hören Sie diesen Podcast zu Wildtiermangement an und überlegen Sie sich kurz Antworten zu folgenden Punkten."
+  },
+  {
+    "objectID": "content/vorlesungen/02-vorlesung.html#übung-1-abgrenzung-von-begriffen",
+    "href": "content/vorlesungen/02-vorlesung.html#übung-1-abgrenzung-von-begriffen",
+    "title": "Einführung",
+    "section": "Übung 1: Abgrenzung von Begriffen",
+    "text": "Übung 1: Abgrenzung von Begriffen\nDiskutieren Sie in Klingruppen (2-3 Studierende) folgende Fragen aus dem Podcast:\n\nWie ist der Titel bzw. die Aussage “Wildtiere sind der Spiegel dessen, wie der Mensch mit der Landschaft umgeht” zu verstehen?\nIst Wildtiermanagement einfach ein moderner Begriff für Jagd? Begründen Sie Ihre Antwort kurz.\nWie unterscheidet sich Monitoring vom Wildtiermanagement bzw. welche Rolle übernimmt das Monitoring?\nVersuchen Sie für die folgenden drei Begriffe eine Definition zu erarbeiten: Wildtiermanagement, Jagd und Monitoring."
+  },
+  {
+    "objectID": "content/vorlesungen/02-vorlesung.html#art-porträt-biber",
+    "href": "content/vorlesungen/02-vorlesung.html#art-porträt-biber",
+    "title": "Einführung",
+    "section": "Art Porträt: Biber ",
+    "text": "Art Porträt: Biber \n\n\n\n\n\n\nWichtige Wörter\n\n\n\n\n\n\nBON\nGeoBON\nFFH\nBerner Konvention"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
+    "href": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Kurze Wiederholung/Vorschau",
+    "text": "Kurze Wiederholung/Vorschau"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#motivation",
+    "href": "content/slides/01/02-erfassung.html#motivation",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Motivation",
+    "text": "Motivation\n\nFür alle Monitoringvorhaben brauchen wir Daten. Diese müssen wir ‘erfassen’.\nUnter Erfassung ist hier das indirekte oder direkte Beobachten, Zählen oder Messen von Wildtieren in freier Wildbahn gemeint.\nReinhardt et al. (2015) Monitoring von Wolf, Luchs und Bär in Deutschland BfN Skript 413 (https://www.bfn.de/fileadmin/ BfN/service/Dokumente/skripten/Skript413.pdf)"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
+    "href": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Was macht es so schwierig Wildtiere zu erfassen?",
+    "text": "Was macht es so schwierig Wildtiere zu erfassen?\n\nAuffinden der Tiere kann schwierig sein.\nDie meisten Tiere, die wir untersuchen, bewegen sich.\nDie Dichten der Tiere variieren in Gebieten und zwischen Tierarten (z.B. Amsel vs. Luchs)."
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
+    "href": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Unterschiedliche Methoden für unterschiedliche Fragestellungen",
+    "text": "Unterschiedliche Methoden für unterschiedliche Fragestellungen\n\nWas möchte ich wissen?\nWelche Methode kann ich dafür anwenden?\nWelche Daten brauche ich für welche Methode?\n\nSilvy, N. J., Lopez, R. R., & Peterson, M. J. (2012). Techniques for marking wildlife. The wildlife techniques manual, 1, 230-257."
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
+    "href": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Der Versuch einer Einteilung",
+    "text": "Der Versuch einer Einteilung\nWir müssen Entscheidungen treﬀen, die in folgende Kategorien fallen:\n\nWas für Daten benötigen wir?\n\nNachweise\nAnzahlen\n\nAnzahl Sichtungen\nAnzahl gesehener Tiere\n\nIndividuelle Daten (z.B. Gewicht, Position)\n\neinmalig\nmehrmalig"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
+    "href": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Methoden der Erfassung",
+    "text": "Methoden der Erfassung\n\nDie klassische Methode der Erfassung von Wildtieren ist die direkte oder indirekte Feldbeobachtung mit oder ohne technische Hilfsmittel (z.B. Fernglas).\nIn den vergangen Jahrzehnten sind eine Vielzahl von sensorbasierten Erfassungsmethoden hinzugekommen (z.B. satellitenbasierte Telemetrie oder Fotofallen).\n\n\nFoto: J. Signer"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#übung-1-fotos-klassifizieren---datenstruktur",
+    "href": "content/slides/01/02-erfassung.html#übung-1-fotos-klassifizieren---datenstruktur",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Übung 1: Fotos klassifizieren - Datenstruktur",
+    "text": "Übung 1: Fotos klassifizieren - Datenstruktur\n\nZiel der heutigen Übung ist es, 25 Fotofallenfotos zu klassifizieren und die Klassifizierungsergebnisse zu vergleichen.\n\nÜberlegen Sie in Kleingruppen (2 bis 3 Studierende), wie Sie die gesammelten Daten aus den Fotofallen so organisieren können, dass wir in einem nächsten Schritt:\n\ndie Daten zusammenführen und\nvergleichen können, wie die Daten klassifiziert wurden."
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#markierung-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#markierung-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Markierung von Tieren",
+    "text": "Markierung von Tieren\nNatürliche Markierung\n\nEinige Tierarten haben eindeutige natürliche Merkmale, die eine individuelle Identiﬁkation möglich machen. Bei vielen Katzen (z.B. Tiger, Luchs) weißt das Fell eindeutige Muster auf.\nJohansson et al. 20201 untersuchten die Auswirkungen von Fehlklassiﬁkationen auf Populationsgrößenschätzungen. Sie können auch versuchen Schneeleoparden zu klassiﬁzieren (https: //camtraining.globalsnowleopard.org/leppe/login/).\n\nJohansson, Ö., Samelius, G., Wikberg, E., Chapron, G., Mishra, C., & Low, M. (2020). Identification errors in camera-trap studies result in systematic population overestimation. Scientific reports, 10(1), 1-10."
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#künstliche-markierung",
+    "href": "content/slides/01/02-erfassung.html#künstliche-markierung",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Künstliche Markierung",
+    "text": "Künstliche Markierung\n\nInvasiv\n\nTransponder (z.B. PIT-Tags1)\nRadioaktive Marker\nOhrmarken, Muster im Fell\n\nNichtinvasiv\n\nHalsbänder\nBeringung\nFarbe\n\n\nDie Abkürzung PIT steht für Passive Integrated Transponders"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#fangen-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#fangen-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Fangen von Tieren",
+    "text": "Fangen von Tieren\n\nQuelle: J. Signer"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#markieren-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#markieren-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Markieren von Tieren",
+    "text": "Markieren von Tieren\n\nQuelle: S. Appleby"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Verfolgen von Tieren",
+    "text": "Verfolgen von Tieren\n\nQuelle: Nationalpark Harz/Bayeerischer Wald"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#übung-2-fotos-klassifizieren",
+    "href": "content/slides/01/02-erfassung.html#übung-2-fotos-klassifizieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Übung 2: Fotos klassifizieren",
+    "text": "Übung 2: Fotos klassifizieren\nKlassifizieren Sie die Fotos (daten/woche_2_fotos) und laden Sie die Ergebnisse in StudIP in den Order daten/woche_2_fotos_ergebnisse hoch."
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
+    "href": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Qualität von Nachweisen",
+    "text": "Qualität von Nachweisen\nHinweise (meist von Karnivoren) werden nach ihrer Überprüfbarkeit in\n\nNachweise (C1),\nbestätigte Hinweise (C2) und\nunbestätigte Hinweise (C3)\n\neingeteilt. Diese Kriterien wurden für SCALP (Status and Conservation of the Alpine Lynx Population) in der Schweiz entwickelt."
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#übung-3-zusammenführen-der-daten",
+    "href": "content/slides/01/02-erfassung.html#übung-3-zusammenführen-der-daten",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Übung 3: Zusammenführen der Daten",
+    "text": "Übung 3: Zusammenführen der Daten\nFühren Sie die Daten aus Aufgabe 2 zusammen und finden Sie das Foto, bei dem die Klassifizierung am unsichersten war."
+  },
+  {
+    "objectID": "content/slides/05/01-einfuehrung.html#vorkommen",
+    "href": "content/slides/05/01-einfuehrung.html#vorkommen",
+    "title": "Artporträts",
+    "section": "Vorkommen",
+    "text": "Vorkommen"
+  },
+  {
+    "objectID": "content/slides/05/01-einfuehrung.html#merkmale",
+    "href": "content/slides/05/01-einfuehrung.html#merkmale",
+    "title": "Artporträts",
+    "section": "Merkmale",
+    "text": "Merkmale"
+  },
+  {
+    "objectID": "content/slides/05/01-einfuehrung.html#monitoring",
+    "href": "content/slides/05/01-einfuehrung.html#monitoring",
+    "title": "Artporträts",
+    "section": "Monitoring",
+    "text": "Monitoring"
+  },
+  {
+    "objectID": "content/slides/05/01-einfuehrung.html#berichtspflichten",
+    "href": "content/slides/05/01-einfuehrung.html#berichtspflichten",
+    "title": "Artporträts",
+    "section": "Berichtspflichten",
+    "text": "Berichtspflichten"
+  },
+  {
+    "objectID": "content/slides/05/01-einfuehrung.html#beispiel",
+    "href": "content/slides/05/01-einfuehrung.html#beispiel",
+    "title": "Artporträts",
+    "section": "Beispiel:",
+    "text": "Beispiel:\nhttps://besjournals.onlinelibrary.wiley.com/doi/full/10.1002/2688-8319.12168"
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html",
+    "href": "content/pruefung/pruefungen.html",
+    "title": "Prüfungsleistungen",
+    "section": "",
+    "text": "Die Benotung für dieses Modul erfolgt anhand einer strukturierten Hausarbeit. Um für die Hausarbeit zugelassen zu werden, muss eine Prüfungsvorleistung absolviert werden, darin werden die wichtigsten Konzepte, Methoden und Begriffe der Vorlesung in einem Multiple-Choice-Test abgefragt.\nFür die Hausarbeit verwenden Sie einen bereits erhobenen Datensatz. Es ist auch zulässig eine beretis durchgeführte Studie zu wiederholen. Nähere Details zur Hausarbeit fogen ab Woche 8 des Semesters."
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html#literatur",
+    "href": "content/pruefung/pruefungen.html#literatur",
+    "title": "Prüfungsleistungen",
+    "section": "Literatur",
+    "text": "Literatur\nEine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:\n\nZu den FFH-Berichten: Müller et al. 2019: https://www.researchgate.net/publication/349721250_Der_nationale_Bericht_2019_zu_Lebensraumtypen_und_Arten_der_FFH-Richtlinie_-_ein_Uberblick_uber_die_Ergebnisse\nZu Monitoring und Occupancy-Modellen: Boyd et al. 2023: https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12961\nSliwinski et al. 2021 Comparison of spotlighting monitoring data of European brown hare (Lepus europaeus) relative population densities with infrared thermography in agricultural landscapes in Northern Germany\nAusband et al. 2022 Estimating wolf abundance from cameras\nTelemetriestudie\n\nSie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden Antworten auf spezifische Fragen schnell. Es werden keine Fragen zu technischen/statistischen Details gestellt."
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html#terminologie",
+    "href": "content/pruefung/pruefungen.html#terminologie",
+    "title": "Prüfungsleistungen",
+    "section": "Terminologie",
+    "text": "Terminologie\nIch erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können:\n\nWoche 1\n\nMonitoring\nStatistische Inferenz\nZustandsvariable\nEU-Verodnung\nEU-Richtlinie\nFFH-Richtlinie\nAnhänge der FFH-Richtlinie\nRamsar Konvention\nBerner Konvention\nRelative vs. absolute Pfade"
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html#statistik",
+    "href": "content/pruefung/pruefungen.html#statistik",
+    "title": "Prüfungsleistungen",
+    "section": "Statistik",
+    "text": "Statistik\nEs werden keine R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen."
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html#analysen",
+    "href": "content/pruefung/pruefungen.html#analysen",
+    "title": "Prüfungsleistungen",
+    "section": "Analysen",
+    "text": "Analysen\n\nCode ist reproduzierbar. (60%)\nDer Code ist ausreichend dokumentiert und logisch sinnvoll aufgebaut. (25%)\nEs gibt eine README-Datei, die beschreibt, wie man den Code und die Analyse ausführen kann. (15%)"
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html#hausarbeit",
+    "href": "content/pruefung/pruefungen.html#hausarbeit",
+    "title": "Prüfungsleistungen",
+    "section": "Hausarbeit",
+    "text": "Hausarbeit\n\n\n\n\n\n\n\n\nWas\nBewertung\nDetaillierte Bewertung\n\n\n\n\nEinleitung\n15 %\n1. Worum geht es (1–2 Absätze); 30 %2. Stand der Dinge (1 Absatz); 20 %3. Ziel dieser Hausarbeit; 20 %4. Literatur (3–5 peer-reviewed Veröffentlichungen); 30 %\n\n\nMethoden\n25 %\n1. Datenquellen, wie wurden die Daten aufgenommen; 20 %2. Modellbeschreibung (welches Modell wurde verwendet, wie wurde es parametrisiert); 40 %3. Aufschreiben und beschreiben der Modellgleichung; 30 %4. Richtige Zitation aller Software; 10 %\n\n\nErgebnisse\n25 %\n- Beschreibung der Ergebnisse, die für die Fragestellung relevant sind; 20 %- Zwei Abbildungen, die die Ergebnisse untermauern und das Modell visualisieren; 60 %- Eine Tabelle, die für die Fragestellung relevante Rohdaten oder Modelloutput zusammenfasst 20 %\n\n\nDiskussion\n15 %\nJeweils ein Absatz, der:1. der, die Ergebnisse zusammenfasst und in Verbindung mit den Hypothese(n) bringt; 30 %2. der, mögliche Schwachstellen, Erweiterungen etc. diskutiert; 30 %3. der, die Ergebnisse im Kontext der aktuellen begutachteten Literatur (&gt;2020) darstellt (3–5 Referenzen); 40 %\n\n\nReferenzen\n5 %\nAlle verwendeten Quellen (inkl. Software) sind in einem Literaturverzeichnis einheitlich zitiert\n\n\nZusammenfassung\n5 %\nDem Text ist eine Zusammenfassung von einem Absatz vorangestellt (max. 200 Wörter)\n\n\nForm\n5 %\nDie Arbeit ist einheitlich und ansprechend formatiert\n\n\nAusdruck\n5 %\nDie Arbeit ist verständlich und fehlerfrei geschrieben"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#team",
+    "href": "content/slides/01/01-einfuehrung.html#team",
+    "title": "Einführung",
+    "section": "Team",
+    "text": "Team\n\nJohannes Signer (Wissenschaftlicher Mitarbeiter in der Abteilung Wildtierwissenschaften)\n\nForschungsinteressen: Bewegungsökologie, statistische Methoden in der Ökologie\nWerdegang: Ökologie (BSc), Geoinformatik (MSc), angewandte Statistik (MSc) und Forstwissenschaften (PhD)"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#kontakt",
+    "href": "content/slides/01/01-einfuehrung.html#kontakt",
+    "title": "Einführung",
+    "section": "Kontakt",
+    "text": "Kontakt\n\nEmail:jsigner@uni-goettingen.de\nVerwenden Sie auch das Forum bei StudIP, dort beantworten wir am liebsten Ihre Fragen."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#wer-sind-sie",
+    "href": "content/slides/01/01-einfuehrung.html#wer-sind-sie",
+    "title": "Einführung",
+    "section": "Wer sind Sie?",
+    "text": "Wer sind Sie?"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#ablauf",
+    "href": "content/slides/01/01-einfuehrung.html#ablauf",
+    "title": "Einführung",
+    "section": "Ablauf",
+    "text": "Ablauf\n\n12 Termine (10 davon in Präsenz)\nPräsenztermine Mo: von 9:15 bis ca. 11:45 (Vorlesung und Übung)\nFür die Übungen brauchen Sie meist einen Laptop. Sollten Sie keinen Laptop zur Verfügung haben, melden Sie sich bitte bei mir."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#bewertung",
+    "href": "content/slides/01/01-einfuehrung.html#bewertung",
+    "title": "Einführung",
+    "section": "Bewertung",
+    "text": "Bewertung\n\nPrüfungsvorleistung: ein 60-minütiger Multiple-Choice Test zu den wichtigsten Konzepten der Vorlesung.\nEine Hausarbeit (siehe Website zu Details)\n\nBei der Prüfung wird nicht nach Programmierkenntnissen in R gefragt, sondern nur nach der Interpretation von Ergebnissen."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#nutzen-von-ki",
+    "href": "content/slides/01/01-einfuehrung.html#nutzen-von-ki",
+    "title": "Einführung",
+    "section": "Nutzen von KI",
+    "text": "Nutzen von KI\n\nIch ermutige Sie KI unterstützend zu nutzen.\nMeine Erfahrung ist, dass man KI gut nutzen kann wenn man ungefähr weiß was man braucht, jedoch es schwieriger ist, sich mit KI einen Überblick zu verschaffen.\n\n\n\n\n\n\n\n\nWichtig\n\n\n\nWenn Sie z.B. bei den Übungen nicht wissen, wo Sie anfangen sollen, dann fragen Sie Kommilitonen oder mich.\nWenn Sie bei einem R-Befehl unsicher sind, bzw. den Fehler nicht gleich entdecken, fragen Sie die KI."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#ausblick",
+    "href": "content/slides/01/01-einfuehrung.html#ausblick",
+    "title": "Einführung",
+    "section": "Ausblick",
+    "text": "Ausblick\n\nArtporträts: Wie funktioniert Monitoring bei einzelnen Arten\nThemen für die Hausarbeit: Zu wissenschaftlichen Arbeiten und Datenanalyse"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#was-hat-programmierung-in-einem-wildbio-kurs-verloren",
+    "href": "content/slides/01/01-einfuehrung.html#was-hat-programmierung-in-einem-wildbio-kurs-verloren",
+    "title": "Einführung",
+    "section": "Was hat Programmierung in einem Wildbio Kurs verloren?",
+    "text": "Was hat Programmierung in einem Wildbio Kurs verloren?\nImmer mehr Daten:\n\nEin Fotofallenmonitoring mit 50 Fotofallen, die acht Wochen im Feld sind (mit 30 Fotos pro Kamera und Tag) = 84.000 Fotos.\nEin durchschnittliches Telemetrieprojekt mit 20 Tieren, 1 Lokalisierung pro Stunde und Tier für ein Jahr = 172.800 Datenpunkte.\nATLAS-Telemetriesystem: 30 Vögel für 50 Tage mit einer Lokalisierung pro 8 Sekunden: 16.200.000 Datenpunkte."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#motivation",
+    "href": "content/slides/01/01-einfuehrung.html#motivation",
+    "title": "Einführung",
+    "section": "Motivation",
+    "text": "Motivation\n\nBestände von Wildtiere nehmen zu (z.B. die Wolfspopulation wächst stetig in D)."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#was-ist-monitoring",
+    "href": "content/slides/01/01-einfuehrung.html#was-ist-monitoring",
+    "title": "Einführung",
+    "section": "Was ist Monitoring?",
+    "text": "Was ist Monitoring?\nNach Yoccoz et al. 20011, ist Monitoring:\n\nEin Prozess zum Beobachten von Zustandsvariablen über die Zeit mit dem Ziel den Zustand des Systems zu untersuchen und Inferenz zu betreiben.\n\nYoccoz, N. G., Nichols, J. D., & Boulinier, T. (2001). Monitoring of biological diversity in space and time. Trends in ecology & evolution, 16(8), 446-453."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#motivation-für-ein-monitoring",
+    "href": "content/slides/01/01-einfuehrung.html#motivation-für-ein-monitoring",
+    "title": "Einführung",
+    "section": "Motivation für ein Monitoring",
+    "text": "Motivation für ein Monitoring\n\nForschung\nWirtschaftliche Interessen\nRechtliche Rahmenbedingungen (z.B. FFH)"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#etwas-terminologie",
+    "href": "content/slides/01/01-einfuehrung.html#etwas-terminologie",
+    "title": "Einführung",
+    "section": "Etwas Terminologie",
+    "text": "Etwas Terminologie\n\nInternationale Übereinkommen (international conventions)\n\nWerden von Staaten geschlossen und müssen durch nationales und/oder EU-Recht umgesetzt werden. Z.B. Berner Konvention\n\nEU-Richtlinie\n\nGibt den Rahmen vor und muss in nationales Recht umgewandelt werden. Z.B. die FFH-Richtlinie\n\nEU-Verordnung\n\nGesetzlicher Rahmen wird von der EU vorgegeben und muss nicht mehr in nationales Recht umgewandelt werden. Z.B. Monitoring von Treibhausgasen-Emissionen."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#ramsar-konvention-1971-übereinkommen-über-feuchtgebiete-von-internationaler-bedeutung",
+    "href": "content/slides/01/01-einfuehrung.html#ramsar-konvention-1971-übereinkommen-über-feuchtgebiete-von-internationaler-bedeutung",
+    "title": "Einführung",
+    "section": "Ramsar-Konvention (1971): Übereinkommen über Feuchtgebiete von internationaler Bedeutung",
+    "text": "Ramsar-Konvention (1971): Übereinkommen über Feuchtgebiete von internationaler Bedeutung\nZiel: Schutz und nachhaltige Nutzung von Feuchtgebieten weltweit\n\nÄltestes internationales Naturschutzabkommen\nVertragsstaaten verpflichten sich, mindestens ein Feuchtgebiet als „Ramsar-Gebiet” auszuweisen\nHeute: 172 Vertragsstaaten, über 2.400 Ramsar-Gebiete (250 Mio. Hektar)\nDeutschland: 35 ausgewiesene Gebiete.\n\nVerbindung zu anderen Abkommen: Enge Kooperation mit der CBD; Feuchtgebiete sind Teil des CBD-Arbeitsprogramms zu Binnengewässern."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#übereinkommen-über-die-erhaltung-der-europäischen-wildlebenden-pflanzen-und-tiere-und-ihrer-natürlichen-lebensräume-berner-konvention",
+    "href": "content/slides/01/01-einfuehrung.html#übereinkommen-über-die-erhaltung-der-europäischen-wildlebenden-pflanzen-und-tiere-und-ihrer-natürlichen-lebensräume-berner-konvention",
+    "title": "Einführung",
+    "section": "Übereinkommen über die Erhaltung der europäischen wildlebenden Pflanzen und Tiere und ihrer natürlichen Lebensräume (Berner Konvention)",
+    "text": "Übereinkommen über die Erhaltung der europäischen wildlebenden Pflanzen und Tiere und ihrer natürlichen Lebensräume (Berner Konvention)\nZiel: Schutz gefährdeter Wildtierarten und ihrer Lebensräume in Europa\n\nErstes europäisches Abkommen zum Schutz der Biodiversität\n51 Unterzeichnerstaaten (Europarat + Nicht-EU-Länder)\nStrenger Schutz für über 1.000 bedrohte Tier- und Pflanzenarten (Anhänge I–III)\nVerpflichtung zur Zusammenarbeit bei grenzüberschreitenden Arten\n\nVerbindung zu anderen Abkommen: Direkter Vorläufer der EU-FFH-Richtlinie – viele Bestimmungen wurden 1992 in EU-Recht übernommen."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#fauna-flora-habitat-richtlinie-der-europäischen-union-9243ewg-ffh-richtlinie",
+    "href": "content/slides/01/01-einfuehrung.html#fauna-flora-habitat-richtlinie-der-europäischen-union-9243ewg-ffh-richtlinie",
+    "title": "Einführung",
+    "section": "Fauna-Flora-Habitat-Richtlinie der Europäischen Union (92/43/EWG; FFH-Richtlinie)",
+    "text": "Fauna-Flora-Habitat-Richtlinie der Europäischen Union (92/43/EWG; FFH-Richtlinie)\nZiel: Schutz europäischer Lebensräume und Arten durch ein einheitliches Schutzgebietsnetz\n\nSetzt die Berner Konvention verbindlich in EU-Recht um\nGemeinsam mit der Vogelschutzrichtlinie (1979) Grundlage für Natura 2000\nNatura 2000: Größtes Schutzgebietsnetz der Welt – über 27.000 Gebiete in der EU\nArten und Lebensraumtypen in Anhängen II, IV und V geregelt\nMitgliedstaaten müssen „günstigen Erhaltungszustand” sicherstellen"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#die-anhänge-der-ffh-richtlinie",
+    "href": "content/slides/01/01-einfuehrung.html#die-anhänge-der-ffh-richtlinie",
+    "title": "Einführung",
+    "section": "Die Anhänge der FFH-Richtlinie",
+    "text": "Die Anhänge der FFH-Richtlinie\nDie FFH-Richtlinie gliedert sich in sechs Anhänge, die genau festlegen, was wie geschützt wird\n\n\n\n\n\n\n\n\nAnhang\nInhalt\nSchutzpflicht\n\n\n\n\nAnhang I\nSchutzbedürftige Lebensraumtypen (z.B. Hochmoore, Buchenurwälder, Dünen)\nAusweisung als Natura-2000-Gebiet (SAC = Special Area of Conservation)\n\n\nAnhang II\nTier- und Pflanzenarten, für die Schutzgebiete ausgewiesen werden müssen\nAusweisung als Natura-2000-Gebiet (SAC)\n\n\nAnhang III\nKriterien zur Auswahl der Schutzgebiete (Repräsentativität, Fläche, Zustand)\nBewertungsgrundlage\n\n\nAnhang IV\nStreng zu schützende Arten (z.B. alle Fledermäuse, Wolf, Luchs, Meeresschildkröten)\nEuropaweites Tötungs- & Störungsverbot\n\n\nAnhang V\nArten, deren Entnahme aus der Natur reguliert werden darf\nNutzungsbeschränkungen\n\n\nAnhang VI\nVerbotene Fang- und Tötungsmethoden\nMethoden- & Geräteverbot"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#globaler-biodiversitätsrahmen-gbf-verabschiedet-unter-der-cbd-kunming-montreal-abkommen-2022",
+    "href": "content/slides/01/01-einfuehrung.html#globaler-biodiversitätsrahmen-gbf-verabschiedet-unter-der-cbd-kunming-montreal-abkommen-2022",
+    "title": "Einführung",
+    "section": "Globaler Biodiversitätsrahmen (GBF) – verabschiedet unter der CBD (Kunming-Montreal Abkommen 2022)",
+    "text": "Globaler Biodiversitätsrahmen (GBF) – verabschiedet unter der CBD (Kunming-Montreal Abkommen 2022)\nZiel: Stopp und Umkehr des Biodiversitätsverlusts bis 2030 und darüber hinaus\n\nVerabschiedet auf der CBD-COP15 in Montreal (Dezember 2022)\nKernziel: 30×30 – 30 % der Land- und Meeresflächen bis 2030 schützen\nWeitere Ziele: Reduktion schädlicher Subventionen, Wiederherstellung degradierter Ökosysteme (30 %), gerechter Vorteilsausgleich für indigene Gemeinschaften\n196 Vertragsstaaten (nahezu weltweit)\n\nVerbindung zu anderen Abkommen: Dachrahmen unter der CBD; gibt Ramsar, Berner Konvention und FFH/Natura 2000 neue politische Schubkraft und konkrete Flächenziele."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#wie-hängen-sie-zusammen",
+    "href": "content/slides/01/01-einfuehrung.html#wie-hängen-sie-zusammen",
+    "title": "Einführung",
+    "section": "Wie hängen sie zusammen?",
+    "text": "Wie hängen sie zusammen?\n\n\n\nAbkommen\nEbene\nSchwerpunkt\n\n\n\n\nRamsar\nGlobal\nFeuchtgebiete\n\n\nBerner Konvention\nEuropa\nWildtiere & Habitate\n\n\nFFH / Natura 2000\nEU\nVerbindliches Schutzgebietsnetz\n\n\nKunming-Montreal\nGlobal\nGesamte Biodiversität, 30×30-Ziel"
+  },
+  {
     "objectID": "content/slides/01/01-einfuehrung122.html#was-ist-die-ramsar-konvention",
     "href": "content/slides/01/01-einfuehrung122.html#was-ist-die-ramsar-konvention",
     "title": "Einführung",
@@ -350,438 +679,11 @@
     "text": "Optionale Literatur\n\nBennett, G., & Ligthart, S. (2001). The implementation of international nature conservation agreements in Europe: the case of the Netherlands. European Environment, 11(3), 140-150"
   },
   {
-    "objectID": "content/slides/01/01-einfuehrung.html#team",
-    "href": "content/slides/01/01-einfuehrung.html#team",
-    "title": "Einführung",
-    "section": "Team",
-    "text": "Team\n\nJohannes Signer (Wissenschaftlicher Mitarbeiter in der Abteilung Wildtierwissenschaften)\n\nForschungsinteressen: Bewegungsökologie, statistische Methoden in der Ökologie\nWerdegang: Ökologie (BSc), Geoinformatik (MSc), angewandte Statistik (MSc) und Forstwissenschaften (PhD)"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#kontakt",
-    "href": "content/slides/01/01-einfuehrung.html#kontakt",
-    "title": "Einführung",
-    "section": "Kontakt",
-    "text": "Kontakt\n\nEmail:jsigner@uni-goettingen.de\nVerwenden Sie auch das Forum bei StudIP, dort beantworten wir am liebsten Ihre Fragen."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#wer-sind-sie",
-    "href": "content/slides/01/01-einfuehrung.html#wer-sind-sie",
-    "title": "Einführung",
-    "section": "Wer sind Sie?",
-    "text": "Wer sind Sie?"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#ablauf",
-    "href": "content/slides/01/01-einfuehrung.html#ablauf",
-    "title": "Einführung",
-    "section": "Ablauf",
-    "text": "Ablauf\n\n12 Termine (10 davon in präsenz)\nPräsentztermine Mo: von 9:15 bis ca. 11:45 (Vorlesung und Übung)\nFür die Übungen brauchen Sie meist einen Laptop. Sollten Sie kein Laptop zur Verfügung haben, melden Sie sich bitte bei mir."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#bewertung",
-    "href": "content/slides/01/01-einfuehrung.html#bewertung",
-    "title": "Einführung",
-    "section": "Bewertung",
-    "text": "Bewertung\n\nPrüfungsvorlesitung: ein 60-Minütiger Multiple-Choice Test zu den wichtigsten Konzepten der Vorlesung.\nEine Hausarbeit (siehe Website zu Details)\n\nBei der Prüfung wird nicht nach Programmierkenntnissen in R gefragt, sondern nur nach der Interpretation von Ergebnissen."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#ausblick",
-    "href": "content/slides/01/01-einfuehrung.html#ausblick",
-    "title": "Einführung",
-    "section": "Ausblick",
-    "text": "Ausblick\n\nArtporträts: Wie funktioniert Monitoring bei einzelnen Arten\nThemen für die Hausarbeit: Zu wissenschaftlichen Arbeiten und Datenanalyse"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#was-hat-programmierung-in-einem-wildbio-kurs-verloren",
-    "href": "content/slides/01/01-einfuehrung.html#was-hat-programmierung-in-einem-wildbio-kurs-verloren",
-    "title": "Einführung",
-    "section": "Was hat Programmierung in einem Wildbio Kurs verloren?",
-    "text": "Was hat Programmierung in einem Wildbio Kurs verloren?\nImmer mehr Daten:\n\nEin Fotofallenmonitoring mit 50 Fotofallen, die acht Wochen im Feld sind (mit 30 Fotos pro Kamera und Tag) = 8.4^{4} Fotos.\nEin durchschnittliches Telemetrieprojekt mit 20 Tieren, 1 Lokalisierung pro Stunde und Tier für ein Jahr = 1.728^{5} Datenpunkte.\nATLAS-Telemetriesystem: 30 Vögel für 50 Tage mit einer Lokalisierung pro 8 Sekunden: 1.62^{7} Datenpunkte."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#motivation",
-    "href": "content/slides/01/01-einfuehrung.html#motivation",
-    "title": "Einführung",
-    "section": "Motivation",
-    "text": "Motivation\n\nBestände von Wildtiere nehmen zu (z.B. die Wolfspopulation wächst stetig in D)."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#was-ist-monitoring",
-    "href": "content/slides/01/01-einfuehrung.html#was-ist-monitoring",
-    "title": "Einführung",
-    "section": "Was ist Monitoring?",
-    "text": "Was ist Monitoring?\nNach Yoccoz et al. 20011, ist Monitoring:\n\nEin Prozess zum Beobachten von Zustandsvariablen über die Zeit mit dem Ziel den Zustand des Systems zu untersuchen und Inferenz zu betreiben.\n\nYoccoz, N. G., Nichols, J. D., & Boulinier, T. (2001). Monitoring of biological diversity in space and time. Trends in ecology & evolution, 16(8), 446-453."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#motivation-für-ein-monitoring",
-    "href": "content/slides/01/01-einfuehrung.html#motivation-für-ein-monitoring",
-    "title": "Einführung",
-    "section": "Motivation für ein Monitoring",
-    "text": "Motivation für ein Monitoring\n\nForschung\nWirtschaftliche Interessen\nRechtliche Rahmenbedingungen (z.B. FFH)"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#ramsar-konvention",
-    "href": "content/slides/01/01-einfuehrung.html#ramsar-konvention",
-    "title": "Einführung",
-    "section": "Ramsar-Konvention",
-    "text": "Ramsar-Konvention"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#was-ist-die-ramsar-konvention",
-    "href": "content/slides/01/01-einfuehrung.html#was-ist-die-ramsar-konvention",
-    "title": "Einführung",
-    "section": "Was ist die Ramsar-Konvention?",
-    "text": "Was ist die Ramsar-Konvention?\n\nInternationales völkerrechtliches Abkommen\nSchutz von Feuchtgebieten von internationaler Bedeutung\nAbgeschlossen 1971 in Ramsar (Iran)\nÜber 170 Vertragsstaaten\nEines der ältesten globalen Naturschutzabkommen"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#ziele-der-ramsar-konvention",
-    "href": "content/slides/01/01-einfuehrung.html#ziele-der-ramsar-konvention",
-    "title": "Einführung",
-    "section": "Ziele der Ramsar-Konvention",
-    "text": "Ziele der Ramsar-Konvention\n\nErhaltung von Feuchtgebieten\nNachhaltige Nutzung („wise use“)\nSchutz von Wasser- und Zugvögeln\nFörderung der internationalen Zusammenarbeit\nBeitrag zu Biodiversitäts-, Wasser- und Klimaschutz"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#nachhaltige-nutzung-wise-use",
-    "href": "content/slides/01/01-einfuehrung.html#nachhaltige-nutzung-wise-use",
-    "title": "Einführung",
-    "section": "Nachhaltige Nutzung („wise use“)",
-    "text": "Nachhaltige Nutzung („wise use“)\n\nGilt für alle Feuchtgebiete, nicht nur Ramsar-Gebiete\nNutzung darf Zugvögel und Lebensräume nicht beeinträchtigen\nIntegration in Raumplanung, Land- und Wassernutzung\nErfordert begleitendes ökologisches Monitoring"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#monitoring-des-ökologischen-charakters",
-    "href": "content/slides/01/01-einfuehrung.html#monitoring-des-ökologischen-charakters",
-    "title": "Einführung",
-    "section": "Monitoring des ökologischen Charakters",
-    "text": "Monitoring des ökologischen Charakters\n\nRegelmäßige Beobachtung von Feuchtgebieten\nWichtige Indikatoren:\n\nBestände von Wasser- und Zugvögeln\nBrut- und Rastzahlen\nZustand der Lebensräume\n\nUmsetzung durch nationale Programme und internationale Vogelzählungen"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#rechtliche-bedeutung-und-umsetzung",
-    "href": "content/slides/01/01-einfuehrung.html#rechtliche-bedeutung-und-umsetzung",
-    "title": "Einführung",
-    "section": "Rechtliche Bedeutung und Umsetzung",
-    "text": "Rechtliche Bedeutung und Umsetzung\n\nKeine direkte Rechtswirkung für Bürger:innen\nUmsetzung über:\n\nnationales Naturschutzrecht\nEU-Recht (FFH- und Vogelschutzrichtlinie)\n\nRamsar-Gebiete oft Teil von Natura 2000\nReferenzabkommen für Umwelt-Monitoring und Naturschutzpolitik"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#internationale-zusammenarbeit-entlang-der-zugrouten",
-    "href": "content/slides/01/01-einfuehrung.html#internationale-zusammenarbeit-entlang-der-zugrouten",
-    "title": "Einführung",
-    "section": "Internationale Zusammenarbeit entlang der Zugrouten",
-    "text": "Internationale Zusammenarbeit entlang der Zugrouten\n\nKooperation zwischen Staaten entlang von Zugwegen (Flyways)\nSchutz grenzüberschreitender Feuchtgebiete\nZusammenarbeit mit:\n\nAEWA\nCMS (Bonner Konvention)\nEU-Vogelschutzrichtlinie\n\nGrundlage für koordiniertes Zugvogel-Monitoring"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#berner-konvention-überblick-ziele",
-    "href": "content/slides/01/01-einfuehrung.html#berner-konvention-überblick-ziele",
-    "title": "Einführung",
-    "section": "Berner Konvention – Überblick & Ziele",
-    "text": "Berner Konvention – Überblick & Ziele\n\nInternationales Übereinkommen zum Naturschutz in Europa\nVerabschiedet 1979 in Bern\nVölkerrechtliches Abkommen des Europarats\nFokus auf Arten- und Lebensraumschutz\nErhaltung der biologischen Vielfalt in Europa\nSchutz wildlebender Tier- und Pflanzenarten"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#schutzinstrumente-der-berner-konvention",
-    "href": "content/slides/01/01-einfuehrung.html#schutzinstrumente-der-berner-konvention",
-    "title": "Einführung",
-    "section": "Schutzinstrumente der Berner Konvention",
-    "text": "Schutzinstrumente der Berner Konvention\n\nListen geschützter Arten (Anhänge I–III):\n\nAnhang I: streng geschützte Pflanzen\nAnhang II: streng geschützte Tiere\nAnhang III: geschützte Tiere (regulierte Nutzung)\n\nVerbot von:\n\nabsichtlicher Tötung und Fang\nZerstörung von Fortpflanzungs- und Ruhestätten\n\nRegulierung von Jagd, Fang und Nutzung"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#monitoring-umsetzung-und-bedeutung",
-    "href": "content/slides/01/01-einfuehrung.html#monitoring-umsetzung-und-bedeutung",
-    "title": "Einführung",
-    "section": "Monitoring, Umsetzung und Bedeutung",
-    "text": "Monitoring, Umsetzung und Bedeutung\n\nMonitoring von Artenbeständen und Lebensräumen\nBerichtspflichten der Vertragsstaaten\nStändiger Ausschuss (Standing Committee) überwacht Umsetzung\nGrundlage für EU-Naturschutzrecht:\n\nVogelschutzrichtlinie\nFFH-Richtlinie\n\nZentrales europäisches Artenschutzabkommen"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#vergleich-berner-konvention-vs.-ramsar-konvention",
-    "href": "content/slides/01/01-einfuehrung.html#vergleich-berner-konvention-vs.-ramsar-konvention",
-    "title": "Einführung",
-    "section": "Vergleich: Berner Konvention vs. Ramsar-Konvention",
-    "text": "Vergleich: Berner Konvention vs. Ramsar-Konvention\n\n\n\n\n\n\n\n\nAspekt\nBerner Konvention\nRamsar-Konvention\n\n\n\n\nRechtsnatur\nInternationales Übereinkommen (Europarat)\nInternationales Übereinkommen (global)\n\n\nGeografischer Fokus\nEuropa (plus wenige weitere Staaten)\nWeltweit\n\n\nSchutzfokus\nWildlebende Tier- und Pflanzenarten\nFeuchtgebiete\n\n\nBezug zu Zugvögeln\nSchutz wandernder Arten durch Art- und Habitatregelungen\nSchutz zentraler Rast-, Brut- und Überwinterungsgebiete\n\n\nMonitoring\nMonitoring von Artenbeständen und Lebensräumen\nMonitoring des ökologischen Charakters von Feuchtgebieten\n\n\nBedeutung für die EU\nGrundlage für FFH- und Vogelschutzrichtlinie\nReferenz für Feuchtgebietsschutz, oft Natura-2000-Bezug"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#folie-1-bonner-konvention-cms-überblick",
-    "href": "content/slides/01/01-einfuehrung.html#folie-1-bonner-konvention-cms-überblick",
-    "title": "Einführung",
-    "section": "Folie 1: Bonner Konvention (CMS) – Überblick",
-    "text": "Folie 1: Bonner Konvention (CMS) – Überblick\n\nInternationales Übereinkommen zum Schutz wandernder Tierarten\nOffizieller Name: „Übereinkommen zur Erhaltung der wandernden wildlebenden Tierarten“\nVerabschiedet 1979 in Bonn\nVölkerrechtliches Abkommen der Vereinten Nationen (UNEP)\nFokus auf grenzüberschreitenden Artenschutz"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#folie-2-ziele-der-bonner-konvention",
-    "href": "content/slides/01/01-einfuehrung.html#folie-2-ziele-der-bonner-konvention",
-    "title": "Einführung",
-    "section": "Folie 2: Ziele der Bonner Konvention",
-    "text": "Folie 2: Ziele der Bonner Konvention\n\nSchutz wandernder (migratorischer) Tierarten\nErhaltung und Wiederherstellung von Lebensräumen\nSicherung von Zugwegen (Flyways)\nVermeidung von Gefährdungen entlang der gesamten Wanderroute\nFörderung internationaler Zusammenarbeit zwischen Staaten"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#folie-3-artenschutzinstrumente-anhänge-i-und-ii",
-    "href": "content/slides/01/01-einfuehrung.html#folie-3-artenschutzinstrumente-anhänge-i-und-ii",
-    "title": "Einführung",
-    "section": "Folie 3: Artenschutzinstrumente – Anhänge I und II",
-    "text": "Folie 3: Artenschutzinstrumente – Anhänge I und II\n\nAnhang I (streng geschützt):\n\nVom Aussterben bedrohte wandernde Arten\nVerpflichtung zu strengem Schutz\nVerbot von Fang, Tötung und Störung\n\nAnhang II (Kooperationsarten):\n\nArten mit ungünstigem Erhaltungszustand\nBedarf an international abgestimmten Schutzmaßnahmen"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#folie-4-umsetzungsinstrumente-abkommen-und-mous",
-    "href": "content/slides/01/01-einfuehrung.html#folie-4-umsetzungsinstrumente-abkommen-und-mous",
-    "title": "Einführung",
-    "section": "Folie 4: Umsetzungsinstrumente – Abkommen und MoUs",
-    "text": "Folie 4: Umsetzungsinstrumente – Abkommen und MoUs\n\nSpezielle regionale oder taxonomische Abkommen\nBeispiele:\n\nAEWA (afrikanisch-eurasische Wasservögel)\nEUROBATS (Fledermäuse)\n\nInhalte:\n\nSchutzmaßnahmen\nMonitoring und Forschung\nDatenaustausch und Koordination entlang von Zugrouten"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#folie-5-monitoring-umsetzung-und-bedeutung",
-    "href": "content/slides/01/01-einfuehrung.html#folie-5-monitoring-umsetzung-und-bedeutung",
-    "title": "Einführung",
-    "section": "Folie 5: Monitoring, Umsetzung und Bedeutung",
-    "text": "Folie 5: Monitoring, Umsetzung und Bedeutung\n\nMonitoring von Beständen wandernder Arten\nRegelmäßige nationale Berichte\nWissenschaftlicher Beirat (Scientific Council)\nZentrale Rolle im internationalen Zugvogel- und Artenschutz\nErgänzt Ramsar- und Berner Konvention auf globaler Ebene"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#folie-1-un-konvention-über-die-biologische-vielfalt-cbd-überblick",
-    "href": "content/slides/01/01-einfuehrung.html#folie-1-un-konvention-über-die-biologische-vielfalt-cbd-überblick",
-    "title": "Einführung",
-    "section": "Folie 1: UN-Konvention über die biologische Vielfalt (CBD) – Überblick",
-    "text": "Folie 1: UN-Konvention über die biologische Vielfalt (CBD) – Überblick\n\nInternationales Übereinkommen zum Schutz der biologischen Vielfalt\nOffizieller Name: „Übereinkommen über die biologische Vielfalt“\nVerabschiedet 1992 auf dem Erdgipfel in Rio de Janeiro\nIn Kraft seit 1993\nNahezu weltweite Mitgliedschaft\nZentrales globales Abkommen zum Biodiversitätsschutz"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#folie-2-die-drei-hauptziele-der-cbd",
-    "href": "content/slides/01/01-einfuehrung.html#folie-2-die-drei-hauptziele-der-cbd",
-    "title": "Einführung",
-    "section": "Folie 2: Die drei Hauptziele der CBD",
-    "text": "Folie 2: Die drei Hauptziele der CBD\n\nErhaltung der biologischen Vielfalt\nNachhaltige Nutzung ihrer Bestandteile\nGerechte Aufteilung der Vorteile aus der Nutzung genetischer Ressourcen (Access and Benefit-Sharing, ABS)\nIntegration von Biodiversität in alle Politikbereiche"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#folie-3-zentrale-instrumente-der-cbd",
-    "href": "content/slides/01/01-einfuehrung.html#folie-3-zentrale-instrumente-der-cbd",
-    "title": "Einführung",
-    "section": "Folie 3: Zentrale Instrumente der CBD",
-    "text": "Folie 3: Zentrale Instrumente der CBD\n\nNationale Biodiversitätsstrategien und Aktionspläne (NBSAPs)\nSchutz von Ökosystemen, Arten und genetischer Vielfalt\nUmweltverträglichkeitsprüfungen (UVP)\nForschung, Monitoring und Datenaustausch\nFörderung von Bildung, Bewusstsein und Beteiligung"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#folie-4-protokolle-und-globale-rahmenwerke",
-    "href": "content/slides/01/01-einfuehrung.html#folie-4-protokolle-und-globale-rahmenwerke",
-    "title": "Einführung",
-    "section": "Folie 4: Protokolle und globale Rahmenwerke",
-    "text": "Folie 4: Protokolle und globale Rahmenwerke\n\nCartagena-Protokoll (2000):\n\nBiosicherheit und Umgang mit gentechnisch veränderten Organismen\n\nNagoya-Protokoll (2010):\n\nZugang zu genetischen Ressourcen\nGerechter Vorteilsausgleich (ABS)\n\nGlobal Biodiversity Framework (Kunming–Montreal, 2022):\n\nGlobale Ziele bis 2030 („30×30“-Ziel)"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#folie-5-umsetzung-monitoring-und-bedeutung",
-    "href": "content/slides/01/01-einfuehrung.html#folie-5-umsetzung-monitoring-und-bedeutung",
-    "title": "Einführung",
-    "section": "Folie 5: Umsetzung, Monitoring und Bedeutung",
-    "text": "Folie 5: Umsetzung, Monitoring und Bedeutung\n\nNationale Berichte der Vertragsstaaten\nGlobale Indikatoren und Zielsysteme\nWissenschaftliche Unterstützung durch IPBES\nReferenzrahmen für:\n\ninternationale Naturschutzpolitik\nEU-Biodiversitätsstrategie\nnationale Naturschutzgesetze\n\nDachkonvention für Ramsar-, Berner- und Bonn-Konvention"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#cites-washingtoner-artenschutzübereinkommen-1973",
-    "href": "content/slides/01/01-einfuehrung.html#cites-washingtoner-artenschutzübereinkommen-1973",
-    "title": "Einführung",
-    "section": "CITES – Washingtoner Artenschutzübereinkommen (1973)",
-    "text": "CITES – Washingtoner Artenschutzübereinkommen (1973)\n\nInternationales Übereinkommen zur Regulierung des Handels mit bedrohten Tier- und Pflanzenarten\nOffizieller Name: Convention on International Trade in Endangered Species of Wild Fauna and Flora\nZiel: Sicherstellen, dass internationaler Handel das Überleben von Arten nicht gefährdet\nZentrales Instrument: Artenschutz-Anhänge\n\nAnhang I: Handel grundsätzlich verboten\nAnhang II: Handel streng reguliert\nAnhang III: Schutz auf Antrag einzelner Staaten\n\nStarker Vollzugsfokus:\n\nGenehmigungspflichten\nKontrollen durch Behörden und Zoll\n\nErgänzt Ramsar-, Bonn-, Berner Konvention und CBD im globalen Artenschutz"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#optionale-literatur",
-    "href": "content/slides/01/01-einfuehrung.html#optionale-literatur",
-    "title": "Einführung",
-    "section": "Optionale Literatur",
-    "text": "Optionale Literatur\n\nBennett, G., & Ligthart, S. (2001). The implementation of international nature conservation agreements in Europe: the case of the Netherlands. European Environment, 11(3), 140-150"
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html",
-    "href": "content/pruefung/pruefungen.html",
-    "title": "Prüfungsleistungen",
-    "section": "",
-    "text": "Die Benotung für dieses Modul erfolgt anhand einer strukturierten Hausarbeit. Um für die Hausarbeit zugelassen zu werden, muss eine Prüfungsvorleistung absolviert werden, darin werden die wichtigsten Konzepte, Methoden und Begriffe der Vorlesung in einem Multiple-Choice-Test abgefragt."
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html#literatur",
-    "href": "content/pruefung/pruefungen.html#literatur",
-    "title": "Prüfungsleistungen",
-    "section": "Literatur",
-    "text": "Literatur\nEine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:\n\nGibbs et al. 1999 Effective monitoring for adaptive wildlife management: lessons from the Galapagos Islands\nMånsson et al. 2023 Understanding and overcoming obstacles in adaptive management\nLouvrier et al. 2017 Mapping and explaining wolf recolonization in France using dynamic occupancy models and opportunistic data\nSliwinski et al. 2021 Comparison of spotlighting monitoring data of European brown hare (Lepus europaeus) relative population densities with infrared thermography in agricultural landscapes in Northern Germany\nAusband et al. 2022 Estimating wolf abundance from cameras\nTelemetriestudie\n\nSie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden Antworten auf spezifische Fragen schnell. Es werden keine Fragen zu technischen/statistischen Details gestellt."
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html#terminologie",
-    "href": "content/pruefung/pruefungen.html#terminologie",
-    "title": "Prüfungsleistungen",
-    "section": "Terminologie",
-    "text": "Terminologie\nIch erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können."
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html#statistik",
-    "href": "content/pruefung/pruefungen.html#statistik",
-    "title": "Prüfungsleistungen",
-    "section": "Statistik",
-    "text": "Statistik\nEs werden keine R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen."
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html#analysen",
-    "href": "content/pruefung/pruefungen.html#analysen",
-    "title": "Prüfungsleistungen",
-    "section": "Analysen",
-    "text": "Analysen\n\nCode ist reproduzierbar. (60%)\nDer Code ist ausreichend dokumentiert und logisch sinnvoll aufgebaut. (25%)\nEs gibt eine README-Datei, die beschreibt, wie man den Code und die Analyse ausführen kann. (15%)"
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html#hausarbeit",
-    "href": "content/pruefung/pruefungen.html#hausarbeit",
-    "title": "Prüfungsleistungen",
-    "section": "Hausarbeit",
-    "text": "Hausarbeit\n\n\n\n\n\n\n\n\nWas\nBewertung\nDetaillierte Bewertung\n\n\n\n\nEinleitung\n15 %\n1. Worum geht es (1–2 Absätze); 30 %2. Stand der Dinge (1 Absatz); 20 %3. Ziel dieser Hausarbeit; 20 %4. Literatur (3–5 peer-reviewed Veröffentlichungen); 30 %\n\n\nMethoden\n25 %\n1. Datenquellen, wie wurden die Daten aufgenommen; 20 %2. Modellbeschreibung (welches Modell wurde verwendet, wie wurde es parametrisiert); 40 %3. Aufschreiben und Beschreiben der Modellgleichung; 30 %4. Richtige Zitation aller Software; 10 %\n\n\nErgebnisse\n25 %\n- Beschreibung der Ergebnisse, die für die Fragestellung relevant sind; 20 %- Zwei Abbildungen, die die Ergebnisse untermauern und das Modell visualisieren; 60 %- Eine Tabelle, die für die Fragestellung relevante Rohdaten oder Modelloutput zusammenfasst\n\n\nDiskussion\n15 %\nJeweils ein Absatz, der:1. die Ergebnisse zusammenfasst und in Verbindung mit den Hypothese(n) bringt; 35 %2. mögliche Schwachstellen, Erweiterungen etc. diskutiert; 30 %3. die Ergebnisse im Kontext der aktuellen begutachteten Literatur (&gt;2020) darstellt (3–5 Referenzen); 40 %\n\n\nReferenzen\n5 %\nAlle verwendeten Quellen (inkl. Software) sind in einem Literaturverzeichnis einheitlich zitiert\n\n\nZusammenfassung\n5 %\nDem Text ist eine Zusammenfassung von einem Absatz vorangestellt (max. 200 Wörter)\n\n\nForm\n5 %\nDie Arbeit ist einheitlich und ansprechend formatiert\n\n\nAusdruck\n5 %\nDie Arbeit ist verständlich und fehlerfrei geschrieben"
-  },
-  {
-    "objectID": "content/slides/05/01-einfuehrung.html#vorkommen",
-    "href": "content/slides/05/01-einfuehrung.html#vorkommen",
-    "title": "Artporträts",
-    "section": "Vorkommen",
-    "text": "Vorkommen"
-  },
-  {
-    "objectID": "content/slides/05/01-einfuehrung.html#merkmale",
-    "href": "content/slides/05/01-einfuehrung.html#merkmale",
-    "title": "Artporträts",
-    "section": "Merkmale",
-    "text": "Merkmale"
-  },
-  {
-    "objectID": "content/slides/05/01-einfuehrung.html#monitoring",
-    "href": "content/slides/05/01-einfuehrung.html#monitoring",
-    "title": "Artporträts",
-    "section": "Monitoring",
-    "text": "Monitoring"
-  },
-  {
-    "objectID": "content/slides/05/01-einfuehrung.html#berichtspflichten",
-    "href": "content/slides/05/01-einfuehrung.html#berichtspflichten",
-    "title": "Artporträts",
-    "section": "Berichtspflichten",
-    "text": "Berichtspflichten"
-  },
-  {
-    "objectID": "content/slides/05/01-einfuehrung.html#beispiel",
-    "href": "content/slides/05/01-einfuehrung.html#beispiel",
-    "title": "Artporträts",
-    "section": "Beispiel:",
-    "text": "Beispiel:\nhttps://besjournals.onlinelibrary.wiley.com/doi/full/10.1002/2688-8319.12168"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
-    "href": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Kurze Wiederholung/Vorschau",
-    "text": "Kurze Wiederholung/Vorschau"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#motivation",
-    "href": "content/slides/01/02-erfassung.html#motivation",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Motivation",
-    "text": "Motivation\n\nFür alle Monitoringvorhaben brauchen wir Daten. Diese müssen wir ‘erfassen’.\nUnter Erfassung ist hier das indirekte oder direkte Beobachten, Zählen oder Messen von Wildtieren in freier Wildbahn gemeint.\nReinhardt et al. (2015) Monitoring von Wolf, Luchs und Bär in Deutschland BfN Skript 413 (https://www.bfn.de/fileadmin/ BfN/service/Dokumente/skripten/Skript413.pdf)"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
-    "href": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Was macht es so schwierig Wildtiere zu erfassen?",
-    "text": "Was macht es so schwierig Wildtiere zu erfassen?\n\nAuffinden der Tiere kann schwierig sein.\nDie meisten Tiere, die wir untersuchen, bewegen sich.\nDie Dichten der Tiere variieren in Gebieten und zwischen Tierarten (z.B. Amsel vs. Luchs)."
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
-    "href": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Unterschiedliche Methoden für unterschiedliche Fragestellungen",
-    "text": "Unterschiedliche Methoden für unterschiedliche Fragestellungen\n\nWas möchte ich wissen?\nWelche Methode kann ich dafür anwenden?\nWelche Daten brauche ich für welche Methode?\n\nSilvy, N. J., Lopez, R. R., & Peterson, M. J. (2012). Techniques for marking wildlife. The wildlife techniques manual, 1, 230-257."
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
-    "href": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Der Versuch einer Einteilung",
-    "text": "Der Versuch einer Einteilung\nWir müssen Entscheidungen treﬀen, die in folgende Kategorien fallen:\n\nWas für Daten benötigen wir?\n\nNachweise\nAnzahlen\n\nAnzahl Sichtungen\nAnzahl gesehener Tiere\n\nIndividuelle Daten (z.B. Gewicht, Position)\n\neinmalig\nmehrmalig"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
-    "href": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Methoden der Erfassung",
-    "text": "Methoden der Erfassung\n\nDie klassische Methode der Erfassung von Wildtieren ist die direkte oder indirekte Feldbeobachtung mit oder ohne technische Hilfsmittel (z.B. Fernglas).\nIn den vergangen Jahrzehnten sind eine Vielzahl von sensorbasierten Erfassungsmethoden hinzugekommen (z.B. satellitenbasierte Telemetrie oder Fotofallen).\n\n\nFoto: J. Signer"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#übung-1-fotos-klassifizieren---datenstruktur",
-    "href": "content/slides/01/02-erfassung.html#übung-1-fotos-klassifizieren---datenstruktur",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Übung 1: Fotos klassifizieren - Datenstruktur",
-    "text": "Übung 1: Fotos klassifizieren - Datenstruktur\n\nZiel der heutigen Übung ist es, 25 Fotofallenfotos zu klassifizieren und die Klassifizierungsergebnisse zu vergleichen.\n\nÜberlegen Sie in Kleingruppen (2 bis 3 Studierende), wie Sie die gesammelten Daten aus den Fotofallen so organisieren können, dass wir in einem nächsten Schritt:\n\ndie Daten zusammenführen und\nvergleichen können, wie die Daten klassifiziert wurden."
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#markierung-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#markierung-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Markierung von Tieren",
-    "text": "Markierung von Tieren\nNatürliche Markierung\n\nEinige Tierarten haben eindeutige natürliche Merkmale, die eine individuelle Identiﬁkation möglich machen. Bei vielen Katzen (z.B. Tiger, Luchs) weißt das Fell eindeutige Muster auf.\nJohansson et al. 20201 untersuchten die Auswirkungen von Fehlklassiﬁkationen auf Populationsgrößenschätzungen. Sie können auch versuchen Schneeleoparden zu klassiﬁzieren (https: //camtraining.globalsnowleopard.org/leppe/login/).\n\nJohansson, Ö., Samelius, G., Wikberg, E., Chapron, G., Mishra, C., & Low, M. (2020). Identification errors in camera-trap studies result in systematic population overestimation. Scientific reports, 10(1), 1-10."
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#künstliche-markierung",
-    "href": "content/slides/01/02-erfassung.html#künstliche-markierung",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Künstliche Markierung",
-    "text": "Künstliche Markierung\n\nInvasiv\n\nTransponder (z.B. PIT-Tags1)\nRadioaktive Marker\nOhrmarken, Muster im Fell\n\nNichtinvasiv\n\nHalsbänder\nBeringung\nFarbe\n\n\nDie Abkürzung PIT steht für Passive Integrated Transponders"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#fangen-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#fangen-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Fangen von Tieren",
-    "text": "Fangen von Tieren\n\nQuelle: J. Signer"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#markieren-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#markieren-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Markieren von Tieren",
-    "text": "Markieren von Tieren\n\nQuelle: S. Appleby"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Verfolgen von Tieren",
-    "text": "Verfolgen von Tieren\n\nQuelle: Nationalpark Harz/Bayeerischer Wald"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#übung-2-fotos-klassifizieren",
-    "href": "content/slides/01/02-erfassung.html#übung-2-fotos-klassifizieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Übung 2: Fotos klassifizieren",
-    "text": "Übung 2: Fotos klassifizieren\nKlassifizieren Sie die Fotos (daten/woche_2_fotos) und laden Sie die Ergebnisse in StudIP in den Order daten/woche_2_fotos_ergebnisse hoch."
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
-    "href": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Qualität von Nachweisen",
-    "text": "Qualität von Nachweisen\nHinweise (meist von Karnivoren) werden nach ihrer Überprüfbarkeit in\n\nNachweise (C1),\nbestätigte Hinweise (C2) und\nunbestätigte Hinweise (C3)\n\neingeteilt. Diese Kriterien wurden für SCALP (Status and Conservation of the Alpine Lynx Population) in der Schweiz entwickelt."
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#übung-3-zusammenführen-der-daten",
-    "href": "content/slides/01/02-erfassung.html#übung-3-zusammenführen-der-daten",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Übung 3: Zusammenführen der Daten",
-    "text": "Übung 3: Zusammenführen der Daten\nFühren Sie die Daten aus Aufgabe 2 zusammen und finden Sie das Foto, bei dem die Klassifizierung am unsichersten war."
-  },
-  {
     "objectID": "content/vorlesungen/01-vorlesung.html",
     "href": "content/vorlesungen/01-vorlesung.html",
     "title": "Einführung",
     "section": "",
-    "text": "Hören Sie diesen Podcast zu Wildtiermangement an und überlegen Sie sich kurz Antworten zu folgenden Punkten."
-  },
-  {
-    "objectID": "content/vorlesungen/01-vorlesung.html#übung-1-abgrenzung-von-begriffen",
-    "href": "content/vorlesungen/01-vorlesung.html#übung-1-abgrenzung-von-begriffen",
-    "title": "Einführung",
-    "section": "Übung 1: Abgrenzung von Begriffen",
-    "text": "Übung 1: Abgrenzung von Begriffen\nDiskutieren Sie in Klingruppen (2-3 Studierende) folgende Fragen aus dem Podcast:\n\nWie ist der Titel bzw. die Aussage “Wildtiere sind der Spiegel dessen, wie der Mensch mit der Landschaft umgeht” zu verstehen?\nIst Wildtiermanagement einfach ein moderner Begriff für Jagd? Begründen Sie Ihre Antwort kurz.\nWie unterscheidet sich Monitoring vom Wildtiermanagement bzw. welche Rolle übernimmt das Monitoring?\nVersuchen Sie für die folgenden drei Begriffe eine Definition zu erarbeiten: Wildtiermanagement, Jagd und Monitoring."
-  },
-  {
-    "objectID": "content/vorlesungen/01-vorlesung.html#art-porträt-biber",
-    "href": "content/vorlesungen/01-vorlesung.html#art-porträt-biber",
-    "title": "Einführung",
-    "section": "Art Porträt: Biber ",
-    "text": "Art Porträt: Biber \n\n\n\n\n\n\nWichtige Wörter\n\n\n\n\n\n\nBON\nGeoBON\nFFH\nBerner Konvention"
+    "text": "Vorlesung\n\nLogistik\nMotivation & Rahmen\nKurze Pause\nÜbung\nArtporträt: Biber\n\n\n\nFolien\n\nAlle Folien\n\n\n\nLiteratur (optional)"
   },
   {
     "objectID": "content/uebungen/uebung_w2.html",

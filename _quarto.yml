@@ -11,7 +11,8 @@ website:
       - text: Vorlesungen
         menu:
           - text: "Einführung"
-          - text: "01. Einführung"
+          - href: content/vorlesungen/01-vorlesung.qmd
+            text: "01. Einführung"
           - text: "02. Methoden"
           - text: "-------"
           - text: "Vorkommen"
@@ -34,7 +35,7 @@ website:
           - text: "**Grundlagen in R**"
           - href: content/uebungen/uebung_w1.qmd
             text: "1. Einführung in R"
-#         - text: "-----"
+ #        - text: "-----"
 #          - text: "**Occupancy**"
 #          - href: content/uebungen/uebung_w2.qmd
 #            text: "2. Bayes"

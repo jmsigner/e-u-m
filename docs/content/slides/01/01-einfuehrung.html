@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Johannes Signer">
-  <meta name="dcterms.date" content="2026-04-07">
+  <meta name="dcterms.date" content="2026-04-12">
   <title>Erfassung und Monitoring von Wildtieren – Einführung</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,7 +149,7 @@ Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-ti
     </div>
 </div>
 
-  <p class="date">April 7, 2026</p>
+  <p class="date">April 12, 2026</p>
 </section>
 <section>
 <section id="organisatorisches" class="title-slide slide level1 center">
@@ -180,18 +180,43 @@ Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-ti
 <section id="ablauf" class="slide level2">
 <h2>Ablauf</h2>
 <ul>
-<li>12 Termine (10 davon in präsenz)</li>
-<li>Präsentztermine Mo: von 9:15 bis ca. 11:45 (Vorlesung und Übung)</li>
-<li>Für die Übungen brauchen Sie meist einen Laptop. Sollten Sie kein Laptop zur Verfügung haben, melden Sie sich bitte bei mir.</li>
+<li>12 Termine (10 davon in Präsenz)</li>
+<li>Präsenztermine Mo: von 9:15 bis ca. 11:45 (Vorlesung und Übung)</li>
+<li>Für die Übungen brauchen Sie meist einen Laptop. Sollten Sie keinen Laptop zur Verfügung haben, melden Sie sich bitte bei mir.</li>
 </ul>
 </section>
 <section id="bewertung" class="slide level2">
 <h2>Bewertung</h2>
 <ol type="1">
-<li>Prüfungsvorlesitung: ein 60-Minütiger Multiple-Choice Test zu den wichtigsten Konzepten der Vorlesung.</li>
+<li>Prüfungsvorleistung: ein 60-minütiger Multiple-Choice Test zu den wichtigsten Konzepten der Vorlesung.</li>
 <li>Eine Hausarbeit (siehe Website zu Details)</li>
 </ol>
 <p>Bei der Prüfung wird <strong>nicht</strong> nach Programmierkenntnissen in R gefragt, sondern nur nach der Interpretation von Ergebnissen.</p>
+</section>
+<section id="nutzen-von-ki" class="slide level2">
+<h2>Nutzen von KI</h2>
+<ul>
+<li>Ich ermutige Sie KI unterstützend zu nutzen.</li>
+<li>Meine Erfahrung ist, dass man KI gut nutzen kann <strong>wenn man ungefähr weiß</strong> was man braucht, jedoch es schwieriger ist, sich mit KI einen Überblick zu verschaffen.</li>
+</ul>
+<div class="{fragment}">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Wichtig</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Wenn Sie z.B. bei den Übungen nicht wissen, wo Sie anfangen sollen, dann fragen Sie Kommilitonen oder mich.</li>
+<li>Wenn Sie bei einem R-Befehl unsicher sind, bzw. den Fehler nicht gleich entdecken, fragen Sie die KI.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="ausblick" class="slide level2">
 <h2>Ausblick</h2>
@@ -208,6 +233,9 @@ Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-ti
 <li>Aktive vs.&nbsp;passive Erfassung.</li>
 <li>Für welche Methoden braucht man welche Daten?</li>
 </ul>
+</section>
+<section class="slide level2">
+
 <h3 id="verbreitung-von-arten-e3---e6">Verbreitung von Arten (E3 - E6)</h3>
 <ul>
 <li>Die meisten Methoden erfordern eine statistische Grundausbildung.</li>
@@ -215,15 +243,16 @@ Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-ti
 <li>Keine Angst, dies ist kein Statistikkurs, sondern Statistik ist ein Hilfsmittel.</li>
 <li>Welche Gebiete bewohnt eine Art? Welche Kovariaten können das Vorkommen einer Art beschreiben?</li>
 <li>Entkoppeln des Beobachtungsprozesses vom biologischen Prozess.</li>
+<li>Wir werden diese Einheiten nutzen, um einige statistische Grundlagen zu erarbeiten.</li>
 </ul>
 </section>
 <section id="was-hat-programmierung-in-einem-wildbio-kurs-verloren" class="slide level2">
 <h2>Was hat Programmierung in einem Wildbio Kurs verloren?</h2>
 <p>Immer mehr Daten:</p>
 <ul>
-<li>Ein Fotofallenmonitoring mit 50 Fotofallen, die acht Wochen im Feld sind (mit 30 Fotos pro Kamera und Tag) = 8.4^{4} Fotos.</li>
-<li>Ein durchschnittliches Telemetrieprojekt mit 20 Tieren, 1 Lokalisierung pro Stunde und Tier für ein Jahr = 1.728^{5} Datenpunkte.</li>
-<li>ATLAS-Telemetriesystem: 30 Vögel für 50 Tage mit einer Lokalisierung pro 8 Sekunden: 1.62^{7} Datenpunkte.</li>
+<li>Ein Fotofallenmonitoring mit 50 Fotofallen, die acht Wochen im Feld sind (mit 30 Fotos pro Kamera und Tag) = 84.000 Fotos.</li>
+<li>Ein durchschnittliches Telemetrieprojekt mit 20 Tieren, 1 Lokalisierung pro Stunde und Tier für ein Jahr = 172.800 Datenpunkte.</li>
+<li>ATLAS-Telemetriesystem: 30 Vögel für 50 Tage mit einer Lokalisierung pro 8 Sekunden: 16.200.000 Datenpunkte.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -237,7 +266,7 @@ Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-ti
 </section>
 <section class="slide level2">
 
-<h3 id="arbeiten-mit-telemetriedaten-e9--e12">Arbeiten mit Telemetriedaten (E9 -E12)</h3>
+<h3 id="arbeiten-mit-telemetriedaten-e9---e12">Arbeiten mit Telemetriedaten (E9 - E12)</h3>
 <ul>
 <li>Woher stammen sie und was kann damit gemacht werden.</li>
 <li>Finden von Migrationsmuster.</li>
@@ -263,7 +292,7 @@ Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-ti
 <li>05.05.2026: E04: Verbreitung 2</li>
 <li>11.05.2026: E05: Occupancy-Modelle 1 (online)</li>
 <li>18.05.2026: E06: Occupancy-Modelle 2</li>
-<li>25.06.2026: <em>Keine Vorlesung (Pfingsten/Exkursionswoche)</em></li>
+<li>25.05.2026: <em>Keine Vorlesung (Pfingsten/Exkursionswoche)</em></li>
 <li>01.06.2026: E07: Abundanz 1</li>
 <li>08.06.2026: E08: Abundanz 2</li>
 </ul>
@@ -349,7 +378,7 @@ Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-ti
 <section class="slide level2">
 
 <ul>
-<li><strong>Zustandsvariablen</strong> sind Messgrößen, die ein System charakterisieren (z.B. die Abundanz einer Tierart, Biodiviersitätsindeces oder Biomasse, genetische Vielfalt).</li>
+<li><strong>Zustandsvariablen</strong> sind Messgrößen, die ein System charakterisieren (z.B. die Abundanz einer Tierart, Biodiviersitätsindizes oder Biomasse, genetische Vielfalt).</li>
 <li>Unter <strong>Inferenz</strong> versteht man, dass man (statistisch) gesicherte Aussagen über das System machen möchte. Beispiele hierfür sind zu untersuchen, ob bestimmte Kovariate einen Populationstrend beeinflussen oder Vorhersagen für die Zustandsvariable in der Zukunft zu machen.</li>
 </ul>
 </section>
@@ -412,14 +441,13 @@ Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-ti
 <li>Rechtliche Rahmenbedingungen (z.B. FFH)</li>
 </ul>
 </section></section>
+<section>
 <section id="rechtliche-rahmenbedingungen" class="title-slide slide level1 center">
 <h1>Rechtliche Rahmenbedingungen</h1>
 
 </section>
-
-<section>
-<section id="terminologie" class="title-slide slide level1 center">
-<h1># Terminologie</h1>
+<section id="etwas-terminologie" class="slide level2">
+<h2>Etwas Terminologie</h2>
 <dl>
 <dt>Internationale Übereinkommen (international conventions)</dt>
 <dd>
@@ -435,355 +463,161 @@ Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-ti
 </dd>
 </dl>
 </section>
-<section id="ramsar-konvention" class="slide level2">
-<h2>Ramsar-Konvention</h2>
-</section>
-<section id="was-ist-die-ramsar-konvention" class="slide level2">
-<h2>Was ist die Ramsar-Konvention?</h2>
+<section id="ramsar-konvention-1971-übereinkommen-über-feuchtgebiete-von-internationaler-bedeutung" class="slide level2">
+<h2>Ramsar-Konvention (1971): Übereinkommen über Feuchtgebiete von internationaler Bedeutung</h2>
+<p><strong>Ziel:</strong> Schutz und nachhaltige Nutzung von Feuchtgebieten weltweit</p>
 <ul>
-<li>Internationales völkerrechtliches Abkommen</li>
-<li>Schutz von Feuchtgebieten von internationaler Bedeutung</li>
-<li>Abgeschlossen 1971 in Ramsar (Iran)</li>
-<li>Über 170 Vertragsstaaten</li>
-<li>Eines der ältesten globalen Naturschutzabkommen</li>
+<li>Ältestes internationales Naturschutzabkommen</li>
+<li>Vertragsstaaten verpflichten sich, mindestens ein Feuchtgebiet als „Ramsar-Gebiet” auszuweisen</li>
+<li>Heute: 172 Vertragsstaaten, über 2.400 Ramsar-Gebiete (250 Mio. Hektar)</li>
+<li>Deutschland: 35 ausgewiesene Gebiete.</li>
+</ul>
+<p><strong>Verbindung zu anderen Abkommen:</strong> Enge Kooperation mit der CBD; Feuchtgebiete sind Teil des CBD-Arbeitsprogramms zu Binnengewässern.</p>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Kennen Sie ein Ramsar-Gebiet in Deutschland? Suchen recherchieren Sie eins.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><img data-src="images/clipboard-3919065660.png"></p>
+</div>
+</section>
+<section id="übereinkommen-über-die-erhaltung-der-europäischen-wildlebenden-pflanzen-und-tiere-und-ihrer-natürlichen-lebensräume-berner-konvention" class="slide level2">
+<h2>Übereinkommen über die Erhaltung der europäischen wildlebenden Pflanzen und Tiere und ihrer natürlichen Lebensräume (Berner Konvention)</h2>
+<p><strong>Ziel:</strong> Schutz gefährdeter Wildtierarten und ihrer Lebensräume in Europa</p>
+<ul>
+<li>Erstes europäisches Abkommen zum Schutz der Biodiversität</li>
+<li>51 Unterzeichnerstaaten (Europarat + Nicht-EU-Länder)</li>
+<li>Strenger Schutz für über 1.000 bedrohte Tier- und Pflanzenarten (Anhänge I–III)</li>
+<li>Verpflichtung zur Zusammenarbeit bei grenzüberschreitenden Arten</li>
+</ul>
+<p><strong>Verbindung zu anderen Abkommen:</strong> Direkter Vorläufer der EU-FFH-Richtlinie – viele Bestimmungen wurden 1992 in EU-Recht übernommen.</p>
+</section>
+<section id="fauna-flora-habitat-richtlinie-der-europäischen-union-9243ewg-ffh-richtlinie" class="slide level2">
+<h2>Fauna-Flora-Habitat-Richtlinie der Europäischen Union (92/43/EWG; FFH-Richtlinie)</h2>
+<p><strong>Ziel:</strong> Schutz europäischer Lebensräume und Arten durch ein einheitliches Schutzgebietsnetz</p>
+<ul>
+<li>Setzt die Berner Konvention verbindlich in EU-Recht um</li>
+<li>Gemeinsam mit der Vogelschutzrichtlinie (1979) Grundlage für <strong>Natura 2000</strong></li>
+<li>Natura 2000: Größtes Schutzgebietsnetz der Welt – über 27.000 Gebiete in der EU</li>
+<li>Arten und Lebensraumtypen in Anhängen II, IV und V geregelt</li>
+<li>Mitgliedstaaten müssen „günstigen Erhaltungszustand” sicherstellen</li>
 </ul>
 </section>
-<section id="ziele-der-ramsar-konvention" class="slide level2">
-<h2>Ziele der Ramsar-Konvention</h2>
-<ul>
-<li>Erhaltung von Feuchtgebieten</li>
-<li>Nachhaltige Nutzung („wise use“)</li>
-<li>Schutz von Wasser- und Zugvögeln</li>
-<li>Förderung der internationalen Zusammenarbeit</li>
-<li>Beitrag zu Biodiversitäts-, Wasser- und Klimaschutz</li>
-</ul>
+<section class="slide level2">
+
+<p><strong>Verbindung zu anderen Abkommen:</strong> Praktische Umsetzung der Berner Konvention; trägt zu den CBD- und Kunming-Montreal-Zielen bei (30×30).</p>
 </section>
-<section id="nachhaltige-nutzung-wise-use" class="slide level2">
-<h2>Nachhaltige Nutzung („wise use“)</h2>
-<ul>
-<li>Gilt für alle Feuchtgebiete, nicht nur Ramsar-Gebiete</li>
-<li>Nutzung darf Zugvögel und Lebensräume nicht beeinträchtigen</li>
-<li>Integration in Raumplanung, Land- und Wassernutzung</li>
-<li>Erfordert begleitendes ökologisches Monitoring</li>
-</ul>
-</section>
-<section id="monitoring-des-ökologischen-charakters" class="slide level2">
-<h2>Monitoring des ökologischen Charakters</h2>
-<ul>
-<li>Regelmäßige Beobachtung von Feuchtgebieten</li>
-<li>Wichtige Indikatoren:
-<ul>
-<li>Bestände von Wasser- und Zugvögeln</li>
-<li>Brut- und Rastzahlen</li>
-<li>Zustand der Lebensräume</li>
-</ul></li>
-<li>Umsetzung durch nationale Programme und internationale Vogelzählungen</li>
-</ul>
-</section>
-<section id="rechtliche-bedeutung-und-umsetzung" class="slide level2">
-<h2>Rechtliche Bedeutung und Umsetzung</h2>
-<ul>
-<li>Keine direkte Rechtswirkung für Bürger:innen</li>
-<li>Umsetzung über:
-<ul>
-<li>nationales Naturschutzrecht</li>
-<li>EU-Recht (FFH- und Vogelschutzrichtlinie)</li>
-</ul></li>
-<li>Ramsar-Gebiete oft Teil von Natura 2000</li>
-<li>Referenzabkommen für Umwelt-Monitoring und Naturschutzpolitik</li>
-</ul>
-</section>
-<section id="internationale-zusammenarbeit-entlang-der-zugrouten" class="slide level2">
-<h2>Internationale Zusammenarbeit entlang der Zugrouten</h2>
-<ul>
-<li>Kooperation zwischen Staaten entlang von Zugwegen (Flyways)</li>
-<li>Schutz grenzüberschreitender Feuchtgebiete</li>
-<li>Zusammenarbeit mit:
-<ul>
-<li>AEWA</li>
-<li>CMS (Bonner Konvention)</li>
-<li>EU-Vogelschutzrichtlinie</li>
-</ul></li>
-<li>Grundlage für koordiniertes Zugvogel-Monitoring</li>
-</ul>
-</section>
-<section id="berner-konvention-überblick-ziele" class="slide level2">
-<h2>Berner Konvention – Überblick &amp; Ziele</h2>
-<ul>
-<li>Internationales Übereinkommen zum Naturschutz in Europa</li>
-<li>Verabschiedet 1979 in Bern</li>
-<li>Völkerrechtliches Abkommen des Europarats</li>
-<li>Fokus auf Arten- und Lebensraumschutz</li>
-<li>Erhaltung der biologischen Vielfalt in Europa</li>
-<li>Schutz wildlebender Tier- und Pflanzenarten</li>
-</ul>
-</section>
-<section id="schutzinstrumente-der-berner-konvention" class="slide level2">
-<h2>Schutzinstrumente der Berner Konvention</h2>
-<ul>
-<li>Listen geschützter Arten (Anhänge I–III):
-<ul>
-<li>Anhang I: streng geschützte Pflanzen</li>
-<li>Anhang II: streng geschützte Tiere</li>
-<li>Anhang III: geschützte Tiere (regulierte Nutzung)</li>
-</ul></li>
-<li>Verbot von:
-<ul>
-<li>absichtlicher Tötung und Fang</li>
-<li>Zerstörung von Fortpflanzungs- und Ruhestätten</li>
-</ul></li>
-<li>Regulierung von Jagd, Fang und Nutzung</li>
-</ul>
-</section>
-<section id="monitoring-umsetzung-und-bedeutung" class="slide level2">
-<h2>Monitoring, Umsetzung und Bedeutung</h2>
-<ul>
-<li>Monitoring von Artenbeständen und Lebensräumen</li>
-<li>Berichtspflichten der Vertragsstaaten</li>
-<li>Ständiger Ausschuss (Standing Committee) überwacht Umsetzung</li>
-<li>Grundlage für EU-Naturschutzrecht:
-<ul>
-<li>Vogelschutzrichtlinie</li>
-<li>FFH-Richtlinie</li>
-</ul></li>
-<li>Zentrales europäisches Artenschutzabkommen</li>
-</ul>
-</section>
-<section id="vergleich-berner-konvention-vs.-ramsar-konvention" class="slide level2">
-<h2>Vergleich: Berner Konvention vs.&nbsp;Ramsar-Konvention</h2>
+<section id="die-anhänge-der-ffh-richtlinie" class="slide level2">
+<h2>Die Anhänge der FFH-Richtlinie</h2>
+<p>Die FFH-Richtlinie gliedert sich in sechs Anhänge, die genau festlegen, was wie geschützt wird</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 38%">
-<col style="width: 38%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Aspekt</th>
-<th>Berner Konvention</th>
-<th>Ramsar-Konvention</th>
+<th>Anhang</th>
+<th>Inhalt</th>
+<th>Schutzpflicht</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Rechtsnatur</strong></td>
-<td>Internationales Übereinkommen (Europarat)</td>
-<td>Internationales Übereinkommen (global)</td>
+<td><strong>Anhang I</strong></td>
+<td>Schutzbedürftige Lebensraumtypen (z.B. Hochmoore, Buchenurwälder, Dünen)</td>
+<td>Ausweisung als Natura-2000-Gebiet (SAC = Special Area of Conservation)</td>
 </tr>
 <tr class="even">
-<td><strong>Geografischer Fokus</strong></td>
-<td>Europa (plus wenige weitere Staaten)</td>
-<td>Weltweit</td>
+<td><strong>Anhang II</strong></td>
+<td>Tier- und Pflanzenarten, für die Schutzgebiete ausgewiesen werden müssen</td>
+<td>Ausweisung als Natura-2000-Gebiet (SAC)</td>
 </tr>
 <tr class="odd">
-<td><strong>Schutzfokus</strong></td>
-<td>Wildlebende Tier- und Pflanzenarten</td>
-<td>Feuchtgebiete</td>
+<td><strong>Anhang III</strong></td>
+<td>Kriterien zur Auswahl der Schutzgebiete (Repräsentativität, Fläche, Zustand)</td>
+<td>Bewertungsgrundlage</td>
 </tr>
 <tr class="even">
-<td><strong>Bezug zu Zugvögeln</strong></td>
-<td>Schutz wandernder Arten durch Art- und Habitatregelungen</td>
-<td>Schutz zentraler Rast-, Brut- und Überwinterungsgebiete</td>
+<td><strong>Anhang IV</strong></td>
+<td>Streng zu schützende Arten (z.B. alle Fledermäuse, Wolf, Luchs, Meeresschildkröten)</td>
+<td>Europaweites Tötungs- &amp; Störungsverbot</td>
 </tr>
 <tr class="odd">
-<td><strong>Monitoring</strong></td>
-<td>Monitoring von Artenbeständen und Lebensräumen</td>
-<td>Monitoring des ökologischen Charakters von Feuchtgebieten</td>
+<td><strong>Anhang V</strong></td>
+<td>Arten, deren Entnahme aus der Natur reguliert werden darf</td>
+<td>Nutzungsbeschränkungen</td>
 </tr>
 <tr class="even">
-<td><strong>Bedeutung für die EU</strong></td>
-<td>Grundlage für FFH- und Vogelschutzrichtlinie</td>
-<td>Referenz für Feuchtgebietsschutz, oft Natura-2000-Bezug</td>
+<td><strong>Anhang VI</strong></td>
+<td>Verbotene Fang- und Tötungsmethoden</td>
+<td>Methoden- &amp; Geräteverbot</td>
 </tr>
 </tbody>
 </table>
-</section></section>
-<section>
-<section id="bonn-konvention" class="title-slide slide level1 center">
-<h1>Bonn Konvention</h1>
+</section>
+<section class="slide level2">
 
+<p><strong>Wichtige Unterscheidung:</strong> - Anhang I &amp; II → bestimmen, <strong>wo</strong> Schutzgebiete entstehen (Natura 2000) - Anhang IV → gilt <strong>überall</strong> in der EU, unabhängig von Schutzgebieten (strengster Schutz) - Anhang V &amp; VI → regeln die <strong>Nutzung</strong> und <strong>Jagdmethoden</strong></p>
+<p><strong>Beispiele Anhang IV (streng geschützt, EU-weit):</strong> Alle heimischen Fledermausarten, Wolf, Biber</p>
 </section>
-<section id="folie-1-bonner-konvention-cms-überblick" class="slide level2">
-<h2>Folie 1: Bonner Konvention (CMS) – Überblick</h2>
+<section id="globaler-biodiversitätsrahmen-gbf-verabschiedet-unter-der-cbd-kunming-montreal-abkommen-2022" class="slide level2">
+<h2>Globaler Biodiversitätsrahmen (GBF) – verabschiedet unter der CBD (Kunming-Montreal Abkommen 2022)</h2>
+<p><strong>Ziel:</strong> Stopp und Umkehr des Biodiversitätsverlusts bis 2030 und darüber hinaus</p>
 <ul>
-<li>Internationales Übereinkommen zum Schutz wandernder Tierarten</li>
-<li>Offizieller Name: „Übereinkommen zur Erhaltung der wandernden wildlebenden Tierarten“</li>
-<li>Verabschiedet 1979 in Bonn</li>
-<li>Völkerrechtliches Abkommen der Vereinten Nationen (UNEP)</li>
-<li>Fokus auf grenzüberschreitenden Artenschutz</li>
+<li>Verabschiedet auf der CBD-COP15 in Montreal (Dezember 2022)</li>
+<li>Kernziel: <strong>30×30</strong> – 30 % der Land- und Meeresflächen bis 2030 schützen</li>
+<li>Weitere Ziele: Reduktion schädlicher Subventionen, Wiederherstellung degradierter Ökosysteme (30 %), gerechter Vorteilsausgleich für indigene Gemeinschaften</li>
+<li>196 Vertragsstaaten (nahezu weltweit)</li>
 </ul>
+<p><strong>Verbindung zu anderen Abkommen:</strong> Dachrahmen unter der CBD; gibt Ramsar, Berner Konvention und FFH/Natura 2000 neue politische Schubkraft und konkrete Flächenziele.</p>
 </section>
-<section id="folie-2-ziele-der-bonner-konvention" class="slide level2">
-<h2>Folie 2: Ziele der Bonner Konvention</h2>
-<ul>
-<li>Schutz wandernder (migratorischer) Tierarten</li>
-<li>Erhaltung und Wiederherstellung von Lebensräumen</li>
-<li>Sicherung von Zugwegen (Flyways)</li>
-<li>Vermeidung von Gefährdungen entlang der gesamten Wanderroute</li>
-<li>Förderung internationaler Zusammenarbeit zwischen Staaten</li>
-</ul>
-</section>
-<section id="folie-3-artenschutzinstrumente-anhänge-i-und-ii" class="slide level2">
-<h2>Folie 3: Artenschutzinstrumente – Anhänge I und II</h2>
-<ul>
-<li><strong>Anhang I (streng geschützt):</strong>
-<ul>
-<li>Vom Aussterben bedrohte wandernde Arten</li>
-<li>Verpflichtung zu strengem Schutz</li>
-<li>Verbot von Fang, Tötung und Störung</li>
-</ul></li>
-<li><strong>Anhang II (Kooperationsarten):</strong>
-<ul>
-<li>Arten mit ungünstigem Erhaltungszustand</li>
-<li>Bedarf an international abgestimmten Schutzmaßnahmen</li>
-</ul></li>
-</ul>
-</section>
-<section id="folie-4-umsetzungsinstrumente-abkommen-und-mous" class="slide level2">
-<h2>Folie 4: Umsetzungsinstrumente – Abkommen und MoUs</h2>
-<ul>
-<li>Spezielle regionale oder taxonomische Abkommen</li>
-<li>Beispiele:
-<ul>
-<li><strong>AEWA</strong> (afrikanisch-eurasische Wasservögel)</li>
-<li>EUROBATS (Fledermäuse)</li>
-</ul></li>
-<li>Inhalte:
-<ul>
-<li>Schutzmaßnahmen</li>
-<li>Monitoring und Forschung</li>
-<li>Datenaustausch und Koordination entlang von Zugrouten</li>
-</ul></li>
-</ul>
-</section>
-<section id="folie-5-monitoring-umsetzung-und-bedeutung" class="slide level2">
-<h2>Folie 5: Monitoring, Umsetzung und Bedeutung</h2>
-<ul>
-<li>Monitoring von Beständen wandernder Arten</li>
-<li>Regelmäßige nationale Berichte</li>
-<li>Wissenschaftlicher Beirat (Scientific Council)</li>
-<li>Zentrale Rolle im internationalen Zugvogel- und Artenschutz</li>
-<li>Ergänzt Ramsar- und Berner Konvention auf globaler Ebene</li>
-</ul>
-</section></section>
-<section>
-<section id="un-konvention-über-die-biologische-vielfalt" class="title-slide slide level1 center">
-<h1>UN-Konvention über die biologische Vielfalt</h1>
-
-</section>
-<section id="folie-1-un-konvention-über-die-biologische-vielfalt-cbd-überblick" class="slide level2">
-<h2>Folie 1: UN-Konvention über die biologische Vielfalt (CBD) – Überblick</h2>
-<ul>
-<li>Internationales Übereinkommen zum Schutz der biologischen Vielfalt</li>
-<li>Offizieller Name: „Übereinkommen über die biologische Vielfalt“</li>
-<li>Verabschiedet 1992 auf dem Erdgipfel in Rio de Janeiro</li>
-<li>In Kraft seit 1993</li>
-<li>Nahezu weltweite Mitgliedschaft</li>
-<li>Zentrales globales Abkommen zum Biodiversitätsschutz</li>
-</ul>
-</section>
-<section id="folie-2-die-drei-hauptziele-der-cbd" class="slide level2">
-<h2>Folie 2: Die drei Hauptziele der CBD</h2>
-<ul>
-<li><strong>Erhaltung der biologischen Vielfalt</strong></li>
-<li><strong>Nachhaltige Nutzung</strong> ihrer Bestandteile</li>
-<li><strong>Gerechte Aufteilung der Vorteile</strong> aus der Nutzung genetischer Ressourcen (Access and Benefit-Sharing, ABS)</li>
-<li>Integration von Biodiversität in alle Politikbereiche</li>
-</ul>
-</section>
-<section id="folie-3-zentrale-instrumente-der-cbd" class="slide level2">
-<h2>Folie 3: Zentrale Instrumente der CBD</h2>
-<ul>
-<li>Nationale Biodiversitätsstrategien und Aktionspläne (NBSAPs)</li>
-<li>Schutz von Ökosystemen, Arten und genetischer Vielfalt</li>
-<li>Umweltverträglichkeitsprüfungen (UVP)</li>
-<li>Forschung, Monitoring und Datenaustausch</li>
-<li>Förderung von Bildung, Bewusstsein und Beteiligung</li>
-</ul>
-</section>
-<section id="folie-4-protokolle-und-globale-rahmenwerke" class="slide level2">
-<h2>Folie 4: Protokolle und globale Rahmenwerke</h2>
-<ul>
-<li><strong>Cartagena-Protokoll (2000):</strong>
-<ul>
-<li>Biosicherheit und Umgang mit gentechnisch veränderten Organismen</li>
-</ul></li>
-<li><strong>Nagoya-Protokoll (2010):</strong>
-<ul>
-<li>Zugang zu genetischen Ressourcen</li>
-<li>Gerechter Vorteilsausgleich (ABS)</li>
-</ul></li>
-<li><strong>Global Biodiversity Framework (Kunming–Montreal, 2022):</strong>
-<ul>
-<li>Globale Ziele bis 2030 („30×30“-Ziel)</li>
-</ul></li>
-</ul>
-</section>
-<section id="folie-5-umsetzung-monitoring-und-bedeutung" class="slide level2">
-<h2>Folie 5: Umsetzung, Monitoring und Bedeutung</h2>
-<ul>
-<li>Nationale Berichte der Vertragsstaaten</li>
-<li>Globale Indikatoren und Zielsysteme</li>
-<li>Wissenschaftliche Unterstützung durch IPBES</li>
-<li>Referenzrahmen für:
-<ul>
-<li>internationale Naturschutzpolitik</li>
-<li>EU-Biodiversitätsstrategie</li>
-<li>nationale Naturschutzgesetze</li>
-</ul></li>
-<li>Dachkonvention für Ramsar-, Berner- und Bonn-Konvention</li>
-</ul>
-</section></section>
-<section>
-<section id="cites" class="title-slide slide level1 center">
-<h1>CITES</h1>
-
-</section>
-<section id="cites-washingtoner-artenschutzübereinkommen-1973" class="slide level2">
-<h2>CITES – Washingtoner Artenschutzübereinkommen (1973)</h2>
-<ul>
-<li>Internationales Übereinkommen zur <strong>Regulierung des Handels</strong> mit bedrohten Tier- und Pflanzenarten</li>
-<li>Offizieller Name: <em>Convention on International Trade in Endangered Species of Wild Fauna and Flora</em></li>
-<li>Ziel: Sicherstellen, dass internationaler Handel <strong>das Überleben von Arten nicht gefährdet</strong></li>
-<li>Zentrales Instrument: <strong>Artenschutz-Anhänge</strong>
-<ul>
-<li>Anhang I: Handel grundsätzlich verboten</li>
-<li>Anhang II: Handel streng reguliert</li>
-<li>Anhang III: Schutz auf Antrag einzelner Staaten</li>
-</ul></li>
-<li>Starker Vollzugsfokus:
-<ul>
-<li>Genehmigungspflichten</li>
-<li>Kontrollen durch Behörden und Zoll</li>
-</ul></li>
-<li>Ergänzt Ramsar-, Bonn-, Berner Konvention und CBD im globalen Artenschutz</li>
-</ul>
-</section></section>
-<section id="ffh" class="title-slide slide level1 center">
-<h1>FFH</h1>
-
-</section>
-
-<section id="vogelschutzrichtlinie" class="title-slide slide level1 center">
-<h1>Vogelschutzrichtlinie</h1>
-
-</section>
-
-<section id="iucn" class="title-slide slide level1 center">
-<h1>IUCN</h1>
-
-</section>
-
-<section>
-<section id="quellen" class="title-slide slide level1 center">
-<h1>Quellen</h1>
-
-</section>
-<section id="optionale-literatur" class="slide level2">
-<h2>Optionale Literatur</h2>
-<ul>
-<li>Bennett, G., &amp; Ligthart, S. (2001). The implementation of international nature conservation agreements in Europe: the case of the Netherlands.&nbsp;European Environment,&nbsp;11(3), 140-150</li>
-</ul>
+<section id="wie-hängen-sie-zusammen" class="slide level2">
+<h2>Wie hängen sie zusammen?</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Abkommen</th>
+<th>Ebene</th>
+<th>Schwerpunkt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ramsar</td>
+<td>Global</td>
+<td>Feuchtgebiete</td>
+</tr>
+<tr class="even">
+<td>Berner Konvention</td>
+<td>Europa</td>
+<td>Wildtiere &amp; Habitate</td>
+</tr>
+<tr class="odd">
+<td>FFH / Natura 2000</td>
+<td>EU</td>
+<td>Verbindliches Schutzgebietsnetz</td>
+</tr>
+<tr class="even">
+<td>Kunming-Montreal</td>
+<td>Global</td>
+<td>Gesamte Biodiversität, 30×30-Ziel</td>
+</tr>
+</tbody>
+</table>
 
 
 </section></section>
