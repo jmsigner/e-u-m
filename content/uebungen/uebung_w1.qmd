@@ -287,6 +287,9 @@ e. An welchem Standort wurden am meisten Rehe fotografiert?
 f. Finden Sie alle Standorte, an denen mindestens einmal ein Reh fotografiert wurde.
 g. Welche Tierart kam am häufigsten vor?
 
+Wenn Sie denken, dass Sie fertig sind, machen Sie das bitte hier kenntlich:
+<https://particify.rz.tu-bs.de/p/24387363>.
+
 ### Lösungsvorschläge
 
 ```{r, }

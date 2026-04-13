@@ -13,9 +13,11 @@ title: "Einführung"
 
 
 # Folien
-- [Alle Folien](/content/slides/01/01-einfuehrung.html){target="_blank"}
+- [Alle Folien (html)](/content/slides/01/01-einfuehrung.html){target="_blank"}
+- [Alle Folien (pdf)](/content/slides/pdf/vl-1.pdf){target="_blank"}
 
-# Literatur (optional)
+# Literatur 
+- Müller et al. 2019: <https://www.researchgate.net/publication/349721250_Der_nationale_Bericht_2019_zu_Lebensraumtypen_und_Arten_der_FFH-Richtlinie_-_ein_Uberblick_uber_die_Ergebnisse>
 
 
 
