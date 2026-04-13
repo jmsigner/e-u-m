@@ -13,7 +13,8 @@ title: "Einführung"
 
 
 # Folien
-- [Alle Folien](/content/slides/01/01-einfuehrung.html){target="_blank"}
+- [Alle Folien (html)](/content/slides/01/01-einfuehrung.html){target="_blank"}
+- [Alle Folien (pdf)](/content/slides/pdf/vl-1.pdf){target="_blank"}
 
 # Literatur (optional)
 
