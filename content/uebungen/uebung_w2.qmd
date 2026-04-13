@@ -15,9 +15,6 @@ Schauen Sie sich als Vorbereitung für diese Einheit das folgende Video an:
 {{< video https://www.youtube.com/watch?v=1LzdESG6-2E >}}
 
 
-:::{.callout-tip title="Werden Sie aktiv"}
-Recherchieren Sie, wie man R und RStudio richtig zitiert.
-:::
 
 
 # Übung
