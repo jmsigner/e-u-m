@@ -69,9 +69,8 @@ Der Posterior ist keine einzelne Zahl, sondern eine Verteilung. Sie zeigt, welch
 | **Likelihood** $P(\text{Daten} \mid \theta)$ | Wie wahrscheinlich sind die Daten, gegeben θ? | 3 von 10 Auslösungen wenn p = 0.3 |
 | **Posterior** $P( \theta\mid\text{Daten})$ | Unser Glaube nach den Daten | Update: vielleicht doch häufiger? |
 
----
 
-## Übung 1 — Bayes per Hand (mit oder ohne R)
+## Beispiel - Bayes per Hand (mit oder ohne R)
 
 **Situation:** Eine Kamerafalle läuft 5 Nächte. Der Luchs wird in **2 Nächten** detektiert.
 
@@ -97,11 +96,10 @@ $$P(\text{Daten} \mid p) = \binom{5}{2} \cdot p^2 \cdot (1-p)^3$$
 2. Was passiert, wenn wir den Prior ändern — z.B. alle drei Werte gleich wahrscheinlich machen?
 3. Was würde sich ändern, wenn wir 20 statt 5 Nächte beobachtet hätten?
 
----
 
 ## Die Beta-Verteilung — vom diskreten zum kontinuierlichen Prior
 
-In der Übung oben hat $p$ nur drei mögliche Werte. In der Realität kann $p$ jeden Wert zwischen 0 und 1 annehmen. Die *Beta-Verteilung* ist ein guter Prior für Wahrscheinlichkeiten.
+In der Realität kann $p$ jeden Wert zwischen 0 und 1 annehmen. Die *Beta-Verteilung* ist ein guter Prior für Wahrscheinlichkeiten.
 
 Die *Beta-Verteilung* wird durch zwei Parameter beschrieben: $\alpha$ (Alpha) und $\beta$ (Beta), die man sich als „bisherige Erfolge" und „bisherige Misserfolge" vorstellen kann:
 
@@ -227,12 +225,6 @@ legend(
 # Nachbereitung (*nach* der Übung)
 
 - Stellen Sie sicher, dass Sie mit folgenden Begriffen vertraut sind: 
-  - Likelihood
-  - Posterior
-  - Prior
-  - Parameter
-- Überlegen Sie nochmals welche Parametrisierungenn der Beta-Verteilung zu ungefähr welchen Verteilungen führen.
-- Verdeutlichen Sie sich nochmals den Unterschied zwischen $P(Data|p)$ und $P(p|Data)$ und somit den Unterschied zwischen einer Bayesianischen und Frequentistischen Sicht. 
 
 ## Optional: Diskussion zu Frequentist vs. Bayes
 

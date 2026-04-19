@@ -14,3 +14,38 @@ Hören Sie diesen [Podcast](https://www.youtube.com/watch?v=5_gFgu9DZF0&list=PLD
 
 # Vorlesung
 
+- [Erfassung von Wildtieren](/content/slides/01/02-erfassung.html){target="_blank"}
+- [Übung](/content/uebungen/uebung_w2.html){target="_blank"}
+
+
+# Folien
+- [Alle Folien (html)](/content/slides/01/02-erfassung.html){target="_blank"}
+- [Alle Folien (pdf)](/content/slides/pdf/vl-2.pdf){target="_blank"}
+
+
+
+# Nachbereitung
+
+## Klassifizieren von Fotos 
+
+Ziel der  Übung ist es, 24 Fotofallenfotos zu klassifizieren und die Klassifizierungsergebnisse zu vergleichen.
+
+Überlegen Sie in Kleingruppen (2 bis 3 Studierende), wie Sie die gesammelten Daten aus den Fotofallen so organisieren können, dass wir in einem nächsten Schritt:
+
+1.  die Daten zusammenführen und
+2.  vergleichen können, wie die Daten klassifiziert wurden.
+
+Klassifizieren Sie die Fotos (`daten/woche_2_fotos.zip`) und laden Sie die Ergebnisse in StudIP in den Order `daten/woche_2_fotos_ergebnisse` hoch.
+
+Führen Sie die Daten aus Aufgabe 2 zusammen und finden Sie das Foto, bei dem die Klassifizierung am unsichersten war.
+
+
+## Wolf in Deutschland
+
+Auf einem Blogpost von Wildtierschutz Deutschland e.V. steht: 
+
+> Nicht nur das, Studien aus Slowenien, Frankreich und Schweden belegen, dass die weitgehende Freigabe der Jagd auf Wölfe nicht zielführend hinsichtlich des Schutzes von Weidetieren ist. Der ist ausschließlich durch geeignete Herdenschutzmaßnahmen zu gewährleisten. Dafür gibt es zahlreiche Beispiele in Deutschland. Weidetiere durch das nun beschlossene Jagdgesetz zu schützen ist ein Trugschluss. Weidetierhalter, die sich darauf verlassen, werden verlassen sein.
+
+Quelle: <https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz>
+
+In dem Artikel ist von Studien aus Slowenien, Frankreich und Schweden die Rede. Finden Sie eine oder mehrere dieser Studien, was sagen sie aus?

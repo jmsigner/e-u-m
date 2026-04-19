@@ -232,7 +232,7 @@ window.Quarto = {
   <li><a href="#lernziele" id="toc-lernziele" class="nav-link" data-scroll-target="#lernziele">Lernziele</a></li>
   <li><a href="#einführung" id="toc-einführung" class="nav-link" data-scroll-target="#einführung">Einführung</a></li>
   <li><a href="#die-drei-zutaten-des-bayesschen-denkens" id="toc-die-drei-zutaten-des-bayesschen-denkens" class="nav-link" data-scroll-target="#die-drei-zutaten-des-bayesschen-denkens">Die drei Zutaten des Bayes’schen Denkens</a></li>
-  <li><a href="#übung-1-bayes-per-hand-mit-oder-ohne-r" id="toc-übung-1-bayes-per-hand-mit-oder-ohne-r" class="nav-link" data-scroll-target="#übung-1-bayes-per-hand-mit-oder-ohne-r">Übung 1 — Bayes per Hand (mit oder ohne R)</a></li>
+  <li><a href="#beispiel---bayes-per-hand-mit-oder-ohne-r" id="toc-beispiel---bayes-per-hand-mit-oder-ohne-r" class="nav-link" data-scroll-target="#beispiel---bayes-per-hand-mit-oder-ohne-r">Beispiel - Bayes per Hand (mit oder ohne R)</a></li>
   <li><a href="#die-beta-verteilung-vom-diskreten-zum-kontinuierlichen-prior" id="toc-die-beta-verteilung-vom-diskreten-zum-kontinuierlichen-prior" class="nav-link" data-scroll-target="#die-beta-verteilung-vom-diskreten-zum-kontinuierlichen-prior">Die Beta-Verteilung — vom diskreten zum kontinuierlichen Prior</a></li>
   <li><a href="#übung-2-beta-verteilung-und-vom-prior-zum-posterior" id="toc-übung-2-beta-verteilung-und-vom-prior-zum-posterior" class="nav-link" data-scroll-target="#übung-2-beta-verteilung-und-vom-prior-zum-posterior">Übung 2: Beta-Verteilung und vom Prior zum Posterior</a>
   <ul class="collapse">
@@ -276,7 +276,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">13. April 2026</p>
+      <p class="date">19. April 2026</p>
     </div>
   </div>
   
@@ -398,10 +398,9 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<hr>
 </section>
-<section id="übung-1-bayes-per-hand-mit-oder-ohne-r" class="level2">
-<h2 class="anchored" data-anchor-id="übung-1-bayes-per-hand-mit-oder-ohne-r">Übung 1 — Bayes per Hand (mit oder ohne R)</h2>
+<section id="beispiel---bayes-per-hand-mit-oder-ohne-r" class="level2">
+<h2 class="anchored" data-anchor-id="beispiel---bayes-per-hand-mit-oder-ohne-r">Beispiel - Bayes per Hand (mit oder ohne R)</h2>
 <p><strong>Situation:</strong> Eine Kamerafalle läuft 5 Nächte. Der Luchs wird in <strong>2 Nächten</strong> detektiert.</p>
 <p>Wir nehmen an, <span class="math inline">\(p\)</span> kann nur drei Werte annehmen: 0.1, 0.3 oder 0.5.</p>
 <p><strong>Aufgabe:</strong> Fülle die Tabelle aus. Die Likelihood berechnet sich als:</p>
@@ -457,11 +456,10 @@ window.Quarto = {
 <li>Was passiert, wenn wir den Prior ändern — z.B. alle drei Werte gleich wahrscheinlich machen?</li>
 <li>Was würde sich ändern, wenn wir 20 statt 5 Nächte beobachtet hätten?</li>
 </ol>
-<hr>
 </section>
 <section id="die-beta-verteilung-vom-diskreten-zum-kontinuierlichen-prior" class="level2">
 <h2 class="anchored" data-anchor-id="die-beta-verteilung-vom-diskreten-zum-kontinuierlichen-prior">Die Beta-Verteilung — vom diskreten zum kontinuierlichen Prior</h2>
-<p>In der Übung oben hat <span class="math inline">\(p\)</span> nur drei mögliche Werte. In der Realität kann <span class="math inline">\(p\)</span> jeden Wert zwischen 0 und 1 annehmen. Die <em>Beta-Verteilung</em> ist ein guter Prior für Wahrscheinlichkeiten.</p>
+<p>In der Realität kann <span class="math inline">\(p\)</span> jeden Wert zwischen 0 und 1 annehmen. Die <em>Beta-Verteilung</em> ist ein guter Prior für Wahrscheinlichkeiten.</p>
 <p>Die <em>Beta-Verteilung</em> wird durch zwei Parameter beschrieben: <span class="math inline">\(\alpha\)</span> (Alpha) und <span class="math inline">\(\beta\)</span> (Beta), die man sich als „bisherige Erfolge” und „bisherige Misserfolge” vorstellen kann:</p>
 <ul>
 <li><span class="math inline">\(Beta(1, 1)\)</span>: völlig uninformativ — alle Werte von <span class="math inline">\(p\)</span> sind gleich wahrscheinlich</li>
@@ -576,15 +574,7 @@ window.Quarto = {
 <section id="nachbereitung-nach-der-übung" class="level1">
 <h1>Nachbereitung (<em>nach</em> der Übung)</h1>
 <ul>
-<li>Stellen Sie sicher, dass Sie mit folgenden Begriffen vertraut sind:
-<ul>
-<li>Likelihood</li>
-<li>Posterior</li>
-<li>Prior</li>
-<li>Parameter</li>
-</ul></li>
-<li>Überlegen Sie nochmals welche Parametrisierungenn der Beta-Verteilung zu ungefähr welchen Verteilungen führen.</li>
-<li>Verdeutlichen Sie sich nochmals den Unterschied zwischen <span class="math inline">\(P(Data|p)\)</span> und <span class="math inline">\(P(p|Data)\)</span> und somit den Unterschied zwischen einer Bayesianischen und Frequentistischen Sicht.</li>
+<li>Stellen Sie sicher, dass Sie mit folgenden Begriffen vertraut sind:</li>
 </ul>
 <section id="optional-diskussion-zu-frequentist-vs.-bayes" class="level2">
 <h2 class="anchored" data-anchor-id="optional-diskussion-zu-frequentist-vs.-bayes">Optional: Diskussion zu Frequentist vs.&nbsp;Bayes</h2>

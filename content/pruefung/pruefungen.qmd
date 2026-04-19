@@ -25,18 +25,39 @@ Sie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden
 ## Terminologie
 Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können:
 
+::: {.columns}
+
+::: {.column width="50%"}
 ### Woche 1
 
 1. Monitoring
 2. Statistische Inferenz
 3. Zustandsvariable
-4. EU-Verodnung
+4. EU-Verordnung
 5. EU-Richtlinie
 6. FFH-Richtlinie
 7. Anhänge der FFH-Richtlinie
 8. Ramsar Konvention
 9. Berner Konvention
 10. Relative vs. absolute Pfade
+:::
+
+::: {.column width="50%"}
+### Woche 2
+
+1. Likelihood
+2. Posterior
+3. Prior
+4. Parameter
+5. Bayesiansche Statistik
+6. Frequentistische Statistik
+7. Gamma Verteilung
+8. Scalp Kriterien
+9. Citizen Science
+10. PIT-Tags
+:::
+
+:::
 
 ## Statistik
 Es werden **keine** R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen. 

@@ -35,28 +35,78 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Nachträge
+
+## Status Wolf
+
+-   Der Wolf wurde von Anhang IV (streng geschützt) zu Anhang V
+
+![](images/clipboard-3417281503.png)
+
+Quelle: <https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32025L1237>
+
+------------------------------------------------------------------------
+
+::: callout-tip
+## Optionale Information
+
+-   [Debatte aus dem Bundestag und Anhörung](https://www.bundestag.de/dokumente/textarchiv/2026/kw10-de-bundesjagdgesetz-1150486) zur Aufnahme des Wolfes im Bundesjagdgesetzt.
+-   [Pressemitteilung zur Aufnahme des Wolfs ins Bundesjagdgesetz](https://www.bmleh.de/SharedDocs/Pressemitteilungen/DE/2026/030-wolf.html)
+-   Stellungnahme des NABUs <https://blogs.nabu.de/naturschaetze-retten/guenstiger-erhaltungszustand-wolf/>
+:::
+
+------------------------------------------------------------------------
+
+> Nicht nur das, Studien aus Slowenien, Frankreich und Schweden belegen, dass die weitgehende Freigabe der Jagd auf Wölfe nicht zielführend hinsichtlich des Schutzes von Weidetieren ist. Der ist ausschließlich durch geeignete Herdenschutzmaßnahmen zu gewährleisten. Dafür gibt es zahlreiche Beispiele in Deutschland. Weidetiere durch das nun beschlossene Jagdgesetz zu schützen ist ein Trugschluss. Weidetierhalter, die sich darauf verlassen, werden verlassen sein.
+
+Quelle: <https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz>
+
+## Wie Funktioniert das FFH-Monitoring
+
+Für Arten in Anhang II und IV:
+
+![](images/clipboard-2206751605.png)
+
+--------------
+
+Vorgehen für das generelle Monitoring (z.B. wie die Stichproben festgelegt werden):
+
+![](images/clipboard-775162203.png)
+
 # Erfassung von Wildtieren
+
+## Wo sind wir?
+
+-   [13.04.2026: E01: Einführung]{style="color: #888;"}\
+-   **20.04.2026: E02: Erfassung von Wildtieren**
+-   27.04.2026: E03: Verbreitung 1
+-   05.05.2026: E04: Verbreitung 2
+-   11.05.2026: E05: Occupancy-Modelle 1 (online)
+-   18.05.2026: E06: Occupancy-Modelle 2
+-   01.06.2026: E07: Abundanz 1
+-   08.06.2026: E08: Abundanz 2
+-   15.06.2026: E09: Telemetrie 1: Random Walks etc.
+-   22.06.2026: E10: Telemetrie 2: Streifgebiete
+-   29.06.2026: E11: Telemetrie 3: Habitatselektion (online)
+-   06.07.2026: E12: Telemetrie 4: Habitatselektion
 
 ## Kurze Wiederholung/Vorschau
 
-![](images/clipboard-4233619795.png)
+![](images/clipboard-349588941.png)
 
 ## Motivation
 
--   Für alle Monitoringvorhaben brauchen wir Daten. Diese müssen wir
-    'erfassen'.
--   Unter Erfassung ist hier das indirekte oder direkte Beobachten,
-    Zählen oder Messen von Wildtieren in freier Wildbahn gemeint.
+-   Für alle Monitoringvorhaben brauchen wir Daten. Diese müssen wir 'erfassen'.
 
-- Reinhardt et al. (2015) Monitoring von Wolf, Luchs und Bär in Deutschland BfN Skript 413 (<https://www.bfn.de/fileadmin/>
-BfN/service/Dokumente/skripten/Skript413.pdf)
+-   Unter Erfassung ist hier das indirekte oder direkte Beobachten, Zählen oder Messen von Wildtieren in freier Wildbahn gemeint.
+
+-   Reinhardt et al. (2015) Monitoring von Wolf, Luchs und Bär in Deutschland BfN Skript 413 (<https://www.bfn.de/fileadmin/> BfN/service/Dokumente/skripten/Skript413.pdf)
 
 ## Was macht es so schwierig Wildtiere zu erfassen?
 
 -   Auffinden der Tiere kann schwierig sein.
 -   Die meisten Tiere, die wir untersuchen, bewegen sich.
--   Die Dichten der Tiere variieren in Gebieten und zwischen Tierarten
-    (z.B. Amsel vs. Luchs).
+-   Die Dichten der Tiere variieren in Gebieten und zwischen Tierarten (z.B. Amsel vs. Luchs).
 
 ------------------------------------------------------------------------
 
@@ -64,16 +114,13 @@ BfN/service/Dokumente/skripten/Skript413.pdf)
 knitr::include_graphics(("img/mlion.jpeg"))
 ```
 
-
 ## Unterschiedliche Methoden für unterschiedliche Fragestellungen
 
 -   Was möchte ich wissen?
 -   Welche Methode kann ich dafür anwenden?
 -   Welche Daten brauche ich für welche Methode?
 
-
-Silvy, N. J., Lopez, R. R., & Peterson, M. J. (2012). Techniques for
-marking wildlife. The wildlife techniques manual, 1, 230-257.
+Silvy, N. J., Lopez, R. R., & Peterson, M. J. (2012). Techniques for marking wildlife. The wildlife techniques manual, 1, 230-257.
 
 ## Der Versuch einer Einteilung
 
@@ -105,12 +152,8 @@ Wir müssen Entscheidungen treﬀen, die in folgende Kategorien fallen:
 
 ## Methoden der Erfassung
 
--   Die klassische Methode der Erfassung von Wildtieren ist die direkte
-    oder indirekte Feldbeobachtung mit oder ohne technische Hilfsmittel
-    (z.B. Fernglas).
--   In den vergangen Jahrzehnten sind eine Vielzahl von sensorbasierten
-    Erfassungsmethoden hinzugekommen (z.B. satellitenbasierte Telemetrie
-    oder Fotofallen).
+-   Die klassische Methode der Erfassung von Wildtieren ist die direkte oder indirekte Feldbeobachtung mit oder ohne technische Hilfsmittel (z.B. Fernglas).
+-   In den vergangen Jahrzehnten sind eine Vielzahl von sensorbasierten Erfassungsmethoden hinzugekommen (z.B. satellitenbasierte Telemetrie oder Fotofallen).
 
 ```{r, echo = FALSE, out.width="50%", fig.align='center', fig.cap="Foto: J. Signer"}
 knitr::include_graphics(("img/fotofalle.png"))
@@ -120,18 +163,15 @@ knitr::include_graphics(("img/fotofalle.png"))
 
 ### Aktiv (Beobachtung der Tiere im Feld)
 
-1.  Direkte Beobachtung: Dies kann die ganz klassische Zählung oder
-    Beobachtung von Tieren im Feld sein.
-2.  Indirekte Beobachtung: Suchen bzw. Sammeln von Nachweisen, die auf
-    eine Art hindeuten. Z.B. Federn, Trittsiegel oder Losungen.
+1.  Direkte Beobachtung: Dies kann die ganz klassische Zählung oder Beobachtung von Tieren im Feld sein.
+2.  Indirekte Beobachtung: Suchen bzw. Sammeln von Nachweisen, die auf eine Art hindeuten. Z.B. Federn, Trittsiegel oder Losungen.
 
 \pause
 
 Bei direkten und indirekten Verfahren gilt:
 
 -   Man sollte die Tiere möglichst nicht beeinﬂussen.
--   Oft sind die Verfahren zeitaufwendig und man braucht freiwillige
-    HelferInnen (-\> Citizen Science).
+-   Oft sind die Verfahren zeitaufwendig und man braucht freiwillige HelferInnen (-\> Citizen Science).
 
 ------------------------------------------------------------------------
 
@@ -143,38 +183,21 @@ Eine unvollständige Liste an Möglichkeiten:
 -   Telemetriesysteme (z.B. VHF, GPS, stationäre Systeme).
 -   Akustisches Monitoring.
 
-## Übung 1: Fotos klassifizieren - Datenstruktur
-
-- Ziel der heutigen Übung ist es, 25 Fotofallenfotos zu klassifizieren und die Klassifizierungsergebnisse zu vergleichen.
-
-Überlegen Sie in Kleingruppen (2 bis 3 Studierende), wie Sie die gesammelten Daten aus den Fotofallen so organisieren können, dass wir in einem nächsten Schritt: 
-
-1. die Daten zusammenführen und 
-2. vergleichen können, wie die Daten klassifiziert wurden.
-
 ## Markierung von Tieren
 
 ### Natürliche Markierung
 
--   Einige Tierarten haben eindeutige natürliche Merkmale, die eine
-    individuelle Identiﬁkation möglich machen. Bei vielen Katzen (z.B.
-    Tiger, Luchs) weißt das Fell eindeutige Muster auf.
--   Johansson et al. 2020[^4] untersuchten die Auswirkungen von
-    Fehlklassiﬁkationen auf Populationsgrößenschätzungen. Sie können
-    auch versuchen Schneeleoparden zu klassiﬁzieren (https:
-    //camtraining.globalsnowleopard.org/leppe/login/).
+-   Einige Tierarten haben eindeutige natürliche Merkmale, die eine individuelle Identiﬁkation möglich machen. Bei vielen Katzen (z.B. Tiger, Luchs) weißt das Fell eindeutige Muster auf.
+-   Johansson et al. 2020[^1] untersuchten die Auswirkungen von Fehlklassiﬁkationen auf Populationsgrößenschätzungen. Sie können auch versuchen Schneeleoparden zu klassiﬁzieren (https: //camtraining.globalsnowleopard.org/leppe/login/).
 
-[^4]: Johansson, Ö., Samelius, G., Wikberg, E., Chapron, G., Mishra, C.,
-    & Low, M. (2020). Identification errors in camera-trap studies
-    result in systematic population overestimation. Scientific reports,
-    10(1), 1-10.
+[^1]: Johansson, Ö., Samelius, G., Wikberg, E., Chapron, G., Mishra, C., & Low, M. (2020). Identification errors in camera-trap studies result in systematic population overestimation. Scientific reports, 10(1), 1-10.
 
 ------------------------------------------------------------------------
 
 ## Künstliche Markierung
 
 -   Invasiv
-    -   Transponder (z.B. PIT-Tags[^5])
+    -   Transponder (z.B. PIT-Tags[^2])
     -   Radioaktive Marker
     -   Ohrmarken, Muster im Fell
 -   Nichtinvasiv
@@ -182,39 +205,33 @@ Eine unvollständige Liste an Möglichkeiten:
     -   Beringung
     -   Farbe
 
-[^5]: Die Abkürzung PIT steht für Passive Integrated Transponders
+[^2]: Die Abkürzung PIT steht für Passive Integrated Transponders
 
 ## Fangen von Tieren
-
-
 
 ```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: J. Signer"}
 knitr::include_graphics(("img/katti1.jpg"))
 ```
 
------------
+------------------------------------------------------------------------
 
 ```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: M. Meißner"}
 knitr::include_graphics(("img/netzfang.jpg"))
 ```
 
------------
+------------------------------------------------------------------------
 
 ```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: M. Meißner"}
 knitr::include_graphics(("img/krall.JPG"))
 ```
 
------
-
+------------------------------------------------------------------------
 
 ```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: S. Appleby"}
 knitr::include_graphics(("img/scott_1.jpg"))
 ```
 
-
-
 ## Markieren von Tieren
-
 
 ```{r, echo = FALSE, out.width="90%", fig.align='center', fig.cap="Quelle: S. Appleby"}
 knitr::include_graphics(("img/scott_2.jpg"))
@@ -226,11 +243,6 @@ knitr::include_graphics(("img/scott_2.jpg"))
 knitr::include_graphics(("img/telemetrie.jpg"))
 ```
 
-## Übung 2: Fotos klassifizieren 
-
-Klassifizieren Sie die Fotos (`daten/woche_2_fotos`) und laden Sie die Ergebnisse in StudIP in den Order `daten/woche_2_fotos_ergebnisse` hoch.
-
-
 ## Qualität von Nachweisen
 
 Hinweise (meist von Karnivoren) werden nach ihrer Überprüfbarkeit in
@@ -239,18 +251,10 @@ Hinweise (meist von Karnivoren) werden nach ihrer Überprüfbarkeit in
 -   bestätigte Hinweise (C2) und
 -   unbestätigte Hinweise (C3)
 
-eingeteilt. Diese Kriterien wurden für SCALP (Status and Conservation of
-the Alpine Lynx Population) in der Schweiz entwickelt.
+eingeteilt. Diese Kriterien wurden für SCALP (Status and Conservation of the Alpine Lynx Population) in der Schweiz entwickelt.
 
 ------------------------------------------------------------------------
 
--   **Eindeutiger Nachweis (C1)** Lebendfang, Totfund, genetischer
-    Nachweis
--   **Bestätigter Hinweis (C2)** Ein Hinweis, der von einer erfahrenen
-    Person bestätigt wird (z.B. Riss, Trittsiegel)
--   **Unbestätigter Hinweis (C3)** Eine Beobachtung, unscharfe Fotos,
-    etc.
-
-## Übung 3: Zusammenführen der Daten
-
-Führen Sie die Daten aus Aufgabe 2 zusammen und finden Sie das Foto, bei dem die Klassifizierung am unsichersten war.
+-   **Eindeutiger Nachweis (C1)** Lebendfang, Totfund, genetischer Nachweis
+-   **Bestätigter Hinweis (C2)** Ein Hinweis, der von einer erfahrenen Person bestätigt wird (z.B. Riss, Trittsiegel)
+-   **Unbestätigter Hinweis (C3)** Eine Beobachtung, unscharfe Fotos, etc.
