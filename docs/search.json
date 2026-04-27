@@ -543,7 +543,11 @@
     "href": "content/slides/01/03-vorkommen.html#hierarchien-der-habitatwahl",
     "title": "Vorkommen von Wildtieren (E3)",
     "section": "Hierarchien der Habitatwahl",
+<<<<<<< HEAD
     "text": "Hierarchien der Habitatwahl\n\n\nEbene: Wahl des Artverbeitungsareal (z.B. Wo kommt er Wolf vor? Nördliche Grenze)\nEbene: Wahl von Aktionsräume (= Streifgebiete) innerhalb des Artverbeitungsareal.\nEbene: Wahl bestimmter Habitate innerhalb des Streifgebietes\nEbene: Wahl bestimmter Komponenten innerhalb der gewählten Habitate"
+=======
+    "text": "Hierarchien der Habitatwahl\n\n\nEbene: Wahl des Artverbeitungsareal (z.B. Wo kommt er Wolf vor? Nördliche Grenze)\nEbene: Wahl von Aktionsräume (= Streifgebiete) innerhalb des Artverbeitungsareal.\nEbene: Wahl bestimmter Habitate innerhalb des Streifgebietes\nEbene: Wahl Wahl bestimmter Komponenten innerhalb der gewählten Habitate"
+>>>>>>> 9dfeacb612e943588cd67ca2fda5867f04dbff58
   },
   {
     "objectID": "content/slides/01/03-vorkommen.html#ökologische-nische",
@@ -564,7 +568,11 @@
     "href": "content/slides/01/03-vorkommen.html#ökologische-nische-2",
     "title": "Vorkommen von Wildtieren (E3)",
     "section": "Ökologische Nische 2",
+<<<<<<< HEAD
     "text": "Ökologische Nische 2\n\nFundamentale Nische: Hier kann eine Art vorkommen, außerhalb kann sie nicht vorkommen.\nRealisierte Nische: Hier kommt eine Art tatsächlich vor\n\n\n\nStenöke Arten: Spezialisten -&gt; Enge Nische (z.B. Schneeleopard)\nEuryöke Arten: Generalisten -&gt; Breite Nische (z.B. Rotfuchs)"
+=======
+    "text": "Ökologische Nische 2\n\nFundamentale Nische: Hier kann eine Art vorkommen, außerhalb kann sie nicht vorkommen.\nRealisierte Nische: Hier kommt eine Art tatsächlich vor\n\n\n\nStenöke Arten: Spezialisten -&gt; Enge Nische (z.B. Schneeleopard)\nEuryöke Arten: Generalisten -&gt; Breite Arten (z.B. Rotfuchs)"
+>>>>>>> 9dfeacb612e943588cd67ca2fda5867f04dbff58
   },
   {
     "objectID": "content/slides/01/03-vorkommen.html#die-fragestellung",
