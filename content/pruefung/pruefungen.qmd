@@ -59,6 +59,32 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 
 :::
 
+::: {.columns}
+
+::: {.column width="50%"}
+### Woche 3
+
+1. Autökologie
+2. Fundamentale und realisierte Nische
+3. Zufallsvariable
+4. Stenöke Arten
+5. Euryöke Arten
+6. Habitat
+7. Biotop
+8. Habitatwahl
+9. Limitierender Faktor
+10. Statistische vs. meachnistische Modelle
+11. Grundgesamtheit
+12. Stichprobe
+13. Verteilungen (Binomial, Poisson, Normal, Beta)
+:::
+
+::: {.column width="50%"}
+:::
+
+:::
+
+
 ## Statistik
 Es werden **keine** R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen. 
 

@@ -17,7 +17,8 @@ website:
             text: "02. Methoden"
           - text: "-------"
           - text: "Vorkommen"
-          - text: "03. Wo kommt eine Art vor?"
+          - href: content/vorlesungen/03-vorlesung.qmd
+            text: "03. Wo kommt eine Art vor?"
           - text: "04. Vorkommen vorhersagen"
           - text: "05. Occupancy Modelle"
           - text: "06. Was, wenn man nicht alle sieht?"
@@ -40,8 +41,8 @@ website:
           - text: "**Occupancy**"
           - href: content/uebungen/uebung_w2.qmd
             text: "2. Bayes"
-#          - href: content/uebungen/uebung_w3.qmd
-#            text: "3. Likelihood"
+          - href: content/uebungen/uebung_w3.qmd
+            text: "3. Likelihood"
 #          - href: content/uebungen/uebung_w4.qmd
 #            text: "4. Lineares Model"
 #          - href: content/uebungen/uebung_w5.qmd

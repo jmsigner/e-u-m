@@ -189,25 +189,116 @@
     "text": "Was zeigt der erste Plot? Wo liegt unsere Beobachtung (rote Linie)?\nBei welchem \\(p\\) liegt das Maximum der Likelihood-Kurve? Entspricht das k/n?\nIm dritten Plot: Wie beeinflusst der Prior Beta(2, 8) den Posterior? Wo liegt er relativ zur Likelihood?\nÄnderen Sie n = 100, k = 40 — was passiert mit dem Einfluss des Priors?\n\n\n# Daten\nn &lt;- 10 # Anzahl Nächte\nk &lt;- 4 # Anzahl Fotos\n\n# Binomialverteilung ----\n# Wie verteilen sich mögliche Detektionszahlen, wenn p = 0.4?\nx &lt;- 0:n\nwahrscheinlichkeit &lt;- dbinom(x, size = n, prob = 0.4)\n\nbarplot(wahrscheinlichkeit, names.arg = x,\n        xlab = \"Anzahl Detektionen k\",\n        ylab = \"Wahrscheinlichkeit P(k | p = 0.4)\",\n        main = \"Binomialverteilung: n = 10, p = 0.4\")\nabline(v = k + 0.5, col = \"red\", lwd = 2, lty = 2)  # unsere Beobachtung\n\n# Likelihood -----\np &lt;- seq(0, 1, length.out = 300)\nlikelihood &lt;- dbinom(k, size = n, prob = p)\n\nplot(\n  p, likelihood, type = \"l\", col = \"darkred\", lwd = 2,\n  xlab = \"Detektionswahrscheinlichkeit p\",\n  ylab = \"Likelihood L(p | Daten)\",\n  main = \"Likelihood-Kurve: k = 4, n = 10\")\nabline(v = k/n, col = \"grey44\", lwd = 2, lty = 2)\nlegend(\n  \"topright\",\n  legend = c(\"Likelihood\", \"MLE (k/n = 0.4)\"),\n  col = c(\"darkred\", \"grey44\"),\n  lwd = 2, lty = c(1, 2))\n\n# Likelihood * Prior = Posterior \nalpha_prior &lt;- 2\nbeta_prior  &lt;- 8   # Vorwissen: Luchs ist selten\n\nprior &lt;- dbeta(p, alpha_prior, beta_prior)\nposterior &lt;- dbeta(p, alpha_prior + k, beta_prior + (n - k))\n\n# Likelihood skalieren für Vergleich im Plot\nlik_scaled &lt;- likelihood / max(likelihood) * max(posterior)\n\nplot(p, posterior, type = \"l\", col = \"steelblue\", lwd = 2,\n     xlab = \"p\", ylab = \"Dichte / skalierte Likelihood\",\n     main = \"Prior, Likelihood & Posterior im Vergleich\",\n     ylim = c(0, max(posterior) * 1.2))\nlines(p, prior,        col = \"grey60\",     lwd = 2, lty = 2)\nlines(p, lik_scaled,   col = \"darkorange\",  lwd = 2, lty = 3)\nlegend(\"topright\",\n       legend = c(\"Prior\", \"Likelihood (skaliert)\", \"Posterior\"),\n       col    = c(\"grey60\", \"darkorange\", \"steelblue\"),\n       lwd    = 2, lty = c(2, 3, 1))"
   },
   {
-    "objectID": "content/vorlesungen/02-vorlesung.html",
-    "href": "content/vorlesungen/02-vorlesung.html",
+    "objectID": "content/vorlesungen/01-vorlesung.html",
+    "href": "content/vorlesungen/01-vorlesung.html",
     "title": "Einführung",
     "section": "",
-    "text": "Hören Sie diesen Podcast zu Wildtiermangement an und überlegen Sie sich kurz Antworten zu folgenden Punkten.\n\nWie ist der Titel bzw. die Aussage “Wildtiere sind der Spiegel dessen, wie der Mensch mit der Landschaft umgeht” zu verstehen?\nIst Wildtiermanagement einfach ein moderner Begriff für Jagd? Begründen Sie Ihre Antwort kurz.\nWie unterscheidet sich Monitoring vom Wildtiermanagement bzw. welche Rolle übernimmt das Monitoring?\nVersuchen Sie für die folgenden drei Begriffe eine Definition zu erarbeiten: Wildtiermanagement, Jagd und Monitoring."
+    "text": "Vorlesung\n\nLogistik\nMotivation & Rahmen\nKurze Pause\nÜbung\nArtporträt: Biber\n\n\n\nFolien\n\nAlle Folien (html)\nAlle Folien (pdf)\n\n\n\nLiteratur\n\nMüller et al. 2019: https://www.researchgate.net/publication/349721250_Der_nationale_Bericht_2019_zu_Lebensraumtypen_und_Arten_der_FFH-Richtlinie_-_ein_Uberblick_uber_die_Ergebnisse"
   },
   {
-    "objectID": "content/vorlesungen/02-vorlesung.html#klassifizieren-von-fotos",
-    "href": "content/vorlesungen/02-vorlesung.html#klassifizieren-von-fotos",
-    "title": "Einführung",
-    "section": "Klassifizieren von Fotos",
-    "text": "Klassifizieren von Fotos\nZiel der Übung ist es, 24 Fotofallenfotos zu klassifizieren und die Klassifizierungsergebnisse zu vergleichen.\nÜberlegen Sie in Kleingruppen (2 bis 3 Studierende), wie Sie die gesammelten Daten aus den Fotofallen so organisieren können, dass wir in einem nächsten Schritt:\n\ndie Daten zusammenführen und\nvergleichen können, wie die Daten klassifiziert wurden.\n\nKlassifizieren Sie die Fotos (daten/woche_2_fotos.zip) und laden Sie die Ergebnisse in StudIP in den Order daten/woche_2_fotos_ergebnisse hoch.\nFühren Sie die Daten aus Aufgabe 2 zusammen und finden Sie das Foto, bei dem die Klassifizierung am unsichersten war."
+    "objectID": "content/slides/01/02-erfassung.html#status-wolf",
+    "href": "content/slides/01/02-erfassung.html#status-wolf",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Status Wolf",
+    "text": "Status Wolf\n\nDer Wolf wurde von Anhang IV (streng geschützt) zu Anhang V\n\n\nQuelle: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32025L1237"
   },
   {
-    "objectID": "content/vorlesungen/02-vorlesung.html#wolf-in-deutschland",
-    "href": "content/vorlesungen/02-vorlesung.html#wolf-in-deutschland",
-    "title": "Einführung",
-    "section": "Wolf in Deutschland",
-    "text": "Wolf in Deutschland\nAuf einem Blogpost von Wildtierschutz Deutschland e.V. steht:\n\nNicht nur das, Studien aus Slowenien, Frankreich und Schweden belegen, dass die weitgehende Freigabe der Jagd auf Wölfe nicht zielführend hinsichtlich des Schutzes von Weidetieren ist. Der ist ausschließlich durch geeignete Herdenschutzmaßnahmen zu gewährleisten. Dafür gibt es zahlreiche Beispiele in Deutschland. Weidetiere durch das nun beschlossene Jagdgesetz zu schützen ist ein Trugschluss. Weidetierhalter, die sich darauf verlassen, werden verlassen sein.\n\nQuelle: https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz\nIn dem Artikel ist von Studien aus Slowenien, Frankreich und Schweden die Rede. Finden Sie eine oder mehrere dieser Studien, was sagen sie aus?"
+    "objectID": "content/slides/01/02-erfassung.html#wie-funktioniert-das-ffh-monitoring",
+    "href": "content/slides/01/02-erfassung.html#wie-funktioniert-das-ffh-monitoring",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Wie Funktioniert das FFH-Monitoring",
+    "text": "Wie Funktioniert das FFH-Monitoring\nFür Arten in Anhang II und IV:"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#wo-sind-wir",
+    "href": "content/slides/01/02-erfassung.html#wo-sind-wir",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Wo sind wir?",
+    "text": "Wo sind wir?\n\n13.04.2026: E01: Einführung\n\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
+    "href": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Kurze Wiederholung/Vorschau",
+    "text": "Kurze Wiederholung/Vorschau"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#motivation",
+    "href": "content/slides/01/02-erfassung.html#motivation",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Motivation",
+    "text": "Motivation\n\nFür alle Monitoringvorhaben brauchen wir Daten. Diese müssen wir ‘erfassen’.\nUnter Erfassung ist hier das indirekte oder direkte Beobachten, Zählen oder Messen von Wildtieren in freier Wildbahn gemeint.\nReinhardt et al. (2015) Monitoring von Wolf, Luchs und Bär in Deutschland BfN Skript 413 (https://www.bfn.de/fileadmin/ BfN/service/Dokumente/skripten/Skript413.pdf)"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
+    "href": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Was macht es so schwierig Wildtiere zu erfassen?",
+    "text": "Was macht es so schwierig Wildtiere zu erfassen?\n\nAuffinden der Tiere kann schwierig sein.\nDie meisten Tiere, die wir untersuchen, bewegen sich.\nDie Dichten der Tiere variieren in Gebieten und zwischen Tierarten (z.B. Amsel vs. Luchs)."
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
+    "href": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Unterschiedliche Methoden für unterschiedliche Fragestellungen",
+    "text": "Unterschiedliche Methoden für unterschiedliche Fragestellungen\n\nWas möchte ich wissen?\nWelche Methode kann ich dafür anwenden?\nWelche Daten brauche ich für welche Methode?\n\nSilvy, N. J., Lopez, R. R., & Peterson, M. J. (2012). Techniques for marking wildlife. The wildlife techniques manual, 1, 230-257."
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
+    "href": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Der Versuch einer Einteilung",
+    "text": "Der Versuch einer Einteilung\nWir müssen Entscheidungen treﬀen, die in folgende Kategorien fallen:\n\nWas für Daten benötigen wir?\n\nNachweise\nAnzahlen\n\nAnzahl Sichtungen\nAnzahl gesehener Tiere\n\nIndividuelle Daten (z.B. Gewicht, Position)\n\neinmalig\nmehrmalig"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
+    "href": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Methoden der Erfassung",
+    "text": "Methoden der Erfassung\n\nDie klassische Methode der Erfassung von Wildtieren ist die direkte oder indirekte Feldbeobachtung mit oder ohne technische Hilfsmittel (z.B. Fernglas).\nIn den vergangen Jahrzehnten sind eine Vielzahl von sensorbasierten Erfassungsmethoden hinzugekommen (z.B. satellitenbasierte Telemetrie oder Fotofallen).\n\n\nFoto: J. Signer"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#markierung-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#markierung-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Markierung von Tieren",
+    "text": "Markierung von Tieren\nNatürliche Markierung\n\nEinige Tierarten haben eindeutige natürliche Merkmale, die eine individuelle Identiﬁkation möglich machen. Bei vielen Katzen (z.B. Tiger, Luchs) weißt das Fell eindeutige Muster auf.\nJohansson et al. 20201 untersuchten die Auswirkungen von Fehlklassiﬁkationen auf Populationsgrößenschätzungen. Sie können auch versuchen Schneeleoparden zu klassiﬁzieren (https: //camtraining.globalsnowleopard.org/leppe/login/).\n\nJohansson, Ö., Samelius, G., Wikberg, E., Chapron, G., Mishra, C., & Low, M. (2020). Identification errors in camera-trap studies result in systematic population overestimation. Scientific reports, 10(1), 1-10."
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#künstliche-markierung",
+    "href": "content/slides/01/02-erfassung.html#künstliche-markierung",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Künstliche Markierung",
+    "text": "Künstliche Markierung\n\nInvasiv\n\nTransponder (z.B. PIT-Tags1)\nRadioaktive Marker\nOhrmarken, Muster im Fell\n\nNichtinvasiv\n\nHalsbänder\nBeringung\nFarbe\n\n\nDie Abkürzung PIT steht für Passive Integrated Transponders"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#fangen-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#fangen-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Fangen von Tieren",
+    "text": "Fangen von Tieren\n\nQuelle: J. Signer"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#markieren-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#markieren-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Markieren von Tieren",
+    "text": "Markieren von Tieren\n\nQuelle: S. Appleby"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Verfolgen von Tieren",
+    "text": "Verfolgen von Tieren\n\nQuelle: Nationalpark Harz/Bayeerischer Wald"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
+    "href": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Qualität von Nachweisen",
+    "text": "Qualität von Nachweisen\nHinweise (meist von Karnivoren) werden nach ihrer Überprüfbarkeit in\n\nNachweise (C1),\nbestätigte Hinweise (C2) und\nunbestätigte Hinweise (C3)\n\neingeteilt. Diese Kriterien wurden für SCALP (Status and Conservation of the Alpine Lynx Population) in der Schweiz entwickelt."
   },
   {
     "objectID": "content/slides/01/01-einfuehrung.html#team",
@@ -354,7 +445,7 @@
     "href": "content/pruefung/pruefungen.html#terminologie",
     "title": "Prüfungsleistungen",
     "section": "Terminologie",
-    "text": "Terminologie\nIch erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können:\n\n\n\nWoche 1\n\nMonitoring\nStatistische Inferenz\nZustandsvariable\nEU-Verordnung\nEU-Richtlinie\nFFH-Richtlinie\nAnhänge der FFH-Richtlinie\nRamsar Konvention\nBerner Konvention\nRelative vs. absolute Pfade\n\n\n\n\nWoche 2\n\nLikelihood\nPosterior\nPrior\nParameter\nBayesiansche Statistik\nFrequentistische Statistik\nGamma Verteilung\nScalp Kriterien\nCitizen Science\nPIT-Tags"
+    "text": "Terminologie\nIch erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können:\n\n\n\nWoche 1\n\nMonitoring\nStatistische Inferenz\nZustandsvariable\nEU-Verordnung\nEU-Richtlinie\nFFH-Richtlinie\nAnhänge der FFH-Richtlinie\nRamsar Konvention\nBerner Konvention\nRelative vs. absolute Pfade\n\n\n\n\nWoche 2\n\nLikelihood\nPosterior\nPrior\nParameter\nBayesiansche Statistik\nFrequentistische Statistik\nGamma Verteilung\nScalp Kriterien\nCitizen Science\nPIT-Tags\n\n\n\n\n\n\n\nWoche 3\n\nAutökologie\nFundamentale und realisierte Nische\nZufallsvariable\nStenöke Arten\nEuryöke Arten\nHabitat\nBiotop\nHabitatwahl\nLimitierender Faktor\nStatistische vs. meachnistische Modelle\nGrundgesamtheit\nStichprobe\nVerteilungen (Binomial, Poisson, Normal, Beta)"
   },
   {
     "objectID": "content/pruefung/pruefungen.html#statistik",
@@ -413,116 +504,137 @@
     "text": "Beispiel:\nhttps://besjournals.onlinelibrary.wiley.com/doi/full/10.1002/2688-8319.12168"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#status-wolf",
-    "href": "content/slides/01/02-erfassung.html#status-wolf",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Status Wolf",
-    "text": "Status Wolf\n\nDer Wolf wurde von Anhang IV (streng geschützt) zu Anhang V\n\n\nQuelle: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32025L1237"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#wie-funktioniert-das-ffh-monitoring",
-    "href": "content/slides/01/02-erfassung.html#wie-funktioniert-das-ffh-monitoring",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Wie Funktioniert das FFH-Monitoring",
-    "text": "Wie Funktioniert das FFH-Monitoring\nFür Arten in Anhang II und IV:"
-  },
-  {
-    "objectID": "content/slides/01/02-erfassung.html#wo-sind-wir",
-    "href": "content/slides/01/02-erfassung.html#wo-sind-wir",
-    "title": "Erfassung von Wildtieren (E2)",
+    "objectID": "content/slides/01/03-vorkommen.html#wo-sind-wir",
+    "href": "content/slides/01/03-vorkommen.html#wo-sind-wir",
+    "title": "Vorkommen von Wildtieren (E3)",
     "section": "Wo sind wir?",
-    "text": "Wo sind wir?\n\n13.04.2026: E01: Einführung\n\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion"
+    "text": "Wo sind wir?\n\n13.04.2026: E01: Einführung\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
-    "href": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
-    "title": "Erfassung von Wildtieren (E2)",
+    "objectID": "content/slides/01/03-vorkommen.html#kurze-wiederholungvorschau",
+    "href": "content/slides/01/03-vorkommen.html#kurze-wiederholungvorschau",
+    "title": "Vorkommen von Wildtieren (E3)",
     "section": "Kurze Wiederholung/Vorschau",
     "text": "Kurze Wiederholung/Vorschau"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#motivation",
-    "href": "content/slides/01/02-erfassung.html#motivation",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Motivation",
-    "text": "Motivation\n\nFür alle Monitoringvorhaben brauchen wir Daten. Diese müssen wir ‘erfassen’.\nUnter Erfassung ist hier das indirekte oder direkte Beobachten, Zählen oder Messen von Wildtieren in freier Wildbahn gemeint.\nReinhardt et al. (2015) Monitoring von Wolf, Luchs und Bär in Deutschland BfN Skript 413 (https://www.bfn.de/fileadmin/ BfN/service/Dokumente/skripten/Skript413.pdf)"
+    "objectID": "content/slides/01/03-vorkommen.html#ein-paar-definitionen",
+    "href": "content/slides/01/03-vorkommen.html#ein-paar-definitionen",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Ein paar Definitionen",
+    "text": "Ein paar Definitionen\n\nAutökologie: Wechselbeziehung zwischen einer Art (einzelne Individuen) und ihrer Umwelt (abiotisch und biotisch).\nHabitat: Lebensraum einer Art (bzieht sich oft auf Vegetationstypen)\nBiotop: Lebensraum einer Lebensgemeinschaft (-&gt; Habitate sind Teilbereiche eines Biotops, die nicht unbedingt von allen Arten der Lebensgemeinschaft genutzt werden)"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
-    "href": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Was macht es so schwierig Wildtiere zu erfassen?",
-    "text": "Was macht es so schwierig Wildtiere zu erfassen?\n\nAuffinden der Tiere kann schwierig sein.\nDie meisten Tiere, die wir untersuchen, bewegen sich.\nDie Dichten der Tiere variieren in Gebieten und zwischen Tierarten (z.B. Amsel vs. Luchs)."
+    "objectID": "content/slides/01/03-vorkommen.html#habitatansprüche",
+    "href": "content/slides/01/03-vorkommen.html#habitatansprüche",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Habitatansprüche",
+    "text": "Habitatansprüche\nWas müssen Wildtiere in ihrem Habitat vorfinden?\n\n\nSchutz, Unterschlupf, Nistmöglichkeiten\nNahrung, Wasser\nFortpflanzungspartner\nDas “richtige” Klima (Temperatur, Luftfeuchte)"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
-    "href": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Unterschiedliche Methoden für unterschiedliche Fragestellungen",
-    "text": "Unterschiedliche Methoden für unterschiedliche Fragestellungen\n\nWas möchte ich wissen?\nWelche Methode kann ich dafür anwenden?\nWelche Daten brauche ich für welche Methode?\n\nSilvy, N. J., Lopez, R. R., & Peterson, M. J. (2012). Techniques for marking wildlife. The wildlife techniques manual, 1, 230-257."
+    "objectID": "content/slides/01/03-vorkommen.html#habitatwahl",
+    "href": "content/slides/01/03-vorkommen.html#habitatwahl",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Habitatwahl",
+    "text": "Habitatwahl\n= Verhaltensökologische Prozesse, mit denen Tiere sich ihre Habitate auswählen…\nUnter welchen Gesichtspunkten sollten sich Tiere ihre Habitate auswählen?\n\n\n\n\n\n\nNote\n\n\nEvolution -&gt; Anpassung -&gt; Fitnessmaximierung"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
-    "href": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Der Versuch einer Einteilung",
-    "text": "Der Versuch einer Einteilung\nWir müssen Entscheidungen treﬀen, die in folgende Kategorien fallen:\n\nWas für Daten benötigen wir?\n\nNachweise\nAnzahlen\n\nAnzahl Sichtungen\nAnzahl gesehener Tiere\n\nIndividuelle Daten (z.B. Gewicht, Position)\n\neinmalig\nmehrmalig"
+    "objectID": "content/slides/01/03-vorkommen.html#hierarchien-der-habitatwahl",
+    "href": "content/slides/01/03-vorkommen.html#hierarchien-der-habitatwahl",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Hierarchien der Habitatwahl",
+    "text": "Hierarchien der Habitatwahl\n\n\nEbene: Wahl des Artverbeitungsareal (z.B. Wo kommt er Wolf vor? Nördliche Grenze)\nEbene: Wahl von Aktionsräume (= Streifgebiete) innerhalb des Artverbeitungsareal.\nEbene: Wahl bestimmter Habitate innerhalb des Streifgebietes\nEbene: Wahl Wahl bestimmter Komponenten innerhalb der gewählten Habitate"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
-    "href": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Methoden der Erfassung",
-    "text": "Methoden der Erfassung\n\nDie klassische Methode der Erfassung von Wildtieren ist die direkte oder indirekte Feldbeobachtung mit oder ohne technische Hilfsmittel (z.B. Fernglas).\nIn den vergangen Jahrzehnten sind eine Vielzahl von sensorbasierten Erfassungsmethoden hinzugekommen (z.B. satellitenbasierte Telemetrie oder Fotofallen).\n\n\nFoto: J. Signer"
+    "objectID": "content/slides/01/03-vorkommen.html#ökologische-nische",
+    "href": "content/slides/01/03-vorkommen.html#ökologische-nische",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Ökologische Nische",
+    "text": "Ökologische Nische\nGesamtheit aller abiotischen und biotischen Faktoren, die das Überleben einer Art beeinflussen"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#markierung-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#markierung-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Markierung von Tieren",
-    "text": "Markierung von Tieren\nNatürliche Markierung\n\nEinige Tierarten haben eindeutige natürliche Merkmale, die eine individuelle Identiﬁkation möglich machen. Bei vielen Katzen (z.B. Tiger, Luchs) weißt das Fell eindeutige Muster auf.\nJohansson et al. 20201 untersuchten die Auswirkungen von Fehlklassiﬁkationen auf Populationsgrößenschätzungen. Sie können auch versuchen Schneeleoparden zu klassiﬁzieren (https: //camtraining.globalsnowleopard.org/leppe/login/).\n\nJohansson, Ö., Samelius, G., Wikberg, E., Chapron, G., Mishra, C., & Low, M. (2020). Identification errors in camera-trap studies result in systematic population overestimation. Scientific reports, 10(1), 1-10."
+    "objectID": "content/slides/01/03-vorkommen.html#toleranz-und-stress",
+    "href": "content/slides/01/03-vorkommen.html#toleranz-und-stress",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Toleranz und Stress",
+    "text": "Toleranz und Stress\nEin Umweltfaktor, für den eine Art die geringste Toleranz zeigt wird als limitierend bezeichnet.\n\nLimitierende Faktoren sind geeignet, um das Vorkommen bzw. die Verbreitung einer Art vorherzusagen bzw. zu erklären.\nDie Verbreitung einer Art ist davon abhängig"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#künstliche-markierung",
-    "href": "content/slides/01/02-erfassung.html#künstliche-markierung",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Künstliche Markierung",
-    "text": "Künstliche Markierung\n\nInvasiv\n\nTransponder (z.B. PIT-Tags1)\nRadioaktive Marker\nOhrmarken, Muster im Fell\n\nNichtinvasiv\n\nHalsbänder\nBeringung\nFarbe\n\n\nDie Abkürzung PIT steht für Passive Integrated Transponders"
+    "objectID": "content/slides/01/03-vorkommen.html#ökologische-nische-2",
+    "href": "content/slides/01/03-vorkommen.html#ökologische-nische-2",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Ökologische Nische 2",
+    "text": "Ökologische Nische 2\n\nFundamentale Nische: Hier kann eine Art vorkommen, außerhalb kann sie nicht vorkommen.\nRealisierte Nische: Hier kommt eine Art tatsächlich vor\n\n\n\nStenöke Arten: Spezialisten -&gt; Enge Nische (z.B. Schneeleopard)\nEuryöke Arten: Generalisten -&gt; Breite Arten (z.B. Rotfuchs)"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#fangen-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#fangen-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Fangen von Tieren",
-    "text": "Fangen von Tieren\n\nQuelle: J. Signer"
+    "objectID": "content/slides/01/03-vorkommen.html#die-fragestellung",
+    "href": "content/slides/01/03-vorkommen.html#die-fragestellung",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Die Fragestellung",
+    "text": "Die Fragestellung\n\nWie kann man die Verbreitung vom Europäischen Luchs erklären und vorhersagen?\nEs gibt aus unterschiedlichen Monitorings Vorkommensdaten, die z.B. über GBIF bezogen werden können:"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#markieren-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#markieren-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Markieren von Tieren",
-    "text": "Markieren von Tieren\n\nQuelle: S. Appleby"
+    "objectID": "content/slides/01/03-vorkommen.html#wie-kann-das-vorkommen-erklärt-werden",
+    "href": "content/slides/01/03-vorkommen.html#wie-kann-das-vorkommen-erklärt-werden",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Wie kann das Vorkommen erklärt werden?",
+    "text": "Wie kann das Vorkommen erklärt werden?\nModelle …\n\n… kommen in vielen Alltagssituationen zum Einsatz.\n… sollen eine sinvolle Vereinfachung der Realität darstellen.\n… “All models are wrong but some are useful” (George Box)"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Verfolgen von Tieren",
-    "text": "Verfolgen von Tieren\n\nQuelle: Nationalpark Harz/Bayeerischer Wald"
+    "objectID": "content/slides/01/03-vorkommen.html#was-für-modelle-gibt-es",
+    "href": "content/slides/01/03-vorkommen.html#was-für-modelle-gibt-es",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Was für Modelle gibt es?",
+    "text": "Was für Modelle gibt es?\n\nStatistische Modelle\n\nVersuchen die Variabilität in den Daten durch korrelative Zusammenhänge zu erklären. Keine biologischen Mechanismen.\n\nMechanistische Modelle\n\nVersuch von biologischen Prozessen zu simulieren, um beobachtete Muster zur erklären."
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
-    "href": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Qualität von Nachweisen",
-    "text": "Qualität von Nachweisen\nHinweise (meist von Karnivoren) werden nach ihrer Überprüfbarkeit in\n\nNachweise (C1),\nbestätigte Hinweise (C2) und\nunbestätigte Hinweise (C3)\n\neingeteilt. Diese Kriterien wurden für SCALP (Status and Conservation of the Alpine Lynx Population) in der Schweiz entwickelt."
+    "objectID": "content/slides/01/03-vorkommen.html#stichprobe-oder-grundgesamtheit",
+    "href": "content/slides/01/03-vorkommen.html#stichprobe-oder-grundgesamtheit",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Stichprobe oder Grundgesamtheit",
+    "text": "Stichprobe oder Grundgesamtheit\n\nMeist können wir die Grundgesamtheit nicht beproben/erfassen, dies kann aus logistischen, ethischen oder finanziellen Gründen sein.\nJedes Element aus der Grundgesamtheit muss mit der gleichen Wahrscheinlichkeit in der Stichprobe sein, ansonsten kann es sein, dass wir nicht von der Stichprobe auf die Grundgesamtheit schließen können."
   },
   {
-    "objectID": "content/vorlesungen/01-vorlesung.html",
-    "href": "content/vorlesungen/01-vorlesung.html",
+    "objectID": "content/slides/01/03-vorkommen.html#verteilungen-von-zufallsgrößen",
+    "href": "content/slides/01/03-vorkommen.html#verteilungen-von-zufallsgrößen",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Verteilungen von Zufallsgrößen",
+    "text": "Verteilungen von Zufallsgrößen\n\nZufallsgrößen1 (= Merkmalsausprägung; z.B. Streifgebietsgröße, Gewicht, Vorkommen), können unterschiedlichen Verteilungen folgen.\nOb eine Art an einem Standort vorkommt oder nicht, folgt einer anderen Verteilung als die Streifgebietsgrößen von besenderten Tieren.\nEine Art kann vorkommen oder nicht (z.B. 0 = absent und 1 = präsent). Während für Streifgebietsgrößen theoretisch jede positive Zahl zulässig wäre.\nWir brauchen im Verlauf dieser Veranstaltung vier Verteilungen: Die Bernoulli-Verteilung (ja/nein), die Binomial-Verteilung (viele Bernoulli-Verteilungen), die Poisson-Verteilung (Zähldaten) und die Normalverteilung (stetige Daten), die Beta-Verteilung.\n\nDiese werden auch oft als Zufallsvariablen bezeichnet werden."
+  },
+  {
+    "objectID": "content/vorlesungen/02-vorlesung.html",
+    "href": "content/vorlesungen/02-vorlesung.html",
     "title": "Einführung",
     "section": "",
-    "text": "Vorlesung\n\nLogistik\nMotivation & Rahmen\nKurze Pause\nÜbung\nArtporträt: Biber\n\n\n\nFolien\n\nAlle Folien (html)\nAlle Folien (pdf)\n\n\n\nLiteratur\n\nMüller et al. 2019: https://www.researchgate.net/publication/349721250_Der_nationale_Bericht_2019_zu_Lebensraumtypen_und_Arten_der_FFH-Richtlinie_-_ein_Uberblick_uber_die_Ergebnisse"
+    "text": "Hören Sie diesen Podcast zu Wildtiermangement an und überlegen Sie sich kurz Antworten zu folgenden Punkten.\n\nWie ist der Titel bzw. die Aussage “Wildtiere sind der Spiegel dessen, wie der Mensch mit der Landschaft umgeht” zu verstehen?\nIst Wildtiermanagement einfach ein moderner Begriff für Jagd? Begründen Sie Ihre Antwort kurz.\nWie unterscheidet sich Monitoring vom Wildtiermanagement bzw. welche Rolle übernimmt das Monitoring?\nVersuchen Sie für die folgenden drei Begriffe eine Definition zu erarbeiten: Wildtiermanagement, Jagd und Monitoring."
+  },
+  {
+    "objectID": "content/vorlesungen/02-vorlesung.html#klassifizieren-von-fotos",
+    "href": "content/vorlesungen/02-vorlesung.html#klassifizieren-von-fotos",
+    "title": "Einführung",
+    "section": "Klassifizieren von Fotos",
+    "text": "Klassifizieren von Fotos\nZiel der Übung ist es, 24 Fotofallenfotos zu klassifizieren und die Klassifizierungsergebnisse zu vergleichen.\nÜberlegen Sie in Kleingruppen (2 bis 3 Studierende), wie Sie die gesammelten Daten aus den Fotofallen so organisieren können, dass wir in einem nächsten Schritt:\n\ndie Daten zusammenführen und\nvergleichen können, wie die Daten klassifiziert wurden.\n\nKlassifizieren Sie die Fotos (daten/woche_2_fotos.zip) und laden Sie die Ergebnisse in StudIP in den Order daten/woche_2_fotos_ergebnisse hoch.\nFühren Sie die Daten aus Aufgabe 2 zusammen und finden Sie das Foto, bei dem die Klassifizierung am unsichersten war."
+  },
+  {
+    "objectID": "content/vorlesungen/02-vorlesung.html#wolf-in-deutschland",
+    "href": "content/vorlesungen/02-vorlesung.html#wolf-in-deutschland",
+    "title": "Einführung",
+    "section": "Wolf in Deutschland",
+    "text": "Wolf in Deutschland\nAuf einem Blogpost von Wildtierschutz Deutschland e.V. steht:\n\nNicht nur das, Studien aus Slowenien, Frankreich und Schweden belegen, dass die weitgehende Freigabe der Jagd auf Wölfe nicht zielführend hinsichtlich des Schutzes von Weidetieren ist. Der ist ausschließlich durch geeignete Herdenschutzmaßnahmen zu gewährleisten. Dafür gibt es zahlreiche Beispiele in Deutschland. Weidetiere durch das nun beschlossene Jagdgesetz zu schützen ist ein Trugschluss. Weidetierhalter, die sich darauf verlassen, werden verlassen sein.\n\nQuelle: https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz\nIn dem Artikel ist von Studien aus Slowenien, Frankreich und Schweden die Rede. Finden Sie eine oder mehrere dieser Studien, was sagen sie aus?"
+  },
+  {
+    "objectID": "content/vorlesungen/03-vorlesung.html",
+    "href": "content/vorlesungen/03-vorlesung.html",
+    "title": "Vorlesung",
+    "section": "",
+    "text": "Herdenschutz gegen Wölfe (siehe unten)\nHarmonisierung von Daten (Fotofallen Aufgabe)\nVorkommen von Arten\nÜbung: Beta-Binomial Modell\nÜbung: Die Sache mit der Likelihood\n\n\n\nDie Aufgabenstellung:\n\nNicht nur das, Studien aus Slowenien, Frankreich und Schweden belegen, dass die weitgehende Freigabe der Jagd auf Wölfe nicht zielführend hinsichtlich des Schutzes von Weidetieren ist. Der ist ausschließlich durch geeignete Herdenschutzmaßnahmen zu gewährleisten. Dafür gibt es zahlreiche Beispiele in Deutschland. Weidetiere durch das nun beschlossene Jagdgesetz zu schützen ist ein Trugschluss. Weidetierhalter, die sich darauf verlassen, werden verlassen sein.\n\nQuelle: https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz\nIn dem Artikel ist von Studien aus Slowenien, Frankreich und Schweden die Rede. Finden Sie eine oder mehrere dieser Studien, was sagen sie aus?\nIn Evidenzbasiertes Wildtiermanagement Kapitel 9 (Reinhardt et al. 2009):\n\nSlowenien: Krofel M, Černe R, Jerina K (2011) Učinkovitost odstrela volkov (Canis lupus) kot ukrepa za zmanjševanje škode na domačih živalih — Effectiveness of wolf (Canis lupus) culling to reduce livestock depredations. Zb gozdarstva Lesar 95:11–22\nSchweden und Norwegen: Linnell JDC, Cretois B (2018) Research for AGRI Committee – The revival of wolves and other large predators and its impact on farmers and their livelihood in rural regions of Europe. European Parliament. Policy Department for Structural and Cohesion Policies, Brussels\nFrankreich: Plisson A-L (2011) Étude de la vulnérabilité des troupeaux ovins à la prédation du loup dans le Parc naturel régional du Queyras. Mémoire diplôme EPHE\n\nPlisson 2011 und Krofel et al. 2011 konnte ich nicht lesen (Sprache). Linell and Cretois war verfügbar (https://www.europarl.europa.eu/cmsdata/191585/IPOL_STU(2018)617488_EN%20AGRI-original.pdf; aber 106S):"
+  },
+  {
+    "objectID": "content/vorlesungen/03-vorlesung.html#herdenschutz-gegen-wolfsübergriffe",
+    "href": "content/vorlesungen/03-vorlesung.html#herdenschutz-gegen-wolfsübergriffe",
+    "title": "Vorlesung",
+    "section": "",
+    "text": "Die Aufgabenstellung:\n\nNicht nur das, Studien aus Slowenien, Frankreich und Schweden belegen, dass die weitgehende Freigabe der Jagd auf Wölfe nicht zielführend hinsichtlich des Schutzes von Weidetieren ist. Der ist ausschließlich durch geeignete Herdenschutzmaßnahmen zu gewährleisten. Dafür gibt es zahlreiche Beispiele in Deutschland. Weidetiere durch das nun beschlossene Jagdgesetz zu schützen ist ein Trugschluss. Weidetierhalter, die sich darauf verlassen, werden verlassen sein.\n\nQuelle: https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz\nIn dem Artikel ist von Studien aus Slowenien, Frankreich und Schweden die Rede. Finden Sie eine oder mehrere dieser Studien, was sagen sie aus?\nIn Evidenzbasiertes Wildtiermanagement Kapitel 9 (Reinhardt et al. 2009):\n\nSlowenien: Krofel M, Černe R, Jerina K (2011) Učinkovitost odstrela volkov (Canis lupus) kot ukrepa za zmanjševanje škode na domačih živalih — Effectiveness of wolf (Canis lupus) culling to reduce livestock depredations. Zb gozdarstva Lesar 95:11–22\nSchweden und Norwegen: Linnell JDC, Cretois B (2018) Research for AGRI Committee – The revival of wolves and other large predators and its impact on farmers and their livelihood in rural regions of Europe. European Parliament. Policy Department for Structural and Cohesion Policies, Brussels\nFrankreich: Plisson A-L (2011) Étude de la vulnérabilité des troupeaux ovins à la prédation du loup dans le Parc naturel régional du Queyras. Mémoire diplôme EPHE\n\nPlisson 2011 und Krofel et al. 2011 konnte ich nicht lesen (Sprache). Linell and Cretois war verfügbar (https://www.europarl.europa.eu/cmsdata/191585/IPOL_STU(2018)617488_EN%20AGRI-original.pdf; aber 106S):"
   },
   {
     "objectID": "content/uebungen/uebung_w2.html",
