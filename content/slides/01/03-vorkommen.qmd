@@ -35,11 +35,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-<<<<<<< HEAD
-=======
-# Erfassung von Wildtieren
-
->>>>>>> 9dfeacb612e943588cd67ca2fda5867f04dbff58
 ## Wo sind wir?
 
 -   [13.04.2026: E01: Einführung]{style="color: #888;"}
@@ -96,11 +91,7 @@ Evolution -\> Anpassung -\> Fitnessmaximierung
 1.  Ebene: Wahl des Artverbeitungsareal (z.B. Wo kommt er Wolf vor? Nördliche Grenze)
 2.  Ebene: Wahl von Aktionsräume (= Streifgebiete) innerhalb des Artverbeitungsareal.
 3.  Ebene: Wahl bestimmter Habitate innerhalb des Streifgebietes
-<<<<<<< HEAD
 4.  Ebene: Wahl bestimmter Komponenten innerhalb der gewählten Habitate
-=======
-4.  Ebene: Wahl Wahl bestimmter Komponenten innerhalb der gewählten Habitate
->>>>>>> 9dfeacb612e943588cd67ca2fda5867f04dbff58
 :::
 
 ## Ökologische Nische
@@ -135,22 +126,14 @@ Ein Umweltfaktor, für den eine Art die geringste Toleranz zeigt wird als **limi
 
 ::: fragment
 -   Stenöke Arten: Spezialisten -\> Enge Nische (z.B. Schneeleopard)
-<<<<<<< HEAD
 -   Euryöke Arten: Generalisten -\> Breite Nische (z.B. Rotfuchs)
-=======
--   Euryöke Arten: Generalisten -\> Breite Arten (z.B. Rotfuchs)
->>>>>>> 9dfeacb612e943588cd67ca2fda5867f04dbff58
 :::
 
 ------------------------------------------------------------------------
 
 ![](images/clipboard-226887080.png)
 
-<<<<<<< HEAD
 # Quantifizierung der ökologischen Nische
-=======
-# Quantifizierung der Ökologischen Nische
->>>>>>> 9dfeacb612e943588cd67ca2fda5867f04dbff58
 
 ## Die Fragestellung
 
