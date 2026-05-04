@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Johannes Signer">
 
-<title>vorlesung – Erfassung und Monitoring von Wildtieren</title>
+<title>Übung Woche 4: Vorkommen von Luchs – Erfassung und Monitoring von Wildtieren</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -169,62 +170,74 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#vorlesung" id="toc-vorlesung" class="nav-link active" data-scroll-target="#vorlesung">Vorlesung</a>
-  <ul class="collapse">
-  <li><a href="#herdenschutz-gegen-wolfsübergriffe" id="toc-herdenschutz-gegen-wolfsübergriffe" class="nav-link" data-scroll-target="#herdenschutz-gegen-wolfsübergriffe">Herdenschutz gegen Wolfsübergriffe</a></li>
-  </ul></li>
-  <li><a href="#folien" id="toc-folien" class="nav-link" data-scroll-target="#folien">Folien</a></li>
-  <li><a href="#bis-nächsten-einheit" id="toc-bis-nächsten-einheit" class="nav-link" data-scroll-target="#bis-nächsten-einheit">Bis nächsten Einheit</a></li>
+  <li><a href="#teil-1-laden-der-daten" id="toc-teil-1-laden-der-daten" class="nav-link active" data-scroll-target="#teil-1-laden-der-daten">Teil 1: Laden der Daten</a></li>
+  <li><a href="#teil-2-wahrscheinlichkeit-dass-der-luchs-in-einer-zelle-vorkommt" id="toc-teil-2-wahrscheinlichkeit-dass-der-luchs-in-einer-zelle-vorkommt" class="nav-link" data-scroll-target="#teil-2-wahrscheinlichkeit-dass-der-luchs-in-einer-zelle-vorkommt">Teil 2: Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt</a></li>
+  <li><a href="#teil-3-wahrscheinlichkeit-als-lm" id="toc-teil-3-wahrscheinlichkeit-als-lm" class="nav-link" data-scroll-target="#teil-3-wahrscheinlichkeit-als-lm">Teil 3: Wahrscheinlichkeit als LM</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Übung Woche 4: Vorkommen von Luchs</h1>
+</div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autor:in</div>
+  <div class="quarto-title-meta-heading">Zugehörigkeit</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Johannes Signer <a href="mailto:jsigner@uni-goettingen.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Georg-August Universität Göttingen
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">3. Mai 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
-<section id="vorlesung" class="level1">
-<h1>Vorlesung</h1>
-<ul>
-<li>Herdenschutz gegen Wölfe (siehe unten)</li>
-<li><a href="../../content/slides/pdf/fotofallen.pdf" target="_blank">Harmonisierung von Daten (Fotofallen Aufgabe)</a></li>
-<li><a href="../../content/slides/01/03-vorkommen.html" target="_blank">Vorkommen von Arten</a></li>
-<li><a href="../../content/uebungen/uebung_w2.html" target="_blank">Übung: Beta-Binomial Modell</a></li>
-<li><a href="../../content/uebungen/uebung_w3.html" target="_blank">Übung: Die Sache mit der Likelihood</a></li>
-</ul>
-<section id="herdenschutz-gegen-wolfsübergriffe" class="level2">
-<h2 class="anchored" data-anchor-id="herdenschutz-gegen-wolfsübergriffe">Herdenschutz gegen Wolfsübergriffe</h2>
-<p>Die Aufgabenstellung:</p>
-<blockquote class="blockquote">
-<p>Nicht nur das, Studien aus Slowenien, Frankreich und Schweden belegen, dass die weitgehende Freigabe der Jagd auf Wölfe nicht zielführend hinsichtlich des Schutzes von Weidetieren ist. Der ist ausschließlich durch geeignete Herdenschutzmaßnahmen zu gewährleisten. Dafür gibt es zahlreiche Beispiele in Deutschland. Weidetiere durch das nun beschlossene Jagdgesetz zu schützen ist ein Trugschluss. Weidetierhalter, die sich darauf verlassen, werden verlassen sein.</p>
-</blockquote>
-<p>Quelle: <a href="https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz" class="uri">https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz</a></p>
-<p>In dem Artikel ist von Studien aus Slowenien, Frankreich und Schweden die Rede. Finden Sie eine oder mehrere dieser Studien, was sagen sie aus?</p>
-<p>In <a href="https://www.springerprofessional.de/evidenzbasiertes-wildtiermanagement/23955592">Evidenzbasiertes Wildtiermanagement</a> Kapitel 9 (Reinhardt et al.&nbsp;2009):</p>
-<ul>
-<li>Slowenien: Krofel M, Černe R, Jerina K (2011) Učinkovitost odstrela volkov (Canis lupus) kot ukrepa za zmanjševanje škode na domačih živalih — Effectiveness of wolf (Canis lupus) culling to reduce livestock depredations. Zb gozdarstva Lesar 95:11–22</li>
-<li>Schweden und Norwegen: Linnell JDC, Cretois B (2018) Research for AGRI Committee – The revival of wolves and other large predators and its impact on farmers and their livelihood in rural regions of Europe. European Parliament. Policy Department for Structural and Cohesion Policies, Brussels</li>
-<li>Frankreich: Plisson A-L (2011) Étude de la vulnérabilité des troupeaux ovins à la prédation du loup dans le Parc naturel régional du Queyras. Mémoire diplôme EPHE</li>
-</ul>
-<p>Plisson 2011 und Krofel et al.&nbsp;2011 konnte ich nicht lesen (Sprache). Linell and Cretois war verfügbar (<a href="https://www.europarl.europa.eu/cmsdata/191585/IPOL_STU(2018)617488_EN%20AGRI-original.pdf" class="uri">https://www.europarl.europa.eu/cmsdata/191585/IPOL_STU(2018)617488_EN%20AGRI-original.pdf</a>; aber 106S):</p>
+</header>
+
+
+<section id="teil-1-laden-der-daten" class="level1">
+<h1>Teil 1: Laden der Daten</h1>
+<p>Laden Sie die Daten mit der Funktion <code>read_rds()</code> aus dem Paket <code>tidyverse</code></p>
+<p>Erstellen Sie dann eine Abbildung (ein Punkt oder Viereck) pro Rasterzelle und weisen Sie jeder Rasterzelle eine Farbe zu, ob der Luchs vorkommt oder nicht. Sie können dafür entweder <code>plot()</code> oder <code>ggplot()</code> verwenden.</p>
 </section>
+<section id="teil-2-wahrscheinlichkeit-dass-der-luchs-in-einer-zelle-vorkommt" class="level1">
+<h1>Teil 2: Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt</h1>
+<p>Berechnen Sie die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt. Ignorieren Sie Kovariaten und räumliche Zusammenhänge.</p>
+<p>Berechnen Sie nun die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt für 4 unterschiedliche Szenarien und berücksichtigen Sie die Kovariaten Anteil Wald (Spalte <code>anteil_wald</code>) und den Breitengrad (Spalte <code>y</code>). i. Anteil Wald &lt; 0.5 und Breitengrad &lt; 50 ii. Anteil Wald &lt; 0.5 und Breitengrad &gt; 50 iii. Anteil Wald &gt; 0.5 und Breitengrad &lt; 50 iv. Anteil Wald &gt; 0.5 und Breitengrad &gt; 50</p>
 </section>
-<section id="folien" class="level1">
-<h1>Folien</h1>
-<ul>
-<li><a href="../../content/slides/01/02-vorkommen.html" target="_blank">Alle Folien (html)</a></li>
-<li><a href="../../content/slides/pdf/fotofallen.pdf" target="_blank">Harmonisierung von Fotofallendaten</a></li>
-</ul>
-</section>
-<section id="bis-nächsten-einheit" class="level1">
-<h1>Bis nächsten Einheit</h1>
-<p>Lesen Sie die Einleitung (I Introduction) von <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12961">Boyd et al.&nbsp;2023</a> und überlegen Sie sich Antowrten zu folgenden Fragen:</p>
-<ul>
-<li>Was ist das Ziel des Papers?</li>
-<li>Was sind EBVs?</li>
-<li>Wofür steht GEO-BON und was ist es?</li>
-</ul>
+<section id="teil-3-wahrscheinlichkeit-als-lm" class="level1">
+<h1>Teil 3: Wahrscheinlichkeit als LM</h1>
+<p>Berechnen Sie erneut die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt, aber diesmal mittels eines linearen Models:</p>
+<p>Verwenden Sie dafür den Befehl <code>lm()</code> und setzen Sie zwei Argumente: - Die Formel, die die Struktur des Models beschreibt. Geben Sie Zielvariable an dann eine Tilde (~) und dann die erklärenden Variable(n) (= Kovariaten). Wenn Sie keine erklärenden Variabln verwenden wollen, können Sie einfach 1 angeben und das Modell berechnet den globalen Mittelwert.</p>
+<p>Hier ist <code>lynx</code> die Zielvariable. Man kann das Modell so ausformulieren: Das Luchsvorkommen (Zielvariable) wird erklärt durch (~) …. .</p>
+<ol type="1">
+<li>Verwenden Sie erst ein lineares Modell, das nur einen Intercept hat (<code>y ~ 1</code>) und speichern Sie das Ergebnis als <code>m1</code> ab. Vergleichen Sie das Ergebnis mit Aufgabe 2.</li>
+<li>Passen Sie ein zweites Model anlund fügen Sie die Kovariaten Breitengrad und Anteil Wald als Kovariaten (= erklärende Variablen) hinzu und speichern Sie dieses Model als <code>m2</code> ab.</li>
+<li>Machen Sie für <code>m2</code> eine Vorhersage für die Vorkommenswahrscheinlichkeit von Luchsen und verwenden Sie für die zwei Kovariaten den beobachteten Wertebereich.</li>
+</ol>
+<p>Mit der Funktion <code>predict()</code> können Sie aus einem Modell Vorhersagen machen. Verwenden Sie dazu das Argument <code>newdata</code>, um anzugeben für welche Kovariatenwerte Sie eine Vorhersage machen möchten. Die Funktion <code>expand.grid()</code> kann das Erstellen von neuen Daten deutlich vereinfachen.</p>
 
 
 </section>

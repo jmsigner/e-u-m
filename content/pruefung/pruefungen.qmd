@@ -80,8 +80,22 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 :::
 
 ::: {.column width="50%"}
-:::
+### Woche 4
+1. Zufallsvariable
+2. GBIF 
+3. EVBs
+4. GEO-BON
+5. Kovariate
+6. Lineares Modell
+7. Intercept
+8. Steigung (*Slope*)
+9. Erwartungswert
+10. Linkfunktion
+11. Linearerprädiktor
+12. Umkehrfunktion
+13. AIC
 
+:::
 :::
 
 
@@ -106,6 +120,7 @@ Stellen Sie eine Hypothese/Erwartung  auf und analysieren Sie dazu einen bereits
 
 ## Hausarbeit
 
+### Gliederung
 
 | Was             | Bewertung | Detaillierte Bewertung |
 |-----------------|-----------|------------------------|
@@ -118,3 +133,15 @@ Stellen Sie eine Hypothese/Erwartung  auf und analysieren Sie dazu einen bereits
 | Form            | 5 %       | Die Arbeit ist einheitlich und ansprechend formatiert |
 | Ausdruck        | 5 %       | Die Arbeit ist verständlich und fehlerfrei geschrieben |
 
+
+### Umfang 
+
+In Summe sollte die Hausarbeit 10 bis 15 Seiten umfassen: 
+
+Grob stelle ich mir die Aufteilung wie folgt vor: 
+
+- Titelblatt, Zusammenfassung Literatur und evtl. Anhänge ca. 5 Seiten
+- Einleitung 1 - 2 Seiten. 
+- Methoden 2 - 3 Seiten
+- Ergebnisse 2 - 3 Seiten
+- Disusskon 1 - 2 Seiten. 

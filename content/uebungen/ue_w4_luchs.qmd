@@ -1,0 +1,134 @@
+---
+title: "Übung Woche 4: Vorkommen von Luchs"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen
+date: last-modified
+---
+
+# Teil 1: Laden der Daten 
+
+Laden Sie die Daten mit der Funktion `read_rds()` aus dem Paket `tidyverse`
+
+Erstellen Sie dann eine Abbildung (ein Punkt oder Viereck) pro Rasterzelle
+und weisen Sie jeder Rasterzelle eine Farbe zu, ob der Luchs vorkommt oder
+nicht.
+Sie können dafür entweder `plot()` oder `ggplot()` verwenden.
+
+### Lösungsvorschlag
+
+```{r, }
+#| code-fold: true
+#| eval: false
+library(tidyverse)
+
+dat <- read_rds(here::here("daten/lynx.rds"))
+head(dat)
+
+ggplot(dat, aes(x, y, fill = lynx)) + geom_tile()
+```
+
+
+# Teil 2: Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt 
+
+Berechnen Sie die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt.
+Ignorieren Sie Kovariaten und räumliche Zusammenhänge.
+
+### Lösungsvorschlag
+
+```{r, }
+#| code-fold: true
+#| eval: false
+mean(dat$lynx)
+nrow(dat)
+```
+
+
+Berechnen Sie nun die Wahrscheinlichkeit, dass der Luchs in einer Zelle
+vorkommt für 4 unterschiedliche Szenarien und berücksichtigen Sie die
+Kovariaten Anteil Wald (Spalte `anteil_wald`) und den Breitengrad (Spalte `y`).
+i. Anteil Wald < 0.5 und Breitengrad < 50
+ii. Anteil Wald < 0.5 und Breitengrad > 50
+iii. Anteil Wald > 0.5 und Breitengrad < 50
+iv. Anteil Wald > 0.5 und Breitengrad > 50
+
+### Lösungsvorschlag
+
+```{r, }
+#| code-fold: true
+#| eval: false
+
+# i. Anteil Wald < 0.5 und Breitengrad < 50
+filter(dat, anteil_wald < 0.5, y < 50) |> summarize(m = mean(lynx))
+# ii. Anteil Wald < 0.5 und Breitengrad > 50
+filter(dat, anteil_wald < 0.5, y > 50) |> summarize(m = mean(lynx))
+# iii. Anteil Wald > 0.5 und Breitengrad < 50
+filter(dat, anteil_wald > 0.5, y < 50) |> summarize(m = mean(lynx))
+# iv. Anteil Wald > 0.5 und Breitengrad > 50
+filter(dat, anteil_wald > 0.5, y > 50) |> summarize(m = mean(lynx))
+```
+
+
+# Teil 3: Wahrscheinlichkeit als LM 
+
+Berechnen Sie erneut die Wahrscheinlichkeit, dass der Luchs in einer Zelle
+vorkommt, aber diesmal mittels eines linearen Models:
+
+Verwenden Sie dafür den Befehl `lm()` und setzen Sie zwei Argumente:
+- Die Formel, die die Struktur des Models beschreibt. Geben Sie Zielvariable an
+dann eine Tilde (~) und dann die erklärenden Variable(n) (= Kovariaten).
+Wenn Sie keine erklärenden Variabln verwenden wollen, können Sie einfach 1
+angeben und das Modell berechnet den globalen Mittelwert.
+
+Hier ist `lynx` die Zielvariable.
+Man kann das Modell so ausformulieren:
+Das Luchsvorkommen (Zielvariable) wird erklärt durch (~) .... .
+
+1. Verwenden Sie erst ein lineares Modell, das nur einen Intercept hat (`y ~ 1`)
+und speichern Sie das Ergebnis als `m1` ab. Vergleichen Sie das Ergebnis mit
+Aufgabe 2.
+2. Passen Sie ein zweites Model anlund fügen Sie die Kovariaten Breitengrad
+und Anteil Wald als Kovariaten (= erklärende Variablen) hinzu und speichern
+Sie dieses Model als `m2` ab.
+3. Machen Sie für `m2` eine Vorhersage für die Vorkommenswahrscheinlichkeit
+von Luchsen und verwenden Sie für die zwei Kovariaten den beobachteten
+Wertebereich.
+
+Mit der Funktion `predict()` können Sie aus einem Modell Vorhersagen machen.
+Verwenden Sie dazu das Argument `newdata`, um anzugeben für welche
+Kovariatenwerte Sie eine Vorhersage machen möchten.
+Die Funktion `expand.grid()` kann das Erstellen von neuen Daten deutlich
+vereinfachen.
+
+**Optional** Falls Sie schneller fertig sind, passen Sie ein Modell `m3` an und fügen Sie eine Interaktion wischen dem Breiten Grad und dem Waldanteil hinzu. 
+
+
+### Lösungsvorschlag
+
+```{r, }
+#| code-fold: true
+#| eval: false
+
+m1 <- lm(lynx ~ 1, data = dat)
+m2 <- lm(lynx ~ y + anteil_wald, data = dat)
+m3 <- lm(lynx ~ y * anteil_wald, data = dat)
+
+summary(m1)
+summary(m2)
+
+# Vorhersage m2
+range(dat$y)
+nd <- expand_grid(anteil_wald = c(0, 0.5, 1), y = 35:70)
+nd$luchs.p <- predict(m2, nd)
+
+ggplot(nd, aes(y, luchs.p, col = factor(anteil_wald))) + geom_line()
+
+# Vorhersage m3
+range(dat$y)
+nd$luchs.p <- predict(m3, nd)
+
+ggplot(nd, aes(y, luchs.p, col = factor(anteil_wald))) + geom_line()
+
+```

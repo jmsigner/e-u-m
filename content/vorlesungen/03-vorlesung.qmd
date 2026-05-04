@@ -32,7 +32,6 @@ Plisson 2011 und Krofel et al. 2011 konnte ich nicht lesen (Sprache). Linell and
 
 
 - [Alle Folien (html)](/content/slides/01/02-vorkommen.html){target="_blank"}
-- [Alle Folien (pdf)](/content/slides/pdf/vl-3.pdf){target="_blank"}
 - [Harmonisierung von Fotofallendaten](/content/slides/pdf/fotofallen.pdf){target="_blank"}
 
 # Bis nächsten Einheit

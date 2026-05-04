@@ -1,0 +1,108 @@
+
+
+# Vorlesung
+
+- Reproduzierbarkeit (siehe unten)
+- [Vorkommen von Arten](/content/slides/01/04-vorkommen_2.html){target="_blank"}
+- [Übung: Vorkommen](/content/uebungen/ue_w4_luchs.html){target="_blank"}
+
+
+## Reproduzierbarkeit
+
+Führen Sie folgendes Skript aus: 
+
+```{r, eval = FALSE}
+library(ggplot2)
+
+setwd("/Users/jsigner/ownCloud - jsigner@uni-goettingen.de@owncloud.gwdg.de/Documents/L_Lehre/M_erfassung_und_monitoring_von_wildtieren/")
+
+data <- read.csv("daten/meine_daten.csv")
+data$noise <- rnorm(nrow(data))
+
+system("echo Verarbeitung gestartet")
+
+data <- data %>% 
+  mutate(result = value * noise)
+
+unique(data$timestamp)
+
+data$timestamp <- Sys.time()
+
+write.csv(data, "output_ergebnis.csv")
+
+ggplot(data, aes(x = value, y = result)) +
+  geom_point() +
+  theme_minimal()
+```
+
+
+```{r, }
+#| code-fold: true
+#| eval: false
+
+# 1. Nicht kommentiert
+# 2. Nicht alle Pakete geladen (optional version der Pakete angeben)
+
+library(dplyr)   
+library(ggplot2)
+
+# Hier arbeite ich
+# setwd("/Users/jsigner/ownCloud - jsigner@uni-goettingen.de@owncloud.gwdg.de/Documents/L_Lehre/M_erfassung_und_monitoring_von_wildtieren/")
+# -> immer ein Projekt verwenden
+
+# Daten einlesen
+data <- read.csv("daten/meine_daten.csv")
+
+# Ein zufälliger Fehler
+set.seed(123)
+data$noise <- rnorm(nrow(data))
+# -> Immer set.seed verwenden
+
+# Jetzt fänge es an: 
+# system("echo Verarbeitung gestartet")
+# -> Keine Systembefehler verwenden, sondern R Befehle
+cat("Verarbeitung gestartet")
+
+# Neue Spalte hinzufügen
+data <- data %>% 
+  mutate(result = value * noise)
+
+# Reihenfolge beachten; timestamp wurde noch gar nicht erstellt. 
+# unique(data$timestamp)
+
+
+# Noch eine Spalte
+# data$timestamp <- Sys.time()
+# -> Achtung: `Sys.time()` ist jedes mal anders, besser
+as.Date("2026-05-03")
+
+
+# Schreiben der Daten
+# -> Extra, encoding beachten und gleich ins richtige Verzeichnis schreiben
+write.csv(data, "output_ergebnis.csv")
+
+# Erstellen eines Plots
+ggplot(data, aes(x = value, y = result)) +
+  geom_point() +
+  theme_minimal()
+
+# -> SessionInfo(); am besten abspeichern
+
+```
+
+# Folien
+
+
+- [Alle Folien (html)](/content/slides/01/02-vorkommen.html){target="_blank"}
+
+# Bis nächsten Einheit
+
+Lesen Sie die Einleitung (I Introduction) von [Boyd et al. 2023](https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12961) und überlegen Sie sich Antowrten zu folgenden Fragen: 
+
+- Was ist das Ziel des Papers?
+- Was sind EBVs?
+- Wofür steht GEO-BON und was ist es?
+
+
+
+
