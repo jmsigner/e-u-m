@@ -92,8 +92,10 @@ ggplot(data, aes(x = value, y = result)) +
 
 # Folien
 
+- [Alle Folien (html)](/content/slides/01/04-vorkommen_2.html){target="_blank"}
+- [Alle Folien (pdf)](/content/slides/pdf/vl-4.pdf){target="_blank"}
 
-- [Alle Folien (html)](/content/slides/01/02-vorkommen.html){target="_blank"}
+
 
 # Bis nächsten Einheit
 
