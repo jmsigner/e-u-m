@@ -90,10 +90,29 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 7. Intercept
 8. Steigung (*Slope*)
 9. Erwartungswert
-10. Linkfunktion
-11. Linearerprädiktor
-12. Umkehrfunktion
-13. AIC
+
+:::
+:::
+
+::: {.columns}
+
+::: {.column width="50%"}
+### Woche 5
+
+1. Linkfunktion
+2. Linearerprädiktor
+3. Zielverteilung
+4. Unterschied GLM und LM
+5. Komponenten eines GLMs
+6. Belegrate/Occupancy ($\psi$)
+7. Detektion ($p$)
+8. Was ist eine README-Datei?
+9. Wozu braucht man eine README-Datei
+:::
+
+::: {.column width="50%"}
+
+
 
 :::
 :::
@@ -160,6 +179,7 @@ Grob stelle ich mir die Aufteilung wie folgt vor:
 - Weißwedelhirsch (Fang-Wiederfang) <https://datadryad.org/dataset/doi:10.5061/dryad.43j74d0> und < https://bioone.org/journals/annales-zoologici-fennici/volume-56/issue-1-6/086.056.0101/Estimating-Population-Density-of-the-White-Tailed-Deer-in-Finland/10.5735/086.056.0101.short>  
 - HomeRange: A global database of mammalian home ranges: <https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13625>
 - The body size and temperature dependence of organismal locomotion: <https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114>
+- Petroni et al. 2025 (Occupancy) Recolonization pattern of wolves in Northern Apennines, Central Italy: a Bayesian analysis using opportunistic and systematic data <https://cdnsciencepub.com/doi/10.1139/cjz-2025-0010>. *Daten und Code sind im Anhang*. 
 
 #### Datenbanken
 

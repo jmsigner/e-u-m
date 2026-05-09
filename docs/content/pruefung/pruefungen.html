@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -115,6 +144,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../content/vorlesungen/04-vorlesung.html">
  <span class="dropdown-text">04. Vorkommen vorhersagen</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/vorlesungen/05-vorlesung.html">
+ <span class="dropdown-text">Vorlesung</span></a>
   </li>  
         <li class="dropdown-header">05. Occupancy Modelle</li>
         <li class="dropdown-header">06. Was, wenn man nicht alle sieht?</li>
@@ -211,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">4. Mai 2026</p>
+      <p class="date">9. Mai 2026</p>
     </div>
   </div>
   
@@ -310,12 +343,28 @@ ul.task-list li input[type="checkbox"] {
 <li>Intercept</li>
 <li>Steigung (<em>Slope</em>)</li>
 <li>Erwartungswert</li>
-<li>Linkfunktion</li>
-<li>Linearerprädiktor</li>
-<li>Umkehrfunktion</li>
-<li>AIC</li>
 </ol>
 </section>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="woche-5" class="level3">
+<h3 class="anchored" data-anchor-id="woche-5">Woche 5</h3>
+<ol type="1">
+<li>Linkfunktion</li>
+<li>Linearerprädiktor</li>
+<li>Zielverteilung</li>
+<li>Unterschied GLM und LM</li>
+<li>Komponenten eines GLMs</li>
+<li>Belegrate/Occupancy (<span class="math inline">\(\psi\)</span>)</li>
+<li>Detektion (<span class="math inline">\(p\)</span>)</li>
+<li>Was ist eine README-Datei?</li>
+<li>Wozu braucht man eine README-Datei</li>
+</ol>
+</section>
+</div><div class="column" style="width:50%;">
+
 </div>
 </div>
 </section>
@@ -422,9 +471,11 @@ ul.task-list li input[type="checkbox"] {
 <li>Schneehuhn (Distance Sampling) <a href="https://dataverse.no/file.xhtml?persistentId=doi:10.18710/V1NDV6/DYOWE6&amp;version=1.0" class="uri">https://dataverse.no/file.xhtml?persistentId=doi:10.18710/V1NDV6/DYOWE6&amp;version=1.0</a> und <a href="https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01471" class="uri">https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01471</a></li>
 <li>Schneehuhn (Distance Sampling) <a href="https://datadryad.org/dataset/doi:10.5061/dryad.zgmsbccpj" class="uri">https://datadryad.org/dataset/doi:10.5061/dryad.zgmsbccpj</a> und <a href="https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01350" class="uri">https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01350</a></li>
 <li>Puma (Kamerafallen) <a href="https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/QJKTYA" class="uri">https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/QJKTYA</a> und &lt; https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01308&gt;</li>
-<li>Weißwedelhirsch (Fang-Wiederfang) <a href="https://datadryad.org/dataset/doi:10.5061/dryad.43j74d0" class="uri">https://datadryad.org/dataset/doi:10.5061/dryad.43j74d0</a> und &lt; https://bioone.org/journals/annales-zoologici-fennici/volume-56/issue-1-6/086.056.0101/Estimating-Population-Density-of-the-White-Tailed-Deer-in-Finland/10.5735/086.056.0101.short&gt;</li>
-<li>HomeRange: A global database of mammalian home ranges: https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13625</li>
-<li>The body size and temperature dependence of organismal locomotion: https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114</li>
+<li>Weißwedelhirsch (Fang-Wiederfang) <a href="https://datadryad.org/dataset/doi:10.5061/dryad.43j74d0" class="uri">https://datadryad.org/dataset/doi:10.5061/dryad.43j74d0</a> und &lt; https://bioone.org/journals/annales-zoologici-fennici/volume-56/issue-1-6/086.056.0101/Estimating-Population-Density-of-the-White-Tailed-Deer-in-Finland/10.5735/086.056.0101.short&gt;<br>
+</li>
+<li>HomeRange: A global database of mammalian home ranges: <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13625" class="uri">https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13625</a></li>
+<li>The body size and temperature dependence of organismal locomotion: <a href="https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114" class="uri">https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114</a></li>
+<li>Petroni et al.&nbsp;2025 (Occupancy) Recolonization pattern of wolves in Northern Apennines, Central Italy: a Bayesian analysis using opportunistic and systematic data <a href="https://cdnsciencepub.com/doi/10.1139/cjz-2025-0010" class="uri">https://cdnsciencepub.com/doi/10.1139/cjz-2025-0010</a>. <em>Daten und Code sind im Anhang</em>.</li>
 </ul>
 </section>
 <section id="datenbanken" class="level4">
