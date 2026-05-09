@@ -1,0 +1,13 @@
+
+# Vorlesung
+
+- Anhören der Vorlesung auf StudIP `Aufgezeichnete Vorlesungen/occupancy_vorlesung1.mp4`. 
+
+# Folien
+
+- [Alle Folien (pdf)](/content/slides/pdf/vl-5.pdf){target="_blank"}
+
+# Bis nächsten Einheit
+
+Ausführen des Skripts (StudIP `skripte/w5.R`). 
+

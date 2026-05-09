@@ -478,126 +478,126 @@
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#wo-sind-wir",
     "href": "content/slides/01/05-vorkommen_3.html#wo-sind-wir",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Wo sind wir?",
     "text": "Wo sind wir?\n\n13.04.2026: E01: Einführung\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion"
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#kurze-wiederholungvorschau",
     "href": "content/slides/01/05-vorkommen_3.html#kurze-wiederholungvorschau",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Kurze Wiederholung/Vorschau",
     "text": "Kurze Wiederholung/Vorschau"
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#übung-1-wahrscheinlichkeit-dass-der-luchs-in-einer-zelle-vorkommt",
     "href": "content/slides/01/05-vorkommen_3.html#übung-1-wahrscheinlichkeit-dass-der-luchs-in-einer-zelle-vorkommt",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Übung 1: Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt",
     "text": "Übung 1: Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt\n\nBerechnen Sie die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt. Ignorieren Sie Kovariaten und räumliche Zusammenhänge.\nBerechnen Sie nun die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt für 4 unterschiedliche Szenarien und berücksichtigen Sie die Kovariaten Anteil Wald (Spalte anteil_wald) und den Breitengrad (Spalte y).\n\nAnteil Wald &lt; 0.5 und Breitengrad &lt; 50\nAnteil Wald &lt; 0.5 und Breitengrad &gt; 50\nAnteil Wald &gt; 0.5 und Breitengrad &lt; 50\nAnteil Wald &gt; 0.5 und Breitengrad &gt; 50"
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#lineares-model",
     "href": "content/slides/01/05-vorkommen_3.html#lineares-model",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Lineares Model",
     "text": "Lineares Model\n\nOft haben wir als Ziel den Erwartungswert einer Verteilung zu modellieren, als Funktion von Kovariaten. Z.B. den Mittelwert einer Normalverteilung oder die erwartete Wahrscheinlichkeit einer Bernoulli- oder Binomialverteilung.\nWir wollen nun überprüfen, ob sich der Mittelwert anhand von Kovariaten erklären/modellieren lässt."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#übung-3-vorkommenswahrscheinlichkeit-mit-lm",
     "href": "content/slides/01/05-vorkommen_3.html#übung-3-vorkommenswahrscheinlichkeit-mit-lm",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Übung 3: Vorkommenswahrscheinlichkeit mit LM",
     "text": "Übung 3: Vorkommenswahrscheinlichkeit mit LM\nBerechnen Sie erneut die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt, aber diesmal mittels eines linearen Models:\n\nVerwenden Sie erst ein lineares Modell, das nur einen Intercept hat (y ~ 1) und speichern Sie das Ergebnis als m1 ab.\nPassen Sie ein zweites Model an und fügen Sie die Kovariaten Breitengrad und Anteil Wald hinzu und speichern Sie dieses Model als m2 ab.\nMachen Sie für m2 eine Vorhersage für die Vorkommenswahrscheinlichkeit von Luchsen und verwenden Sie für die zwei Kovariaten den beobachteten Wertebereich."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#übung-1",
     "href": "content/slides/01/05-vorkommen_3.html#übung-1",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Übung 1",
     "text": "Übung 1\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta. Siehe dazu Aufgabe 1 in der Datei übung_stat2.R."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#was-modellieren-wir",
     "href": "content/slides/01/05-vorkommen_3.html#was-modellieren-wir",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Was modellieren wir?",
     "text": "Was modellieren wir?\n\nBeim linearen Modell modelieren wir den bedingten Mittelwert (Erwartungswert) einer Normalverteilung.\n\n\nErwartungswert\n\nIst der einer Zufallsvariabel, den wir im Mittel erwarten. Bei einer Normalverteilung ist es dir Mittelwert."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#wenn-die-parameter-sich-ändern",
     "href": "content/slides/01/05-vorkommen_3.html#wenn-die-parameter-sich-ändern",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Wenn die Parameter sich ändern",
     "text": "Wenn die Parameter sich ändern\n\nOft wollen wir den Einfluss von verschiedenen Kovariaten auf eine Zielgröße berechnen:\n\nÄndert sich die Streifgebietsgröße eines Stückes Rotwild im Verlauf seines Lebens?\nIst die Anzahl Fotos einer Fotofalle abhängig von der Tageszeit?\nBeeinflusst die Seehöhe das Vorkommen einer Art?\n\nWir können Parameter einer Verteilung als lineare Funktion von Kovariaten modellieren."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#ein-beispiel",
     "href": "content/slides/01/05-vorkommen_3.html#ein-beispiel",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Ein Beispiel",
     "text": "Ein Beispiel\n\n\nWelche Kovariaten beeinflussen die Streifgebietsgrößen von Leoparden."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#überlegen-sie",
     "href": "content/slides/01/05-vorkommen_3.html#überlegen-sie",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Überlegen Sie",
     "text": "Überlegen Sie\nKönnen Sie das Beispiel des Streifgebietes auf unser Moderellierung des Luchsvorkommens übertragen?\nWie sieht: \\(\\text{Streifgebietsgröße}_i = N(\\mu = \\beta_0 + \\beta_1 x_i, \\sigma)\\) aus? Wie müsste es aussehen?"
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#genarlisiertes-lineares-modell",
     "href": "content/slides/01/05-vorkommen_3.html#genarlisiertes-lineares-modell",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Genarlisiertes Lineares Modell",
     "text": "Genarlisiertes Lineares Modell\n\nIm Generalsierten Linearen Mmodel ist das der Erwartungswert einer anderen Verteilung (z.B. der Binomial-, Poisson- oder auch der Normalverteilung).\n\n\nEin GLM besteht aus drei Teilen:\n\nDie Verteilung der Zielvariable\nDer systematische Teil des Models (= Linareprädiktor) und wird oft mit \\(\\eta\\) abgekürzt.\nEine Funktion \\(g(\\cdot)\\), die den Erwartungswert der Zielvariable mit dem Linearenprädiktor verbindet. Diese Funktion heiß Linkfunktion. Jede Linkfunktion hat eine Umkehrfunktion, die den Linearenprädiktor zurück zum bedingten Mittelwert transformiert."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#teil-23",
     "href": "content/slides/01/05-vorkommen_3.html#teil-23",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Teil 2/3",
     "text": "Teil 2/3\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse entlang eines Gradienten von für unterschiedliche Waldanteile und Breitengrade."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#mehrere-modelle",
     "href": "content/slides/01/05-vorkommen_3.html#mehrere-modelle",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Mehrere Modelle",
     "text": "Mehrere Modelle\n\nEs können nicht lineare Zusammenhänge in einem (G)LM berücksichtigt werden, indem Kovariaten z.B. quadriert werden.\nIm Luchsbeispiel, könnten wir z.B. anteil_wald und anteil_wald^2 berücksichtigen."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#welches-modell-passt-am-besten-zu-den-daten",
     "href": "content/slides/01/05-vorkommen_3.html#welches-modell-passt-am-besten-zu-den-daten",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Welches Modell passt am besten zu den Daten?",
     "text": "Welches Modell passt am besten zu den Daten?\n\nAIC\n\nDas AIC (Akaike Information Criterion) misst wie gut ein Modell auf die Daten passt. Das AIC hat keine Einheiten und je niedriger der Wert ist, desto besser ist ein Modell."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#zusammenfassung-und-ausblick",
     "href": "content/slides/01/05-vorkommen_3.html#zusammenfassung-und-ausblick",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Zusammenfassung und Ausblick",
     "text": "Zusammenfassung und Ausblick\n\nWir haben soeben das einfache lineare Modell besprochen. Wir nehmen für die Variable, die wir modellieren wollen und auch Zielvariable genannt wird, eine Normalverteilung an.\nDer Mittelwert dieser Normalverteilung ändert sich in Abhängigkeit von erklärenden Variablen (oder auch Kovariaten genannt).\nBeim multiplen linearen Modell hängt die Zielvariable von mehr als einer Kovariaten ab (also z.B. Habitat und Geschlecht)."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#übung-1-1",
     "href": "content/slides/01/05-vorkommen_3.html#übung-1-1",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Übung 1",
     "text": "Übung 1\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta. Siehe dazu Aufgabe 1 in der Datei übung_stat2.R."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#übung-2",
     "href": "content/slides/01/05-vorkommen_3.html#übung-2",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Übung 2",
     "text": "Übung 2\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta mit einem GLM. Siehe dazu Aufgabe 2 in der Datei übung_stat2.R."
   },
   {
     "objectID": "content/slides/01/05-vorkommen_3.html#übung-3",
     "href": "content/slides/01/05-vorkommen_3.html#übung-3",
-    "title": "Vorkommen von Wildtieren (E4)",
+    "title": "Occupancy 1 (E5)",
     "section": "Übung 3",
     "text": "Übung 3\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta mit zwei GLMs. Welches passt besser zu den Daten? Siehe dazu Aufgabe 3 in der Datei übung_stat2.R."
   },
@@ -641,7 +641,7 @@
     "href": "content/pruefung/pruefungen.html#hausarbeit",
     "title": "Prüfungsleistungen",
     "section": "Hausarbeit",
-    "text": "Hausarbeit\n\nGliederung\n\n\n\n\n\n\n\n\nWas\nBewertung\nDetaillierte Bewertung\n\n\n\n\nEinleitung\n15 %\n1. Worum geht es (1–2 Absätze); 30 %2. Stand der Dinge (1 Absatz); 20 %3. Ziel dieser Hausarbeit; 20 %4. Literatur (3–5 peer-reviewed Veröffentlichungen); 30 %\n\n\nMethoden\n25 %\n1. Datenquellen, wie wurden die Daten aufgenommen; 20 %2. Modellbeschreibung (welches Modell wurde verwendet, wie wurde es parametrisiert); 40 %3. Aufschreiben und beschreiben der Modellgleichung; 30 %4. Richtige Zitation aller Software; 10 %\n\n\nErgebnisse\n25 %\n- Beschreibung der Ergebnisse, die für die Fragestellung relevant sind; 20 %- Zwei Abbildungen, die die Ergebnisse untermauern und das Modell visualisieren; 60 %- Eine Tabelle, die für die Fragestellung relevante Rohdaten oder Modelloutput zusammenfasst 20 %\n\n\nDiskussion\n15 %\nJeweils ein Absatz, der:1. der, die Ergebnisse zusammenfasst und in Verbindung mit den Hypothese(n) bringt; 30 %2. der, mögliche Schwachstellen, Erweiterungen etc. diskutiert; 30 %3. der, die Ergebnisse im Kontext der aktuellen begutachteten Literatur (&gt;2020) darstellt (3–5 Referenzen); 40 %\n\n\nReferenzen\n5 %\nAlle verwendeten Quellen (inkl. Software) sind in einem Literaturverzeichnis einheitlich zitiert\n\n\nZusammenfassung\n5 %\nDem Text ist eine Zusammenfassung von einem Absatz vorangestellt (max. 200 Wörter)\n\n\nForm\n5 %\nDie Arbeit ist einheitlich und ansprechend formatiert\n\n\nAusdruck\n5 %\nDie Arbeit ist verständlich und fehlerfrei geschrieben\n\n\n\n\n\nUmfang\nIn Summe sollte die Hausarbeit 10 bis 15 Seiten umfassen:\nGrob stelle ich mir die Aufteilung wie folgt vor:\n\nTitelblatt, Zusammenfassung Literatur und evtl. Anhänge ca. 5 Seiten\nEinleitung 1 - 2 Seiten.\nMethoden 2 - 3 Seiten\nErgebnisse 2 - 3 Seiten\nDisusskon 1 - 2 Seiten.\n\n\n\nDatenquellen\n\nVeröffentlichungen\n\nFeldhasen (Telemetrie) https://figshare.com/articles/dataset/Urban_hare_data/30208969?file=58257865 und https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1002/wlb3.01513\nSchneehuhn (Distance Sampling) https://dataverse.no/file.xhtml?persistentId=doi:10.18710/V1NDV6/DYOWE6&version=1.0 und https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01471\nSchneehuhn (Distance Sampling) https://datadryad.org/dataset/doi:10.5061/dryad.zgmsbccpj und https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01350\nPuma (Kamerafallen) https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/QJKTYA und &lt; https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01308&gt;\nWeißwedelhirsch (Fang-Wiederfang) https://datadryad.org/dataset/doi:10.5061/dryad.43j74d0 und &lt; https://bioone.org/journals/annales-zoologici-fennici/volume-56/issue-1-6/086.056.0101/Estimating-Population-Density-of-the-White-Tailed-Deer-in-Finland/10.5735/086.056.0101.short&gt;\n\nHomeRange: A global database of mammalian home ranges: https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13625\nThe body size and temperature dependence of organismal locomotion: https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114\n\n\n\nDatenbanken\n\nGBIF für Vorkommensdaten: https://www.gbif.org/\nMovebank für Bewegungsdaten: https://www.movebank.org/cms/webapp?gwt_fragment=page=search_map\nDryad https://datadryad.org/"
+    "text": "Hausarbeit\n\nGliederung\n\n\n\n\n\n\n\n\nWas\nBewertung\nDetaillierte Bewertung\n\n\n\n\nEinleitung\n15 %\n1. Worum geht es (1–2 Absätze); 30 %2. Stand der Dinge (1 Absatz); 20 %3. Ziel dieser Hausarbeit; 20 %4. Literatur (3–5 peer-reviewed Veröffentlichungen); 30 %\n\n\nMethoden\n25 %\n1. Datenquellen, wie wurden die Daten aufgenommen; 20 %2. Modellbeschreibung (welches Modell wurde verwendet, wie wurde es parametrisiert); 40 %3. Aufschreiben und beschreiben der Modellgleichung; 30 %4. Richtige Zitation aller Software; 10 %\n\n\nErgebnisse\n25 %\n- Beschreibung der Ergebnisse, die für die Fragestellung relevant sind; 20 %- Zwei Abbildungen, die die Ergebnisse untermauern und das Modell visualisieren; 60 %- Eine Tabelle, die für die Fragestellung relevante Rohdaten oder Modelloutput zusammenfasst 20 %\n\n\nDiskussion\n15 %\nJeweils ein Absatz, der:1. der, die Ergebnisse zusammenfasst und in Verbindung mit den Hypothese(n) bringt; 30 %2. der, mögliche Schwachstellen, Erweiterungen etc. diskutiert; 30 %3. der, die Ergebnisse im Kontext der aktuellen begutachteten Literatur (&gt;2020) darstellt (3–5 Referenzen); 40 %\n\n\nReferenzen\n5 %\nAlle verwendeten Quellen (inkl. Software) sind in einem Literaturverzeichnis einheitlich zitiert\n\n\nZusammenfassung\n5 %\nDem Text ist eine Zusammenfassung von einem Absatz vorangestellt (max. 200 Wörter)\n\n\nForm\n5 %\nDie Arbeit ist einheitlich und ansprechend formatiert\n\n\nAusdruck\n5 %\nDie Arbeit ist verständlich und fehlerfrei geschrieben\n\n\n\n\n\nUmfang\nIn Summe sollte die Hausarbeit 10 bis 15 Seiten umfassen:\nGrob stelle ich mir die Aufteilung wie folgt vor:\n\nTitelblatt, Zusammenfassung Literatur und evtl. Anhänge ca. 5 Seiten\nEinleitung 1 - 2 Seiten.\nMethoden 2 - 3 Seiten\nErgebnisse 2 - 3 Seiten\nDisusskon 1 - 2 Seiten.\n\n\n\nDatenquellen\n\nVeröffentlichungen\n\nFeldhasen (Telemetrie) https://figshare.com/articles/dataset/Urban_hare_data/30208969?file=58257865 und https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1002/wlb3.01513\nSchneehuhn (Distance Sampling) https://dataverse.no/file.xhtml?persistentId=doi:10.18710/V1NDV6/DYOWE6&version=1.0 und https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01471\nSchneehuhn (Distance Sampling) https://datadryad.org/dataset/doi:10.5061/dryad.zgmsbccpj und https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01350\nPuma (Kamerafallen) https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/QJKTYA und &lt; https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01308&gt;\nWeißwedelhirsch (Fang-Wiederfang) https://datadryad.org/dataset/doi:10.5061/dryad.43j74d0 und &lt; https://bioone.org/journals/annales-zoologici-fennici/volume-56/issue-1-6/086.056.0101/Estimating-Population-Density-of-the-White-Tailed-Deer-in-Finland/10.5735/086.056.0101.short&gt;\nHomeRange: A global database of mammalian home ranges: https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13625\nThe body size and temperature dependence of organismal locomotion: https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114\n\n\n\nDatenbanken\n\nGBIF für Vorkommensdaten: https://www.gbif.org/\nMovebank für Bewegungsdaten: https://www.movebank.org/cms/webapp?gwt_fragment=page=search_map\nDryad https://datadryad.org/"
   },
   {
     "objectID": "content/slides/05/01-einfuehrung.html#vorkommen",
