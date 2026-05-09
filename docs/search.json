@@ -224,116 +224,459 @@
     "text": "Die Aufgabenstellung:\n\nNicht nur das, Studien aus Slowenien, Frankreich und Schweden belegen, dass die weitgehende Freigabe der Jagd auf Wölfe nicht zielführend hinsichtlich des Schutzes von Weidetieren ist. Der ist ausschließlich durch geeignete Herdenschutzmaßnahmen zu gewährleisten. Dafür gibt es zahlreiche Beispiele in Deutschland. Weidetiere durch das nun beschlossene Jagdgesetz zu schützen ist ein Trugschluss. Weidetierhalter, die sich darauf verlassen, werden verlassen sein.\n\nQuelle: https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz\nIn dem Artikel ist von Studien aus Slowenien, Frankreich und Schweden die Rede. Finden Sie eine oder mehrere dieser Studien, was sagen sie aus?\nIn Evidenzbasiertes Wildtiermanagement Kapitel 9 (Reinhardt et al. 2009):\n\nSlowenien: Krofel M, Černe R, Jerina K (2011) Učinkovitost odstrela volkov (Canis lupus) kot ukrepa za zmanjševanje škode na domačih živalih — Effectiveness of wolf (Canis lupus) culling to reduce livestock depredations. Zb gozdarstva Lesar 95:11–22\nSchweden und Norwegen: Linnell JDC, Cretois B (2018) Research for AGRI Committee – The revival of wolves and other large predators and its impact on farmers and their livelihood in rural regions of Europe. European Parliament. Policy Department for Structural and Cohesion Policies, Brussels\nFrankreich: Plisson A-L (2011) Étude de la vulnérabilité des troupeaux ovins à la prédation du loup dans le Parc naturel régional du Queyras. Mémoire diplôme EPHE\n\nPlisson 2011 und Krofel et al. 2011 konnte ich nicht lesen (Sprache). Linell and Cretois war verfügbar (https://www.europarl.europa.eu/cmsdata/191585/IPOL_STU(2018)617488_EN%20AGRI-original.pdf; aber 106S):"
   },
   {
-    "objectID": "content/vorlesungen/01-vorlesung.html",
-    "href": "content/vorlesungen/01-vorlesung.html",
+    "objectID": "content/vorlesungen/05-vorlesung.html",
+    "href": "content/vorlesungen/05-vorlesung.html",
+    "title": "Vorlesung",
+    "section": "",
+    "text": "Vorlesung\n\nAnhören der Vorlesung auf StudIP Aufgezeichnete Vorlesungen/occupancy_vorlesung1.mp4.\n\n\n\nFolien\n\nAlle Folien (pdf)\n\n\n\nBis nächsten Einheit\nAusführen des Skripts (StudIP skripte/w5.R)."
+  },
+  {
+    "objectID": "content/vorlesungen/02-vorlesung.html",
+    "href": "content/vorlesungen/02-vorlesung.html",
     "title": "Einführung",
     "section": "",
-    "text": "Vorlesung\n\nLogistik\nMotivation & Rahmen\nKurze Pause\nÜbung\nArtporträt: Biber\n\n\n\nFolien\n\nAlle Folien (html)\nAlle Folien (pdf)\n\n\n\nLiteratur\n\nMüller et al. 2019: https://www.researchgate.net/publication/349721250_Der_nationale_Bericht_2019_zu_Lebensraumtypen_und_Arten_der_FFH-Richtlinie_-_ein_Uberblick_uber_die_Ergebnisse"
+    "text": "Hören Sie diesen Podcast zu Wildtiermangement an und überlegen Sie sich kurz Antworten zu folgenden Punkten.\n\nWie ist der Titel bzw. die Aussage “Wildtiere sind der Spiegel dessen, wie der Mensch mit der Landschaft umgeht” zu verstehen?\nIst Wildtiermanagement einfach ein moderner Begriff für Jagd? Begründen Sie Ihre Antwort kurz.\nWie unterscheidet sich Monitoring vom Wildtiermanagement bzw. welche Rolle übernimmt das Monitoring?\nVersuchen Sie für die folgenden drei Begriffe eine Definition zu erarbeiten: Wildtiermanagement, Jagd und Monitoring."
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#status-wolf",
-    "href": "content/slides/01/02-erfassung.html#status-wolf",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Status Wolf",
-    "text": "Status Wolf\n\nDer Wolf wurde von Anhang IV (streng geschützt) zu Anhang V\n\n\nQuelle: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32025L1237"
+    "objectID": "content/vorlesungen/02-vorlesung.html#klassifizieren-von-fotos",
+    "href": "content/vorlesungen/02-vorlesung.html#klassifizieren-von-fotos",
+    "title": "Einführung",
+    "section": "Klassifizieren von Fotos",
+    "text": "Klassifizieren von Fotos\nZiel der Übung ist es, 24 Fotofallenfotos zu klassifizieren und die Klassifizierungsergebnisse zu vergleichen.\nÜberlegen Sie in Kleingruppen (2 bis 3 Studierende), wie Sie die gesammelten Daten aus den Fotofallen so organisieren können, dass wir in einem nächsten Schritt:\n\ndie Daten zusammenführen und\nvergleichen können, wie die Daten klassifiziert wurden.\n\nKlassifizieren Sie die Fotos (daten/woche_2_fotos.zip) und laden Sie die Ergebnisse in StudIP in den Order daten/woche_2_fotos_ergebnisse hoch.\nFühren Sie die Daten aus Aufgabe 2 zusammen und finden Sie das Foto, bei dem die Klassifizierung am unsichersten war."
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#wie-funktioniert-das-ffh-monitoring",
-    "href": "content/slides/01/02-erfassung.html#wie-funktioniert-das-ffh-monitoring",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Wie Funktioniert das FFH-Monitoring",
-    "text": "Wie Funktioniert das FFH-Monitoring\nFür Arten in Anhang II und IV:"
+    "objectID": "content/vorlesungen/02-vorlesung.html#wolf-in-deutschland",
+    "href": "content/vorlesungen/02-vorlesung.html#wolf-in-deutschland",
+    "title": "Einführung",
+    "section": "Wolf in Deutschland",
+    "text": "Wolf in Deutschland\nAuf einem Blogpost von Wildtierschutz Deutschland e.V. steht:\n\nNicht nur das, Studien aus Slowenien, Frankreich und Schweden belegen, dass die weitgehende Freigabe der Jagd auf Wölfe nicht zielführend hinsichtlich des Schutzes von Weidetieren ist. Der ist ausschließlich durch geeignete Herdenschutzmaßnahmen zu gewährleisten. Dafür gibt es zahlreiche Beispiele in Deutschland. Weidetiere durch das nun beschlossene Jagdgesetz zu schützen ist ein Trugschluss. Weidetierhalter, die sich darauf verlassen, werden verlassen sein.\n\nQuelle: https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz\nIn dem Artikel ist von Studien aus Slowenien, Frankreich und Schweden die Rede. Finden Sie eine oder mehrere dieser Studien, was sagen sie aus?"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#wo-sind-wir",
-    "href": "content/slides/01/02-erfassung.html#wo-sind-wir",
-    "title": "Erfassung von Wildtieren (E2)",
+    "objectID": "content/slides/01/03-vorkommen.html#wo-sind-wir",
+    "href": "content/slides/01/03-vorkommen.html#wo-sind-wir",
+    "title": "Vorkommen von Wildtieren (E3)",
     "section": "Wo sind wir?",
-    "text": "Wo sind wir?\n\n13.04.2026: E01: Einführung\n\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion"
+    "text": "Wo sind wir?\n\n13.04.2026: E01: Einführung\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
-    "href": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
-    "title": "Erfassung von Wildtieren (E2)",
+    "objectID": "content/slides/01/03-vorkommen.html#kurze-wiederholungvorschau",
+    "href": "content/slides/01/03-vorkommen.html#kurze-wiederholungvorschau",
+    "title": "Vorkommen von Wildtieren (E3)",
     "section": "Kurze Wiederholung/Vorschau",
     "text": "Kurze Wiederholung/Vorschau"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#motivation",
-    "href": "content/slides/01/02-erfassung.html#motivation",
-    "title": "Erfassung von Wildtieren (E2)",
+    "objectID": "content/slides/01/03-vorkommen.html#ein-paar-definitionen",
+    "href": "content/slides/01/03-vorkommen.html#ein-paar-definitionen",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Ein paar Definitionen",
+    "text": "Ein paar Definitionen\n\nAutökologie: Wechselbeziehung zwischen einer Art (einzelne Individuen) und ihrer Umwelt (abiotisch und biotisch).\nHabitat: Lebensraum einer Art (bzieht sich oft auf Vegetationstypen)\nBiotop: Lebensraum einer Lebensgemeinschaft (-&gt; Habitate sind Teilbereiche eines Biotops, die nicht unbedingt von allen Arten der Lebensgemeinschaft genutzt werden)"
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#habitatansprüche",
+    "href": "content/slides/01/03-vorkommen.html#habitatansprüche",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Habitatansprüche",
+    "text": "Habitatansprüche\nWas müssen Wildtiere in ihrem Habitat vorfinden?\n\n\nSchutz, Unterschlupf, Nistmöglichkeiten\nNahrung, Wasser\nFortpflanzungspartner\nDas “richtige” Klima (Temperatur, Luftfeuchte)"
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#habitatwahl",
+    "href": "content/slides/01/03-vorkommen.html#habitatwahl",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Habitatwahl",
+    "text": "Habitatwahl\n= Verhaltensökologische Prozesse, mit denen Tiere sich ihre Habitate auswählen…\nUnter welchen Gesichtspunkten sollten sich Tiere ihre Habitate auswählen?\n\n\n\n\n\n\nNote\n\n\nEvolution -&gt; Anpassung -&gt; Fitnessmaximierung"
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#hierarchien-der-habitatwahl",
+    "href": "content/slides/01/03-vorkommen.html#hierarchien-der-habitatwahl",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Hierarchien der Habitatwahl",
+    "text": "Hierarchien der Habitatwahl\n\n\nEbene: Wahl des Artverbeitungsareal (z.B. Wo kommt er Wolf vor? Nördliche Grenze)\nEbene: Wahl von Aktionsräume (= Streifgebiete) innerhalb des Artverbeitungsareal.\nEbene: Wahl bestimmter Habitate innerhalb des Streifgebietes\nEbene: Wahl bestimmter Komponenten innerhalb der gewählten Habitate"
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#ökologische-nische",
+    "href": "content/slides/01/03-vorkommen.html#ökologische-nische",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Ökologische Nische",
+    "text": "Ökologische Nische\nGesamtheit aller abiotischen und biotischen Faktoren, die das Überleben einer Art beeinflussen"
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#toleranz-und-stress",
+    "href": "content/slides/01/03-vorkommen.html#toleranz-und-stress",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Toleranz und Stress",
+    "text": "Toleranz und Stress\nEin Umweltfaktor, für den eine Art die geringste Toleranz zeigt wird als limitierend bezeichnet.\n\nLimitierende Faktoren sind geeignet, um das Vorkommen bzw. die Verbreitung einer Art vorherzusagen bzw. zu erklären.\nDie Verbreitung einer Art ist davon abhängig"
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#ökologische-nische-2",
+    "href": "content/slides/01/03-vorkommen.html#ökologische-nische-2",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Ökologische Nische 2",
+    "text": "Ökologische Nische 2\n\nFundamentale Nische: Hier kann eine Art vorkommen, außerhalb kann sie nicht vorkommen.\nRealisierte Nische: Hier kommt eine Art tatsächlich vor\n\n\n\nStenöke Arten: Spezialisten -&gt; Enge Nische (z.B. Schneeleopard)\nEuryöke Arten: Generalisten -&gt; Breite Nische (z.B. Rotfuchs)"
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#die-fragestellung",
+    "href": "content/slides/01/03-vorkommen.html#die-fragestellung",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Die Fragestellung",
+    "text": "Die Fragestellung\n\nWie kann man die Verbreitung vom Europäischen Luchs erklären und vorhersagen?\nEs gibt aus unterschiedlichen Monitorings Vorkommensdaten, die z.B. über GBIF bezogen werden können:"
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#wie-kann-das-vorkommen-erklärt-werden",
+    "href": "content/slides/01/03-vorkommen.html#wie-kann-das-vorkommen-erklärt-werden",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Wie kann das Vorkommen erklärt werden?",
+    "text": "Wie kann das Vorkommen erklärt werden?\nModelle …\n\n… kommen in vielen Alltagssituationen zum Einsatz.\n… sollen eine sinvolle Vereinfachung der Realität darstellen.\n… “All models are wrong but some are useful” (George Box)"
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#was-für-modelle-gibt-es",
+    "href": "content/slides/01/03-vorkommen.html#was-für-modelle-gibt-es",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Was für Modelle gibt es?",
+    "text": "Was für Modelle gibt es?\n\nStatistische Modelle\n\nVersuchen die Variabilität in den Daten durch korrelative Zusammenhänge zu erklären. Keine biologischen Mechanismen.\n\nMechanistische Modelle\n\nVersuch von biologischen Prozessen zu simulieren, um beobachtete Muster zur erklären."
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#stichprobe-oder-grundgesamtheit",
+    "href": "content/slides/01/03-vorkommen.html#stichprobe-oder-grundgesamtheit",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Stichprobe oder Grundgesamtheit",
+    "text": "Stichprobe oder Grundgesamtheit\n\nMeist können wir die Grundgesamtheit nicht beproben/erfassen, dies kann aus logistischen, ethischen oder finanziellen Gründen sein.\nJedes Element aus der Grundgesamtheit muss mit der gleichen Wahrscheinlichkeit in der Stichprobe sein, ansonsten kann es sein, dass wir nicht von der Stichprobe auf die Grundgesamtheit schließen können."
+  },
+  {
+    "objectID": "content/slides/01/03-vorkommen.html#verteilungen-von-zufallsgrößen",
+    "href": "content/slides/01/03-vorkommen.html#verteilungen-von-zufallsgrößen",
+    "title": "Vorkommen von Wildtieren (E3)",
+    "section": "Verteilungen von Zufallsgrößen",
+    "text": "Verteilungen von Zufallsgrößen\n\nZufallsgrößen1 (= Merkmalsausprägung; z.B. Streifgebietsgröße, Gewicht, Vorkommen), können unterschiedlichen Verteilungen folgen.\nOb eine Art an einem Standort vorkommt oder nicht, folgt einer anderen Verteilung als die Streifgebietsgrößen von besenderten Tieren.\nEine Art kann vorkommen oder nicht (z.B. 0 = absent und 1 = präsent). Während für Streifgebietsgrößen theoretisch jede positive Zahl zulässig wäre.\nWir brauchen im Verlauf dieser Veranstaltung vier Verteilungen: Die Bernoulli-Verteilung (ja/nein), die Binomial-Verteilung (viele Bernoulli-Verteilungen), die Poisson-Verteilung (Zähldaten) und die Normalverteilung (stetige Daten), die Beta-Verteilung.\n\nDiese werden auch oft als Zufallsvariablen bezeichnet werden."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#team",
+    "href": "content/slides/01/01-einfuehrung.html#team",
+    "title": "Einführung",
+    "section": "Team",
+    "text": "Team\n\nJohannes Signer (Wissenschaftlicher Mitarbeiter in der Abteilung Wildtierwissenschaften)\n\nForschungsinteressen: Bewegungsökologie, statistische Methoden in der Ökologie\nWerdegang: Ökologie (BSc), Geoinformatik (MSc), angewandte Statistik (MSc) und Forstwissenschaften (PhD)"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#kontakt",
+    "href": "content/slides/01/01-einfuehrung.html#kontakt",
+    "title": "Einführung",
+    "section": "Kontakt",
+    "text": "Kontakt\n\nEmail:jsigner@uni-goettingen.de\nVerwenden Sie auch das Forum bei StudIP, dort beantworten wir am liebsten Ihre Fragen."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#wer-sind-sie",
+    "href": "content/slides/01/01-einfuehrung.html#wer-sind-sie",
+    "title": "Einführung",
+    "section": "Wer sind Sie?",
+    "text": "Wer sind Sie?"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#ablauf",
+    "href": "content/slides/01/01-einfuehrung.html#ablauf",
+    "title": "Einführung",
+    "section": "Ablauf",
+    "text": "Ablauf\n\n12 Termine (10 davon in Präsenz)\nPräsenztermine Mo: von 9:15 bis ca. 11:45 (Vorlesung und Übung)\nFür die Übungen brauchen Sie meist einen Laptop. Sollten Sie keinen Laptop zur Verfügung haben, melden Sie sich bitte bei mir."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#bewertung",
+    "href": "content/slides/01/01-einfuehrung.html#bewertung",
+    "title": "Einführung",
+    "section": "Bewertung",
+    "text": "Bewertung\n\nPrüfungsvorleistung: ein 60-minütiger Multiple-Choice Test zu den wichtigsten Konzepten der Vorlesung.\nEine Hausarbeit (siehe Website zu Details)\n\nBei der Prüfung wird nicht nach Programmierkenntnissen in R gefragt, sondern nur nach der Interpretation von Ergebnissen."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#nutzen-von-ki",
+    "href": "content/slides/01/01-einfuehrung.html#nutzen-von-ki",
+    "title": "Einführung",
+    "section": "Nutzen von KI",
+    "text": "Nutzen von KI\n\nIch ermutige Sie KI unterstützend zu nutzen.\nMeine Erfahrung ist, dass man KI gut nutzen kann wenn man ungefähr weiß was man braucht, jedoch es schwieriger ist, sich mit KI einen Überblick zu verschaffen.\n\n\n\n\n\n\n\n\nWichtig\n\n\n\nWenn Sie z.B. bei den Übungen nicht wissen, wo Sie anfangen sollen, dann fragen Sie Kommilitonen oder mich.\nWenn Sie bei einem R-Befehl unsicher sind, bzw. den Fehler nicht gleich entdecken, fragen Sie die KI."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#ausblick",
+    "href": "content/slides/01/01-einfuehrung.html#ausblick",
+    "title": "Einführung",
+    "section": "Ausblick",
+    "text": "Ausblick\n\nArtporträts: Wie funktioniert Monitoring bei einzelnen Arten\nThemen für die Hausarbeit: Zu wissenschaftlichen Arbeiten und Datenanalyse"
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#was-hat-programmierung-in-einem-wildbio-kurs-verloren",
+    "href": "content/slides/01/01-einfuehrung.html#was-hat-programmierung-in-einem-wildbio-kurs-verloren",
+    "title": "Einführung",
+    "section": "Was hat Programmierung in einem Wildbio Kurs verloren?",
+    "text": "Was hat Programmierung in einem Wildbio Kurs verloren?\nImmer mehr Daten:\n\nEin Fotofallenmonitoring mit 50 Fotofallen, die acht Wochen im Feld sind (mit 30 Fotos pro Kamera und Tag) = 84.000 Fotos.\nEin durchschnittliches Telemetrieprojekt mit 20 Tieren, 1 Lokalisierung pro Stunde und Tier für ein Jahr = 172.800 Datenpunkte.\nATLAS-Telemetriesystem: 30 Vögel für 50 Tage mit einer Lokalisierung pro 8 Sekunden: 16.200.000 Datenpunkte."
+  },
+  {
+    "objectID": "content/slides/01/01-einfuehrung.html#motivation",
+    "href": "content/slides/01/01-einfuehrung.html#motivation",
+    "title": "Einführung",
     "section": "Motivation",
-    "text": "Motivation\n\nFür alle Monitoringvorhaben brauchen wir Daten. Diese müssen wir ‘erfassen’.\nUnter Erfassung ist hier das indirekte oder direkte Beobachten, Zählen oder Messen von Wildtieren in freier Wildbahn gemeint.\nReinhardt et al. (2015) Monitoring von Wolf, Luchs und Bär in Deutschland BfN Skript 413 (https://www.bfn.de/fileadmin/ BfN/service/Dokumente/skripten/Skript413.pdf)"
+    "text": "Motivation\n\nBestände von Wildtiere nehmen zu (z.B. die Wolfspopulation wächst stetig in D)."
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
-    "href": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Was macht es so schwierig Wildtiere zu erfassen?",
-    "text": "Was macht es so schwierig Wildtiere zu erfassen?\n\nAuffinden der Tiere kann schwierig sein.\nDie meisten Tiere, die wir untersuchen, bewegen sich.\nDie Dichten der Tiere variieren in Gebieten und zwischen Tierarten (z.B. Amsel vs. Luchs)."
+    "objectID": "content/slides/01/01-einfuehrung.html#was-ist-monitoring",
+    "href": "content/slides/01/01-einfuehrung.html#was-ist-monitoring",
+    "title": "Einführung",
+    "section": "Was ist Monitoring?",
+    "text": "Was ist Monitoring?\nNach Yoccoz et al. 20011, ist Monitoring:\n\nEin Prozess zum Beobachten von Zustandsvariablen über die Zeit mit dem Ziel den Zustand des Systems zu untersuchen und Inferenz zu betreiben.\n\nYoccoz, N. G., Nichols, J. D., & Boulinier, T. (2001). Monitoring of biological diversity in space and time. Trends in ecology & evolution, 16(8), 446-453."
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
-    "href": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Unterschiedliche Methoden für unterschiedliche Fragestellungen",
-    "text": "Unterschiedliche Methoden für unterschiedliche Fragestellungen\n\nWas möchte ich wissen?\nWelche Methode kann ich dafür anwenden?\nWelche Daten brauche ich für welche Methode?\n\nSilvy, N. J., Lopez, R. R., & Peterson, M. J. (2012). Techniques for marking wildlife. The wildlife techniques manual, 1, 230-257."
+    "objectID": "content/slides/01/01-einfuehrung.html#motivation-für-ein-monitoring",
+    "href": "content/slides/01/01-einfuehrung.html#motivation-für-ein-monitoring",
+    "title": "Einführung",
+    "section": "Motivation für ein Monitoring",
+    "text": "Motivation für ein Monitoring\n\nForschung\nWirtschaftliche Interessen\nRechtliche Rahmenbedingungen (z.B. FFH)"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
-    "href": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Der Versuch einer Einteilung",
-    "text": "Der Versuch einer Einteilung\nWir müssen Entscheidungen treﬀen, die in folgende Kategorien fallen:\n\nWas für Daten benötigen wir?\n\nNachweise\nAnzahlen\n\nAnzahl Sichtungen\nAnzahl gesehener Tiere\n\nIndividuelle Daten (z.B. Gewicht, Position)\n\neinmalig\nmehrmalig"
+    "objectID": "content/slides/01/01-einfuehrung.html#etwas-terminologie",
+    "href": "content/slides/01/01-einfuehrung.html#etwas-terminologie",
+    "title": "Einführung",
+    "section": "Etwas Terminologie",
+    "text": "Etwas Terminologie\n\nInternationale Übereinkommen (international conventions)\n\nWerden von Staaten geschlossen und müssen durch nationales und/oder EU-Recht umgesetzt werden. Z.B. Berner Konvention\n\nEU-Richtlinie\n\nGibt den Rahmen vor und muss in nationales Recht umgewandelt werden. Z.B. die FFH-Richtlinie\n\nEU-Verordnung\n\nGesetzlicher Rahmen wird von der EU vorgegeben und muss nicht mehr in nationales Recht umgewandelt werden. Z.B. Monitoring von Treibhausgasen-Emissionen."
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
-    "href": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Methoden der Erfassung",
-    "text": "Methoden der Erfassung\n\nDie klassische Methode der Erfassung von Wildtieren ist die direkte oder indirekte Feldbeobachtung mit oder ohne technische Hilfsmittel (z.B. Fernglas).\nIn den vergangen Jahrzehnten sind eine Vielzahl von sensorbasierten Erfassungsmethoden hinzugekommen (z.B. satellitenbasierte Telemetrie oder Fotofallen).\n\n\nFoto: J. Signer"
+    "objectID": "content/slides/01/01-einfuehrung.html#ramsar-konvention-1971-übereinkommen-über-feuchtgebiete-von-internationaler-bedeutung",
+    "href": "content/slides/01/01-einfuehrung.html#ramsar-konvention-1971-übereinkommen-über-feuchtgebiete-von-internationaler-bedeutung",
+    "title": "Einführung",
+    "section": "Ramsar-Konvention (1971): Übereinkommen über Feuchtgebiete von internationaler Bedeutung",
+    "text": "Ramsar-Konvention (1971): Übereinkommen über Feuchtgebiete von internationaler Bedeutung\nZiel: Schutz und nachhaltige Nutzung von Feuchtgebieten weltweit\n\nÄltestes internationales Naturschutzabkommen\nVertragsstaaten verpflichten sich, mindestens ein Feuchtgebiet als „Ramsar-Gebiet” auszuweisen\nHeute: 172 Vertragsstaaten, über 2.400 Ramsar-Gebiete (250 Mio. Hektar)\nDeutschland: 35 ausgewiesene Gebiete.\n\nVerbindung zu anderen Abkommen: Enge Kooperation mit der CBD; Feuchtgebiete sind Teil des CBD-Arbeitsprogramms zu Binnengewässern."
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#markierung-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#markierung-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Markierung von Tieren",
-    "text": "Markierung von Tieren\nNatürliche Markierung\n\nEinige Tierarten haben eindeutige natürliche Merkmale, die eine individuelle Identiﬁkation möglich machen. Bei vielen Katzen (z.B. Tiger, Luchs) weißt das Fell eindeutige Muster auf.\nJohansson et al. 20201 untersuchten die Auswirkungen von Fehlklassiﬁkationen auf Populationsgrößenschätzungen. Sie können auch versuchen Schneeleoparden zu klassiﬁzieren (https: //camtraining.globalsnowleopard.org/leppe/login/).\n\nJohansson, Ö., Samelius, G., Wikberg, E., Chapron, G., Mishra, C., & Low, M. (2020). Identification errors in camera-trap studies result in systematic population overestimation. Scientific reports, 10(1), 1-10."
+    "objectID": "content/slides/01/01-einfuehrung.html#übereinkommen-über-die-erhaltung-der-europäischen-wildlebenden-pflanzen-und-tiere-und-ihrer-natürlichen-lebensräume-berner-konvention",
+    "href": "content/slides/01/01-einfuehrung.html#übereinkommen-über-die-erhaltung-der-europäischen-wildlebenden-pflanzen-und-tiere-und-ihrer-natürlichen-lebensräume-berner-konvention",
+    "title": "Einführung",
+    "section": "Übereinkommen über die Erhaltung der europäischen wildlebenden Pflanzen und Tiere und ihrer natürlichen Lebensräume (Berner Konvention)",
+    "text": "Übereinkommen über die Erhaltung der europäischen wildlebenden Pflanzen und Tiere und ihrer natürlichen Lebensräume (Berner Konvention)\nZiel: Schutz gefährdeter Wildtierarten und ihrer Lebensräume in Europa\n\nErstes europäisches Abkommen zum Schutz der Biodiversität\n51 Unterzeichnerstaaten (Europarat + Nicht-EU-Länder)\nStrenger Schutz für über 1.000 bedrohte Tier- und Pflanzenarten (Anhänge I–III)\nVerpflichtung zur Zusammenarbeit bei grenzüberschreitenden Arten\n\nVerbindung zu anderen Abkommen: Direkter Vorläufer der EU-FFH-Richtlinie – viele Bestimmungen wurden 1992 in EU-Recht übernommen."
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#künstliche-markierung",
-    "href": "content/slides/01/02-erfassung.html#künstliche-markierung",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Künstliche Markierung",
-    "text": "Künstliche Markierung\n\nInvasiv\n\nTransponder (z.B. PIT-Tags1)\nRadioaktive Marker\nOhrmarken, Muster im Fell\n\nNichtinvasiv\n\nHalsbänder\nBeringung\nFarbe\n\n\nDie Abkürzung PIT steht für Passive Integrated Transponders"
+    "objectID": "content/slides/01/01-einfuehrung.html#fauna-flora-habitat-richtlinie-der-europäischen-union-9243ewg-ffh-richtlinie",
+    "href": "content/slides/01/01-einfuehrung.html#fauna-flora-habitat-richtlinie-der-europäischen-union-9243ewg-ffh-richtlinie",
+    "title": "Einführung",
+    "section": "Fauna-Flora-Habitat-Richtlinie der Europäischen Union (92/43/EWG; FFH-Richtlinie)",
+    "text": "Fauna-Flora-Habitat-Richtlinie der Europäischen Union (92/43/EWG; FFH-Richtlinie)\nZiel: Schutz europäischer Lebensräume und Arten durch ein einheitliches Schutzgebietsnetz\n\nSetzt die Berner Konvention verbindlich in EU-Recht um\nGemeinsam mit der Vogelschutzrichtlinie (1979) Grundlage für Natura 2000\nNatura 2000: Größtes Schutzgebietsnetz der Welt – über 27.000 Gebiete in der EU\nArten und Lebensraumtypen in Anhängen II, IV und V geregelt\nMitgliedstaaten müssen „günstigen Erhaltungszustand” sicherstellen"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#fangen-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#fangen-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Fangen von Tieren",
-    "text": "Fangen von Tieren\n\nQuelle: J. Signer"
+    "objectID": "content/slides/01/01-einfuehrung.html#die-anhänge-der-ffh-richtlinie",
+    "href": "content/slides/01/01-einfuehrung.html#die-anhänge-der-ffh-richtlinie",
+    "title": "Einführung",
+    "section": "Die Anhänge der FFH-Richtlinie",
+    "text": "Die Anhänge der FFH-Richtlinie\nDie FFH-Richtlinie gliedert sich in sechs Anhänge, die genau festlegen, was wie geschützt wird\n\n\n\n\n\n\n\n\nAnhang\nInhalt\nSchutzpflicht\n\n\n\n\nAnhang I\nSchutzbedürftige Lebensraumtypen (z.B. Hochmoore, Buchenurwälder, Dünen)\nAusweisung als Natura-2000-Gebiet (SAC = Special Area of Conservation)\n\n\nAnhang II\nTier- und Pflanzenarten, für die Schutzgebiete ausgewiesen werden müssen\nAusweisung als Natura-2000-Gebiet (SAC)\n\n\nAnhang III\nKriterien zur Auswahl der Schutzgebiete (Repräsentativität, Fläche, Zustand)\nBewertungsgrundlage\n\n\nAnhang IV\nStreng zu schützende Arten (z.B. alle Fledermäuse, Wolf, Luchs, Meeresschildkröten)\nEuropaweites Tötungs- & Störungsverbot\n\n\nAnhang V\nArten, deren Entnahme aus der Natur reguliert werden darf\nNutzungsbeschränkungen\n\n\nAnhang VI\nVerbotene Fang- und Tötungsmethoden\nMethoden- & Geräteverbot"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#markieren-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#markieren-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Markieren von Tieren",
-    "text": "Markieren von Tieren\n\nQuelle: S. Appleby"
+    "objectID": "content/slides/01/01-einfuehrung.html#globaler-biodiversitätsrahmen-gbf-verabschiedet-unter-der-cbd-kunming-montreal-abkommen-2022",
+    "href": "content/slides/01/01-einfuehrung.html#globaler-biodiversitätsrahmen-gbf-verabschiedet-unter-der-cbd-kunming-montreal-abkommen-2022",
+    "title": "Einführung",
+    "section": "Globaler Biodiversitätsrahmen (GBF) – verabschiedet unter der CBD (Kunming-Montreal Abkommen 2022)",
+    "text": "Globaler Biodiversitätsrahmen (GBF) – verabschiedet unter der CBD (Kunming-Montreal Abkommen 2022)\nZiel: Stopp und Umkehr des Biodiversitätsverlusts bis 2030 und darüber hinaus\n\nVerabschiedet auf der CBD-COP15 in Montreal (Dezember 2022)\nKernziel: 30×30 – 30 % der Land- und Meeresflächen bis 2030 schützen\nWeitere Ziele: Reduktion schädlicher Subventionen, Wiederherstellung degradierter Ökosysteme (30 %), gerechter Vorteilsausgleich für indigene Gemeinschaften\n196 Vertragsstaaten (nahezu weltweit)\n\nVerbindung zu anderen Abkommen: Dachrahmen unter der CBD; gibt Ramsar, Berner Konvention und FFH/Natura 2000 neue politische Schubkraft und konkrete Flächenziele."
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
-    "href": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Verfolgen von Tieren",
-    "text": "Verfolgen von Tieren\n\nQuelle: Nationalpark Harz/Bayeerischer Wald"
+    "objectID": "content/slides/01/01-einfuehrung.html#wie-hängen-sie-zusammen",
+    "href": "content/slides/01/01-einfuehrung.html#wie-hängen-sie-zusammen",
+    "title": "Einführung",
+    "section": "Wie hängen sie zusammen?",
+    "text": "Wie hängen sie zusammen?\n\n\n\nAbkommen\nEbene\nSchwerpunkt\n\n\n\n\nRamsar\nGlobal\nFeuchtgebiete\n\n\nBerner Konvention\nEuropa\nWildtiere & Habitate\n\n\nFFH / Natura 2000\nEU\nVerbindliches Schutzgebietsnetz\n\n\nKunming-Montreal\nGlobal\nGesamte Biodiversität, 30×30-Ziel"
   },
   {
-    "objectID": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
-    "href": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
-    "title": "Erfassung von Wildtieren (E2)",
-    "section": "Qualität von Nachweisen",
-    "text": "Qualität von Nachweisen\nHinweise (meist von Karnivoren) werden nach ihrer Überprüfbarkeit in\n\nNachweise (C1),\nbestätigte Hinweise (C2) und\nunbestätigte Hinweise (C3)\n\neingeteilt. Diese Kriterien wurden für SCALP (Status and Conservation of the Alpine Lynx Population) in der Schweiz entwickelt."
+    "objectID": "content/slides/05/01-einfuehrung.html#vorkommen",
+    "href": "content/slides/05/01-einfuehrung.html#vorkommen",
+    "title": "Artporträts",
+    "section": "Vorkommen",
+    "text": "Vorkommen"
+  },
+  {
+    "objectID": "content/slides/05/01-einfuehrung.html#merkmale",
+    "href": "content/slides/05/01-einfuehrung.html#merkmale",
+    "title": "Artporträts",
+    "section": "Merkmale",
+    "text": "Merkmale"
+  },
+  {
+    "objectID": "content/slides/05/01-einfuehrung.html#monitoring",
+    "href": "content/slides/05/01-einfuehrung.html#monitoring",
+    "title": "Artporträts",
+    "section": "Monitoring",
+    "text": "Monitoring"
+  },
+  {
+    "objectID": "content/slides/05/01-einfuehrung.html#berichtspflichten",
+    "href": "content/slides/05/01-einfuehrung.html#berichtspflichten",
+    "title": "Artporträts",
+    "section": "Berichtspflichten",
+    "text": "Berichtspflichten"
+  },
+  {
+    "objectID": "content/slides/05/01-einfuehrung.html#beispiel",
+    "href": "content/slides/05/01-einfuehrung.html#beispiel",
+    "title": "Artporträts",
+    "section": "Beispiel:",
+    "text": "Beispiel:\nhttps://besjournals.onlinelibrary.wiley.com/doi/full/10.1002/2688-8319.12168"
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html",
+    "href": "content/pruefung/pruefungen.html",
+    "title": "Prüfungsleistungen",
+    "section": "",
+    "text": "Die Benotung für dieses Modul erfolgt anhand einer strukturierten Hausarbeit. Um für die Hausarbeit zugelassen zu werden, muss eine Prüfungsvorleistung absolviert werden, darin werden die wichtigsten Konzepte, Methoden und Begriffe der Vorlesung in einem Multiple-Choice-Test abgefragt.\nFür die Hausarbeit verwenden Sie einen bereits erhobenen Datensatz. Es ist auch zulässig eine beretis durchgeführte Studie zu wiederholen. Nähere Details zur Hausarbeit fogen ab Woche 8 des Semesters."
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html#literatur",
+    "href": "content/pruefung/pruefungen.html#literatur",
+    "title": "Prüfungsleistungen",
+    "section": "Literatur",
+    "text": "Literatur\nEine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:\n\nZu den FFH-Berichten: Müller et al. 2019: https://www.researchgate.net/publication/349721250_Der_nationale_Bericht_2019_zu_Lebensraumtypen_und_Arten_der_FFH-Richtlinie_-_ein_Uberblick_uber_die_Ergebnisse\nZu Monitoring und Occupancy-Modellen: Boyd et al. 2023: https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12961\nSliwinski et al. 2021 Comparison of spotlighting monitoring data of European brown hare (Lepus europaeus) relative population densities with infrared thermography in agricultural landscapes in Northern Germany\nAusband et al. 2022 Estimating wolf abundance from cameras\nTelemetriestudie\n\nSie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden Antworten auf spezifische Fragen schnell. Es werden keine Fragen zu technischen/statistischen Details gestellt."
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html#terminologie",
+    "href": "content/pruefung/pruefungen.html#terminologie",
+    "title": "Prüfungsleistungen",
+    "section": "Terminologie",
+    "text": "Terminologie\nIch erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können:\n\n\n\nWoche 1\n\nMonitoring\nStatistische Inferenz\nZustandsvariable\nEU-Verordnung\nEU-Richtlinie\nFFH-Richtlinie\nAnhänge der FFH-Richtlinie\nRamsar Konvention\nBerner Konvention\nRelative vs. absolute Pfade\n\n\n\n\nWoche 2\n\nLikelihood\nPosterior\nPrior\nParameter\nBayesiansche Statistik\nFrequentistische Statistik\nGamma Verteilung\nScalp Kriterien\nCitizen Science\nPIT-Tags\n\n\n\n\n\n\n\nWoche 3\n\nAutökologie\nFundamentale und realisierte Nische\nZufallsvariable\nStenöke Arten\nEuryöke Arten\nHabitat\nBiotop\nHabitatwahl\nLimitierender Faktor\nStatistische vs. meachnistische Modelle\nGrundgesamtheit\nStichprobe\nVerteilungen (Binomial, Poisson, Normal, Beta)\n\n\n\n\nWoche 4\n\nZufallsvariable\nGBIF\nEVBs\nGEO-BON\nKovariate\nLineares Modell\nIntercept\nSteigung (Slope)\nErwartungswert\n\n\n\n\n\n\n\nWoche 5\n\nLinkfunktion\nLinearerprädiktor\nZielverteilung\nUnterschied GLM und LM\nKomponenten eines GLMs\nBelegrate/Occupancy (\\(\\psi\\))\nDetektion (\\(p\\))\nWas ist eine README-Datei?\nWozu braucht man eine README-Datei"
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html#statistik",
+    "href": "content/pruefung/pruefungen.html#statistik",
+    "title": "Prüfungsleistungen",
+    "section": "Statistik",
+    "text": "Statistik\nEs werden keine R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen."
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html#analysen",
+    "href": "content/pruefung/pruefungen.html#analysen",
+    "title": "Prüfungsleistungen",
+    "section": "Analysen",
+    "text": "Analysen\n\nCode ist reproduzierbar. (60%)\nDer Code ist ausreichend dokumentiert und logisch sinnvoll aufgebaut. (25%)\nEs gibt eine README-Datei, die beschreibt, wie man den Code und die Analyse ausführen kann. (15%)"
+  },
+  {
+    "objectID": "content/pruefung/pruefungen.html#hausarbeit",
+    "href": "content/pruefung/pruefungen.html#hausarbeit",
+    "title": "Prüfungsleistungen",
+    "section": "Hausarbeit",
+    "text": "Hausarbeit\n\nGliederung\n\n\n\n\n\n\n\n\nWas\nBewertung\nDetaillierte Bewertung\n\n\n\n\nEinleitung\n15 %\n1. Worum geht es (1–2 Absätze); 30 %2. Stand der Dinge (1 Absatz); 20 %3. Ziel dieser Hausarbeit; 20 %4. Literatur (3–5 peer-reviewed Veröffentlichungen); 30 %\n\n\nMethoden\n25 %\n1. Datenquellen, wie wurden die Daten aufgenommen; 20 %2. Modellbeschreibung (welches Modell wurde verwendet, wie wurde es parametrisiert); 40 %3. Aufschreiben und beschreiben der Modellgleichung; 30 %4. Richtige Zitation aller Software; 10 %\n\n\nErgebnisse\n25 %\n- Beschreibung der Ergebnisse, die für die Fragestellung relevant sind; 20 %- Zwei Abbildungen, die die Ergebnisse untermauern und das Modell visualisieren; 60 %- Eine Tabelle, die für die Fragestellung relevante Rohdaten oder Modelloutput zusammenfasst 20 %\n\n\nDiskussion\n15 %\nJeweils ein Absatz, der:1. der, die Ergebnisse zusammenfasst und in Verbindung mit den Hypothese(n) bringt; 30 %2. der, mögliche Schwachstellen, Erweiterungen etc. diskutiert; 30 %3. der, die Ergebnisse im Kontext der aktuellen begutachteten Literatur (&gt;2020) darstellt (3–5 Referenzen); 40 %\n\n\nReferenzen\n5 %\nAlle verwendeten Quellen (inkl. Software) sind in einem Literaturverzeichnis einheitlich zitiert\n\n\nZusammenfassung\n5 %\nDem Text ist eine Zusammenfassung von einem Absatz vorangestellt (max. 200 Wörter)\n\n\nForm\n5 %\nDie Arbeit ist einheitlich und ansprechend formatiert\n\n\nAusdruck\n5 %\nDie Arbeit ist verständlich und fehlerfrei geschrieben\n\n\n\n\n\nUmfang\nIn Summe sollte die Hausarbeit 10 bis 15 Seiten umfassen:\nGrob stelle ich mir die Aufteilung wie folgt vor:\n\nTitelblatt, Zusammenfassung Literatur und evtl. Anhänge ca. 5 Seiten\nEinleitung 1 - 2 Seiten.\nMethoden 2 - 3 Seiten\nErgebnisse 2 - 3 Seiten\nDisusskon 1 - 2 Seiten.\n\n\n\nDatenquellen\n\nVeröffentlichungen\n\nFeldhasen (Telemetrie) https://figshare.com/articles/dataset/Urban_hare_data/30208969?file=58257865 und https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1002/wlb3.01513\nSchneehuhn (Distance Sampling) https://dataverse.no/file.xhtml?persistentId=doi:10.18710/V1NDV6/DYOWE6&version=1.0 und https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01471\nSchneehuhn (Distance Sampling) https://datadryad.org/dataset/doi:10.5061/dryad.zgmsbccpj und https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01350\nPuma (Kamerafallen) https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/QJKTYA und &lt; https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01308&gt;\nWeißwedelhirsch (Fang-Wiederfang) https://datadryad.org/dataset/doi:10.5061/dryad.43j74d0 und &lt; https://bioone.org/journals/annales-zoologici-fennici/volume-56/issue-1-6/086.056.0101/Estimating-Population-Density-of-the-White-Tailed-Deer-in-Finland/10.5735/086.056.0101.short&gt;\n\nHomeRange: A global database of mammalian home ranges: https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13625\nThe body size and temperature dependence of organismal locomotion: https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114\nPetroni et al. 2025 (Occupancy) Recolonization pattern of wolves in Northern Apennines, Central Italy: a Bayesian analysis using opportunistic and systematic data https://cdnsciencepub.com/doi/10.1139/cjz-2025-0010. Daten und Code sind im Anhang.\n\n\n\nDatenbanken\n\nGBIF für Vorkommensdaten: https://www.gbif.org/\nMovebank für Bewegungsdaten: https://www.movebank.org/cms/webapp?gwt_fragment=page=search_map\nDryad https://datadryad.org/"
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#wo-sind-wir",
+    "href": "content/slides/01/05-vorkommen_3.html#wo-sind-wir",
+    "title": "Occupancy 1 (E5)",
+    "section": "Wo sind wir?",
+    "text": "Wo sind wir?\n\n13.04.2026: E01: Einführung\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion"
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#kurze-wiederholungvorschau",
+    "href": "content/slides/01/05-vorkommen_3.html#kurze-wiederholungvorschau",
+    "title": "Occupancy 1 (E5)",
+    "section": "Kurze Wiederholung/Vorschau",
+    "text": "Kurze Wiederholung/Vorschau"
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#übung-1-wahrscheinlichkeit-dass-der-luchs-in-einer-zelle-vorkommt",
+    "href": "content/slides/01/05-vorkommen_3.html#übung-1-wahrscheinlichkeit-dass-der-luchs-in-einer-zelle-vorkommt",
+    "title": "Occupancy 1 (E5)",
+    "section": "Übung 1: Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt",
+    "text": "Übung 1: Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt\n\nBerechnen Sie die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt. Ignorieren Sie Kovariaten und räumliche Zusammenhänge.\nBerechnen Sie nun die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt für 4 unterschiedliche Szenarien und berücksichtigen Sie die Kovariaten Anteil Wald (Spalte anteil_wald) und den Breitengrad (Spalte y).\n\nAnteil Wald &lt; 0.5 und Breitengrad &lt; 50\nAnteil Wald &lt; 0.5 und Breitengrad &gt; 50\nAnteil Wald &gt; 0.5 und Breitengrad &lt; 50\nAnteil Wald &gt; 0.5 und Breitengrad &gt; 50"
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#lineares-model",
+    "href": "content/slides/01/05-vorkommen_3.html#lineares-model",
+    "title": "Occupancy 1 (E5)",
+    "section": "Lineares Model",
+    "text": "Lineares Model\n\nOft haben wir als Ziel den Erwartungswert einer Verteilung zu modellieren, als Funktion von Kovariaten. Z.B. den Mittelwert einer Normalverteilung oder die erwartete Wahrscheinlichkeit einer Bernoulli- oder Binomialverteilung.\nWir wollen nun überprüfen, ob sich der Mittelwert anhand von Kovariaten erklären/modellieren lässt."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#übung-3-vorkommenswahrscheinlichkeit-mit-lm",
+    "href": "content/slides/01/05-vorkommen_3.html#übung-3-vorkommenswahrscheinlichkeit-mit-lm",
+    "title": "Occupancy 1 (E5)",
+    "section": "Übung 3: Vorkommenswahrscheinlichkeit mit LM",
+    "text": "Übung 3: Vorkommenswahrscheinlichkeit mit LM\nBerechnen Sie erneut die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt, aber diesmal mittels eines linearen Models:\n\nVerwenden Sie erst ein lineares Modell, das nur einen Intercept hat (y ~ 1) und speichern Sie das Ergebnis als m1 ab.\nPassen Sie ein zweites Model an und fügen Sie die Kovariaten Breitengrad und Anteil Wald hinzu und speichern Sie dieses Model als m2 ab.\nMachen Sie für m2 eine Vorhersage für die Vorkommenswahrscheinlichkeit von Luchsen und verwenden Sie für die zwei Kovariaten den beobachteten Wertebereich."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#übung-1",
+    "href": "content/slides/01/05-vorkommen_3.html#übung-1",
+    "title": "Occupancy 1 (E5)",
+    "section": "Übung 1",
+    "text": "Übung 1\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta. Siehe dazu Aufgabe 1 in der Datei übung_stat2.R."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#was-modellieren-wir",
+    "href": "content/slides/01/05-vorkommen_3.html#was-modellieren-wir",
+    "title": "Occupancy 1 (E5)",
+    "section": "Was modellieren wir?",
+    "text": "Was modellieren wir?\n\nBeim linearen Modell modelieren wir den bedingten Mittelwert (Erwartungswert) einer Normalverteilung.\n\n\nErwartungswert\n\nIst der einer Zufallsvariabel, den wir im Mittel erwarten. Bei einer Normalverteilung ist es dir Mittelwert."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#wenn-die-parameter-sich-ändern",
+    "href": "content/slides/01/05-vorkommen_3.html#wenn-die-parameter-sich-ändern",
+    "title": "Occupancy 1 (E5)",
+    "section": "Wenn die Parameter sich ändern",
+    "text": "Wenn die Parameter sich ändern\n\nOft wollen wir den Einfluss von verschiedenen Kovariaten auf eine Zielgröße berechnen:\n\nÄndert sich die Streifgebietsgröße eines Stückes Rotwild im Verlauf seines Lebens?\nIst die Anzahl Fotos einer Fotofalle abhängig von der Tageszeit?\nBeeinflusst die Seehöhe das Vorkommen einer Art?\n\nWir können Parameter einer Verteilung als lineare Funktion von Kovariaten modellieren."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#ein-beispiel",
+    "href": "content/slides/01/05-vorkommen_3.html#ein-beispiel",
+    "title": "Occupancy 1 (E5)",
+    "section": "Ein Beispiel",
+    "text": "Ein Beispiel\n\n\nWelche Kovariaten beeinflussen die Streifgebietsgrößen von Leoparden."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#überlegen-sie",
+    "href": "content/slides/01/05-vorkommen_3.html#überlegen-sie",
+    "title": "Occupancy 1 (E5)",
+    "section": "Überlegen Sie",
+    "text": "Überlegen Sie\nKönnen Sie das Beispiel des Streifgebietes auf unser Moderellierung des Luchsvorkommens übertragen?\nWie sieht: \\(\\text{Streifgebietsgröße}_i = N(\\mu = \\beta_0 + \\beta_1 x_i, \\sigma)\\) aus? Wie müsste es aussehen?"
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#genarlisiertes-lineares-modell",
+    "href": "content/slides/01/05-vorkommen_3.html#genarlisiertes-lineares-modell",
+    "title": "Occupancy 1 (E5)",
+    "section": "Genarlisiertes Lineares Modell",
+    "text": "Genarlisiertes Lineares Modell\n\nIm Generalsierten Linearen Mmodel ist das der Erwartungswert einer anderen Verteilung (z.B. der Binomial-, Poisson- oder auch der Normalverteilung).\n\n\nEin GLM besteht aus drei Teilen:\n\nDie Verteilung der Zielvariable\nDer systematische Teil des Models (= Linareprädiktor) und wird oft mit \\(\\eta\\) abgekürzt.\nEine Funktion \\(g(\\cdot)\\), die den Erwartungswert der Zielvariable mit dem Linearenprädiktor verbindet. Diese Funktion heiß Linkfunktion. Jede Linkfunktion hat eine Umkehrfunktion, die den Linearenprädiktor zurück zum bedingten Mittelwert transformiert."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#teil-23",
+    "href": "content/slides/01/05-vorkommen_3.html#teil-23",
+    "title": "Occupancy 1 (E5)",
+    "section": "Teil 2/3",
+    "text": "Teil 2/3\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse entlang eines Gradienten von für unterschiedliche Waldanteile und Breitengrade."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#mehrere-modelle",
+    "href": "content/slides/01/05-vorkommen_3.html#mehrere-modelle",
+    "title": "Occupancy 1 (E5)",
+    "section": "Mehrere Modelle",
+    "text": "Mehrere Modelle\n\nEs können nicht lineare Zusammenhänge in einem (G)LM berücksichtigt werden, indem Kovariaten z.B. quadriert werden.\nIm Luchsbeispiel, könnten wir z.B. anteil_wald und anteil_wald^2 berücksichtigen."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#welches-modell-passt-am-besten-zu-den-daten",
+    "href": "content/slides/01/05-vorkommen_3.html#welches-modell-passt-am-besten-zu-den-daten",
+    "title": "Occupancy 1 (E5)",
+    "section": "Welches Modell passt am besten zu den Daten?",
+    "text": "Welches Modell passt am besten zu den Daten?\n\nAIC\n\nDas AIC (Akaike Information Criterion) misst wie gut ein Modell auf die Daten passt. Das AIC hat keine Einheiten und je niedriger der Wert ist, desto besser ist ein Modell."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#zusammenfassung-und-ausblick",
+    "href": "content/slides/01/05-vorkommen_3.html#zusammenfassung-und-ausblick",
+    "title": "Occupancy 1 (E5)",
+    "section": "Zusammenfassung und Ausblick",
+    "text": "Zusammenfassung und Ausblick\n\nWir haben soeben das einfache lineare Modell besprochen. Wir nehmen für die Variable, die wir modellieren wollen und auch Zielvariable genannt wird, eine Normalverteilung an.\nDer Mittelwert dieser Normalverteilung ändert sich in Abhängigkeit von erklärenden Variablen (oder auch Kovariaten genannt).\nBeim multiplen linearen Modell hängt die Zielvariable von mehr als einer Kovariaten ab (also z.B. Habitat und Geschlecht)."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#übung-1-1",
+    "href": "content/slides/01/05-vorkommen_3.html#übung-1-1",
+    "title": "Occupancy 1 (E5)",
+    "section": "Übung 1",
+    "text": "Übung 1\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta. Siehe dazu Aufgabe 1 in der Datei übung_stat2.R."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#übung-2",
+    "href": "content/slides/01/05-vorkommen_3.html#übung-2",
+    "title": "Occupancy 1 (E5)",
+    "section": "Übung 2",
+    "text": "Übung 2\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta mit einem GLM. Siehe dazu Aufgabe 2 in der Datei übung_stat2.R."
+  },
+  {
+    "objectID": "content/slides/01/05-vorkommen_3.html#übung-3",
+    "href": "content/slides/01/05-vorkommen_3.html#übung-3",
+    "title": "Occupancy 1 (E5)",
+    "section": "Übung 3",
+    "text": "Übung 3\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta mit zwei GLMs. Welches passt besser zu den Daten? Siehe dazu Aufgabe 3 in der Datei übung_stat2.R."
   },
   {
     "objectID": "content/slides/01/04-vorkommen_2.html#wo-sind-wir",
@@ -476,452 +819,116 @@
     "text": "Zusammenfassung und Ausblick\n\nWir haben soeben das einfache lineare Modell besprochen. Wir nehmen für die Variable, die wir modellieren wollen und auch Zielvariable genannt wird, eine Normalverteilung an.\nDer Mittelwert dieser Normalverteilung ändert sich in Abhängigkeit von erklärenden Variablen (oder auch Kovariaten genannt).\nBeim multiplen linearen Modell hängt die Zielvariable von mehr als einer Kovariaten ab (also z.B. Habitat und Geschlecht)."
   },
   {
-    "objectID": "content/slides/01/05-vorkommen_3.html#wo-sind-wir",
-    "href": "content/slides/01/05-vorkommen_3.html#wo-sind-wir",
-    "title": "Occupancy 1 (E5)",
-    "section": "Wo sind wir?",
-    "text": "Wo sind wir?\n\n13.04.2026: E01: Einführung\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion"
+    "objectID": "content/slides/01/02-erfassung.html#status-wolf",
+    "href": "content/slides/01/02-erfassung.html#status-wolf",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Status Wolf",
+    "text": "Status Wolf\n\nDer Wolf wurde von Anhang IV (streng geschützt) zu Anhang V\n\n\nQuelle: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32025L1237"
   },
   {
-    "objectID": "content/slides/01/05-vorkommen_3.html#kurze-wiederholungvorschau",
-    "href": "content/slides/01/05-vorkommen_3.html#kurze-wiederholungvorschau",
-    "title": "Occupancy 1 (E5)",
+    "objectID": "content/slides/01/02-erfassung.html#wie-funktioniert-das-ffh-monitoring",
+    "href": "content/slides/01/02-erfassung.html#wie-funktioniert-das-ffh-monitoring",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Wie Funktioniert das FFH-Monitoring",
+    "text": "Wie Funktioniert das FFH-Monitoring\nFür Arten in Anhang II und IV:"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#wo-sind-wir",
+    "href": "content/slides/01/02-erfassung.html#wo-sind-wir",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Wo sind wir?",
+    "text": "Wo sind wir?\n\n13.04.2026: E01: Einführung\n\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion"
+  },
+  {
+    "objectID": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
+    "href": "content/slides/01/02-erfassung.html#kurze-wiederholungvorschau",
+    "title": "Erfassung von Wildtieren (E2)",
     "section": "Kurze Wiederholung/Vorschau",
     "text": "Kurze Wiederholung/Vorschau"
   },
   {
-    "objectID": "content/slides/01/05-vorkommen_3.html#übung-1-wahrscheinlichkeit-dass-der-luchs-in-einer-zelle-vorkommt",
-    "href": "content/slides/01/05-vorkommen_3.html#übung-1-wahrscheinlichkeit-dass-der-luchs-in-einer-zelle-vorkommt",
-    "title": "Occupancy 1 (E5)",
-    "section": "Übung 1: Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt",
-    "text": "Übung 1: Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt\n\nBerechnen Sie die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt. Ignorieren Sie Kovariaten und räumliche Zusammenhänge.\nBerechnen Sie nun die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt für 4 unterschiedliche Szenarien und berücksichtigen Sie die Kovariaten Anteil Wald (Spalte anteil_wald) und den Breitengrad (Spalte y).\n\nAnteil Wald &lt; 0.5 und Breitengrad &lt; 50\nAnteil Wald &lt; 0.5 und Breitengrad &gt; 50\nAnteil Wald &gt; 0.5 und Breitengrad &lt; 50\nAnteil Wald &gt; 0.5 und Breitengrad &gt; 50"
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#lineares-model",
-    "href": "content/slides/01/05-vorkommen_3.html#lineares-model",
-    "title": "Occupancy 1 (E5)",
-    "section": "Lineares Model",
-    "text": "Lineares Model\n\nOft haben wir als Ziel den Erwartungswert einer Verteilung zu modellieren, als Funktion von Kovariaten. Z.B. den Mittelwert einer Normalverteilung oder die erwartete Wahrscheinlichkeit einer Bernoulli- oder Binomialverteilung.\nWir wollen nun überprüfen, ob sich der Mittelwert anhand von Kovariaten erklären/modellieren lässt."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#übung-3-vorkommenswahrscheinlichkeit-mit-lm",
-    "href": "content/slides/01/05-vorkommen_3.html#übung-3-vorkommenswahrscheinlichkeit-mit-lm",
-    "title": "Occupancy 1 (E5)",
-    "section": "Übung 3: Vorkommenswahrscheinlichkeit mit LM",
-    "text": "Übung 3: Vorkommenswahrscheinlichkeit mit LM\nBerechnen Sie erneut die Wahrscheinlichkeit, dass der Luchs in einer Zelle vorkommt, aber diesmal mittels eines linearen Models:\n\nVerwenden Sie erst ein lineares Modell, das nur einen Intercept hat (y ~ 1) und speichern Sie das Ergebnis als m1 ab.\nPassen Sie ein zweites Model an und fügen Sie die Kovariaten Breitengrad und Anteil Wald hinzu und speichern Sie dieses Model als m2 ab.\nMachen Sie für m2 eine Vorhersage für die Vorkommenswahrscheinlichkeit von Luchsen und verwenden Sie für die zwei Kovariaten den beobachteten Wertebereich."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#übung-1",
-    "href": "content/slides/01/05-vorkommen_3.html#übung-1",
-    "title": "Occupancy 1 (E5)",
-    "section": "Übung 1",
-    "text": "Übung 1\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta. Siehe dazu Aufgabe 1 in der Datei übung_stat2.R."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#was-modellieren-wir",
-    "href": "content/slides/01/05-vorkommen_3.html#was-modellieren-wir",
-    "title": "Occupancy 1 (E5)",
-    "section": "Was modellieren wir?",
-    "text": "Was modellieren wir?\n\nBeim linearen Modell modelieren wir den bedingten Mittelwert (Erwartungswert) einer Normalverteilung.\n\n\nErwartungswert\n\nIst der einer Zufallsvariabel, den wir im Mittel erwarten. Bei einer Normalverteilung ist es dir Mittelwert."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#wenn-die-parameter-sich-ändern",
-    "href": "content/slides/01/05-vorkommen_3.html#wenn-die-parameter-sich-ändern",
-    "title": "Occupancy 1 (E5)",
-    "section": "Wenn die Parameter sich ändern",
-    "text": "Wenn die Parameter sich ändern\n\nOft wollen wir den Einfluss von verschiedenen Kovariaten auf eine Zielgröße berechnen:\n\nÄndert sich die Streifgebietsgröße eines Stückes Rotwild im Verlauf seines Lebens?\nIst die Anzahl Fotos einer Fotofalle abhängig von der Tageszeit?\nBeeinflusst die Seehöhe das Vorkommen einer Art?\n\nWir können Parameter einer Verteilung als lineare Funktion von Kovariaten modellieren."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#ein-beispiel",
-    "href": "content/slides/01/05-vorkommen_3.html#ein-beispiel",
-    "title": "Occupancy 1 (E5)",
-    "section": "Ein Beispiel",
-    "text": "Ein Beispiel\n\n\nWelche Kovariaten beeinflussen die Streifgebietsgrößen von Leoparden."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#überlegen-sie",
-    "href": "content/slides/01/05-vorkommen_3.html#überlegen-sie",
-    "title": "Occupancy 1 (E5)",
-    "section": "Überlegen Sie",
-    "text": "Überlegen Sie\nKönnen Sie das Beispiel des Streifgebietes auf unser Moderellierung des Luchsvorkommens übertragen?\nWie sieht: \\(\\text{Streifgebietsgröße}_i = N(\\mu = \\beta_0 + \\beta_1 x_i, \\sigma)\\) aus? Wie müsste es aussehen?"
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#genarlisiertes-lineares-modell",
-    "href": "content/slides/01/05-vorkommen_3.html#genarlisiertes-lineares-modell",
-    "title": "Occupancy 1 (E5)",
-    "section": "Genarlisiertes Lineares Modell",
-    "text": "Genarlisiertes Lineares Modell\n\nIm Generalsierten Linearen Mmodel ist das der Erwartungswert einer anderen Verteilung (z.B. der Binomial-, Poisson- oder auch der Normalverteilung).\n\n\nEin GLM besteht aus drei Teilen:\n\nDie Verteilung der Zielvariable\nDer systematische Teil des Models (= Linareprädiktor) und wird oft mit \\(\\eta\\) abgekürzt.\nEine Funktion \\(g(\\cdot)\\), die den Erwartungswert der Zielvariable mit dem Linearenprädiktor verbindet. Diese Funktion heiß Linkfunktion. Jede Linkfunktion hat eine Umkehrfunktion, die den Linearenprädiktor zurück zum bedingten Mittelwert transformiert."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#teil-23",
-    "href": "content/slides/01/05-vorkommen_3.html#teil-23",
-    "title": "Occupancy 1 (E5)",
-    "section": "Teil 2/3",
-    "text": "Teil 2/3\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse entlang eines Gradienten von für unterschiedliche Waldanteile und Breitengrade."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#mehrere-modelle",
-    "href": "content/slides/01/05-vorkommen_3.html#mehrere-modelle",
-    "title": "Occupancy 1 (E5)",
-    "section": "Mehrere Modelle",
-    "text": "Mehrere Modelle\n\nEs können nicht lineare Zusammenhänge in einem (G)LM berücksichtigt werden, indem Kovariaten z.B. quadriert werden.\nIm Luchsbeispiel, könnten wir z.B. anteil_wald und anteil_wald^2 berücksichtigen."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#welches-modell-passt-am-besten-zu-den-daten",
-    "href": "content/slides/01/05-vorkommen_3.html#welches-modell-passt-am-besten-zu-den-daten",
-    "title": "Occupancy 1 (E5)",
-    "section": "Welches Modell passt am besten zu den Daten?",
-    "text": "Welches Modell passt am besten zu den Daten?\n\nAIC\n\nDas AIC (Akaike Information Criterion) misst wie gut ein Modell auf die Daten passt. Das AIC hat keine Einheiten und je niedriger der Wert ist, desto besser ist ein Modell."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#zusammenfassung-und-ausblick",
-    "href": "content/slides/01/05-vorkommen_3.html#zusammenfassung-und-ausblick",
-    "title": "Occupancy 1 (E5)",
-    "section": "Zusammenfassung und Ausblick",
-    "text": "Zusammenfassung und Ausblick\n\nWir haben soeben das einfache lineare Modell besprochen. Wir nehmen für die Variable, die wir modellieren wollen und auch Zielvariable genannt wird, eine Normalverteilung an.\nDer Mittelwert dieser Normalverteilung ändert sich in Abhängigkeit von erklärenden Variablen (oder auch Kovariaten genannt).\nBeim multiplen linearen Modell hängt die Zielvariable von mehr als einer Kovariaten ab (also z.B. Habitat und Geschlecht)."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#übung-1-1",
-    "href": "content/slides/01/05-vorkommen_3.html#übung-1-1",
-    "title": "Occupancy 1 (E5)",
-    "section": "Übung 1",
-    "text": "Übung 1\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta. Siehe dazu Aufgabe 1 in der Datei übung_stat2.R."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#übung-2",
-    "href": "content/slides/01/05-vorkommen_3.html#übung-2",
-    "title": "Occupancy 1 (E5)",
-    "section": "Übung 2",
-    "text": "Übung 2\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta mit einem GLM. Siehe dazu Aufgabe 2 in der Datei übung_stat2.R."
-  },
-  {
-    "objectID": "content/slides/01/05-vorkommen_3.html#übung-3",
-    "href": "content/slides/01/05-vorkommen_3.html#übung-3",
-    "title": "Occupancy 1 (E5)",
-    "section": "Übung 3",
-    "text": "Übung 3\nBerechnen Sie die Vorkommenswahrscheinlichkeit für Luchse in Göttingen und Kreta mit zwei GLMs. Welches passt besser zu den Daten? Siehe dazu Aufgabe 3 in der Datei übung_stat2.R."
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html",
-    "href": "content/pruefung/pruefungen.html",
-    "title": "Prüfungsleistungen",
-    "section": "",
-    "text": "Die Benotung für dieses Modul erfolgt anhand einer strukturierten Hausarbeit. Um für die Hausarbeit zugelassen zu werden, muss eine Prüfungsvorleistung absolviert werden, darin werden die wichtigsten Konzepte, Methoden und Begriffe der Vorlesung in einem Multiple-Choice-Test abgefragt.\nFür die Hausarbeit verwenden Sie einen bereits erhobenen Datensatz. Es ist auch zulässig eine beretis durchgeführte Studie zu wiederholen. Nähere Details zur Hausarbeit fogen ab Woche 8 des Semesters."
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html#literatur",
-    "href": "content/pruefung/pruefungen.html#literatur",
-    "title": "Prüfungsleistungen",
-    "section": "Literatur",
-    "text": "Literatur\nEine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:\n\nZu den FFH-Berichten: Müller et al. 2019: https://www.researchgate.net/publication/349721250_Der_nationale_Bericht_2019_zu_Lebensraumtypen_und_Arten_der_FFH-Richtlinie_-_ein_Uberblick_uber_die_Ergebnisse\nZu Monitoring und Occupancy-Modellen: Boyd et al. 2023: https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12961\nSliwinski et al. 2021 Comparison of spotlighting monitoring data of European brown hare (Lepus europaeus) relative population densities with infrared thermography in agricultural landscapes in Northern Germany\nAusband et al. 2022 Estimating wolf abundance from cameras\nTelemetriestudie\n\nSie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden Antworten auf spezifische Fragen schnell. Es werden keine Fragen zu technischen/statistischen Details gestellt."
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html#terminologie",
-    "href": "content/pruefung/pruefungen.html#terminologie",
-    "title": "Prüfungsleistungen",
-    "section": "Terminologie",
-    "text": "Terminologie\nIch erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden können:\n\n\n\nWoche 1\n\nMonitoring\nStatistische Inferenz\nZustandsvariable\nEU-Verordnung\nEU-Richtlinie\nFFH-Richtlinie\nAnhänge der FFH-Richtlinie\nRamsar Konvention\nBerner Konvention\nRelative vs. absolute Pfade\n\n\n\n\nWoche 2\n\nLikelihood\nPosterior\nPrior\nParameter\nBayesiansche Statistik\nFrequentistische Statistik\nGamma Verteilung\nScalp Kriterien\nCitizen Science\nPIT-Tags\n\n\n\n\n\n\n\nWoche 3\n\nAutökologie\nFundamentale und realisierte Nische\nZufallsvariable\nStenöke Arten\nEuryöke Arten\nHabitat\nBiotop\nHabitatwahl\nLimitierender Faktor\nStatistische vs. meachnistische Modelle\nGrundgesamtheit\nStichprobe\nVerteilungen (Binomial, Poisson, Normal, Beta)\n\n\n\n\nWoche 4\n\nZufallsvariable\nGBIF\nEVBs\nGEO-BON\nKovariate\nLineares Modell\nIntercept\nSteigung (Slope)\nErwartungswert\nLinkfunktion\nLinearerprädiktor\nUmkehrfunktion\nAIC"
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html#statistik",
-    "href": "content/pruefung/pruefungen.html#statistik",
-    "title": "Prüfungsleistungen",
-    "section": "Statistik",
-    "text": "Statistik\nEs werden keine R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen."
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html#analysen",
-    "href": "content/pruefung/pruefungen.html#analysen",
-    "title": "Prüfungsleistungen",
-    "section": "Analysen",
-    "text": "Analysen\n\nCode ist reproduzierbar. (60%)\nDer Code ist ausreichend dokumentiert und logisch sinnvoll aufgebaut. (25%)\nEs gibt eine README-Datei, die beschreibt, wie man den Code und die Analyse ausführen kann. (15%)"
-  },
-  {
-    "objectID": "content/pruefung/pruefungen.html#hausarbeit",
-    "href": "content/pruefung/pruefungen.html#hausarbeit",
-    "title": "Prüfungsleistungen",
-    "section": "Hausarbeit",
-    "text": "Hausarbeit\n\nGliederung\n\n\n\n\n\n\n\n\nWas\nBewertung\nDetaillierte Bewertung\n\n\n\n\nEinleitung\n15 %\n1. Worum geht es (1–2 Absätze); 30 %2. Stand der Dinge (1 Absatz); 20 %3. Ziel dieser Hausarbeit; 20 %4. Literatur (3–5 peer-reviewed Veröffentlichungen); 30 %\n\n\nMethoden\n25 %\n1. Datenquellen, wie wurden die Daten aufgenommen; 20 %2. Modellbeschreibung (welches Modell wurde verwendet, wie wurde es parametrisiert); 40 %3. Aufschreiben und beschreiben der Modellgleichung; 30 %4. Richtige Zitation aller Software; 10 %\n\n\nErgebnisse\n25 %\n- Beschreibung der Ergebnisse, die für die Fragestellung relevant sind; 20 %- Zwei Abbildungen, die die Ergebnisse untermauern und das Modell visualisieren; 60 %- Eine Tabelle, die für die Fragestellung relevante Rohdaten oder Modelloutput zusammenfasst 20 %\n\n\nDiskussion\n15 %\nJeweils ein Absatz, der:1. der, die Ergebnisse zusammenfasst und in Verbindung mit den Hypothese(n) bringt; 30 %2. der, mögliche Schwachstellen, Erweiterungen etc. diskutiert; 30 %3. der, die Ergebnisse im Kontext der aktuellen begutachteten Literatur (&gt;2020) darstellt (3–5 Referenzen); 40 %\n\n\nReferenzen\n5 %\nAlle verwendeten Quellen (inkl. Software) sind in einem Literaturverzeichnis einheitlich zitiert\n\n\nZusammenfassung\n5 %\nDem Text ist eine Zusammenfassung von einem Absatz vorangestellt (max. 200 Wörter)\n\n\nForm\n5 %\nDie Arbeit ist einheitlich und ansprechend formatiert\n\n\nAusdruck\n5 %\nDie Arbeit ist verständlich und fehlerfrei geschrieben\n\n\n\n\n\nUmfang\nIn Summe sollte die Hausarbeit 10 bis 15 Seiten umfassen:\nGrob stelle ich mir die Aufteilung wie folgt vor:\n\nTitelblatt, Zusammenfassung Literatur und evtl. Anhänge ca. 5 Seiten\nEinleitung 1 - 2 Seiten.\nMethoden 2 - 3 Seiten\nErgebnisse 2 - 3 Seiten\nDisusskon 1 - 2 Seiten.\n\n\n\nDatenquellen\n\nVeröffentlichungen\n\nFeldhasen (Telemetrie) https://figshare.com/articles/dataset/Urban_hare_data/30208969?file=58257865 und https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1002/wlb3.01513\nSchneehuhn (Distance Sampling) https://dataverse.no/file.xhtml?persistentId=doi:10.18710/V1NDV6/DYOWE6&version=1.0 und https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01471\nSchneehuhn (Distance Sampling) https://datadryad.org/dataset/doi:10.5061/dryad.zgmsbccpj und https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01350\nPuma (Kamerafallen) https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/QJKTYA und &lt; https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/wlb3.01308&gt;\nWeißwedelhirsch (Fang-Wiederfang) https://datadryad.org/dataset/doi:10.5061/dryad.43j74d0 und &lt; https://bioone.org/journals/annales-zoologici-fennici/volume-56/issue-1-6/086.056.0101/Estimating-Population-Density-of-the-White-Tailed-Deer-in-Finland/10.5735/086.056.0101.short&gt;\nHomeRange: A global database of mammalian home ranges: https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13625\nThe body size and temperature dependence of organismal locomotion: https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114\n\n\n\nDatenbanken\n\nGBIF für Vorkommensdaten: https://www.gbif.org/\nMovebank für Bewegungsdaten: https://www.movebank.org/cms/webapp?gwt_fragment=page=search_map\nDryad https://datadryad.org/"
-  },
-  {
-    "objectID": "content/slides/05/01-einfuehrung.html#vorkommen",
-    "href": "content/slides/05/01-einfuehrung.html#vorkommen",
-    "title": "Artporträts",
-    "section": "Vorkommen",
-    "text": "Vorkommen"
-  },
-  {
-    "objectID": "content/slides/05/01-einfuehrung.html#merkmale",
-    "href": "content/slides/05/01-einfuehrung.html#merkmale",
-    "title": "Artporträts",
-    "section": "Merkmale",
-    "text": "Merkmale"
-  },
-  {
-    "objectID": "content/slides/05/01-einfuehrung.html#monitoring",
-    "href": "content/slides/05/01-einfuehrung.html#monitoring",
-    "title": "Artporträts",
-    "section": "Monitoring",
-    "text": "Monitoring"
-  },
-  {
-    "objectID": "content/slides/05/01-einfuehrung.html#berichtspflichten",
-    "href": "content/slides/05/01-einfuehrung.html#berichtspflichten",
-    "title": "Artporträts",
-    "section": "Berichtspflichten",
-    "text": "Berichtspflichten"
-  },
-  {
-    "objectID": "content/slides/05/01-einfuehrung.html#beispiel",
-    "href": "content/slides/05/01-einfuehrung.html#beispiel",
-    "title": "Artporträts",
-    "section": "Beispiel:",
-    "text": "Beispiel:\nhttps://besjournals.onlinelibrary.wiley.com/doi/full/10.1002/2688-8319.12168"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#team",
-    "href": "content/slides/01/01-einfuehrung.html#team",
-    "title": "Einführung",
-    "section": "Team",
-    "text": "Team\n\nJohannes Signer (Wissenschaftlicher Mitarbeiter in der Abteilung Wildtierwissenschaften)\n\nForschungsinteressen: Bewegungsökologie, statistische Methoden in der Ökologie\nWerdegang: Ökologie (BSc), Geoinformatik (MSc), angewandte Statistik (MSc) und Forstwissenschaften (PhD)"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#kontakt",
-    "href": "content/slides/01/01-einfuehrung.html#kontakt",
-    "title": "Einführung",
-    "section": "Kontakt",
-    "text": "Kontakt\n\nEmail:jsigner@uni-goettingen.de\nVerwenden Sie auch das Forum bei StudIP, dort beantworten wir am liebsten Ihre Fragen."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#wer-sind-sie",
-    "href": "content/slides/01/01-einfuehrung.html#wer-sind-sie",
-    "title": "Einführung",
-    "section": "Wer sind Sie?",
-    "text": "Wer sind Sie?"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#ablauf",
-    "href": "content/slides/01/01-einfuehrung.html#ablauf",
-    "title": "Einführung",
-    "section": "Ablauf",
-    "text": "Ablauf\n\n12 Termine (10 davon in Präsenz)\nPräsenztermine Mo: von 9:15 bis ca. 11:45 (Vorlesung und Übung)\nFür die Übungen brauchen Sie meist einen Laptop. Sollten Sie keinen Laptop zur Verfügung haben, melden Sie sich bitte bei mir."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#bewertung",
-    "href": "content/slides/01/01-einfuehrung.html#bewertung",
-    "title": "Einführung",
-    "section": "Bewertung",
-    "text": "Bewertung\n\nPrüfungsvorleistung: ein 60-minütiger Multiple-Choice Test zu den wichtigsten Konzepten der Vorlesung.\nEine Hausarbeit (siehe Website zu Details)\n\nBei der Prüfung wird nicht nach Programmierkenntnissen in R gefragt, sondern nur nach der Interpretation von Ergebnissen."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#nutzen-von-ki",
-    "href": "content/slides/01/01-einfuehrung.html#nutzen-von-ki",
-    "title": "Einführung",
-    "section": "Nutzen von KI",
-    "text": "Nutzen von KI\n\nIch ermutige Sie KI unterstützend zu nutzen.\nMeine Erfahrung ist, dass man KI gut nutzen kann wenn man ungefähr weiß was man braucht, jedoch es schwieriger ist, sich mit KI einen Überblick zu verschaffen.\n\n\n\n\n\n\n\n\nWichtig\n\n\n\nWenn Sie z.B. bei den Übungen nicht wissen, wo Sie anfangen sollen, dann fragen Sie Kommilitonen oder mich.\nWenn Sie bei einem R-Befehl unsicher sind, bzw. den Fehler nicht gleich entdecken, fragen Sie die KI."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#ausblick",
-    "href": "content/slides/01/01-einfuehrung.html#ausblick",
-    "title": "Einführung",
-    "section": "Ausblick",
-    "text": "Ausblick\n\nArtporträts: Wie funktioniert Monitoring bei einzelnen Arten\nThemen für die Hausarbeit: Zu wissenschaftlichen Arbeiten und Datenanalyse"
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#was-hat-programmierung-in-einem-wildbio-kurs-verloren",
-    "href": "content/slides/01/01-einfuehrung.html#was-hat-programmierung-in-einem-wildbio-kurs-verloren",
-    "title": "Einführung",
-    "section": "Was hat Programmierung in einem Wildbio Kurs verloren?",
-    "text": "Was hat Programmierung in einem Wildbio Kurs verloren?\nImmer mehr Daten:\n\nEin Fotofallenmonitoring mit 50 Fotofallen, die acht Wochen im Feld sind (mit 30 Fotos pro Kamera und Tag) = 84.000 Fotos.\nEin durchschnittliches Telemetrieprojekt mit 20 Tieren, 1 Lokalisierung pro Stunde und Tier für ein Jahr = 172.800 Datenpunkte.\nATLAS-Telemetriesystem: 30 Vögel für 50 Tage mit einer Lokalisierung pro 8 Sekunden: 16.200.000 Datenpunkte."
-  },
-  {
-    "objectID": "content/slides/01/01-einfuehrung.html#motivation",
-    "href": "content/slides/01/01-einfuehrung.html#motivation",
-    "title": "Einführung",
+    "objectID": "content/slides/01/02-erfassung.html#motivation",
+    "href": "content/slides/01/02-erfassung.html#motivation",
+    "title": "Erfassung von Wildtieren (E2)",
     "section": "Motivation",
-    "text": "Motivation\n\nBestände von Wildtiere nehmen zu (z.B. die Wolfspopulation wächst stetig in D)."
+    "text": "Motivation\n\nFür alle Monitoringvorhaben brauchen wir Daten. Diese müssen wir ‘erfassen’.\nUnter Erfassung ist hier das indirekte oder direkte Beobachten, Zählen oder Messen von Wildtieren in freier Wildbahn gemeint.\nReinhardt et al. (2015) Monitoring von Wolf, Luchs und Bär in Deutschland BfN Skript 413 (https://www.bfn.de/fileadmin/ BfN/service/Dokumente/skripten/Skript413.pdf)"
   },
   {
-    "objectID": "content/slides/01/01-einfuehrung.html#was-ist-monitoring",
-    "href": "content/slides/01/01-einfuehrung.html#was-ist-monitoring",
-    "title": "Einführung",
-    "section": "Was ist Monitoring?",
-    "text": "Was ist Monitoring?\nNach Yoccoz et al. 20011, ist Monitoring:\n\nEin Prozess zum Beobachten von Zustandsvariablen über die Zeit mit dem Ziel den Zustand des Systems zu untersuchen und Inferenz zu betreiben.\n\nYoccoz, N. G., Nichols, J. D., & Boulinier, T. (2001). Monitoring of biological diversity in space and time. Trends in ecology & evolution, 16(8), 446-453."
+    "objectID": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
+    "href": "content/slides/01/02-erfassung.html#was-macht-es-so-schwierig-wildtiere-zu-erfassen",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Was macht es so schwierig Wildtiere zu erfassen?",
+    "text": "Was macht es so schwierig Wildtiere zu erfassen?\n\nAuffinden der Tiere kann schwierig sein.\nDie meisten Tiere, die wir untersuchen, bewegen sich.\nDie Dichten der Tiere variieren in Gebieten und zwischen Tierarten (z.B. Amsel vs. Luchs)."
   },
   {
-    "objectID": "content/slides/01/01-einfuehrung.html#motivation-für-ein-monitoring",
-    "href": "content/slides/01/01-einfuehrung.html#motivation-für-ein-monitoring",
-    "title": "Einführung",
-    "section": "Motivation für ein Monitoring",
-    "text": "Motivation für ein Monitoring\n\nForschung\nWirtschaftliche Interessen\nRechtliche Rahmenbedingungen (z.B. FFH)"
+    "objectID": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
+    "href": "content/slides/01/02-erfassung.html#unterschiedliche-methoden-für-unterschiedliche-fragestellungen",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Unterschiedliche Methoden für unterschiedliche Fragestellungen",
+    "text": "Unterschiedliche Methoden für unterschiedliche Fragestellungen\n\nWas möchte ich wissen?\nWelche Methode kann ich dafür anwenden?\nWelche Daten brauche ich für welche Methode?\n\nSilvy, N. J., Lopez, R. R., & Peterson, M. J. (2012). Techniques for marking wildlife. The wildlife techniques manual, 1, 230-257."
   },
   {
-    "objectID": "content/slides/01/01-einfuehrung.html#etwas-terminologie",
-    "href": "content/slides/01/01-einfuehrung.html#etwas-terminologie",
-    "title": "Einführung",
-    "section": "Etwas Terminologie",
-    "text": "Etwas Terminologie\n\nInternationale Übereinkommen (international conventions)\n\nWerden von Staaten geschlossen und müssen durch nationales und/oder EU-Recht umgesetzt werden. Z.B. Berner Konvention\n\nEU-Richtlinie\n\nGibt den Rahmen vor und muss in nationales Recht umgewandelt werden. Z.B. die FFH-Richtlinie\n\nEU-Verordnung\n\nGesetzlicher Rahmen wird von der EU vorgegeben und muss nicht mehr in nationales Recht umgewandelt werden. Z.B. Monitoring von Treibhausgasen-Emissionen."
+    "objectID": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
+    "href": "content/slides/01/02-erfassung.html#der-versuch-einer-einteilung",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Der Versuch einer Einteilung",
+    "text": "Der Versuch einer Einteilung\nWir müssen Entscheidungen treﬀen, die in folgende Kategorien fallen:\n\nWas für Daten benötigen wir?\n\nNachweise\nAnzahlen\n\nAnzahl Sichtungen\nAnzahl gesehener Tiere\n\nIndividuelle Daten (z.B. Gewicht, Position)\n\neinmalig\nmehrmalig"
   },
   {
-    "objectID": "content/slides/01/01-einfuehrung.html#ramsar-konvention-1971-übereinkommen-über-feuchtgebiete-von-internationaler-bedeutung",
-    "href": "content/slides/01/01-einfuehrung.html#ramsar-konvention-1971-übereinkommen-über-feuchtgebiete-von-internationaler-bedeutung",
-    "title": "Einführung",
-    "section": "Ramsar-Konvention (1971): Übereinkommen über Feuchtgebiete von internationaler Bedeutung",
-    "text": "Ramsar-Konvention (1971): Übereinkommen über Feuchtgebiete von internationaler Bedeutung\nZiel: Schutz und nachhaltige Nutzung von Feuchtgebieten weltweit\n\nÄltestes internationales Naturschutzabkommen\nVertragsstaaten verpflichten sich, mindestens ein Feuchtgebiet als „Ramsar-Gebiet” auszuweisen\nHeute: 172 Vertragsstaaten, über 2.400 Ramsar-Gebiete (250 Mio. Hektar)\nDeutschland: 35 ausgewiesene Gebiete.\n\nVerbindung zu anderen Abkommen: Enge Kooperation mit der CBD; Feuchtgebiete sind Teil des CBD-Arbeitsprogramms zu Binnengewässern."
+    "objectID": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
+    "href": "content/slides/01/02-erfassung.html#methoden-der-erfassung",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Methoden der Erfassung",
+    "text": "Methoden der Erfassung\n\nDie klassische Methode der Erfassung von Wildtieren ist die direkte oder indirekte Feldbeobachtung mit oder ohne technische Hilfsmittel (z.B. Fernglas).\nIn den vergangen Jahrzehnten sind eine Vielzahl von sensorbasierten Erfassungsmethoden hinzugekommen (z.B. satellitenbasierte Telemetrie oder Fotofallen).\n\n\nFoto: J. Signer"
   },
   {
-    "objectID": "content/slides/01/01-einfuehrung.html#übereinkommen-über-die-erhaltung-der-europäischen-wildlebenden-pflanzen-und-tiere-und-ihrer-natürlichen-lebensräume-berner-konvention",
-    "href": "content/slides/01/01-einfuehrung.html#übereinkommen-über-die-erhaltung-der-europäischen-wildlebenden-pflanzen-und-tiere-und-ihrer-natürlichen-lebensräume-berner-konvention",
-    "title": "Einführung",
-    "section": "Übereinkommen über die Erhaltung der europäischen wildlebenden Pflanzen und Tiere und ihrer natürlichen Lebensräume (Berner Konvention)",
-    "text": "Übereinkommen über die Erhaltung der europäischen wildlebenden Pflanzen und Tiere und ihrer natürlichen Lebensräume (Berner Konvention)\nZiel: Schutz gefährdeter Wildtierarten und ihrer Lebensräume in Europa\n\nErstes europäisches Abkommen zum Schutz der Biodiversität\n51 Unterzeichnerstaaten (Europarat + Nicht-EU-Länder)\nStrenger Schutz für über 1.000 bedrohte Tier- und Pflanzenarten (Anhänge I–III)\nVerpflichtung zur Zusammenarbeit bei grenzüberschreitenden Arten\n\nVerbindung zu anderen Abkommen: Direkter Vorläufer der EU-FFH-Richtlinie – viele Bestimmungen wurden 1992 in EU-Recht übernommen."
+    "objectID": "content/slides/01/02-erfassung.html#markierung-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#markierung-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Markierung von Tieren",
+    "text": "Markierung von Tieren\nNatürliche Markierung\n\nEinige Tierarten haben eindeutige natürliche Merkmale, die eine individuelle Identiﬁkation möglich machen. Bei vielen Katzen (z.B. Tiger, Luchs) weißt das Fell eindeutige Muster auf.\nJohansson et al. 20201 untersuchten die Auswirkungen von Fehlklassiﬁkationen auf Populationsgrößenschätzungen. Sie können auch versuchen Schneeleoparden zu klassiﬁzieren (https: //camtraining.globalsnowleopard.org/leppe/login/).\n\nJohansson, Ö., Samelius, G., Wikberg, E., Chapron, G., Mishra, C., & Low, M. (2020). Identification errors in camera-trap studies result in systematic population overestimation. Scientific reports, 10(1), 1-10."
   },
   {
-    "objectID": "content/slides/01/01-einfuehrung.html#fauna-flora-habitat-richtlinie-der-europäischen-union-9243ewg-ffh-richtlinie",
-    "href": "content/slides/01/01-einfuehrung.html#fauna-flora-habitat-richtlinie-der-europäischen-union-9243ewg-ffh-richtlinie",
-    "title": "Einführung",
-    "section": "Fauna-Flora-Habitat-Richtlinie der Europäischen Union (92/43/EWG; FFH-Richtlinie)",
-    "text": "Fauna-Flora-Habitat-Richtlinie der Europäischen Union (92/43/EWG; FFH-Richtlinie)\nZiel: Schutz europäischer Lebensräume und Arten durch ein einheitliches Schutzgebietsnetz\n\nSetzt die Berner Konvention verbindlich in EU-Recht um\nGemeinsam mit der Vogelschutzrichtlinie (1979) Grundlage für Natura 2000\nNatura 2000: Größtes Schutzgebietsnetz der Welt – über 27.000 Gebiete in der EU\nArten und Lebensraumtypen in Anhängen II, IV und V geregelt\nMitgliedstaaten müssen „günstigen Erhaltungszustand” sicherstellen"
+    "objectID": "content/slides/01/02-erfassung.html#künstliche-markierung",
+    "href": "content/slides/01/02-erfassung.html#künstliche-markierung",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Künstliche Markierung",
+    "text": "Künstliche Markierung\n\nInvasiv\n\nTransponder (z.B. PIT-Tags1)\nRadioaktive Marker\nOhrmarken, Muster im Fell\n\nNichtinvasiv\n\nHalsbänder\nBeringung\nFarbe\n\n\nDie Abkürzung PIT steht für Passive Integrated Transponders"
   },
   {
-    "objectID": "content/slides/01/01-einfuehrung.html#die-anhänge-der-ffh-richtlinie",
-    "href": "content/slides/01/01-einfuehrung.html#die-anhänge-der-ffh-richtlinie",
-    "title": "Einführung",
-    "section": "Die Anhänge der FFH-Richtlinie",
-    "text": "Die Anhänge der FFH-Richtlinie\nDie FFH-Richtlinie gliedert sich in sechs Anhänge, die genau festlegen, was wie geschützt wird\n\n\n\n\n\n\n\n\nAnhang\nInhalt\nSchutzpflicht\n\n\n\n\nAnhang I\nSchutzbedürftige Lebensraumtypen (z.B. Hochmoore, Buchenurwälder, Dünen)\nAusweisung als Natura-2000-Gebiet (SAC = Special Area of Conservation)\n\n\nAnhang II\nTier- und Pflanzenarten, für die Schutzgebiete ausgewiesen werden müssen\nAusweisung als Natura-2000-Gebiet (SAC)\n\n\nAnhang III\nKriterien zur Auswahl der Schutzgebiete (Repräsentativität, Fläche, Zustand)\nBewertungsgrundlage\n\n\nAnhang IV\nStreng zu schützende Arten (z.B. alle Fledermäuse, Wolf, Luchs, Meeresschildkröten)\nEuropaweites Tötungs- & Störungsverbot\n\n\nAnhang V\nArten, deren Entnahme aus der Natur reguliert werden darf\nNutzungsbeschränkungen\n\n\nAnhang VI\nVerbotene Fang- und Tötungsmethoden\nMethoden- & Geräteverbot"
+    "objectID": "content/slides/01/02-erfassung.html#fangen-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#fangen-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Fangen von Tieren",
+    "text": "Fangen von Tieren\n\nQuelle: J. Signer"
   },
   {
-    "objectID": "content/slides/01/01-einfuehrung.html#globaler-biodiversitätsrahmen-gbf-verabschiedet-unter-der-cbd-kunming-montreal-abkommen-2022",
-    "href": "content/slides/01/01-einfuehrung.html#globaler-biodiversitätsrahmen-gbf-verabschiedet-unter-der-cbd-kunming-montreal-abkommen-2022",
-    "title": "Einführung",
-    "section": "Globaler Biodiversitätsrahmen (GBF) – verabschiedet unter der CBD (Kunming-Montreal Abkommen 2022)",
-    "text": "Globaler Biodiversitätsrahmen (GBF) – verabschiedet unter der CBD (Kunming-Montreal Abkommen 2022)\nZiel: Stopp und Umkehr des Biodiversitätsverlusts bis 2030 und darüber hinaus\n\nVerabschiedet auf der CBD-COP15 in Montreal (Dezember 2022)\nKernziel: 30×30 – 30 % der Land- und Meeresflächen bis 2030 schützen\nWeitere Ziele: Reduktion schädlicher Subventionen, Wiederherstellung degradierter Ökosysteme (30 %), gerechter Vorteilsausgleich für indigene Gemeinschaften\n196 Vertragsstaaten (nahezu weltweit)\n\nVerbindung zu anderen Abkommen: Dachrahmen unter der CBD; gibt Ramsar, Berner Konvention und FFH/Natura 2000 neue politische Schubkraft und konkrete Flächenziele."
+    "objectID": "content/slides/01/02-erfassung.html#markieren-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#markieren-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Markieren von Tieren",
+    "text": "Markieren von Tieren\n\nQuelle: S. Appleby"
   },
   {
-    "objectID": "content/slides/01/01-einfuehrung.html#wie-hängen-sie-zusammen",
-    "href": "content/slides/01/01-einfuehrung.html#wie-hängen-sie-zusammen",
-    "title": "Einführung",
-    "section": "Wie hängen sie zusammen?",
-    "text": "Wie hängen sie zusammen?\n\n\n\nAbkommen\nEbene\nSchwerpunkt\n\n\n\n\nRamsar\nGlobal\nFeuchtgebiete\n\n\nBerner Konvention\nEuropa\nWildtiere & Habitate\n\n\nFFH / Natura 2000\nEU\nVerbindliches Schutzgebietsnetz\n\n\nKunming-Montreal\nGlobal\nGesamte Biodiversität, 30×30-Ziel"
+    "objectID": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
+    "href": "content/slides/01/02-erfassung.html#verfolgen-von-tieren",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Verfolgen von Tieren",
+    "text": "Verfolgen von Tieren\n\nQuelle: Nationalpark Harz/Bayeerischer Wald"
   },
   {
-    "objectID": "content/slides/01/03-vorkommen.html#wo-sind-wir",
-    "href": "content/slides/01/03-vorkommen.html#wo-sind-wir",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Wo sind wir?",
-    "text": "Wo sind wir?\n\n13.04.2026: E01: Einführung\n20.04.2026: E02: Erfassung von Wildtieren\n27.04.2026: E03: Verbreitung 1\n05.05.2026: E04: Verbreitung 2\n11.05.2026: E05: Occupancy-Modelle 1 (online)\n18.05.2026: E06: Occupancy-Modelle 2\n01.06.2026: E07: Abundanz 1\n08.06.2026: E08: Abundanz 2\n15.06.2026: E09: Telemetrie 1: Random Walks etc.\n22.06.2026: E10: Telemetrie 2: Streifgebiete\n29.06.2026: E11: Telemetrie 3: Habitatselektion (online)\n06.07.2026: E12: Telemetrie 4: Habitatselektion"
+    "objectID": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
+    "href": "content/slides/01/02-erfassung.html#qualität-von-nachweisen",
+    "title": "Erfassung von Wildtieren (E2)",
+    "section": "Qualität von Nachweisen",
+    "text": "Qualität von Nachweisen\nHinweise (meist von Karnivoren) werden nach ihrer Überprüfbarkeit in\n\nNachweise (C1),\nbestätigte Hinweise (C2) und\nunbestätigte Hinweise (C3)\n\neingeteilt. Diese Kriterien wurden für SCALP (Status and Conservation of the Alpine Lynx Population) in der Schweiz entwickelt."
   },
   {
-    "objectID": "content/slides/01/03-vorkommen.html#kurze-wiederholungvorschau",
-    "href": "content/slides/01/03-vorkommen.html#kurze-wiederholungvorschau",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Kurze Wiederholung/Vorschau",
-    "text": "Kurze Wiederholung/Vorschau"
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#ein-paar-definitionen",
-    "href": "content/slides/01/03-vorkommen.html#ein-paar-definitionen",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Ein paar Definitionen",
-    "text": "Ein paar Definitionen\n\nAutökologie: Wechselbeziehung zwischen einer Art (einzelne Individuen) und ihrer Umwelt (abiotisch und biotisch).\nHabitat: Lebensraum einer Art (bzieht sich oft auf Vegetationstypen)\nBiotop: Lebensraum einer Lebensgemeinschaft (-&gt; Habitate sind Teilbereiche eines Biotops, die nicht unbedingt von allen Arten der Lebensgemeinschaft genutzt werden)"
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#habitatansprüche",
-    "href": "content/slides/01/03-vorkommen.html#habitatansprüche",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Habitatansprüche",
-    "text": "Habitatansprüche\nWas müssen Wildtiere in ihrem Habitat vorfinden?\n\n\nSchutz, Unterschlupf, Nistmöglichkeiten\nNahrung, Wasser\nFortpflanzungspartner\nDas “richtige” Klima (Temperatur, Luftfeuchte)"
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#habitatwahl",
-    "href": "content/slides/01/03-vorkommen.html#habitatwahl",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Habitatwahl",
-    "text": "Habitatwahl\n= Verhaltensökologische Prozesse, mit denen Tiere sich ihre Habitate auswählen…\nUnter welchen Gesichtspunkten sollten sich Tiere ihre Habitate auswählen?\n\n\n\n\n\n\nNote\n\n\nEvolution -&gt; Anpassung -&gt; Fitnessmaximierung"
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#hierarchien-der-habitatwahl",
-    "href": "content/slides/01/03-vorkommen.html#hierarchien-der-habitatwahl",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Hierarchien der Habitatwahl",
-    "text": "Hierarchien der Habitatwahl\n\n\nEbene: Wahl des Artverbeitungsareal (z.B. Wo kommt er Wolf vor? Nördliche Grenze)\nEbene: Wahl von Aktionsräume (= Streifgebiete) innerhalb des Artverbeitungsareal.\nEbene: Wahl bestimmter Habitate innerhalb des Streifgebietes\nEbene: Wahl bestimmter Komponenten innerhalb der gewählten Habitate"
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#ökologische-nische",
-    "href": "content/slides/01/03-vorkommen.html#ökologische-nische",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Ökologische Nische",
-    "text": "Ökologische Nische\nGesamtheit aller abiotischen und biotischen Faktoren, die das Überleben einer Art beeinflussen"
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#toleranz-und-stress",
-    "href": "content/slides/01/03-vorkommen.html#toleranz-und-stress",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Toleranz und Stress",
-    "text": "Toleranz und Stress\nEin Umweltfaktor, für den eine Art die geringste Toleranz zeigt wird als limitierend bezeichnet.\n\nLimitierende Faktoren sind geeignet, um das Vorkommen bzw. die Verbreitung einer Art vorherzusagen bzw. zu erklären.\nDie Verbreitung einer Art ist davon abhängig"
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#ökologische-nische-2",
-    "href": "content/slides/01/03-vorkommen.html#ökologische-nische-2",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Ökologische Nische 2",
-    "text": "Ökologische Nische 2\n\nFundamentale Nische: Hier kann eine Art vorkommen, außerhalb kann sie nicht vorkommen.\nRealisierte Nische: Hier kommt eine Art tatsächlich vor\n\n\n\nStenöke Arten: Spezialisten -&gt; Enge Nische (z.B. Schneeleopard)\nEuryöke Arten: Generalisten -&gt; Breite Nische (z.B. Rotfuchs)"
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#die-fragestellung",
-    "href": "content/slides/01/03-vorkommen.html#die-fragestellung",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Die Fragestellung",
-    "text": "Die Fragestellung\n\nWie kann man die Verbreitung vom Europäischen Luchs erklären und vorhersagen?\nEs gibt aus unterschiedlichen Monitorings Vorkommensdaten, die z.B. über GBIF bezogen werden können:"
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#wie-kann-das-vorkommen-erklärt-werden",
-    "href": "content/slides/01/03-vorkommen.html#wie-kann-das-vorkommen-erklärt-werden",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Wie kann das Vorkommen erklärt werden?",
-    "text": "Wie kann das Vorkommen erklärt werden?\nModelle …\n\n… kommen in vielen Alltagssituationen zum Einsatz.\n… sollen eine sinvolle Vereinfachung der Realität darstellen.\n… “All models are wrong but some are useful” (George Box)"
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#was-für-modelle-gibt-es",
-    "href": "content/slides/01/03-vorkommen.html#was-für-modelle-gibt-es",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Was für Modelle gibt es?",
-    "text": "Was für Modelle gibt es?\n\nStatistische Modelle\n\nVersuchen die Variabilität in den Daten durch korrelative Zusammenhänge zu erklären. Keine biologischen Mechanismen.\n\nMechanistische Modelle\n\nVersuch von biologischen Prozessen zu simulieren, um beobachtete Muster zur erklären."
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#stichprobe-oder-grundgesamtheit",
-    "href": "content/slides/01/03-vorkommen.html#stichprobe-oder-grundgesamtheit",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Stichprobe oder Grundgesamtheit",
-    "text": "Stichprobe oder Grundgesamtheit\n\nMeist können wir die Grundgesamtheit nicht beproben/erfassen, dies kann aus logistischen, ethischen oder finanziellen Gründen sein.\nJedes Element aus der Grundgesamtheit muss mit der gleichen Wahrscheinlichkeit in der Stichprobe sein, ansonsten kann es sein, dass wir nicht von der Stichprobe auf die Grundgesamtheit schließen können."
-  },
-  {
-    "objectID": "content/slides/01/03-vorkommen.html#verteilungen-von-zufallsgrößen",
-    "href": "content/slides/01/03-vorkommen.html#verteilungen-von-zufallsgrößen",
-    "title": "Vorkommen von Wildtieren (E3)",
-    "section": "Verteilungen von Zufallsgrößen",
-    "text": "Verteilungen von Zufallsgrößen\n\nZufallsgrößen1 (= Merkmalsausprägung; z.B. Streifgebietsgröße, Gewicht, Vorkommen), können unterschiedlichen Verteilungen folgen.\nOb eine Art an einem Standort vorkommt oder nicht, folgt einer anderen Verteilung als die Streifgebietsgrößen von besenderten Tieren.\nEine Art kann vorkommen oder nicht (z.B. 0 = absent und 1 = präsent). Während für Streifgebietsgrößen theoretisch jede positive Zahl zulässig wäre.\nWir brauchen im Verlauf dieser Veranstaltung vier Verteilungen: Die Bernoulli-Verteilung (ja/nein), die Binomial-Verteilung (viele Bernoulli-Verteilungen), die Poisson-Verteilung (Zähldaten) und die Normalverteilung (stetige Daten), die Beta-Verteilung.\n\nDiese werden auch oft als Zufallsvariablen bezeichnet werden."
-  },
-  {
-    "objectID": "content/vorlesungen/02-vorlesung.html",
-    "href": "content/vorlesungen/02-vorlesung.html",
+    "objectID": "content/vorlesungen/01-vorlesung.html",
+    "href": "content/vorlesungen/01-vorlesung.html",
     "title": "Einführung",
     "section": "",
-    "text": "Hören Sie diesen Podcast zu Wildtiermangement an und überlegen Sie sich kurz Antworten zu folgenden Punkten.\n\nWie ist der Titel bzw. die Aussage “Wildtiere sind der Spiegel dessen, wie der Mensch mit der Landschaft umgeht” zu verstehen?\nIst Wildtiermanagement einfach ein moderner Begriff für Jagd? Begründen Sie Ihre Antwort kurz.\nWie unterscheidet sich Monitoring vom Wildtiermanagement bzw. welche Rolle übernimmt das Monitoring?\nVersuchen Sie für die folgenden drei Begriffe eine Definition zu erarbeiten: Wildtiermanagement, Jagd und Monitoring."
-  },
-  {
-    "objectID": "content/vorlesungen/02-vorlesung.html#klassifizieren-von-fotos",
-    "href": "content/vorlesungen/02-vorlesung.html#klassifizieren-von-fotos",
-    "title": "Einführung",
-    "section": "Klassifizieren von Fotos",
-    "text": "Klassifizieren von Fotos\nZiel der Übung ist es, 24 Fotofallenfotos zu klassifizieren und die Klassifizierungsergebnisse zu vergleichen.\nÜberlegen Sie in Kleingruppen (2 bis 3 Studierende), wie Sie die gesammelten Daten aus den Fotofallen so organisieren können, dass wir in einem nächsten Schritt:\n\ndie Daten zusammenführen und\nvergleichen können, wie die Daten klassifiziert wurden.\n\nKlassifizieren Sie die Fotos (daten/woche_2_fotos.zip) und laden Sie die Ergebnisse in StudIP in den Order daten/woche_2_fotos_ergebnisse hoch.\nFühren Sie die Daten aus Aufgabe 2 zusammen und finden Sie das Foto, bei dem die Klassifizierung am unsichersten war."
-  },
-  {
-    "objectID": "content/vorlesungen/02-vorlesung.html#wolf-in-deutschland",
-    "href": "content/vorlesungen/02-vorlesung.html#wolf-in-deutschland",
-    "title": "Einführung",
-    "section": "Wolf in Deutschland",
-    "text": "Wolf in Deutschland\nAuf einem Blogpost von Wildtierschutz Deutschland e.V. steht:\n\nNicht nur das, Studien aus Slowenien, Frankreich und Schweden belegen, dass die weitgehende Freigabe der Jagd auf Wölfe nicht zielführend hinsichtlich des Schutzes von Weidetieren ist. Der ist ausschließlich durch geeignete Herdenschutzmaßnahmen zu gewährleisten. Dafür gibt es zahlreiche Beispiele in Deutschland. Weidetiere durch das nun beschlossene Jagdgesetz zu schützen ist ein Trugschluss. Weidetierhalter, die sich darauf verlassen, werden verlassen sein.\n\nQuelle: https://www.wildtierschutz-deutschland.de/single-post/wolf-im-bundesjagdgesetz\nIn dem Artikel ist von Studien aus Slowenien, Frankreich und Schweden die Rede. Finden Sie eine oder mehrere dieser Studien, was sagen sie aus?"
+    "text": "Vorlesung\n\nLogistik\nMotivation & Rahmen\nKurze Pause\nÜbung\nArtporträt: Biber\n\n\n\nFolien\n\nAlle Folien (html)\nAlle Folien (pdf)\n\n\n\nLiteratur\n\nMüller et al. 2019: https://www.researchgate.net/publication/349721250_Der_nationale_Bericht_2019_zu_Lebensraumtypen_und_Arten_der_FFH-Richtlinie_-_ein_Uberblick_uber_die_Ergebnisse"
   },
   {
     "objectID": "content/vorlesungen/04-vorlesung.html",

@@ -1,5 +1,5 @@
 ---
-title: "Vorkommen von Wildtieren (E4)"
+title: "Occupancy 1 (E5)"
 subtitle: "Erfassung und Monitoring von Wildtieren (SoSe 2026)"
 format: 
   clean-revealjs:
@@ -40,8 +40,8 @@ knitr::opts_chunk$set(
 -   [13.04.2026: E01: Einführung]{style="color: #888;"}
 -   [20.04.2026: E02: Erfassung von Wildtieren]{style="color: #888;"}
 -   [27.04.2026: E03: Verbreitung 1]{style="color: #888;"}
--   **05.05.2026: E04: Verbreitung 2**
--   11.05.2026: E05: Occupancy-Modelle 1 (online)
+-   [05.05.2026: E04: Verbreitung 2]{style="color: #888;"}
+-   **11.05.2026: E05: Occupancy-Modelle 1 (online)**
 -   18.05.2026: E06: Occupancy-Modelle 2
 -   01.06.2026: E07: Abundanz 1
 -   08.06.2026: E08: Abundanz 2
