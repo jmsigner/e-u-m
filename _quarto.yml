@@ -22,7 +22,7 @@ website:
           - href: content/vorlesungen/04-vorlesung.qmd
             text: "04. Vorkommen vorhersagen"
           - href: content/vorlesungen/05-vorlesung.qmd
-          - text: "05. Occupancy Modelle"
+            text: "05. Occupancy Modelle"
           - text: "06. Was, wenn man nicht alle sieht?"
           - text: "----"
           - text: "Abundanz"
