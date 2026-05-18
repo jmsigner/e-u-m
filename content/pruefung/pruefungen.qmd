@@ -14,7 +14,7 @@ Eine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:
 
 1. Zu den FFH-Berichten: Müller et al. 2019: <https://www.researchgate.net/publication/349721250_Der_nationale_Bericht_2019_zu_Lebensraumtypen_und_Arten_der_FFH-Richtlinie_-_ein_Uberblick_uber_die_Ergebnisse>
 
-2. Zu Monitoring und Occupancy-Modellen: Boyd et al. 2023: <https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12961>
+2. Zu Monitoring und Occupancy-Modellen: Boyd et al. 2023: <https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12961>. Nicht Abschnitte III.4 und III.5.
 
 3. Sliwinski et al. 2021 [Comparison of spotlighting monitoring data of European brown hare (Lepus europaeus) relative population densities with infrared thermography in agricultural landscapes in Northern Germany](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0254084)
 4. Ausband et al. 2022 [Estimating wolf abundance from cameras](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3933)
@@ -121,6 +121,7 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 6. Latente Variable
 7. Left Join
 8. DEM
+9. FAIR Data
 
 :::
 :::

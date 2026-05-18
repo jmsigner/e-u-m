@@ -1,7 +1,7 @@
 
 # Vorlesung
 
-- [Occupancy Arten](/content/slides/06/06-occupancy_2.html){target="_blank"}
+- [Occupancy Arten](/content/slides/06/06_occupancy_2.html){target="_blank"}
 - [Übung: Occupancy Modell](/content/uebungen/ue_w6_amseln.html){target="_blank"}
 
 # Folien
@@ -9,7 +9,7 @@
 - [Alle Folien (pdf)](/content/slides/pdf/vl-6.pdf){target="_blank"}
 - [Alle Folien (html)](/content/slides/06/06_occupancy_2.html){target="_blank"}
 
-# Bis nächsten Einheit
+# Bis zur nächsten Einheit (1.6.2026)
 
-Ausführen des Skripts (StudIP `skripte/w5.R`). 
+Schauen Sie sich nochmals abschließend die Veröffentlichung [Boyd et al. 2023]( https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12961) an. Abschnitte III.4 und III.5 müssen Sie nicht im Detail verstehen. 
 
