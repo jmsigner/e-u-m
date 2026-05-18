@@ -23,7 +23,8 @@ website:
             text: "04. Vorkommen vorhersagen"
           - href: content/vorlesungen/05-vorlesung.qmd
             text: "05. Occupancy Modelle"
-          - text: "06. Was, wenn man nicht alle sieht?"
+          - href: content/vorlesungen/06-vorlesung.qmd
+            text: "06. Was, wenn man nicht alle sieht?"
           - text: "----"
           - text: "Abundanz"
           - text: "07. Populationsgrößenschätzung (Distance sampling)"
@@ -49,8 +50,8 @@ website:
             text: "4. Lineares Model"
 #          - href: content/uebungen/uebung_w5.qmd
 #            text: "5. Generalisiertes Lineares Model"
-#          - href: content/uebungen/uebung_w6.qmd
-#            text: "6. Occupancy Model"
+          - href: content/uebungen/ue_w6_amseln.qmd
+            text: "6. Occupancy Model"
       - text: Prüfungsleistungen
         href: content/pruefung/pruefungen.qmd
 

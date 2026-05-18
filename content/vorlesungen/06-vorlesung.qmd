@@ -1,0 +1,15 @@
+
+# Vorlesung
+
+- [Occupancy Arten](/content/slides/06/06-occupancy_2.html){target="_blank"}
+- [Übung: Occupancy Modell](/content/uebungen/ue_w6_amseln.html){target="_blank"}
+
+# Folien
+
+- [Alle Folien (pdf)](/content/slides/pdf/vl-6.pdf){target="_blank"}
+- [Alle Folien (html)](/content/slides/06/06_occupancy_2.html){target="_blank"}
+
+# Bis nächsten Einheit
+
+Ausführen des Skripts (StudIP `skripte/w5.R`). 
+

@@ -1,0 +1,130 @@
+---
+title: "Übung Woche 6: Vorkommen von Amseln"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen
+date: last-modified
+execute:
+  warning: false
+  message: false
+---
+
+
+
+Verwenden Sie für diese Übung die Daten, die im Rahmen dieses Kurses in den letzten Jahr erhoben wurden. Wir verwenden dafür das Vorkommen von Amseln. 
+
+Damit wir ein Occupancymodell anpassen können, müssen wir erst ein
+`unmarked`-Objekt erstellen. Dafür brauchen wir die Sichtungsdaten aus der
+letzten Aufgabe, Kovariaten für jede Aufnahme (Tag seit dem 1.5.21 und Uhrzeit) und Kovariaten für die Standorte. Für die Standorte
+verwenden wir den Anteil Wald und versiegelte Flächen innerhalb der 1 ha Zelle.
+
+
+## Einlesen Sichtungsdate
+
+Die Sichtungsdaten befinden sich in der Datei `Amsel.csv`. (*Hinweis, lassen Sie sich von `here()` nicht verwirren. Es stellt lediglich sicher, dass die Pfade bei mir stimmen*).  Alle Dateien finden Sie bei StudIP. 
+
+```{r}
+library(here)
+library(tidyverse)
+amseln <- read.csv(here("daten/Amsel.csv"))
+head(amseln, 2)
+```
+
+
+- `sto` ist die ID des Standorts
+- `y.1` bis `y.4` sind die vier Aufnahmen. `TRUE` bedeutet, dass ein Individum gesehen wurde, `FALSE` das Gegenteil. `NA` heißt, dass diese Aufnahme nicht durchgeführt wurde.
+
+## Einlesen Kovariaten
+
+In einem zweiten Schritt müssen wir noch die Kovariaten einlesen.
+Kovariaten der Aufnahmen
+
+```{r}
+tag <- read.csv(here("daten/tag.csv"))
+stunde <- read.csv(here("daten/stunde.csv"))
+```
+
+
+Kovariate Standorte
+```{r}
+sto <- read.csv(here("daten/standorte.csv"))
+```
+
+
+In einem letzten Schritt müssen wir die Aufnahmen (`dat`) und die Standorte zusammen bringen. Dafür bietet sich ein `left_join()` ans.
+
+```{r}
+head(amseln, 2)
+head(sto, 2)
+sto1 <- left_join(amseln, sto)
+head(sto1)
+```
+
+
+
+#### Aufgaben
+
+1. Standardisieren die Variable `wald` und fügen Sie diese als neue Spalte `wald_1` dem Objekt `sto1` hinzu.
+2. Erstellen Sie ein `unmakredFrameOccu` mit den Sichtungsdaten der Kohlmeisen und den Kovariaten. Bennen Sie dieses Objekt `of`.
+3. Passen Sie ein Occupany Model an, bei dem Sie davon ausgehen, dass die Entdeckungswahrscheinlichkeit von Amseln von der Tageszeit (also der Stunde am Tag) und dem Tag abhängt und die Vorkommenswahrscheinlichkeit von dem standartisierten Waldanteil und dessen quadrat in einem Pixel abhängt. Speichern Sie das Modell in `m1`.
+4. Schauen Sie sich die Koeffizienten für `m1` an.
+5. Erstellen Sie eine Abbildung, die den Effekt der Tageszeit (Stunde; von 4:00 bis 16:00 Uhr) auf die Entdeckungswahrscheinlichkeit von Amseln zeigt.
+6. Berechnen Sie die *naive* Vorkommenswahrscheinlichkeit für die erste Aufnahme (`y.1`) und ein Konfidenzintervall (verwenden Sie dafür $\hat{p} \pm \frac{z_\alpha \sqrt{p (1 - p)}}{\sqrt{n}}$; nehmen sie für $z_\alpha = 1.96$ an). Vergleichen Sie das Ergebnis mit einer Vorhersage aus dem Model `m1` für ein Pixel mit dem mittleren Waldanteil. 
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r, }
+#| eval: true
+
+# Lösung Übung 1
+library(dplyr)
+library(ggplot2)
+library(unmarked)
+
+# 1
+sto1$wald_1 <- (sto1$wald - mean(sto1$wald)) / sd(sto1$wald)
+
+# 2
+of <- unmarkedFrameOccu(
+    y = sto1[, c("y.1", "y.2", "y.3", "y.4")],
+    siteCovs = sto1,
+    obsCovs = list(
+        tag = tag[, -1],
+        stunde = stunde[, -1]
+    )
+)
+
+# 3
+m1 <- occu(~ stunde + tag # p
+     ~ wald_1 + I(wald_1^2),
+     data = of)
+
+# 4
+summary(m1)
+
+# 5
+# Neue Daten erstellen
+nd <- data.frame(tag = 0, stunde = 4:14)
+nd <- cbind(nd, predict(m1, nd, type = "det"))
+plot(nd$stunde, nd$Predicted, type = "l", xlab = "Tag seit 1.5.",
+     ylab = "Entdeckungswahrscheinlichkeit")
+
+
+# 6
+# Amseln y.1
+table(amseln$y.1)
+(p <- 65 / 85)
+
+# KI
+p + (c(-1.96, 1.96) * sqrt(p * (1 - p))) / sqrt(85)
+
+# Aus dem Modell
+nd <- data.frame(wald_1 = 0)
+nd <- cbind(nd, predict(m1, nd, type = "state"))
+nd
+
+```
+:::

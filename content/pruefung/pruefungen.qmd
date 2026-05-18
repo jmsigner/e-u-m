@@ -111,8 +111,16 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 :::
 
 ::: {.column width="50%"}
+### Woche 6
 
-
+1. AIC
+2. state process (= Belegrate)
+3. observation process (= Detektionsfunktion) 
+4. Skalieren von Variablen
+5. Polynome in einem Modell
+6. Latente Variable
+7. Left Join
+8. DEM
 
 :::
 :::
