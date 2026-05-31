@@ -16,8 +16,10 @@ Eine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:
 
 2. Zu Monitoring und Occupancy-Modellen: Boyd et al. 2023: <https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12961>. Nicht Abschnitte III.4 und III.5.
 
-3. Sliwinski et al. 2021 [Comparison of spotlighting monitoring data of European brown hare (Lepus europaeus) relative population densities with infrared thermography in agricultural landscapes in Northern Germany](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0254084)
+3. Zu Distance Sampling [Hand 2019](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.4938).
+
 4. Ausband et al. 2022 [Estimating wolf abundance from cameras](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3933)
+
 5. Telemetriestudie
 
 Sie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden Antworten auf spezifische Fragen schnell. Es werden keine Fragen zu technischen/statistischen Details gestellt.
@@ -28,7 +30,7 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 ::: {.columns}
 
 ::: {.column width="50%"}
-### Woche 1
+### Einheit 1 (Woche 1)
 
 1. Monitoring
 2. Statistische Inferenz
@@ -43,7 +45,7 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 :::
 
 ::: {.column width="50%"}
-### Woche 2
+### Einheit 2 (Woche 2)
 
 1. Likelihood
 2. Posterior
@@ -62,7 +64,7 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 ::: {.columns}
 
 ::: {.column width="50%"}
-### Woche 3
+### Einheit 3 (Woche 3)
 
 1. Autökologie
 2. Fundamentale und realisierte Nische
@@ -80,7 +82,7 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 :::
 
 ::: {.column width="50%"}
-### Woche 4
+### Einheit 4 (Woche 4)
 1. Zufallsvariable
 2. GBIF 
 3. EVBs
@@ -97,7 +99,7 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 ::: {.columns}
 
 ::: {.column width="50%"}
-### Woche 5
+### Einheit 5 (Woche 5)
 
 1. Linkfunktion
 2. Linearerprädiktor
@@ -111,7 +113,7 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 :::
 
 ::: {.column width="50%"}
-### Woche 6
+### Einheit 6 (Woche 6)
 
 1. AIC
 2. state process (= Belegrate)
@@ -126,6 +128,25 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 :::
 :::
 
+::: {.columns}
+::: {.column width="50%"}
+### Einheit 7 (Woche 8)
+
+1. Formel für Abundanz
+2. Vollzensus
+3. Transektmethode
+4. Losungszählung
+5. Abundanz und Dichte
+6. Distance Sampling
+7. Effective Strip Width
+8. Anforderungen an Distanzsampling
+:::
+
+::: {.column width="50%"}
+
+:::
+:::
+
 
 ## Statistik
 Es werden **keine** R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen. 
@@ -133,9 +154,13 @@ Es werden **keine** R-Kenntnisse abgefragt, lediglich die Interpretation von Erg
 
 # Prüfungsleistung
 
+## Ziel
+
 Die Prüfungsleistung besteht aus einer strukturierten Hausarbeit. 
 
-Stellen Sie eine Hypothese/Erwartung  auf und analysieren Sie dazu einen bereits vorhandenen Datensatz.  
+Stellen Sie eine Hypothese/Erwartung auf und analysieren Sie dazu einen bereits vorhandenen Datensatz.  
+
+Die Bewertung ist in zwei Kategorien aufgeteilt, die im Folgenden ausgeführt werden. 
 
 -	Analysen (40%)
 -	Schriftliche Ausarbeitung (60%)
@@ -174,8 +199,25 @@ Grob stelle ich mir die Aufteilung wie folgt vor:
 - Ergebnisse 2 - 3 Seiten
 - Disusskon 1 - 2 Seiten. 
 
+### Beispiel
 
-### Datenquellen
+Als Beispiel: *Ich möchte die Hausarbeit zu einem Occupancy Model durchführen*. Dazu habe ich folgende Schritte durchlaufen:
+
+1. Ich habe <www.datadryad.org> aufgerufen und dort nach *occupancy model germany* gesucht. 
+2. Und mich für die Studie: [Ecological drivers of garden dormouse (Eliomys quercinus) occupancy in a human modified landscape in Germany](https://datadryad.org/dataset/doi:10.5061/dryad.6t1g1jx94) entschieden. 
+
+Ich habe mir dann 3) eine Hypothese herausgegriffen (Hypothese 3; <https://besjournals.onlinelibrary.wiley.com/doi/full/10.1002/2688-8319.70023>): 
+
+> We also hypothesised that the detection probability of garden dormice may vary with temperature, as higher temperatures can lead to increased activity, making dormice easier to detect, whereas extremely high or low temperatures might reduce detectability due to limited movement as temperature affects their activity patterns and behaviour (Ruf & Geiser, 2015; Torre et al., 2018).
+
+Man kann die Daten herunterladen. Dann wären die nächsten Schritte wären:
+
+- Daten sichten und eine Erste Abbildung erstellen zu den Rohdaten (z.B. an welcher Falle gab es viele Sichtungen; so eine Abbildung war nicht in der Veröffentichung). 
+- Anpassen von 3 Occupancy modellen (jeweils ein Modell; ohne Temperatur, mit Temperatur und und einem quadratischen Effekt von Temperatur für die Detektion); daraus kann ich dann eine Tabelle Erstellen, die die drei Modelle vergleicht. 
+- Erstellen einer weiteren Abbildung (ähnlich zu Abbildung 3 in der Veröffentlichung), die den Effekt von Temperatur auf die Detektionswahrscheinlichkeit zeigt.
+- Zusammenfassen und Beschreiben der Ergebnisse.
+
+### Datenquellen {#daten}
 
 #### Veröffentlichungen
 
@@ -196,3 +238,44 @@ Grob stelle ich mir die Aufteilung wie folgt vor:
 - Movebank für Bewegungsdaten: <https://www.movebank.org/cms/webapp?gwt_fragment=page=search_map>
 - Dryad <https://datadryad.org/>
 
+
+
+### FAQ
+
+> Soll ich eine Fragestellung aus einer Veröffentlichung reproduzieren oder eine neue Fragestellung suchen?
+
+Beides ist zulässig und OK. Wichtig ist, dass die Fragestellung überschaubar ist und gut in dem Zeitraum bearbeitet werden kann.
+
+> Soll die Hausarbeit alleine oder in Gruppen bearbeitet werden?
+
+Jede/r muss eine eigene Hausarbeit abgeben, wenn mehrere Studierende an einem Thema/Datensatz arbeiten ist das OK. Aber jede/r muss eine eigene Arbeit abgeben. 
+
+> Soll die README-Datei als `txt` sein? 
+
+Ja, gerne. 
+
+> Was sollen wir genau machen? Hausarbeit generell noch unklar
+
+Siehe oben (Gliederung). 
+
+
+> Welche Art von Fragestellungen (Umfang, Themenbereich) sind angebracht? Hinsichtlich des Umfangs der Datenauswertung
+
+Siehe weiter oben zur Gliederung und Umfang. 
+
+> Wenn ich die Daten nachvollziehe bzw nachrechne, entsteht am Ende eine Kopie, wo ist dann mein Eigenanteil?
+
+Hoffentlich sind Sie danach in der Lage die Analysen besser zu verstehen, etwaige Stärken und/oder Schwächen zu sehen. Es geht bei dieser Hausarbeit nicht darum viel neues Wissen zu generieren (wenn das passiert ist das natürlich erfreulich), sondern viel mehr soll es Sie in die Lage versetzten einmal Analysen durchzuarbeiten und die Ergebnisse zu beschreiben und Interpretieren. 
+
+> Wie ausführlich/kompliziert müssen die statistischen Auswertungen sein? Reicht simple Statistik, wenn sie genug aussagekräftig für die Fragestellung ist?
+
+Bitte nicht komplizierter als nötig machen. Wenn Sie mit einer einfachen Analyse die Fragestellung beantworten können und 2 Abbildungen und eine Tabellen erstellen können, ist das vollkommen ausreichend. Falls Sie nicht sicher sind, fragen Sie mich kurz. 
+
+> Wie finde die Themenververgabe statt? Ich würde gerne jetzt schon anfangen. 
+
+Sie können gerne bereits beginnen. Die Themenvergabe ist frei, sprechen Sie sich einfach kurz mit mir ab. 
+
+
+> Wo findet man passende Datensätze?
+
+Ich habe weiter oben enige Anhaltspunkte [gepostet](#daten).

@@ -190,7 +190,10 @@ window.Quarto = {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Abundanz</li>
-        <li class="dropdown-header">07. Populationsgrößenschätzung (Distance sampling)</li>
+        <li>
+    <a class="dropdown-item" href="../../content/vorlesungen/07-vorlesung.html">
+ <span class="dropdown-text">07. Populationsgrößenschätzung (Distance sampling)</span></a>
+  </li>  
         <li class="dropdown-header">08. Fang-Wiederfang-Methoden</li>
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Telemetrie</li>
@@ -227,6 +230,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../../content/uebungen/ue_w6_amseln.html">
  <span class="dropdown-text">6. Occupancy Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/uebungen/ue_w8_katzen.html">
+ <span class="dropdown-text">7. Distance Sampling</span></a>
   </li>  
     </ul>
   </li>
@@ -284,7 +291,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">17. Mai 2026</p>
+      <p class="date">18. Mai 2026</p>
     </div>
   </div>
   
@@ -358,7 +365,7 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="aufgaben">Aufgaben</h4>
 <ol type="1">
 <li>Standardisieren die Variable <code>wald</code> und fügen Sie diese als neue Spalte <code>wald_1</code> dem Objekt <code>sto1</code> hinzu.</li>
-<li>Erstellen Sie ein <code>unmakredFrameOccu</code> mit den Sichtungsdaten der Kohlmeisen und den Kovariaten. Bennen Sie dieses Objekt <code>of</code>.</li>
+<li>Erstellen Sie ein <code>unmakredFrameOccu</code> mit den Sichtungsdaten der Amseln und den Kovariaten. Bennen Sie dieses Objekt <code>of</code>.</li>
 <li>Passen Sie ein Occupany Model an, bei dem Sie davon ausgehen, dass die Entdeckungswahrscheinlichkeit von Amseln von der Tageszeit (also der Stunde am Tag) und dem Tag abhängt und die Vorkommenswahrscheinlichkeit von dem standartisierten Waldanteil und dessen quadrat in einem Pixel abhängt. Speichern Sie das Modell in <code>m1</code>.</li>
 <li>Schauen Sie sich die Koeffizienten für <code>m1</code> an.</li>
 <li>Erstellen Sie eine Abbildung, die den Effekt der Tageszeit (Stunde; von 4:00 bis 16:00 Uhr) auf die Entdeckungswahrscheinlichkeit von Amseln zeigt.</li>
@@ -426,7 +433,7 @@ Number of sites: 86</code></pre>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Neue Daten erstellen</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>nd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">tag =</span> <span class="dv">0</span>, <span class="at">stunde =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">14</span>)</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>nd <span class="ot">&lt;-</span> <span class="fu">cbind</span>(nd, <span class="fu">predict</span>(m1, nd, <span class="at">type =</span> <span class="st">"det"</span>))</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(nd<span class="sc">$</span>stunde, nd<span class="sc">$</span>Predicted, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlab =</span> <span class="st">"Tag seit 1.5."</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(nd<span class="sc">$</span>stunde, nd<span class="sc">$</span>Predicted, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlab =</span> <span class="st">"Stunde am Tag"</span>,</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Entdeckungswahrscheinlichkeit"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>

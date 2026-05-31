@@ -1,0 +1,15 @@
+
+# Vorlesung
+
+- [Distance Sampling](/content/slides/07/07_abundanz_1.html){target="_blank"}
+- [Übung: Distance Sampling](/content/uebungen/ue_w8_katzen.html){target="_blank"}
+
+# Folien
+
+- [Alle Folien (pdf)](/content/slides/pdf/vl-7.pdf){target="_blank"}
+- [Alle Folien (html)](/content/slides/07/07_abundanz_1.html){target="_blank"}
+
+# Bis zur nächsten Einheit (8.6.2026)
+
+Schauen Sie sich nochmals abschließend die Veröffentlichung von [Hand 2019](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.4938) zu Distance Sampling an. 
+

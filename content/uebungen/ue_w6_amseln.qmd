@@ -67,7 +67,7 @@ head(sto1)
 #### Aufgaben
 
 1. Standardisieren die Variable `wald` und fügen Sie diese als neue Spalte `wald_1` dem Objekt `sto1` hinzu.
-2. Erstellen Sie ein `unmakredFrameOccu` mit den Sichtungsdaten der Kohlmeisen und den Kovariaten. Bennen Sie dieses Objekt `of`.
+2. Erstellen Sie ein `unmakredFrameOccu` mit den Sichtungsdaten der Amseln und den Kovariaten. Bennen Sie dieses Objekt `of`.
 3. Passen Sie ein Occupany Model an, bei dem Sie davon ausgehen, dass die Entdeckungswahrscheinlichkeit von Amseln von der Tageszeit (also der Stunde am Tag) und dem Tag abhängt und die Vorkommenswahrscheinlichkeit von dem standartisierten Waldanteil und dessen quadrat in einem Pixel abhängt. Speichern Sie das Modell in `m1`.
 4. Schauen Sie sich die Koeffizienten für `m1` an.
 5. Erstellen Sie eine Abbildung, die den Effekt der Tageszeit (Stunde; von 4:00 bis 16:00 Uhr) auf die Entdeckungswahrscheinlichkeit von Amseln zeigt.
@@ -109,7 +109,7 @@ summary(m1)
 # Neue Daten erstellen
 nd <- data.frame(tag = 0, stunde = 4:14)
 nd <- cbind(nd, predict(m1, nd, type = "det"))
-plot(nd$stunde, nd$Predicted, type = "l", xlab = "Tag seit 1.5.",
+plot(nd$stunde, nd$Predicted, type = "l", xlab = "Stunde am Tag",
      ylab = "Entdeckungswahrscheinlichkeit")
 
 

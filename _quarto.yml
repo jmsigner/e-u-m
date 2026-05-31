@@ -27,7 +27,8 @@ website:
             text: "06. Was, wenn man nicht alle sieht?"
           - text: "----"
           - text: "Abundanz"
-          - text: "07. Populationsgrößenschätzung (Distance sampling)"
+          - href: content/vorlesungen/07-vorlesung.qmd
+            text: "07. Populationsgrößenschätzung (Distance sampling)"
           - text: "08. Fang-Wiederfang-Methoden"
           - text: "----"
           - text: "Telemetrie"
@@ -52,6 +53,8 @@ website:
 #            text: "5. Generalisiertes Lineares Model"
           - href: content/uebungen/ue_w6_amseln.qmd
             text: "6. Occupancy Model"
+          - href: content/uebungen/ue_w8_katzen.qmd
+            text: "7. Distance Sampling"
       - text: Prüfungsleistungen
         href: content/pruefung/pruefungen.qmd
 

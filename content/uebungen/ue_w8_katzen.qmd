@@ -1,0 +1,164 @@
+---
+title: "Übung Woche 8: Dichteschätzung von Wildkatzen in Windsor"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen
+date: last-modified
+execute:
+  warning: false
+  message: false
+---
+
+Wir verwenden für diese Übung Daten aus einer Studie zur Dichte wildlebender Katzen (*Felis catus*) in Windsor, Ontario (Kanada). Hand (2019) schätzte die Katzendichte mittels Line-Transekt Distance Sampling entlang von 105 Straßentransekten (je 1 km Länge), die im Sommer 2014 begangen wurden. Das Studiengebiet umfasst ca. 138 km². Die Daten stehen unter einer CC-BY-Lizenz zur Verfügung (Hand, A. (2019). *Ecology and Evolution*, 9(5), 2699–2705. <https://doi.org/10.1002/ece3.4938>).
+
+Die benötigten Pakete und Daten:
+
+```{r, eval = FALSE}
+library(readxl) # Zum lesen von Exel-Dateien
+library(Distance)
+library(tidyverse)
+
+dat <- read_excel("daten/Cat_Data.xlsx")
+```
+
+```{r, echo = FALSE}
+library(readxl) # Zum lesen von Exel-Dateien
+library(Distance)
+library(tidyverse)
+
+dat <- read_excel(here::here("daten/Cat_Data.xlsx"))
+```
+
+- `Transect` ist die ID des Transekts
+- `Perpendicular Distance (m)` ist der senkrechte Abstand der Katze vom Transekt in Metern
+
+## Aufbereiten der Daten
+
+Das Paket `Distance` erwartet einen Datensatz mit bestimmten Spaltennamen. Wir benennen die relevanten Spalten um und fügen Hilfsspalten hinzu.
+
+```{r}
+dat.ds <- dat |> mutate(
+    distance     = `Perpendicular Distance (m)`,
+    Effort       = 1,
+    Sample.Label = Transect,
+    Region.Label = "Windsor 1"
+  ) |>
+  select(Region.Label, Sample.Label, Effort, distance)
+```
+
+#### Aufgaben
+
+1. Wie viele Beobachtungen enthält `dat.ds`? Wie viele unterschiedliche Transekte gibt es?
+2. Plotten Sie die Verteilung der Distanzen mit `hist()`. Beschreiben Sie die Form: Wie verändert sich die Entdeckungshäufigkeit mit zunehmendem Abstand?
+3. Nehmen Sie eine feste Transektbreite (halbseitig) von 5, 10, 20 und 50 Metern an und eine Entdeckungswahrscheinlichkeit von 1. Berechnen Sie die Dichte (ind/km²) für jede Breite. Wie verändert sich die Schätzung — und warum?
+
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+# 1
+nrow(dat.ds)
+n_distinct(dat.ds$Sample.Label)
+
+# 2
+hist(dat.ds$distance,
+     main = "Verteilung der Perpendicular Distances",
+     xlab = "Abstand vom Transekt (m)",
+     col  = "steelblue")
+
+# 3
+sapply(c(5, 10, 20, 50), function(x)
+  filter(dat.ds, distance < x) |> nrow() / (105 * 2 * x/1000 * 1 * 1)
+)
+# Die Dichte sinkt mit zunehmender Breite, weil nahe am Transekt mehr Katzen
+# pro Flächeneinheit gesehen werden als weiter weg — die Entdeckungs-
+# wahrscheinlichkeit nimmt mit der Distanz ab, wird hier aber ignoriert.
+```
+:::
+
+## Dichteschätzung mittels Distance Sampling
+
+Wir passen drei Modelle mit unterschiedlichen Entdeckungsfunktionen an: Half-Normal (`hn`), Hazard-Rate (`hr`) und Uniform (`unif`).
+
+```{r}
+conversion <- convert_units("meter", "kilometer", "square kilometer")
+
+m1.hn   <- ds(dat.ds, key = "hn",   adjustment = NULL, convert_units = conversion)
+m1.hr   <- ds(dat.ds, key = "hr",   adjustment = NULL, convert_units = conversion)
+m1.unif <- ds(dat.ds, key = "unif", adjustment = NULL, convert_units = conversion)
+```
+
+#### Aufgaben
+
+4. Vergleichen Sie die drei Modelle anhand des AIC. Welches Modell schneidet am besten ab?
+5. Plotten Sie die Entdeckungsfunktion für alle drei Modelle. Welche Funktion passt am besten zu dem, was Sie in der Distanzverteilung aus Aufgabe 2 gesehen haben?
+6. Berechnen Sie für das beste Modell die *Effective Strip Width* (ESW) aus der mittleren Entdeckungswahrscheinlichkeit $\hat{p}$ und der maximalen Suchweite $w$: $\widehat{\text{ESW}} = w \cdot \hat{p}$. Berechnen Sie damit die Dichte in ind/km². Vergleichen Sie mit dem publizierten Wert von Hand (2019): ~13,3 Katzen/km².
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+# 4
+AIC(m1.hn, m1.hr, m1.unif)
+# Hazard-Rate hat den niedrigsten AIC
+
+# 5
+plot(m1.hn,   main = "Half-Normal")
+plot(m1.hr,   main = "Hazard-Rate")
+plot(m1.unif, main = "Uniform")
+
+# 6
+s   <- summary(m1.hr)
+esw <- s$ds$width * s$ds$average.p
+esw
+
+D <- nrow(dat.ds) / (105 * 2 * esw/1000 * 1 * 1)
+D
+```
+:::
+
+## ESW und Abundanz
+
+#### Aufgaben
+
+7. Berechnen Sie die Dichte mit allen drei Entdeckungsfunktionen. Wie stark unterscheiden sich die Schätzungen? Was schließen Sie daraus für die Bedeutung der Modellwahl?
+8. Berechnen Sie die geschätzte Gesamtabundanz für das Studiengebiet (138 km²) auf Basis des besten Modells. Vergleichen Sie mit dem publizierten Wert von ~1.858 Katzen.
+9. Berechnen Sie ein 95%-Konfidenzintervall für die Dichte und die Abundanz. Verwenden Sie dafür die Unsicherheit in $\hat{p}$: $\widehat{\text{ESW}}_{\pm} = w \cdot (\hat{p} \pm 2 \cdot \text{SE}_{\hat{p}})$. Den SE finden Sie in `summary(m1.hr)$ds$average.p.se`.
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+# 7
+berechne_dichte <- function(modell, name) {
+  s   <- summary(modell)
+  esw <- s$ds$width * s$ds$average.p
+  D   <- nrow(dat.ds) / (105 * 2 * esw/1000)
+  paste("ESW:", round(esw, 2), "m und Dichte:", round(D, 2), "ind/km^2")
+}
+berechne_dichte(m1.hr,   "Hazard-Rate")
+berechne_dichte(m1.hn,   "Half-Normal")
+berechne_dichte(m1.unif, "Uniform")
+
+# 8
+s   <- summary(m1.hr)
+esw <- s$ds$width * s$ds$average.p
+D   <- nrow(dat.ds) / (105 * 2 * esw/1000)
+# Abundanz
+round(D * 138)
+
+# 9
+se      <- s$ds$average.p.se
+esw.ug  <- s$ds$width * (s$ds$average.p - 2 * se)
+esw.og  <- s$ds$width * (s$ds$average.p + 2 * se)
+
+D.ug <- nrow(dat.ds) / (105 * 2 * esw.og/1000)
+D.og <- nrow(dat.ds) / (105 * 2 * esw.ug/1000)
+
+paste0("95%-KI Dichte: (", round(D.ug, 2), ",", round(D.og, 2), ") ind/km^2")
+paste0("95%-KI Abundanz: (", round(D.ug * 138), ",", round(D.og * 138), ") Individuen")
+```
+:::
