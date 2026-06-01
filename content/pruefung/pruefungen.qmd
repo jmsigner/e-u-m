@@ -171,6 +171,82 @@ Die Bewertung ist in zwei Kategorien aufgeteilt, die im Folgenden ausgeführt we
 2. Der Code ist ausreichend dokumentiert und logisch sinnvoll aufgebaut. 	(25%)
 3. Es gibt eine README-Datei, die beschreibt, wie man den Code und die Analyse ausführen kann.	(15%)
 
+
+### Beispiele für gut und schlecht kommentierten Computercode
+
+Schlecht kommentierter Computercode erklärt das Offensichtliche:
+
+```{r, eval = FALSE}
+library(tidyverse)
+
+# Daten lesen
+dat <- read_rds("daten/lynx.rds")
+
+# Lineares Modell anpassen
+m2 <- lm(lynx ~ y, data = dat)
+
+# Summary aufrufen
+summary(m2)
+
+# Neues Data Frame
+nd <- data.frame(y = 35:80)
+
+# Predict
+nd$lynx <- predict(m2, newdata = nd)
+
+# Plot erstellen mit xlab und ylab
+# und type = "l"
+plot(nd$y, nd$lynx,
+     xlab = "Breitengrad",
+     ylab = "Vorkommenswahrscheinlichkeit",
+     type = "l")
+
+# Linie bei 0
+abline(a = 0, b = 0, col = "red")
+# Linie bei 1
+abline(a = 1, b = 0, col = "red")
+```
+
+Während gut kommentierter Computercode einen Schritt weiter geht: 
+
+```{r, eval = FALSE}
+library(tidyverse) # für die Manipulaiton von Daten
+
+# Datensatz mit Luchs-Vorkommens-
+# daten (binär, 0/1) laden
+dat <- read_rds("daten/lynx.rds")
+
+# Logistisches Regressionsmodell:
+# Abhängige Variable: Vorkommen (0/1)
+# Prädiktor: Breitengrad (y)
+m2 <- lm(lynx ~ y, data = dat)
+
+# Modellgüte und Koeffizienten prüfen
+summary(m2)
+
+# Vorhersagedaten für Breitengrade
+# Von 35N bis 80N erstellen
+nd <- data.frame(y = 35:80)
+
+# Vorkommenswahrscheinlichkeit für
+# jeden Breitengrad vorhersagen
+nd$lynx <- predict(m2, newdata = nd)
+
+# Ergebnis plotten: Kurve zeigt, wie
+# Vorkommenswahrsch. mit dem Breitengrad variiert
+plot(nd$y, nd$lynx,
+     xlab = "Breitengrad",
+     ylab = "Vorkommenswahrscheinlichkeit",
+     type = "l")
+
+# Referenzlinien bei 0 und 1: markieren gültige 
+# Wahrscheinlichkeitsgrenzen (0% und 100%)
+abline(a = 0, b = 0, col = "red")
+abline(a = 1, b = 0, col = "red")
+```
+
+
+
 ## Hausarbeit
 
 ### Gliederung
