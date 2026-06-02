@@ -292,7 +292,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">31. Mai 2026</p>
+      <p class="date">2. Juni 2026</p>
     </div>
   </div>
   
@@ -371,15 +371,38 @@ Lösungsvorschlag
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>), <span class="cf">function</span>(x)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dat.ds, distance <span class="sc">&lt;</span> x) <span class="sc">|&gt;</span> <span class="fu">nrow</span>() <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> x<span class="sc">/</span><span class="dv">1000</span> <span class="sc">*</span> <span class="dv">1</span> <span class="sc">*</span> <span class="dv">1</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>dat_5m <span class="ot">&lt;-</span> dat.ds <span class="sc">|&gt;</span> <span class="fu">filter</span>(distance <span class="sc">&lt;</span> <span class="dv">5</span>) </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>(n_sichtungen <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat_5m))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Die beprobte Fläche beträgt</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 105 Transekte: 5m breit und 1000m lang</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="dv">105</span> <span class="sc">*</span> <span class="co"># Anzahl Transekte</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span> <span class="sc">*</span> <span class="dv">5</span> <span class="sc">*</span>  <span class="co"># die Breite</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1000.</span>    <span class="co"># Länge</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>n_sichtungen <span class="sc">/</span> A <span class="co"># Pro m^2</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.238095e-05</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n_sichtungen <span class="sc">/</span> A <span class="sc">*</span> <span class="fl">1e6</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.38095</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Jetzt für die unterschiedlichen Breiten</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>), <span class="cf">function</span>(x)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dat.ds, distance <span class="sc">&lt;</span> x) <span class="sc">|&gt;</span> <span class="fu">nrow</span>() <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> x <span class="sc">*</span> <span class="dv">1000</span>) <span class="sc">*</span> <span class="fl">1e6</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 12.380952 14.285714 11.904762  7.047619</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Die Dichte sinkt mit zunehmender Breite, weil nahe am Transekt mehr Katzen</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pro Flächeneinheit gesehen werden als weiter weg — die Entdeckungs-</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># wahrscheinlichkeit nimmt mit der Distanz ab, wird hier aber ignoriert.</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Die Dichte sinkt mit zunehmender Breite, weil nahe am Transekt mehr Katzen</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pro Flächeneinheit gesehen werden als weiter weg — die Entdeckungs-</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># wahrscheinlichkeit nimmt mit der Distanz ab, wird hier aber ignoriert.</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -390,11 +413,11 @@ Lösungsvorschlag
 <h2 class="anchored" data-anchor-id="dichteschätzung-mittels-distance-sampling">Dichteschätzung mittels Distance Sampling</h2>
 <p>Wir passen drei Modelle mit unterschiedlichen Entdeckungsfunktionen an: Half-Normal (<code>hn</code>), Hazard-Rate (<code>hr</code>) und Uniform (<code>unif</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>conversion <span class="ot">&lt;-</span> <span class="fu">convert_units</span>(<span class="st">"meter"</span>, <span class="st">"kilometer"</span>, <span class="st">"square kilometer"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>m1.hn   <span class="ot">&lt;-</span> <span class="fu">ds</span>(dat.ds, <span class="at">key =</span> <span class="st">"hn"</span>,   <span class="at">adjustment =</span> <span class="cn">NULL</span>, <span class="at">convert_units =</span> conversion)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>m1.hr   <span class="ot">&lt;-</span> <span class="fu">ds</span>(dat.ds, <span class="at">key =</span> <span class="st">"hr"</span>,   <span class="at">adjustment =</span> <span class="cn">NULL</span>, <span class="at">convert_units =</span> conversion)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>m1.unif <span class="ot">&lt;-</span> <span class="fu">ds</span>(dat.ds, <span class="at">key =</span> <span class="st">"unif"</span>, <span class="at">adjustment =</span> <span class="cn">NULL</span>, <span class="at">convert_units =</span> conversion)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>conversion <span class="ot">&lt;-</span> <span class="fu">convert_units</span>(<span class="st">"meter"</span>, <span class="st">"kilometer"</span>, <span class="st">"square kilometer"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>m1.hn   <span class="ot">&lt;-</span> <span class="fu">ds</span>(dat.ds, <span class="at">key =</span> <span class="st">"hn"</span>,   <span class="at">adjustment =</span> <span class="cn">NULL</span>, <span class="at">convert_units =</span> conversion)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>m1.hr   <span class="ot">&lt;-</span> <span class="fu">ds</span>(dat.ds, <span class="at">key =</span> <span class="st">"hr"</span>,   <span class="at">adjustment =</span> <span class="cn">NULL</span>, <span class="at">convert_units =</span> conversion)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>m1.unif <span class="ot">&lt;-</span> <span class="fu">ds</span>(dat.ds, <span class="at">key =</span> <span class="st">"unif"</span>, <span class="at">adjustment =</span> <span class="cn">NULL</span>, <span class="at">convert_units =</span> conversion)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="aufgaben-1" class="level4">
 <h4 class="anchored" data-anchor-id="aufgaben-1">Aufgaben</h4>
@@ -416,18 +439,18 @@ Lösungsvorschlag
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(m1.hn, m1.hr, m1.unif)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(m1.hn, m1.hr, m1.unif)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        df      AIC
 m1.hn    1 718.1418
 m1.hr    2 692.6752
 m1.unif  0 876.1092</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hazard-Rate hat den niedrigsten AIC</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 5</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1.hn,   <span class="at">main =</span> <span class="st">"Half-Normal"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hazard-Rate hat den niedrigsten AIC</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 5</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1.hn,   <span class="at">main =</span> <span class="st">"Half-Normal"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -435,7 +458,7 @@ m1.unif  0 876.1092</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1.hr,   <span class="at">main =</span> <span class="st">"Hazard-Rate"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1.hr,   <span class="at">main =</span> <span class="st">"Hazard-Rate"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -443,7 +466,7 @@ m1.unif  0 876.1092</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1.unif, <span class="at">main =</span> <span class="st">"Uniform"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1.unif, <span class="at">main =</span> <span class="st">"Uniform"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -451,15 +474,15 @@ m1.unif  0 876.1092</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>s   <span class="ot">&lt;-</span> <span class="fu">summary</span>(m1.hr)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>esw <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>width <span class="sc">*</span> s<span class="sc">$</span>ds<span class="sc">$</span>average.p</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>esw</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>s   <span class="ot">&lt;-</span> <span class="fu">summary</span>(m1.hr)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>esw <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>width <span class="sc">*</span> s<span class="sc">$</span>ds<span class="sc">$</span>average.p</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>esw</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 29.94155</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat.ds) <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> esw<span class="sc">/</span><span class="dv">1000</span> <span class="sc">*</span> <span class="dv">1</span> <span class="sc">*</span> <span class="dv">1</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>D</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat.ds) <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> esw<span class="sc">/</span><span class="dv">1000</span> <span class="sc">*</span> <span class="dv">1</span> <span class="sc">*</span> <span class="dv">1</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>D</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 13.35936</code></pre>
 </div>
@@ -491,47 +514,53 @@ Lösungsvorschlag
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>berechne_dichte <span class="ot">&lt;-</span> <span class="cf">function</span>(modell, name) {</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  s   <span class="ot">&lt;-</span> <span class="fu">summary</span>(modell)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  esw <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>width <span class="sc">*</span> s<span class="sc">$</span>ds<span class="sc">$</span>average.p</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  D   <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat.ds) <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> esw<span class="sc">/</span><span class="dv">1000</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="st">"ESW:"</span>, <span class="fu">round</span>(esw, <span class="dv">2</span>), <span class="st">"m und Dichte:"</span>, <span class="fu">round</span>(D, <span class="dv">2</span>), <span class="st">"ind/km^2"</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">berechne_dichte</span>(m1.hr,   <span class="st">"Hazard-Rate"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>berechne_dichte <span class="ot">&lt;-</span> <span class="cf">function</span>(modell, name) {</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  s   <span class="ot">&lt;-</span> <span class="fu">summary</span>(modell)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  esw <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>width <span class="sc">*</span> s<span class="sc">$</span>ds<span class="sc">$</span>average.p</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  D   <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat.ds) <span class="sc">/</span>  <span class="co"># Das ist C; über alle Transekte</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">105</span> <span class="sc">*</span> <span class="co"># Anzahl Transekte; somit brauchen wir nicht die C_i's, da wir keine Transekte unterscheiden</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>       <span class="dv">2</span> <span class="sc">*</span> esw<span class="sc">/</span><span class="dv">1000</span> <span class="co"># Die Transektfläche: 2 * ESW (-&gt; Breite) * 1000 (Länge) * 1e6 um von m^2 auf km^2 zu kommen</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Anstatt C / (2 * esw * 1000) * 1e6 um auf eine Ind pro km^2 kommen, kann man auch einfach</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>     <span class="co"># C / (2 * esw / 1000) rechnen.</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="st">"ESW:"</span>, <span class="fu">round</span>(esw, <span class="dv">2</span>), <span class="st">"m und Dichte:"</span>, <span class="fu">round</span>(D, <span class="dv">2</span>), <span class="st">"ind/km^2"</span>)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="fu">berechne_dichte</span>(m1.hr,   <span class="st">"Hazard-Rate"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "ESW: 29.94 m und Dichte: 13.36 ind/km^2"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">berechne_dichte</span>(m1.hn,   <span class="st">"Half-Normal"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">berechne_dichte</span>(m1.hn,   <span class="st">"Half-Normal"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "ESW: 43.07 m und Dichte: 9.29 ind/km^2"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">berechne_dichte</span>(m1.unif, <span class="st">"Uniform"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">berechne_dichte</span>(m1.unif, <span class="st">"Uniform"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "ESW: 184 m und Dichte: 2.17 ind/km^2"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 8</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>s   <span class="ot">&lt;-</span> <span class="fu">summary</span>(m1.hr)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>esw <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>width <span class="sc">*</span> s<span class="sc">$</span>ds<span class="sc">$</span>average.p</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>D   <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat.ds) <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> esw<span class="sc">/</span><span class="dv">1000</span>)</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Abundanz</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(D <span class="sc">*</span> <span class="dv">138</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 8</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>s   <span class="ot">&lt;-</span> <span class="fu">summary</span>(m1.hr)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>esw <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>width <span class="sc">*</span> s<span class="sc">$</span>ds<span class="sc">$</span>average.p</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>D   <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat.ds) <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> esw<span class="sc">/</span><span class="dv">1000</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Abundanz</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(D <span class="sc">*</span> <span class="dv">138</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1844</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 9</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>se      <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>average.p.se</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>esw.ug  <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>width <span class="sc">*</span> (s<span class="sc">$</span>ds<span class="sc">$</span>average.p <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> se)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>esw.og  <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>width <span class="sc">*</span> (s<span class="sc">$</span>ds<span class="sc">$</span>average.p <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> se)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>D.ug <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat.ds) <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> esw.og<span class="sc">/</span><span class="dv">1000</span>)</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>D.og <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat.ds) <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> esw.ug<span class="sc">/</span><span class="dv">1000</span>)</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"95%-KI Dichte: ("</span>, <span class="fu">round</span>(D.ug, <span class="dv">2</span>), <span class="st">","</span>, <span class="fu">round</span>(D.og, <span class="dv">2</span>), <span class="st">") ind/km^2"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 9</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>se      <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>average.p.se</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>esw.ug  <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>width <span class="sc">*</span> (s<span class="sc">$</span>ds<span class="sc">$</span>average.p <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> se)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>esw.og  <span class="ot">&lt;-</span> s<span class="sc">$</span>ds<span class="sc">$</span>width <span class="sc">*</span> (s<span class="sc">$</span>ds<span class="sc">$</span>average.p <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> se)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>D.ug <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat.ds) <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> esw.og<span class="sc">/</span><span class="dv">1000</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>D.og <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat.ds) <span class="sc">/</span> (<span class="dv">105</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> esw.ug<span class="sc">/</span><span class="dv">1000</span>)</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"95%-KI Dichte: ("</span>, <span class="fu">round</span>(D.ug, <span class="dv">2</span>), <span class="st">","</span>, <span class="fu">round</span>(D.og, <span class="dv">2</span>), <span class="st">") ind/km^2"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "95%-KI Dichte: (10.83,17.43) ind/km^2"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"95%-KI Abundanz: ("</span>, <span class="fu">round</span>(D.ug <span class="sc">*</span> <span class="dv">138</span>), <span class="st">","</span>, <span class="fu">round</span>(D.og <span class="sc">*</span> <span class="dv">138</span>), <span class="st">") Individuen"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"95%-KI Abundanz: ("</span>, <span class="fu">round</span>(D.ug <span class="sc">*</span> <span class="dv">138</span>), <span class="st">","</span>, <span class="fu">round</span>(D.og <span class="sc">*</span> <span class="dv">138</span>), <span class="st">") Individuen"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "95%-KI Abundanz: (1494,2406) Individuen"</code></pre>
 </div>

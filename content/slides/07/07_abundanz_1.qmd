@@ -310,7 +310,7 @@ Das Gleiche sollten wir nun auch noch für das Konfidenzintervall tun.
 KI * (5700 / 100)
 ```
 
-Somit könnten wir die Aussage treffen, dass wir für das Studiengebiet eine Population von 1187 schätzen mit einem Konfidenzintervall von 764 bis 1610 Tieren.
+Somit könnten wir die Aussage treffen, dass wir für das Studiengebiet eine Population von `r round(mean(D) * (5700 / 100), 2)` schätzen mit einem Konfidenzintervall von `r round(KI * (5700 / 100), 2)[1]` bis `r round(KI * (5700 / 100), 2)[2]` Tieren.
 
 ------------------------------------------------------------------------
 
@@ -383,11 +383,11 @@ Berechnen der durchschnittlichen Entdeckungswahrscheinlichkeit: $$\hat{p}_a = \f
 
 Wir erinnern uns, die Dichte wurde berechnet mit:
 
-$$\hat{D} = \frac{n}{2wL}$$
+$$\hat{D_i} = \frac{C_i}{2wL}$$
 
 Jetzt können wir für die Entdeckungswahrscheinlichkeit korrigieren mit $\hat{p}_a$:
 
-$$\hat{D} = \frac{n}{2wL\hat{p}_a}$$
+$$\hat{D_i} = \frac{C_i}{2wL\hat{p}_a}$$
 
 Wobei jetzt die Breite $w$ entweder die maximale Entfernung oder eine vorher definierte Distanz ist.
 

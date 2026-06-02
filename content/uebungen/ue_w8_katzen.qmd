@@ -70,8 +70,24 @@ hist(dat.ds$distance,
      col  = "steelblue")
 
 # 3
+
+dat_5m <- dat.ds |> filter(distance < 5) 
+
+(n_sichtungen <- nrow(dat_5m))
+ 
+# Die beprobte Fläche beträgt
+# 105 Transekte: 5m breit und 1000m lang
+A <- 105 * # Anzahl Transekte
+  2 * 5 *  # die Breite
+  1000.    # Länge
+
+n_sichtungen / A # Pro m^2
+n_sichtungen / A * 1e6
+
+# Jetzt für die unterschiedlichen Breiten
+
 sapply(c(5, 10, 20, 50), function(x)
-  filter(dat.ds, distance < x) |> nrow() / (105 * 2 * x/1000 * 1 * 1)
+  filter(dat.ds, distance < x) |> nrow() / (105 * 2 * x * 1000) * 1e6
 )
 # Die Dichte sinkt mit zunehmender Breite, weil nahe am Transekt mehr Katzen
 # pro Flächeneinheit gesehen werden als weiter weg — die Entdeckungs-
@@ -136,7 +152,12 @@ D
 berechne_dichte <- function(modell, name) {
   s   <- summary(modell)
   esw <- s$ds$width * s$ds$average.p
-  D   <- nrow(dat.ds) / (105 * 2 * esw/1000)
+  D   <- nrow(dat.ds) /  # Das ist C; über alle Transekte
+    (105 * # Anzahl Transekte; somit brauchen wir nicht die C_i's, da wir keine Transekte unterscheiden
+       2 * esw/1000 # Die Transektfläche: 2 * ESW (-> Breite) * 1000 (Länge) * 1e6 um von m^2 auf km^2 zu kommen
+     # Anstatt C / (2 * esw * 1000) * 1e6 um auf eine Ind pro km^2 kommen, kann man auch einfach
+     # C / (2 * esw / 1000) rechnen.
+     )
   paste("ESW:", round(esw, 2), "m und Dichte:", round(D, 2), "ind/km^2")
 }
 berechne_dichte(m1.hr,   "Hazard-Rate")
@@ -147,6 +168,7 @@ berechne_dichte(m1.unif, "Uniform")
 s   <- summary(m1.hr)
 esw <- s$ds$width * s$ds$average.p
 D   <- nrow(dat.ds) / (105 * 2 * esw/1000)
+
 # Abundanz
 round(D * 138)
 
