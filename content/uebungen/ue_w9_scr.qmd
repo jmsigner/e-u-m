@@ -1,0 +1,240 @@
+---
+title: "Übung Einheit 8 (Woche 9): Fang-Wiederfang und räumliches Fang-Wiederfang"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jsigner@uni-goettingen.de
+    affiliations: Georg-August Universität Göttingen
+date: last-modified
+execute:
+  warning: false
+  message: false
+---
+
+Ziel dieser Übung ist es, die Dichte von Mäusen mittels klassischem Fang-Wiederfang (Lincoln-Petersen-Schätzer) und räumlichem Fang-Wiederfang (SCR) zu schätzen und die beiden Ansätze zu vergleichen.
+
+Die benötigten Pakete:
+
+```{r}
+library(oSCR)
+library(tidyverse)
+```
+
+## Einlesen der Daten
+
+Mit `readRDS()` können R-Objekte direkt eingeladen werden. Laden Sie die Dateien `oscr_dat.rds` als `dat` und `oscr_trps.rds` als `trps`.
+
+- `dat` enthält alle Fangereignisse mit Tier-ID, Falle, Fangereignis und Geschlecht
+- `trps` enthält die Koordinaten der Fallen
+
+```{r, eval = FALSE}
+dat  <- readRDS("daten/oscr_dat.rds")
+trps <- readRDS("daten/oscr_trps.rds")
+```
+```{r, echo = FALSE}
+dat  <- readRDS(here::here("daten/oscr_dat.rds"))
+trps <- readRDS(here::here("daten/oscr_trps.rds"))
+```
+
+#### Aufgaben
+
+1. Wie viele Fallen gab es? Schauen Sie sich `trps` an.
+2. Wie viele Fänge (Zeilen) enthält `dat`? Wie viele individuelle Tiere wurden gefangen?
+3. Wie viele Fangereignisse (`occassion`) gab es, und wie viele Fänge entfielen auf jedes Fangereignis?
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+# 1
+nrow(trps)
+
+# 2
+nrow(dat)
+n_distinct(dat$PIT)
+
+# 3
+unique(dat$occassion)
+table(dat$occassion)
+```
+:::
+
+## Lincoln-Petersen-Schätzer
+
+Der Lincoln-Petersen-Schätzer nutzt zwei Fangereignisse, um die Populationsgröße zu schätzen:
+
+$$\hat{N} = \frac{n_1 \cdot n_2}{m_2}$$
+
+mit $n_1$ = Fänge im ersten Ereignis, $n_2$ = Fänge im zweiten Ereignis, $m_2$ = Wiederfänge (in beiden Ereignissen gefangen).
+
+```{r}
+dat12 <- filter(dat, occassion %in% 1:2)
+```
+
+#### Aufgaben
+
+4. Berechnen Sie $n_1$ und $n_2$ (Anzahl Fänge je Fangereignis).
+5. Bestimmen Sie $m_2$: Wie viele Tiere wurden in *beiden* Fangereignissen gefangen? Nutzen Sie `table(table(dat12$PIT))`.
+6. Berechnen Sie $\hat{N}$ und ein 95%-Konfidenzintervall mit:
+$$\text{SE} = \hat{N} \sqrt{\frac{(\hat{N}-n_1)(\hat{N}-n_2)}{n_1 \cdot n_2 \cdot (\hat{N}-1)}}$$
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+# 4
+n1 <- filter(dat12, occassion == 1) |> nrow()
+n2 <- filter(dat12, occassion == 2) |> nrow()
+n1; n2
+
+# 5
+table(table(dat12$PIT))
+m2 <- 8   # Tiere, die in beiden Ereignissen gefangen wurden
+
+# 6
+(N <- (n1 * n2) / m2)
+
+SE <- N * sqrt(((N - n1) * (N - n2)) / (n1 * n2 * (N - 1)))
+N + c(-2, 2) * SE
+```
+:::
+
+## Dichte aus dem Lincoln-Petersen-Schätzer
+
+Um aus $\hat{N}$ eine Dichte zu berechnen, müssen wir die beprobte Fläche abschätzen. Dafür verwenden wir die *Mean Maximum Distance Moved* (MMDM): den mittleren maximalen Abstand zwischen Fangorten eines Tieres. Die effektive Fläche ergibt sich dann als Quadrat mit Seitenlänge $(\text{Fallengitter-Ausdehnung} + \text{MMDM})$.
+
+```{r}
+dat2 <- left_join(dat12, trps, c("trap" = "TrapID")) |>
+  nest(data = -PIT) |>
+  mutate(n = map_int(data, nrow)) |>
+  filter(n == 2)
+
+d <- map_dbl(dat2$data, function(x) sqrt(diff(x$x)^2 + diff(x$y)^2))
+```
+
+#### Aufgaben
+
+7. Berechnen Sie die MMDM (`mean(d)`). In welcher Einheit ist der Wert?
+8. Bestimmen Sie die Ausdehnung des Fallengitters mit `range(trps$x)` und `range(trps$y)`.
+9. Berechnen Sie die Dichte in Individuen pro Hektar. Die effektive Fläche (in Metern) ist $(70 + \text{MMDM})^2$; $1 \text{ ha} = 10.000 \text{ m}^2$.
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+# 7
+mean(d)
+
+# 8
+range(trps$x)
+range(trps$y)
+
+# 9
+N / (70 + mean(d))^2 * 1e4   # ind/ha
+```
+:::
+
+## Räumliches Fang-Wiederfang (SCR) mit `oSCR`
+
+SCR modelliert explizit, wo jedes Tier seinen Aktivitätsmittelpunkt hat und wie die Entdeckungswahrscheinlichkeit mit der Distanz zu diesem Mittelpunkt abnimmt. Dadurch ist keine externe Flächenschätzung nötig.
+
+Als erstes wandeln wir die Daten in ein `oSCR`-Objekt um:
+
+```{r}
+x <- data2oscr(
+  edf      = dat,
+  sess.col = 2,
+  occ.col  = 3,
+  id.col   = 4,
+  sex.col  = 5,
+  trap.col = 1,
+  ntraps   = 64,
+  K        = 5,
+  tdf      = list(as.data.frame(trps)))
+```
+
+Dann definieren wir das Zustandsraum-Objekt (`ssDF`), das das Studiengebiet abgrenzt:
+
+```{r}
+ssDF <- make.ssDF(scrFrame = x$scrFrame, buffer = 10, res = 5)
+```
+
+#### Aufgaben
+
+10. Visualisieren Sie die Fanghistorien mit `spiderplot(x$scrFrame)` und das Studiengebiet mit `plot(ssDF)`. Was zeigen die Verbindungslinien im Spiderplot?
+11. Passen Sie zwei Modelle an. Im Null-Modell (`m1`) sind Dichte $D$, Basisentdeckungswahrscheinlichkeit $p_0$ und Bewegungsradius $\sigma$ konstant. Im zweiten Modell (`m2`) hängt $\sigma$ vom Geschlecht ab. Vergleichen Sie die Modelle anhand des AIC.
+
+```{r}
+#| eval: false
+m1 <- oSCR.fit(
+  model    = list(D ~ 1, p0 ~ 1, sig ~ 1),
+  scrFrame = x$scrFrame, ssDF = ssDF)
+
+m2 <- oSCR.fit(
+  model    = list(D ~ 1, p0 ~ 1, sig ~ sex),
+  scrFrame = x$scrFrame, ssDF = ssDF)
+```
+
+12. Lesen Sie die geschätzten Parameter für `m1` aus (`get.real()`). Wie groß sind $p_0$, $\sigma$ und die Dichte pro Pixel?
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+#| eval: false
+
+# 10
+spiderplot(x$scrFrame)
+plot(ssDF)
+# Verbindungslinien zeigen Tiere, die an mehreren Fallen gefangen wurden.
+
+# 11
+m1$AIC
+m2$AIC
+
+# 12
+get.real(m1, newdata = data.frame(x = 1), type = "det")
+get.real(m1, newdata = data.frame(x = 1), type = "sig")
+get.real(m1, newdata = data.frame(x = 1), type = "dens")
+```
+:::
+
+## Abundanz und Vergleich
+
+#### Aufgaben
+
+13. Berechnen Sie die geschätzte Gesamtabundanz aus `m1` als Summe der pixelweisen Dichten. Schließen Sie ein Konfidenzintervall ein.
+
+```{r}
+#| eval: false
+d1 <- get.real(m1, type = "dens")
+sum(d1[[1]]$estimate)
+sum(d1[[1]]$lwr)
+sum(d1[[1]]$upr)
+```
+
+14. Vergleichen Sie die Abundanz- und Dichteschätzungen von Lincoln-Petersen und SCR. Welche Methode erscheint Ihnen zuverlässiger — und warum?
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+#| eval: false
+
+# 13
+d1 <- get.real(m1, type = "dens")
+round(sum(d1[[1]]$estimate))
+# 95%-KI
+round(sum(d1[[1]]$lwr))
+round(sum(d1[[1]]$upr))
+
+# 14
+# Lincoln-Petersen:
+N
+N + c(-2, 2) * SE
+
+# SCR schätzt die Fläche implizit durch den Aktivitätsraum der Tiere und
+# ist daher robuster gegenüber der willkürlichen Wahl der Puffergröße (MMDM).
+# Außerdem nutzt SCR alle Fangereignisse, nicht nur die ersten zwei.
+```
+:::

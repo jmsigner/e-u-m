@@ -1,0 +1,13 @@
+
+# Vorlesung
+
+- [Fang-Wiederfang](/content/slides/07/08_abundanz_2.html){target="_blank"}
+- [Übung: Fang-Wiederfang](/content/uebungen/ue_w9_scr.html){target="_blank"}
+
+# Folien
+
+- [Alle Folien (pdf)](/content/slides/pdf/vl-8.pdf){target="_blank"}
+- [Alle Folien (html)](/content/slides/07/08_abundanz_2.html){target="_blank"}
+
+
+

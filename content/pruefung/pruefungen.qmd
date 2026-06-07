@@ -143,6 +143,17 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 :::
 
 ::: {.column width="50%"}
+### Einheit 8 (Woche 9)
+
+1. Lincoln-Petersen Schätzer
+2. Fing-Wiederhang: Idee
+3. MMDM
+4. Fallen Neutralität
+5. Offene Population 
+6. Geschlossene Population
+7. Räumlicher Fang-Wiederfang
+8. Aktivitätszentrum
+9. $p_0$ und $\sigma$ aus dem SCR-Modell
 
 :::
 :::
@@ -307,6 +318,7 @@ Man kann die Daten herunterladen. Dann wären die nächsten Schritte wären:
 - HomeRange: A global database of mammalian home ranges: <https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13625>
 - The body size and temperature dependence of organismal locomotion: <https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114>
 - Petroni et al. 2025 (Occupancy) Recolonization pattern of wolves in Northern Apennines, Central Italy: a Bayesian analysis using opportunistic and systematic data <https://cdnsciencepub.com/doi/10.1139/cjz-2025-0010>. *Daten und Code sind im Anhang*. 
+- Hobson et al. 2026 (SCR; Baumarder) Both forest cover and land management practices explain variation in recovering pine marten densities <https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1002/wlb3.01594>
 
 #### Datenbanken
 
