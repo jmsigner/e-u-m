@@ -33,7 +33,8 @@ website:
             text: "08. Fang-Wiederfang-Methoden"
           - text: "----"
           - text: "Telemetrie"
-          - text: "09. Einführung"
+          - href: content/vorlesungen/09-vorlesung.qmd
+            text: "09. Einführung"
           - text: "10. Streifgebiete"
           - text: "11. Habitatselektion 1"
           - text: "12. Habitatselektion 2"
@@ -58,6 +59,8 @@ website:
             text: "7. Distance Sampling"
           - href: content/uebungen/ue_w9_scr.qmd
             text: "8. Fang-Wiederfang"
+          - href: content/uebungen/ue_w9_deer.qmd
+            text: "9. Bewegungsökologie 1"
       - text: Prüfungsleistungen
         href: content/pruefung/pruefungen.qmd
 

@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <meta name="author" content="Johannes Signer">
+  <meta name="dcterms.date" content="2026-06-14">
+  <title>Erfassung und Monitoring von Wildtieren – Einführung in die Bewegungsökologie</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-79de7379233449a958139d6a18b1afaf.css">
+  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+<script src="mathjax-config.js"></script>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Einführung in die Bewegungsökologie</h1>
+  <p class="subtitle">Schritte, Richtungen &amp; Zufallsbewegungen</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:jsigner@uni-goettingen.de">jsigner@uni-goettingen.de</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Georg-August-Universität Göttingen
+          </p>
+    </div>
+</div>
+
+  <p class="date">June 14, 2026</p>
+</section>
+<section id="wo-sind-wir" class="slide level2">
+<h2>Wo sind wir?</h2>
+<ul>
+<li><span style="color: #888;">13.04.2026: E01: Einführung</span></li>
+<li><span style="color: #888;">20.04.2026: E02: Erfassung von Wildtieren</span></li>
+<li><span style="color: #888;">27.04.2026: E03: Verbreitung 1</span></li>
+<li><span style="color: #888;">05.05.2026: E04: Verbreitung 2</span></li>
+<li><span style="color: #888;">05.2026: E05: Occupancy-Modelle 1 (online)</span></li>
+<li><span style="color: #888;">18.05.2026: E06: Occupancy-Modelle 2</span></li>
+<li><span style="color: #888;">01.06.2026: E07: Abundanz 1</span></li>
+<li><span style="color: #888;">08.06.2026: E08: Abundanz 2</span></li>
+<li><strong>15.06.2026: E09: Telemetrie 1: Random Walks etc.</strong></li>
+<li>22.06.2026: E10: Telemetrie 2: Streifgebiete</li>
+<li>29.06.2026: E11: Telemetrie 3: Habitatselektion (online)</li>
+<li>06.07.2026: E12: Telemetrie 4: Habitatselektion</li>
+</ul>
+</section>
+<section id="kurze-wiederholungvorschau" class="slide level2">
+<h2>Kurze Wiederholung/Vorschau</h2>
+
+<img data-src="images/clipboard-2811946383.png" class="r-stretch"></section>
+<section>
+<section id="warum-bewegungsökologie" class="title-slide slide level1 center">
+<h1>Warum Bewegungsökologie?</h1>
+
+</section>
+<section id="tiere-in-raum-und-zeit-verstehen" class="slide level2">
+<h2>Tiere in Raum und Zeit verstehen</h2>
+<p>Tierbewegung ist ein fundamentaler ökologischer Prozess:</p>
+<div>
+<ul>
+<li class="fragment"><strong>Ressourcenzugang</strong> — Nahrung, Wasser, Partner finden</li>
+<li class="fragment"><strong>Habitatnutzung</strong> — Welche Lebensräume werden gewählt oder gemieden?</li>
+<li class="fragment"><strong>Dispersion &amp; Ausbreitung</strong> — Wie entstehen Metapopulationen?</li>
+<li class="fragment"><strong>Verhaltensökologie</strong> — Nahrungssuche, Ruhe, Flucht als Verhaltenszustände</li>
+<li class="fragment"><strong>Naturschutz</strong> — Wildtierkorridore, Barrieren (Straßen), Klimawandel</li>
+<li class="fragment"><strong>Epidemiologie</strong> — Kontaktraten bestimmen Krankheitsausbreitung</li>
+</ul>
+</div>
+</section>
+<section id="zwei-perspektiven-auf-tierbewegung" class="slide level2">
+<h2>Zwei Perspektiven auf Tierbewegung</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="lagrangesche-sichtweise">Lagrange’sche Sichtweise</h3>
+<ul>
+<li>Individuelle Tiere werden <strong>verfolgt</strong></li>
+<li>GPS-Halsbänder, Sender, Telemetrie</li>
+<li>Studie auf Ebene der einzelnen <strong>Individuen</strong></li>
+<li>Fragestellung: <em>Wo geht dieses Tier hin?</em></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="eulersche-sichtweise">Euler’sche Sichtweise</h3>
+<ul>
+<li>Tiere werden von <strong>fixen Punkten</strong> beobachtet</li>
+<li>Beispielsweise Kamerafallen oder Transekte</li>
+<li>Studie auf <strong>Populationsebene</strong></li>
+</ul>
+</div></div>
+
+<img data-src="images/lagrange_vs_euler.png" style="width:60.0%" class="r-stretch quarto-figure-center"><p class="caption">Lagrange vs.&nbsp;Euler (Quelle: CMU 15-462)</p><aside class="notes">
+<p>Wir fokussieren in dieser Vorlesung auf den Lagrange’schen Ansatz — GPS-Daten einzelner Tiere.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="von-punkten-zu-schritten" class="title-slide slide level1 center">
+<h1>Von Punkten zu Schritten</h1>
+
+</section>
+<section id="typische-analysepipeline" class="slide level2">
+<h2>Typische Analysepipeline</h2>
+
+<img data-src="images/joo2020.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">Workflow (nach Joo et al.&nbsp;2020)</p><div>
+<ol type="1">
+<li class="fragment"><strong>Vorverarbeitung</strong> — Rohdaten → x, y, t (GPS: direkt; GLS: Lichtintensität → Position)</li>
+<li class="fragment"><strong>Nachverarbeitung</strong> — Ausreißer erkennen und entfernen</li>
+<li class="fragment"><strong>Analyse</strong> — Home Ranges, Habitatwahl, Bewegungsmodelle …</li>
+</ol>
+</div>
+</section>
+<section id="ortungen-die-grunddaten" class="slide level2">
+<h2>Ortungen — die Grunddaten</h2>
+
+<img data-src="images/relocs.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><ul>
+<li>Typischerweise: Zeitreihe von Koordinaten (<code>x</code>, <code>y</code>) + Zeitpunkt <code>t</code></li>
+<li>Je nach Sensor: Temperatur, Projektionskoordinate, Akkustatus, …</li>
+</ul>
+</section>
+<section id="pfad-zug-und-schritt-definitionen" class="slide level2">
+<h2>Pfad, Zug und Schritt — Definitionen</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li><strong>Pfad</strong> (<em>Path</em>): Kontinuierliche Spur eines Tieres durch den Raum.</li>
+<li><strong>Bewegung</strong> (<em>Move</em>): Jeder Pfad wird als Serie von Geraden dargestellt — Verlagerung zwischen zwei aufeinanderfolgenden Haltepunkten.</li>
+<li><strong>Schritt</strong> (<em>Step</em>): Haltepunkte des Pfades in <strong>regelmäßigen Zeitintervallen</strong> — die Grundeinheit unserer Analysen.</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="images/turchin.png" width="434"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<p>Für mehr Details siehe Turchin 1998.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bursts-und-resampling" class="slide level2">
+<h2>Bursts und Resampling</h2>
+
+<img data-src="images/track_burst.png" style="width:85.0%" class="r-stretch quarto-figure-center"><p class="caption">Tracks und Bursts</p><ul>
+<li>Ein <strong>Burst</strong> ist eine Sequenz von Relocations desselben Individuums mit <strong>gleichen Zeitintervallen</strong> (mit Toleranz)</li>
+<li><code>amt::track_resample()</code> → eine Relocation pro Zeitintervall</li>
+<li><code>amt::filter_min_n_burst()</code> → Bursts mit zu wenigen Punkten entfernen</li>
+</ul>
+</section>
+<section id="schritte-berechnen" class="slide level2">
+<h2>Schritte berechnen</h2>
+
+<img data-src="images/steps.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(amt)</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"deer"</span>)</span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>deer <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">track_resample</span>(<span class="at">rate =</span> <span class="fu">hours</span>(<span class="dv">6</span>), <span class="at">tolerance =</span> <span class="fu">minutes</span>(<span class="dv">20</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter_min_n_burst</span>(<span class="at">min_n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">steps_by_burst</span>() <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>(<span class="at">width =</span> <span class="dv">55</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 788
+Columns: 11
+$ burst_      &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+$ x1_         &lt;dbl&gt; 4314068, 4314053, 4314105, 431404…
+$ x2_         &lt;dbl&gt; 4314053, 4314105, 4314044, 431301…
+$ y1_         &lt;dbl&gt; 3445807, 3445768, 3445859, 344578…
+$ y2_         &lt;dbl&gt; 3445768, 3445859, 3445785, 344585…
+$ sl_         &lt;dbl&gt; 41.777390, 104.302578, 95.261565,…
+$ direction_p &lt;dbl&gt; -1.952253, 1.045656, -2.266433, 3…
+$ ta_         &lt;dbl&gt; NA, 2.99790876, 2.97109629, -0.94…
+$ t1_         &lt;dttm&gt; 2008-03-30 00:01:47, 2008-03-30 …
+$ t2_         &lt;dttm&gt; 2008-03-30 06:00:54, 2008-03-30 …
+$ dt_         &lt;drtn&gt; 5.985278 hours, 6.014722 hours, …</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="kenngrößen-eines-schrittes" class="slide level2">
+<h2>Kenngrößen eines Schrittes</h2>
+<div>
+<ul>
+<li class="fragment"><strong><code>sl_</code></strong> — Schrittlänge: Distanz zwischen zwei aufeinanderfolgenden Ortungen
+<ul>
+<li class="fragment">Abhängig vom Zeitintervall zwischen Ortungen</li>
+</ul></li>
+<li class="fragment"><strong><code>ta_</code></strong> — Relative Richtungsänderung zwischen zwei aufeinanderfolgenden Schritten
+<ul>
+<li class="fragment">0 = geradeaus, ±π = Umkehr</li>
+</ul></li>
+<li class="fragment"><strong>NSD</strong> — Net Squared Displacement: Wie weit bewegt sich das Tier vom Startpunkt?
+<ul>
+<li class="fragment">Gut für Erkennung von Migration, Heimkehr, Dispersion</li>
+</ul></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="statistische-verteilungen-für-schritt-und-richtung" class="title-slide slide level1 center">
+<h1>Statistische Verteilungen für Schritt und Richtung</h1>
+
+</section>
+<section id="warum-brauchen-wir-verteilungen" class="slide level2">
+<h2>Warum brauchen wir Verteilungen?</h2>
+<p>Tiere bewegen sich <strong>nicht deterministisch</strong> — es gibt Variabilität in Schrittlängen und Richtungen.</p>
+<div class="fragment">
+<p>Wir modellieren diese Variabilität mit <strong>Wahrscheinlichkeitsverteilungen</strong>, um:</p>
+<ul>
+<li>beobachtete Bewegungen zu <strong>beschreiben und zusammenzufassen</strong></li>
+<li>Bewegungen zu <strong>simulieren</strong> (Nullmodelle)</li>
+<li>Parameter zu <strong>schätzen</strong> und zwischen Verhaltensweisen oder Individuen zu vergleichen</li>
+<li>Zufallsbewegungsmodelle (z.B. Random Walk (RW)) formal zu <strong>definieren</strong></li>
+</ul>
+</div>
+</section>
+<section id="sec-gamma" class="slide level2">
+<h2>Schrittlänge: Die Gamma-Verteilung</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><span class="math display">\[\text{sl} \sim \text{Gamma}(\alpha, \beta) \quad [\alpha, \beta &gt; 0]\]</span></p>
+<ul>
+<li><span class="math inline">\(\alpha\)</span> (<strong>shape</strong>): bestimmt die Form der Kurve
+<ul>
+<li>klein → stark rechtsschief (viele kurze Schritte)</li>
+<li>groß → annähernd glockenförmig</li>
+</ul></li>
+<li><span class="math inline">\(\beta\)</span> (<strong>scale</strong>): bestimmt den Skalierungsparameter
+<ul>
+<li>mittlere Schrittlänge <span class="math inline">\(\propto \alpha \cdot \beta\)</span></li>
+</ul></li>
+<li>Nur für <strong>positive Werte</strong> definiert → ideal für Distanzen</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09_me_1_files/figure-revealjs/unnamed-chunk-8-1.png" width="432"></p>
+<figcaption>Gamma-Dichten für verschiedene Parameter</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="sec-vonmises" class="slide level2">
+<h2>Richtungen: Von-Mises-Verteilung</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><span class="math display">\[\theta \sim \text{vonMises}(\mu,\; \kappa) \quad [\kappa \geq 0]\]</span></p>
+<ul>
+<li><span class="math inline">\(\mu\)</span>: mittlere Richtung (immer 0, da wir davon ausgehen, dass die Tiere gerade weiter gehen).</li>
+<li><span class="math inline">\(\kappa\)</span> (<strong>Konzentration</strong>): Wie stark ist die Richtung konzentriert?
+<ul>
+<li><span class="math inline">\(\kappa = 0\)</span> → gleichmäßig auf dem Kreis → <strong>kein Richtungssinn</strong> (RW)</li>
+<li><span class="math inline">\(\kappa \gg 0\)</span> → starke Konzentration um <span class="math inline">\(\mu\)</span> → <strong>gerichtete Bewegung</strong> (CRW)</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09_me_1_files/figure-revealjs/unnamed-chunk-9-1.png" width="432"></p>
+<figcaption>Von-Mises-Dichten für verschiedene κ</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<p>κ ist DER Schlüsselparameter für Richtungskorrelation. κ=0 entspricht dem einfachen RW, großes κ dem CRW.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="verteilungen-anpassen-in-r-mit-amt" class="slide level2">
+<h2>Verteilungen anpassen — in R mit <code>amt</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"deer"</span>)</span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>stps <span class="ot">&lt;-</span> deer <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">track_resample</span>(<span class="at">rate =</span> <span class="fu">hours</span>(<span class="dv">6</span>), <span class="at">tolerance =</span> <span class="fu">minutes</span>(<span class="dv">20</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter_min_n_burst</span>(<span class="at">min_n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">steps_by_burst</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Schrittlänge: Gamma-Verteilung</span></span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>(sl_fit <span class="ot">&lt;-</span> <span class="fu">fit_distr</span>(stps<span class="sc">$</span>sl_, <span class="st">"gamma"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$name
+[1] "gamma"
+
+$params
+$params$shape
+[1] 0.7746662
+
+$params$scale
+[1] 466.6689
+
+
+$vcov
+            scale        shape
+scale 765.1327391 -0.678386857
+shape  -0.6783869  0.001126553
+
+attr(,"class")
+[1] "gamma_distr" "sl_distr"    "amt_distr"   "list"       </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Richtung: Von-Mises-Verteilung</span></span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>(dir_fit <span class="ot">&lt;-</span> <span class="fu">fit_distr</span>(stps<span class="sc">$</span>direction_p, <span class="st">"vonmises"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$name
+[1] "vonmises"
+
+$params
+$params$kappa
+[1] 0.07537453
+
+$params$mu
+Circular Data: 
+Type = angles 
+Units = radians 
+Template = none 
+Modulo = asis 
+Zero = 0 
+Rotation = counter 
+[1] 0
+
+
+$vcov
+           [,1]
+[1,] 0.05043294
+
+attr(,"class")
+[1] "vonmises_distr" "ta_distr"       "amt_distr"      "list"          </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09_me_1_files/figure-revealjs/unnamed-chunk-13-1.png" width="576"></p>
+<figcaption>Schrittlängen-Histogramm mit angepasster Gamma-Verteilung</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09_me_1_files/figure-revealjs/unnamed-chunk-13-2.png" width="576"></p>
+<figcaption>Richtungsverteilung mit angepasster Von-Mises-Verteilung</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="welche-eigenschaften-braucht-eine-verteilung" class="slide level2">
+<h2>Welche Eigenschaften braucht eine Verteilung?</h2>
+<p>Normalverteilung ist weit verbreitet, aber <strong>ungeeignet</strong> für Schrittlängen und Richtungen:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09_me_1_files/figure-revealjs/unnamed-chunk-14-1.png" width="432"></p>
+<figcaption>Normalverteilung: Werte von −∞ bis +∞</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Interaktive Gamma-Verteilung: <a href="https://jmsigner.shinyapps.io/gamma/" class="uri">https://jmsigner.shinyapps.io/gamma/</a></li>
+<li>Interaktive Von-Mises Verteilung: <a href="https://jmsigner.shinyapps.io/vonmises/" class="uri">https://jmsigner.shinyapps.io/vonmises/</a></li>
+</ul>
+</div></div>
+</section>
+<section id="parameter-spiegeln-verhaltensweisen-wider" class="slide level2">
+<h2>Parameter spiegeln Verhaltensweisen wider</h2>
+<p>Parameter von Schrittlängen- und Richtungsverteilungen <strong>können sich ändern</strong> und zeigen damit unterschiedliche Verhaltenszustände an (z. B. Nahrungssuche vs.&nbsp;Ruhe):</p>
+
+<img data-src="images/moll3_part.jpg" style="width:75.0%" class="r-stretch quarto-figure-center"><p class="caption">Moll et al.&nbsp;2021: Tag vs.&nbsp;Nacht — verschiedene Parameter, verschiedene Verhaltensweisen</p></section></section>
+<section>
+<section id="bewegungsmodelle" class="title-slide slide level1 center">
+<h1>Bewegungsmodelle</h1>
+
+</section>
+<section id="vier-klassen-von-bewegungsmodellen" class="slide level2">
+<h2>Vier Klassen von Bewegungsmodellen</h2>
+<p>Zufallspfade (diskrete Zeit) unterscheiden sich darin, ob sie <strong>Richtungskorrelation</strong> oder <strong>Bias</strong> aufweisen:</p>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 48%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modell</th>
+<th style="text-align: center;">Korrelation</th>
+<th style="text-align: center;">Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>RW</strong> (Random Walk) — Einfacher Zufallspfad</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr class="even">
+<td><strong>CRW</strong> (Correlated Random Walk) — Korrelierter Zufallspfad</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr class="odd">
+<td><strong>BRW</strong> (Biased Random Walk) — Gerichteter Zufallspfad</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr class="even">
+<td><strong>BCRW</strong> (Biased Correlated Random Walk) — Gerichtet &amp; korreliert</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Die Unterscheidung erfolgt durch die Parametrisierung der <code>sl_</code>- und <code>ta_</code>-Verteilungen.</p>
+</div>
+</section>
+<section id="einfacher-zufallspfad-rw" class="slide level2">
+<h2>Einfacher Zufallspfad (RW)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="schritt-darstellung">Schritt-Darstellung</h3>
+<p><span class="math display">\[l_t \sim \text{Gamma}(\alpha, \beta)\]</span> <span class="math display">\[\theta_t \sim \text{vonMises}(\mu,\; \kappa = 0)\]</span></p>
+<p><span class="math display">\[\Delta x_t = l_t \cos(\theta_t)\]</span> <span class="math display">\[\Delta y_t = l_t \sin(\theta_t)\]</span></p>
+<ul>
+<li><span class="math inline">\(\theta_t\)</span> ist <strong>Absolutrichtung</strong> — gleichmäßig verteilt (<span class="math inline">\(\kappa = 0\)</span>)</li>
+<li>Jeder Schritt ist <strong>unabhängig</strong> vom vorherigen</li>
+<li>Positionen folgen einem Markov-Prozess 1. Ordnung</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/rw_step.png" width="358"></p>
+<figcaption>Einfacher Zufallspfad (RW)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="korrelierter-zufallspfad-crw" class="slide level2">
+<h2>Korrelierter Zufallspfad (CRW)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="schritt-darstellung-1">Schritt-Darstellung</h3>
+<p><span class="math display">\[l_t \sim \text{Gamma}(\alpha, \beta)\]</span> <span class="math display">\[\Delta\theta_t \sim \text{vonMises}(0,\; \kappa &gt; 0)\]</span></p>
+<p><span class="math display">\[\theta_t = \theta_{t-1} + \Delta\theta_t\]</span></p>
+<ul>
+<li><span class="math inline">\(\Delta\theta_t\)</span> ist <strong>relative Richtungsänderung</strong></li>
+<li><span class="math inline">\(\theta_t\)</span> hängt von <span class="math inline">\(\theta_{t-1}\)</span> ab → Richtungskorrelation</li>
+<li>Je größer <span class="math inline">\(\kappa\)</span>, desto <strong>geradliniger</strong> die Bewegung</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/crw.png" width="378"></p>
+<figcaption>Korrelierter Zufallspfad (CRW)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<p>Der Unterschied zu RW ist subtil aber wichtig: beim CRW ist es die <em>relative</em> Richtungsänderung, die von-Mises-verteilt ist.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="gerichteter-zufallspfad-brw" class="slide level2">
+<h2>Gerichteter Zufallspfad (BRW)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="lokaler-bias">Lokaler Bias</h3>
+<ul>
+<li>Anziehung zu einem <strong>nahen Ziel</strong> (z. B. Wasserstelle, Schlafplatz)</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="images/brw_local.png" width="428"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="globaler-bias">Globaler Bias</h3>
+<ul>
+<li>Anziehung zu einem <strong>entfernten Ziel</strong> (z. B. Zugvogelziel)</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="images/brw_global.png" width="484"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="biased-correlated-random-walk-bcrw" class="slide level2">
+<h2>Biased Correlated Random Walk (BCRW)</h2>
+<ul>
+<li>Kombination aus <strong>Richtungskorrelation</strong> (<span class="math inline">\(\kappa &gt; 0\)</span>) und <strong>globalem/lokalem Bias</strong></li>
+<li>Realistischstes Modell für viele Wildtiere</li>
+</ul>
+
+<img data-src="09_me_1_files/figure-revealjs/unnamed-chunk-20-1.png" width="576" class="r-stretch quarto-figure-center"><p class="caption">Weißwedelhirsch mit Wald-Landschaft — ein typisches BCRW</p></section></section>
+<section>
+<section id="fallstudie-moll-et-al.-2021" class="title-slide slide level1 center">
+<h1>Fallstudie: Moll et al.&nbsp;2021</h1>
+
+</section>
+<section id="weißwedelhirsch-dispersion" class="slide level2">
+<h2>Weißwedelhirsch-Dispersion</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/moll3_part.jpg" style="width:75.0%"></p>
+<figcaption>Moll et al.&nbsp;2021 — Schrittgeschwindigkeit und Richtungsverteilung für Tag/Nacht</figcaption>
+</figure>
+</div>
+</div>
+</div>
+
+<aside><div>
+<p>Moll et al.&nbsp;(2021). <em>Ecology and Evolution.</em> <a href="https://doi.org/10.1002/ece3.7354" class="uri">https://doi.org/10.1002/ece3.7354</a></p>
+</div></aside></section>
+<section id="hintergrund-der-studie" class="slide level2">
+<h2>Hintergrund der Studie</h2>
+<p>Remington Moll beobachtete eine <strong>seltene Langstrecken-Dispersion</strong> bei <em>Odocoileus virginianus</em> (Weißwedelhirsch)<sup>1</sup>.</p>
+<div>
+<ul>
+<li class="fragment">GPS-Tracking lieferte hochauflösende Ortungsdaten</li>
+<li class="fragment">Analyse: Verteilung von <strong>Schrittgeschwindigkeit</strong> (Proxy für Schrittlänge) und <strong>Richtung</strong> — getrennt für Tag und Nacht</li>
+<li class="fragment"><strong>Hinweis</strong>: Moll et al.&nbsp;verwenden <em>Geschwindigkeit</em> (Schrittlänge / Zeitintervall) statt Schrittlänge direkt — die biologische Interpretation bleibt gleich</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Diskussion (3 min)</strong></p>
+</div>
+<div class="callout-content">
+<p>Wie erwarten Sie, dass sich der Hirsch <strong>tagsüber</strong> vs.&nbsp;<strong>nachts</strong> während der Dispersion verhält?<br>
+Welche Parameterunterschiede erwarten Sie in der Gamma- und Von-Mises-Verteilung?</p>
+</div>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Moll et al.&nbsp;(2021). Ecology and Evolution. doi:10.1002/ece3.7354</p></li></ol></aside></section>
+<section id="ergebnisse-tag-vs.-nacht" class="slide level2">
+<h2>Ergebnisse: Tag vs.&nbsp;Nacht</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="schrittgeschwindigkeit">Schrittgeschwindigkeit</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Tag</th>
+<th>Nacht</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gamma <span class="math inline">\(\alpha\)</span></td>
+<td>kleiner</td>
+<td>größer</td>
+</tr>
+<tr class="even">
+<td>Gamma <span class="math inline">\(\beta\)</span></td>
+<td>kleiner</td>
+<td>größer</td>
+</tr>
+<tr class="odd">
+<td>Mittlere Geschw.</td>
+<td><strong>niedrig</strong></td>
+<td><strong>hoch</strong></td>
+</tr>
+</tbody>
+</table>
+<p>→ Viele kurze Schritte tagsüber<br>
+→ Längere, schnellere Bewegung nachts</p>
+</div><div class="column" style="width:50%;">
+<h3 id="richtung">Richtung</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Tag</th>
+<th>Nacht</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>vonMises <span class="math inline">\(\kappa\)</span></td>
+<td><strong>klein</strong></td>
+<td><strong>groß</strong></td>
+</tr>
+<tr class="even">
+<td>Richtungssinn</td>
+<td>schwach</td>
+<td>stark</td>
+</tr>
+<tr class="odd">
+<td>Bewegungstyp</td>
+<td>≈ RW</td>
+<td>CRW</td>
+</tr>
+</tbody>
+</table>
+<p>→ Tagsüber: ungerichtete Bewegung / Ruhe<br>
+→ Nachts: gerichtete Dispersion</p>
+</div></div>
+</section>
+<section id="biologische-interpretation" class="slide level2">
+<h2>Biologische Interpretation</h2>
+<div>
+<ul>
+<li class="fragment"><strong>Nachtaktive, gerichtete Dispersion</strong> (CRW, hohes <span class="math inline">\(\kappa\)</span>):
+<ul>
+<li class="fragment">Tier bewegt sich zielgerichtet und mit Richtungspersistenz</li>
+<li class="fragment">Große Schrittlängen/-geschwindigkeiten</li>
+</ul></li>
+<li class="fragment"><strong>Kryptisches Ruheverhalten am Tag</strong> (≈ RW, kleines <span class="math inline">\(\kappa\)</span>):
+<ul>
+<li class="fragment">Geringe Geschwindigkeit → Rast, Nahrungssuche auf kleinem Raum</li>
+<li class="fragment">Richtung nahezu gleichmäßig auf dem Kreis verteilt</li>
+</ul></li>
+<li class="fragment"><strong>Methodische Schlussfolgerungen</strong>:
+<ul>
+<li class="fragment">Parameterschätzung von Gamma und Von-Mises ist <strong>informativ über Verhaltensweisen</strong></li>
+<li class="fragment">Moll et al.&nbsp;nutzen genau diese Verteilungsunterschiede als Evidenz für Dispersionsbewegung</li>
+</ul></li>
+</ul>
+</div>
+
+
+</section></section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

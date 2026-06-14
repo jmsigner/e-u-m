@@ -18,9 +18,7 @@ Eine Vertrautheit mit folgenden Veröffentlichungen erwarte ich:
 
 3. Zu Distance Sampling [Hand 2019](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.4938).
 
-4. Ausband et al. 2022 [Estimating wolf abundance from cameras](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.3933)
-
-5. Telemetriestudie
+4. 
 
 Sie haben die Veröffentlichungen gelesen, kenne ungefähr den Inhalt und finden Antworten auf spezifische Fragen schnell. Es werden keine Fragen zu technischen/statistischen Details gestellt.
 
@@ -154,6 +152,27 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 7. Räumlicher Fang-Wiederfang
 8. Aktivitätszentrum
 9. $p_0$ und $\sigma$ aus dem SCR-Modell
+
+:::
+:::
+
+::: {.columns}
+::: {.column width="50%"}
+### Einheit 9 (Woche 10)
+
+1. Lagrange’sche und Euler'sche Sichtweise
+2. Pfad, Bewegung, Schritt
+3. Burst
+4. Gamma-Verteilung
+5. Von-Mises Verteilung
+6. RW, CRW, BRW, BCRW
+7. Richtung
+8. Schrittlänge
+:::
+
+::: {.column width="50%"}
+### Einheit 10 (Woche 11)
+
 
 :::
 :::
@@ -319,6 +338,9 @@ Man kann die Daten herunterladen. Dann wären die nächsten Schritte wären:
 - The body size and temperature dependence of organismal locomotion: <https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114>
 - Petroni et al. 2025 (Occupancy) Recolonization pattern of wolves in Northern Apennines, Central Italy: a Bayesian analysis using opportunistic and systematic data <https://cdnsciencepub.com/doi/10.1139/cjz-2025-0010>. *Daten und Code sind im Anhang*. 
 - Hobson et al. 2026 (SCR; Baumarder) Both forest cover and land management practices explain variation in recovering pine marten densities <https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1002/wlb3.01594>
+
+- Moll et al. 2021 (Telmetrie) A 'landscape of fear' during dispersal? The case of an exploratory white-tailed deer. *Ecology and Evolution*, 11, 3641–3652. <https://doi.org/10.1002/ece3.7354>
+
 
 #### Datenbanken
 
