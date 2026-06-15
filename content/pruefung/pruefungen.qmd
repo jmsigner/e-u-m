@@ -279,7 +279,24 @@ abline(a = 1, b = 0, col = "red")
 
 ## Hausarbeit
 
+### Abgabe
+
+Bitte tragen sie sich **rechtzeitig** bei FlexNow für die Hausarbeit ein. Ich kann Ihre Hausarbeit nur bewerten, wenn Sie sich für diese eingetragen haben. Zum Abgabetermin laden Sie bitte **eine zip-Datei** bei StudIP in den Ordner `Abgabe Hausarbeit` hoch. Benennen Sie Datei wie folgt: `Hausarbeit-<Nachname>_<Vorname>.zip`. Für mich wäre das `Hausarbeit-Signer_Johannes.zip`.
+
+Die weitere Organisation der Dateien ist Ihnen überlassen, aber ich würde folgende Ordnerstruktur empfehlen: 
+
+```
+- Hausarbeit-Signer_Johannes
+| - daten # hier legen Sie die Rohdaten ab
+| - skripte # hier legen Sie R Skripte ab
+| - Hausarbeit-Signer_Johannes.Rproj # Das R-Studioprojekt
+| - hausarbeit # hier legen Sie ein pdf der Hausarbeit ab
+| - README # Ein README, das kurz die Struktur erklärt
+```
+
 ### Gliederung
+
+Bitte orientieren Sie sich für die Gliederung der Hausarbeit an der folgenden Tabelle. 
 
 | Was             | Bewertung | Detaillierte Bewertung |
 |-----------------|-----------|------------------------|
