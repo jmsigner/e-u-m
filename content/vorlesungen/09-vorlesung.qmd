@@ -7,7 +7,7 @@
 # Folien
 
 - [Alle Folien (pdf)](/content/slides/pdf/vl-9.pdf){target="_blank"}
-- [Alle Folien (html)](/content/slides/09/09_me_1.html.html){target="_blank"}
+- [Alle Folien (html)](/content/slides/09/09_me_1.html){target="_blank"}
 
 
 
