@@ -35,7 +35,8 @@ website:
           - text: "Telemetrie"
           - href: content/vorlesungen/09-vorlesung.qmd
             text: "09. Einführung"
-          - text: "10. Streifgebiete"
+          - href: content/vorlesungen/10-vorlesung.qmd
+            text: "10. Streifgebiete"
           - text: "11. Habitatselektion 1"
           - text: "12. Habitatselektion 2"
       - text: Übungen
@@ -61,6 +62,8 @@ website:
             text: "8. Fang-Wiederfang"
           - href: content/uebungen/ue_w9_deer.qmd
             text: "9. Bewegungsökologie 1"
+          - href: content/uebungen/ue_w11_hr.qmd
+            text: "10. Streifgebiete"
       - text: Prüfungsleistungen
         href: content/pruefung/pruefungen.qmd
 

@@ -1,0 +1,226 @@
+---
+title: "Übung Einheit 10 (Woche 11): Telemetriedaten & Streifgebiete"
+subtitle: "Arbeiten mit GPS-Daten von Rotwild und Rentieren mit dem `amt`-Paket"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jmsigner@gwdg.de
+    affiliations: Georg-August-Universität Göttingen
+date: last-modified
+execute:
+  warning: false
+  message: false
+---
+
+## Hintergrund
+
+In dieser Übung arbeiten wir mit GPS-Telemetriedaten von Rotwild (*Cervus elaphus*) und Rentieren (*Rangifer tarandus*). Wir lernen, wie man Telemetriedaten in R einliest, aufbereitet und grundlegende Kenngrößen wie Schrittlängen und Streifgebiete berechnet. Dazu verwenden wir das Paket `amt` (Animal Movement Tools), das speziell für die Analyse von Tierbewegungsdaten entwickelt wurde.
+
+Die Rotwild-Daten sind bei StudIP unter `daten/rotwild.csv` verfügbar. Die Rentierdaten stammen aus einer offenen Datenquelle[^dryad] und sind unter `daten/gpsdata1.csv` zu finden.
+
+[^dryad]: Daten verfügbar unter: <https://datadryad.org/stash/dataset/doi:10.5061/dryad.5337hv7>. Bitte stellen Sie bei einer anderweitigen Verwendung sicher, dass die Nutzungsbedingungen dies erlauben.
+
+```{r, eval = FALSE}
+library(amt)
+library(tidyverse)
+library(lubridate)
+
+dat <- read.csv("daten/rotwild.csv")
+head(dat)
+str(dat)
+```
+
+```{r, echo = FALSE}
+library(amt)
+library(tidyverse)
+library(lubridate)
+```
+
+---
+
+## Teil 1: Rotwild-Daten erkunden
+
+Bevor wir mit den Telemetriedaten arbeiten können, müssen wir sie einlesen und in ein für `amt` geeignetes Format bringen. Der zentrale Datentyp in `amt` ist ein **Track** (`trk`), der mit der Funktion `make_track()` erstellt wird.
+
+#### Aufgaben
+
+1. Lesen Sie die Rotwild-Daten ein (`daten/rotwild.csv`) und verschaffen Sie sich einen ersten Überblick mit `head()` und `str()`. Parsen Sie anschließend die Zeitspalte `ts` mit `lubridate::ymd_hms()` und extrahieren Sie den Monat mit `month()`.
+
+2. Erstellen Sie mit `make_track()` einen Track (CRS: EPSG:3035). Vergleichen Sie die Klassen von `dat` und `trk`. Schauen Sie sich den Track mit `inspect()` an — was passiert, wenn Sie `inspect()` auf `dat` anwenden? Prüfen Sie mit `summarize_sampling_rate()`, wie häufig Positionen aufgezeichnet wurden.
+
+3. Bestimmen Sie mit `time_of_day()`, ob eine Position tagsüber oder nachts aufgezeichnet wurde. Berechnen Sie außerdem die Schrittlängen mit `step_lengths()` und die mittlere Schrittlänge (mit `na.rm = TRUE`).
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r, eval = FALSE}
+# 1: Daten einlesen und Zeitstempel parsen
+dat <- read.csv("daten/rotwild.csv")
+head(dat)
+str(dat)
+
+dat$ts <- ymd_hms(dat$ts)
+str(dat)
+
+month(dat$ts)
+
+# 2: Track erstellen und erkunden
+trk <- make_track(dat, x, y, ts, id = id, crs = 3035)
+trk
+
+class(dat)
+class(trk)
+
+inspect(trk)
+inspect(dat) # klappt nicht
+
+summarize_sampling_rate(trk)
+
+# 3: Tageszeit und Schrittlängen
+trk |> time_of_day()
+
+trk |> step_lengths()
+trk |> step_lengths() |> mean()
+trk |> step_lengths() |> mean(na.rm = TRUE)
+```
+:::
+
+---
+
+## Teil 2: Rentierdaten erkunden
+
+In diesem Teil arbeiten wir mit einem größeren Datensatz von weiblichen Rentieren aus Schweden. Wir üben explorative Datenanalyse und lernen `for`-Schleifen kennen, um Berechnungen über mehrere Tiere zu automatisieren.
+
+#### Aufgaben
+
+1. Laden Sie die Rentierdaten (`daten/gpsdata1.csv`) und parsen Sie die Zeitspalte `date` mit `ymd_hms()`. Beantworten Sie folgende Fragen:
+   - Wie viele Datenpunkte enthält der Datensatz?
+   - Von wie vielen Tieren stammen die Daten?
+   - Haben alle Tiere gleich viele Datenpunkte? Verwenden Sie dazu sowohl manuelle Abfragen als auch `table()`.
+
+2. **Exkurs `for`-Schleife:** Schreiben Sie eine Schleife, die für jede Tier-ID die Anzahl der Datenpunkte auf die Konsole ausgibt. Speichern Sie die Ergebnisse anschließend in einem Vektor und erstellen Sie daraus einen `data.frame`.
+
+3. Erstellen Sie einen Track mit `make_track()` (mit den Zusatzspalten `id` und `year`). Berechnen Sie mit einer `for`-Schleife für jedes Tier die mittlere Schrittlänge und das zugehörige Jahr. Berechnen Sie dann die mittlere Schrittlänge **pro Jahr** mit `group_by()` und `summarize()`.
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r, eval = FALSE}
+# 1: Rentierdaten einlesen und erkunden
+dat <- read.csv("daten/gpsdata1.csv")
+dat$date <- ymd_hms(dat$date)
+head(dat)
+
+nrow(dat)                      # Anzahl Datenpunkte
+length(unique(dat$id))         # Anzahl Tiere
+
+# Datenpunkte pro Tier (manuell)
+nrow(dat[dat$id == "ren_1107", ])
+nrow(dat[dat$id == "ren_1110", ])
+nrow(dat[dat$id == "ren_1105", ])
+
+# Kompakter mit table()
+table(dat$id)
+
+# 2: for-Schleife
+ids <- unique(dat$id)
+
+# Tier-IDs ausgeben
+for (i in 1:length(ids)) {
+  print(ids[i])
+}
+
+# Anzahl Datenpunkte pro Tier ausgeben
+for (i in 1:length(ids)) {
+  print(nrow(dat[dat$id == ids[i], ]))
+}
+
+# Ergebnisse in Vektor speichern
+erg <- c()
+for (i in 1:length(ids)) {
+  erg[i] <- nrow(dat[dat$id == ids[i], ])
+}
+erg
+data.frame(ids, erg)
+
+# 3: Track und mittlere Schrittlänge pro Jahr
+trk <- make_track(dat, x, y, date, id = id, year = year)
+
+ids <- unique(trk$id)
+
+sl <- c()  # Vektor für die mittleren Schrittlängen
+j  <- c()  # Vektor für die Jahre
+
+for (i in 1:length(ids)) {
+  tier_i <- trk |> filter(id == ids[i])
+  sl[i]  <- mean(step_lengths(tier_i), na.rm = TRUE)
+  j[i]   <- tier_i$year[1]
+}
+
+erg <- data.frame(ids, sl, j)
+
+erg |>
+  group_by(j) |>
+  summarize(mean_sl = mean(sl))
+```
+:::
+
+---
+
+## Teil 3: Berechnen von Streifgebieten
+
+Streifgebiete (*home ranges*) sind ein zentrales Konzept in der Bewegungsökologie. In `amt` stehen zahlreiche Methoden zur Verfügung, die alle mit `hr_*` beginnen. Wir berechnen das **Minimum Convex Polygon (MCP)** und den **Local Convex Hull (LoCoH)** und vergleichen ihre Flächenschätzungen.
+
+#### Aufgaben
+
+1. Filtern Sie den Track auf das Tier `"r_RG_08_022"` (entfernen Sie vorher Zeilen mit fehlenden Koordinaten). Berechnen Sie ein MCP-Streifgebiet mit `hr_mcp()` — einmal mit dem Standard-Niveau (95 %) und einmal mit 50 % — und stellen Sie beide mit `plot()` dar.
+
+2. Berechnen Sie zusätzlich ein LoCoH-Streifgebiet mit `hr_locoh()`. Vergleichen Sie die geschätzten Flächen (in Hektar) zwischen MCP und LoCoH mit `hr_area()`.
+
+3. *(Zusatzaufgabe)* Berechnen Sie für **jedes Tier** ein MCP-Streifgebiet und ermitteln Sie die mittlere MCP-Fläche pro Jahr. Hat sich die Streifgebietsgröße über die Jahre verändert?
+
+   *Hinweis:* Sie können davon ausgehen, dass jedes Tier nur in einem Jahr vorkommt.
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r, eval = FALSE}
+# Fehlende Koordinaten entfernen
+trk <- trk |> filter(!is.na(x_))
+
+# 1: MCP für ein einzelnes Tier
+t1 <- trk |> filter(id == "r_RG_08_022")
+
+mcp1 <- hr_mcp(t1)
+plot(mcp1)
+
+mcp1_50 <- hr_mcp(t1, levels = 0.5)
+plot(mcp1_50)
+
+# 2: LoCoH und Flächenvergleich
+lcoh <- hr_locoh(t1)
+
+plot(lcoh)
+
+hr_area(mcp1) |> mutate(area = area / 1e4)   # in Hektar
+hr_area(lcoh) |> mutate(area = area / 1e4)   # in Hektar
+
+# 3: MCP-Fläche für alle Tiere und mittlere Fläche pro Jahr
+ids  <- unique(trk$id)
+area <- c()
+j    <- c()
+
+for (i in 1:length(ids)) {
+  tier_i  <- trk |> filter(id == ids[i])
+  mcp_i   <- hr_mcp(tier_i)
+  area[i] <- hr_area(mcp_i)$area / 1e4
+  j[i]    <- year(tier_i$t_[1])
+}
+
+erg2 <- data.frame(ids, area, j)
+
+erg2 |>
+  group_by(j) |>
+  summarize(mean_area_ha = mean(area, na.rm = TRUE))
+```
+:::

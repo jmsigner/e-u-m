@@ -1,0 +1,13 @@
+
+# Vorlesung
+
+- [Streifgebiete](/content/slides/09/09_me_2.html){target="_blank"}
+- [Übung: Streifgebiete](/content/uebungen/ue_w11_hr.html){target="_blank"}
+
+# Folien
+
+- [Alle Folien (pdf)](/content/slides/pdf/vl-10.pdf){target="_blank"}
+- [Alle Folien (html)](/content/slides/09/09_me_2.html){target="_blank"}
+
+
+
