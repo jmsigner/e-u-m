@@ -327,7 +327,7 @@ stps <- deer |>
 
 ```{r}
 # Richtung: Von-Mises-Verteilung
-(dir_fit <- fit_distr(stps$direction_p, "vonmises"))
+(dir_fit <- fit_distr(stps$ta_, "vonmises"))
 ```
 
 ---
@@ -348,7 +348,7 @@ curve(dgamma(x, shape = sl_fit$params$shape,
       add = TRUE, col = "#E07B39", lwd = 2)
 
 # Richtung
-hist(as.numeric(stps$direction_p), breaks = 30, freq = FALSE,
+hist(as.numeric(stps$ta_), breaks = 30, freq = FALSE,
      main = "Richtung", xlab = "direction_p [rad]",
      col = "lightblue", border = "white")
 ```
@@ -509,7 +509,7 @@ knitr::include_graphics("images/brw_global.png")
 ```{r}
 #| echo: false
 #| fig-height: 3.5
-#| fig-cap: "Weißwedelhirsch mit Wald-Landschaft — ein typisches BCRW"
+#| fig-cap: "Rothirsch mit Wald-Landschaft — ein typisches BCRW"
 
 stps_bcrw <- deer |>
   track_resample(rate = hours(6), tolerance = minutes(20)) |>

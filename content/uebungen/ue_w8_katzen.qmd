@@ -126,6 +126,22 @@ plot(m1.hn,   main = "Half-Normal")
 plot(m1.hr,   main = "Hazard-Rate")
 plot(m1.unif, main = "Uniform")
 
+# Optional, können Sie die unterschiedlichen Entdeckungsfunktionen vergleichen
+
+nd <- data.frame(distance = 0:150)
+
+plot(m1.hn, showpoints = FALSE)
+add_df_covar_line(m1.hn, data = nd, col = "red", lwd = 2)
+add_df_covar_line(m1.hr, data = nd, col = "steelblue", lwd = 2)
+add_df_covar_line(m1.unif, data = nd, col = "orange", lwd = 2)
+
+# Legende
+legend("topright", 
+       lwd = 2, lty = 1, 
+       col = c("red", "steelblue", "orange"), 
+       legend = c("Halfnormal", "Hazard", "Uniform"))
+
+
 # 6
 s   <- summary(m1.hr)
 esw <- s$ds$width * s$ds$average.p

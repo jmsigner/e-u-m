@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Johannes Signer">
-  <meta name="dcterms.date" content="2026-06-14">
+  <meta name="dcterms.date" content="2026-06-22">
   <title>Erfassung und Monitoring von Wildtieren – Einführung in die Bewegungsökologie</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -211,7 +211,7 @@ Johannes Signer <a href="https://orcid.org/0000-0002-1771-7775" class="quarto-ti
     </div>
 </div>
 
-  <p class="date">June 14, 2026</p>
+  <p class="date">June 22, 2026</p>
 </section>
 <section id="wo-sind-wir" class="slide level2">
 <h2>Wo sind wir?</h2>
@@ -532,14 +532,14 @@ attr(,"class")
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Richtung: Von-Mises-Verteilung</span></span>
-<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>(dir_fit <span class="ot">&lt;-</span> <span class="fu">fit_distr</span>(stps<span class="sc">$</span>direction_p, <span class="st">"vonmises"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>(dir_fit <span class="ot">&lt;-</span> <span class="fu">fit_distr</span>(stps<span class="sc">$</span>ta_, <span class="st">"vonmises"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$name
 [1] "vonmises"
 
 $params
 $params$kappa
-[1] 0.07537453
+[1] 0.1831288
 
 $params$mu
 Circular Data: 
@@ -554,7 +554,7 @@ Rotation = counter
 
 $vcov
            [,1]
-[1,] 0.05043294
+[1,] 0.05165552
 
 attr(,"class")
 [1] "vonmises_distr" "ta_distr"       "amt_distr"      "list"          </code></pre>
@@ -765,7 +765,7 @@ attr(,"class")
 <li>Realistischstes Modell für viele Wildtiere</li>
 </ul>
 
-<img data-src="09_me_1_files/figure-revealjs/unnamed-chunk-20-1.png" width="576" class="r-stretch quarto-figure-center"><p class="caption">Weißwedelhirsch mit Wald-Landschaft — ein typisches BCRW</p></section></section>
+<img data-src="09_me_1_files/figure-revealjs/unnamed-chunk-20-1.png" width="576" class="r-stretch quarto-figure-center"><p class="caption">Rothirsch mit Wald-Landschaft — ein typisches BCRW</p></section></section>
 <section>
 <section id="fallstudie-moll-et-al.-2021" class="title-slide slide level1 center">
 <h1>Fallstudie: Moll et al.&nbsp;2021</h1>

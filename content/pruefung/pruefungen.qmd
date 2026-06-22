@@ -173,6 +173,17 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 ::: {.column width="50%"}
 ### Einheit 10 (Woche 11)
 
+1. VHF vs. GPS
+2. NSD und unterschiedliche Migrationsmuster
+3. Streifgebiet - biologische Sichtweise
+4. Streifgebiet - statistische Sichtweise
+5. Streifgebietsschätzer
+6. MCP
+7. KDE
+8. LoCoH
+9. UD
+10. Occurrence und Rangeverteilung
+
 
 :::
 :::
