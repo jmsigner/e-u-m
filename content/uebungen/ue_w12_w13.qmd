@@ -1,0 +1,512 @@
+---
+title: "Übung Einheit 11 und 12 (Woche 13 und 14): Habitatselektion"
+subtitle: "Jacobs-Index, χ²-Test und Resource Selection Functions mit `amt`"
+author:
+  - name: Johannes Signer
+    orcid: 0000-0002-1771-7775
+    email: jmsigner@gwdg.de
+    affiliations: Georg-August-Universität Göttingen
+date: last-modified
+execute:
+  warning: false
+  message: false
+---
+
+```{r}
+#| echo: false
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+
+## Hintergrund
+
+In dieser Übung analysieren wir die Habitatselektion von Rotwild (*Cervus elaphus*) anhand von GPS-Telemetriedaten und einer Landbedeckungskarte. Wir berechnen zunächst den **Jacobs-Index** und einen **χ²-Test**, um zu prüfen, ob Wald präferiert oder gemieden wird. Anschließend passen wir eine **Resource Selection Function (RSF)** an — ein logistisches Regressionsmodell, das beobachtete Positionen mit zufällig gezogenen Hintergrundpunkten vergleicht.
+
+Die Daten sind bei StudIP unter `uebungen/woche_14_rsf/` verfügbar:
+
+- `landcover.tif` — Landbedeckungsraster (ESA WorldCover, 10 m Auflösung, EPSG:3035)
+- `reddeer.csv` — GPS-Positionen eines Rotwildindividuums (EPSG:3035)
+
+Die Landbedeckungsklassen im Raster sind:
+
+| Wert | Klasse |
+|------|--------|
+| 10 | Wald |
+| 30 | Grünland |
+| 40 | Ackerland |
+| 50 | Bebauung |
+| 60 | Offenboden / spärliche Vegetation |
+| 80 | Gewässer |
+| 90 | Feuchtgebiet |
+
+
+```{r}
+library(terra)
+library(tidyverse)
+library(amt)
+```
+
+
+---
+
+## Teil 1: Daten einlesen und Kovariaten erstellen
+
+Bevor wir Habitatselektion berechnen können, müssen wir das Landbedeckungsraster laden und daraus thematische Kovariaten ableiten. Wir erstellen drei Kovariaten:
+
+1. **Wald** (binär: 1 = Wald, 0 = kein Wald)
+2. **Siedlung** (binär: 1 = bebaut, 0 = nicht bebaut)
+3. **Distanz zur Siedlung** (kontinuierlich, in Metern)
+
+Die Funktion `distance()` aus `terra` berechnet für jede Rasterzelle die Distanz zur nächsten Zelle mit einem bestimmten Wert. Dazu müssen alle anderen Zellen zuvor auf `NA` gesetzt werden.
+
+#### Aufgaben
+
+1. Laden Sie das Landbedeckungsraster (`landcover.tif`) mit `rast()` und stellen Sie es mit `plot()` dar.
+
+2. Erstellen Sie die drei Kovariaten `wald`, `siedlung` und `dsiedlung` wie im Coderahmen gezeigt. Fassen Sie alle drei mit `rast(list(...))` zu einem gemeinsamen Raster-Stack zusammen und vergeben Sie die Namen `"wald"`, `"siedlung"` und `"dsiedlung"`.
+
+3. Lesen Sie die Telemetriedaten (`reddeer.csv`) ein und erstellen Sie mit `make_track()` einen Track (CRS: EPSG:3035).
+
+```{r}
+#| eval: false
+
+# 1: Landbedeckungsraster laden
+lc <- rast(___)
+plot(lc)
+
+# 2a: Binäre Kovariate Wald (Klasse 10)
+wald <- as.numeric(lc == ___)
+
+# 2b: Binäre Kovariate Siedlung (Klasse 50)
+siedlung <- as.numeric(lc == ___)
+
+# 2c: Distanz zur nächsten Siedlungszelle
+# Zuerst alle Nicht-Siedlungs-Zellen auf NA setzen, dann distance() anwenden
+dsiedlung <- siedlung
+dsiedlung[] <- ifelse(dsiedlung[], ___, NA)
+dsiedlung <- distance(___)
+
+# 2d: Zu einem Raster-Stack zusammenfassen
+env <- rast(list(___, ___, ___))
+names(env) <- c("wald", "siedlung", "dsiedlung")
+
+# 3: Telemetriedaten einlesen und Track erstellen
+deer <- read_csv("daten/reddeer.csv")
+deer <- make_track(deer, ___, ___, ___, crs = ___)
+```
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+#| eval: true
+
+# 1: Landbedeckungsraster laden
+lc <- rast("daten/landcover.tif")
+plot(lc)
+
+# 2a: Binäre Kovariate Wald (Klasse 10)
+wald <- as.numeric(lc == 10)
+
+# 2b: Binäre Kovariate Siedlung (Klasse 50)
+siedlung <- as.numeric(lc == 50)
+
+# 2c: Distanz zur nächsten Siedlungszelle
+dsiedlung <- siedlung
+dsiedlung[] <- ifelse(dsiedlung[], 1, NA)
+dsiedlung <- distance(dsiedlung)
+
+# 2d: Zu einem Raster-Stack zusammenfassen
+env <- rast(list(wald, siedlung, dsiedlung))
+names(env) <- c("wald", "siedlung", "dsiedlung")
+
+# 3: Telemetriedaten einlesen und Track erstellen
+deer <- read_csv("daten/reddeer.csv")
+deer <- make_track(deer, x_, y_, t_, crs = 3035)
+```
+:::
+
+---
+
+## Teil 2: Jacobs-Index für Wald
+
+Der Jacobs-Index $D_i$ quantifiziert, ob eine Habitatklasse präferiert ($D > 0$) oder gemieden ($D < 0$) wird:
+
+$$D_i = \frac{r_i - p_i}{r_i + p_i - 2\,r_i\,p_i}$$
+
+wobei $r_i$ der Anteil genutzter Punkte in Klasse $i$ und $p_i$ der Anteil verfügbarer Fläche ist.
+
+Als verfügbares Habitat definieren wir das **MCP-Streifgebiet** (100 %-Isopleth) des Tieres. Das genutzte Habitat sind die beobachteten GPS-Positionen.
+
+#### Aufgaben
+
+1. Berechnen Sie das MCP-Streifgebiet (`hr_mcp()`, `levels = 1`) und extrahieren Sie das Isopleths-Polygon mit `hr_isopleths()`. Stellen Sie das Streifgebiet über dem Waldlayer dar.
+
+2. Schneiden Sie den `wald`-Raster mit `crop()` und `mask()` auf das Streifgebiet zu. Berechnen Sie die Anteile der Klassen (0/1) im verfügbaren Habitat mit `prop.table(table(...))`.
+
+3. Extrahieren Sie für jede Tierposition den Waldwert mit `extract_covariates()` und berechnen Sie die Anteile im genutzten Habitat.
+
+4. Berechnen Sie den Jacobs-Index für Wald mit der Funktion `ji()` aus dem Coderahmen.
+
+```{r}
+#| eval: false
+
+# 1: MCP-Streifgebiet berechnen und darstellen
+hr1 <- hr_isopleths(hr_mcp(deer, levels = ___))
+plot(wald)
+plot(hr1, add = TRUE)
+
+# 2: Raster auf Streifgebiet zuschneiden und Verfügbarkeit berechnen
+verf <- mask(crop(___, hr1), hr1)
+p_v <- prop.table(table(verf[]))
+p_v
+
+# 3: Kovariaten für beobachtete Punkte extrahieren und Nutzung berechnen
+t1 <- extract_covariates(deer, ___)
+p_g <- prop.table(table(t1$___))
+p_g
+
+# 4: Jacobs-Index berechnen
+ji <- function(genutzt, verfuegbar) {
+  (genutzt - verfuegbar) / (genutzt + verfuegbar - 2 * genutzt * verfuegbar)
+}
+
+gv <- data.frame(
+  was    = c("sonstiges", "wald"),
+  verf   = c(p_v),
+  gen    = c(p_g)
+)
+
+gv$ji <- ji(gv$___, gv$___)
+gv
+```
+
+::: {.callout-note collapse="true"}
+
+### Lösungsvorschlag
+
+```{r}
+#| eval: true
+
+# 1: MCP-Streifgebiet berechnen und darstellen
+hr1 <- hr_isopleths(hr_mcp(deer, levels = 1))
+plot(wald)
+plot(hr1, add = TRUE)
+
+# 2: Raster auf Streifgebiet zuschneiden und Verfügbarkeit berechnen
+verf <- mask(crop(wald, hr1), hr1)
+p_v <- prop.table(table(verf[]))
+p_v
+
+# 3: Kovariaten für beobachtete Punkte extrahieren und Nutzung berechnen
+t1 <- extract_covariates(deer, wald)
+p_g <- prop.table(table(t1$ESA_WorldCover_10m_2021_V200_N51E009_Map))
+p_g
+
+# 4: Jacobs-Index berechnen
+ji <- function(genutzt, verfuegbar) {
+  (genutzt - verfuegbar) / (genutzt + verfuegbar - 2 * genutzt * verfuegbar)
+}
+
+gv <- data.frame(
+  was    = c("sonstiges", "wald"),
+  verf   = c(p_v),
+  gen    = c(p_g)
+)
+
+gv$ji <- ji(gv$gen, gv$verf)
+gv
+```
+:::
+
+---
+
+## Teil 3: χ²-Test und Konfidenzintervalle
+
+Der Jacobs-Index liefert eine Effektgröße, sagt aber nichts über statistische Signifikanz. Mit einem **χ²-Test** können wir prüfen, ob die beobachtete Verteilung der Punkte auf die Habitatklassen von der erwarteten Verteilung (= Verfügbarkeit) abweicht. Zusätzlich berechnen wir **Bonferroni-korrigierte Konfidenzintervalle** für den Anteil jeder Klasse.
+
+#### Aufgaben
+
+1. Fügen Sie dem `data.frame` `gv` aus Teil 2 eine Spalte `gen_n` hinzu (absolute Anzahl genutzter Punkte pro Klasse = `gen × nrow(t1)`). Führen Sie dann `chisq.test()` durch — übergeben Sie die absoluten Häufigkeiten als `x` und die Verfügbarkeitsanteile als `p`.
+
+2. Berechnen Sie Bonferroni-korrigierte 95 %-Konfidenzintervalle für den Anteil jeder Klasse. Das Quantil der Standardnormalverteilung ergibt sich aus `qnorm(1 - 0.05 / (2 * m))`, wobei $m$ die Anzahl der Klassen ist. Der Fehlerspielraum ist $z \cdot \sqrt{\hat{p}(1-\hat{p})/n}$.
+
+3. Stellen Sie das Ergebnis grafisch dar: Zeigen Sie Anteile mit Konfidenzintervallen als `geom_pointrange()` und die Verfügbarkeit als roten Punkt (`geom_point(aes(y = verf), col = "red")`). Überlappen die Konfidenzintervalle die Verfügbarkeitswerte?
+
+```{r}
+#| eval: false
+
+# 1: χ²-Test
+gv$gen_n <- nrow(t1) * gv$___
+chisq.test(___, p = ___)
+
+# 2: Bonferroni-Konfidenzintervalle
+m <- nrow(gv)   # Anzahl Klassen
+z <- qnorm(1 - 0.05 / (2 * ___))
+fb <- z * sqrt((gv$gen * (1 - gv$gen)) / nrow(t1))
+
+gv$lci <- gv$gen - ___
+gv$uci <- gv$gen + ___
+gv
+
+# 3: Grafische Darstellung
+ggplot(gv, aes(was, gen)) +
+  geom_pointrange(aes(ymin = ___, ymax = ___)) +
+  geom_point(aes(y = ___), col = "red") +
+  labs(x = "", y = "Anteil")
+```
+::: {.callout-note collapse="true"}
+
+### Lösungsvorschlag
+
+```{r}
+#| eval: true
+
+# 1: χ²-Test
+gv$gen_n <- nrow(t1) * gv$gen
+chisq.test(gv$gen_n, p = gv$verf)
+
+# 2: Bonferroni-Konfidenzintervalle
+m <- nrow(gv)
+z <- qnorm(1 - 0.05 / (2 * m))
+fb <- z * sqrt((gv$gen * (1 - gv$gen)) / nrow(t1))
+
+gv$lci <- gv$gen - fb
+gv$uci <- gv$gen + fb
+gv
+
+# 3: Grafische Darstellung
+ggplot(gv, aes(was, gen)) +
+  geom_pointrange(aes(ymin = lci, ymax = uci)) +
+  geom_point(aes(y = verf), col = "red") +
+  labs(x = "", y = "Anteil")
+```
+:::
+
+---
+
+## Teil 4: Jacobs-Index für Siedlung *(Aufgabe)*
+
+Wiederholen Sie die Analyse aus den Teilen 2 und 3 für die Kovariate **Siedlung**.
+
+*Hinweis:* Bei der Berechnung von `p_g` für Siedlung kann es sein, dass im genutzten Habitat keine Siedlungspixel vorkommen. In diesem Fall enthält `p_g` nur eine Klasse (0). Passen Sie die Erstellung von `gv` entsprechend an (z. B. `gen = c(p_g[1], 1 - p_g[1])`).
+
+```{r}
+#| eval: false
+
+# Verfügbarkeit für Siedlung berechnen
+verf_s <- mask(crop(___, hr1), hr1)
+p_v_s  <- prop.table(table(verf_s[]))
+
+# Nutzung für Siedlung extrahieren
+t1_s <- extract_covariates(deer, ___)
+p_g_s <- prop.table(table(t1_s$___))
+
+# data.frame zusammenstellen (Achtung: ggf. fehlende Klasse in p_g_s)
+gv_s <- data.frame(
+  was  = c("sonstiges", "siedlung"),
+  verf = c(p_v_s),
+  gen  = c(p_g_s[1], 1 - p_g_s[1])
+)
+
+gv_s$ji <- ji(gv_s$___, gv_s$___)
+gv_s
+```
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+#| eval: true
+
+# Verfügbarkeit für Siedlung berechnen
+verf_s <- mask(crop(siedlung, hr1), hr1)
+p_v_s  <- prop.table(table(verf_s[]))
+
+# Nutzung für Siedlung extrahieren
+t1_s <- extract_covariates(deer, siedlung)
+p_g_s <- prop.table(table(t1_s$ESA_WorldCover_10m_2021_V200_N51E009_Map))
+
+# data.frame zusammenstellen
+gv_s <- data.frame(
+  was  = c("sonstiges", "siedlung"),
+  verf = c(p_v_s),
+  gen  = c(p_g_s[1], 1 - p_g_s[1])
+)
+
+gv_s$ji <- ji(gv_s$gen, gv_s$verf)
+gv_s
+```
+:::
+
+---
+
+## Teil 5: Resource Selection Function (RSF)
+
+Der Jacobs-Index und der χ²-Test erlauben nur die Analyse **einer** binären Kovariate auf einmal. Eine **RSF** ist ein logistisches Regressionsmodell, das gleichzeitig mehrere Kovariaten berücksichtigen und deren relative Bedeutung schätzen kann.
+
+Das Prinzip: Wir ziehen **zufällige Hintergrundpunkte** aus dem verfügbaren Habitat (mit `random_points()`), versehen alle Punkte (beobachtet + zufällig) mit Kovariaten, und modellieren den binären Response `case_` (TRUE = beobachtet, FALSE = zufällig) mit `glm(..., family = binomial())`.
+
+#### Aufgaben
+
+1. Erstellen Sie zufällige Hintergrundpunkte mit `random_points()` und versehen Sie diese zusammen mit den Tierbeobachtungen mit allen Kovariaten aus `env` (`extract_covariates()`). Stellen Sie die Verteilung der Kovariate `wald` mit `geom_bar()` dar — einmal für beobachtete und zufällige Punkte getrennt (`fill = case_`, `position = "fill"`).
+
+2. Stellen Sie analog die Verteilungen für `siedlung` und `dsiedlung` dar. Was fällt auf?
+
+3. Passen Sie zwei Modelle an:
+   - `m1`: `case_ ~ wald + siedlung`
+   - `m2`: `case_ ~ wald + dsiedlung`
+   
+   Vergleichen Sie beide mit `AIC()`. Welches Modell passt besser?
+
+4. Erstellen Sie ein drittes Modell `m2a` mit `log1p(dsiedlung)` statt `dsiedlung`. Begründen Sie kurz, warum eine logarithmische Transformation sinnvoll sein kann. Vergleichen Sie alle drei Modelle mit `AIC()`.
+
+```{r}
+#| eval: false
+
+# 1: Zufällige Punkte und Kovariaten
+rp <- deer |> random_points()
+rp <- rp |> extract_covariates(___)
+
+# Verteilung Wald
+rp |> ggplot(aes(factor(___), fill = ___)) +
+  geom_bar(position = "fill") +
+  labs(x = "Wald", y = "Anteil", fill = "Beobachtet")
+
+# 2: Verteilung Siedlung und Distanz zur Siedlung
+rp |> ggplot(aes(factor(___), fill = case_)) +
+  geom_bar(position = "fill") +
+  labs(x = "Siedlung", y = "Anteil")
+
+rp |> ggplot(aes(___, fill = case_)) +
+  geom_density(alpha = 0.3) +
+  labs(x = "Distanz zur Siedlung")
+
+# 3: Modelle anpassen und mit AIC vergleichen
+m1  <- glm(case_ ~ wald + siedlung,  data = rp, family = binomial())
+m2  <- glm(case_ ~ wald + dsiedlung, data = rp, family = binomial())
+
+AIC(___, ___)
+
+# 4: Modell mit log1p-Transformation
+m2a <- glm(case_ ~ wald + log1p(___), data = rp, family = binomial())
+
+AIC(___, ___, ___)
+summary(m2a)
+```
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+#| eval: true
+
+# 1: Zufällige Punkte und Kovariaten
+rp <- deer |> random_points()
+rp <- rp |> extract_covariates(env)
+
+# Verteilung Wald
+rp |> ggplot(aes(factor(wald), fill = case_)) +
+  geom_bar(position = "fill") +
+  labs(x = "Wald", y = "Anteil", fill = "Beobachtet")
+
+# 2: Verteilung Siedlung und Distanz zur Siedlung
+rp |> ggplot(aes(factor(siedlung), fill = case_)) +
+  geom_bar(position = "fill") +
+  labs(x = "Siedlung", y = "Anteil")
+
+rp |> ggplot(aes(dsiedlung, fill = case_)) +
+  geom_density(alpha = 0.3) +
+  labs(x = "Distanz zur Siedlung")
+
+# 3: Modelle anpassen und mit AIC vergleichen
+m1  <- glm(case_ ~ wald + siedlung,  data = rp, family = binomial())
+m2  <- glm(case_ ~ wald + dsiedlung, data = rp, family = binomial())
+
+AIC(m1, m2)
+
+# 4: Modell mit log1p-Transformation
+# log1p vermeidet log(0) und gewichtet kleine Distanzen stärker
+m2a <- glm(case_ ~ wald + log1p(dsiedlung), data = rp, family = binomial())
+
+AIC(m1, m2, m2a)
+summary(m2a)
+```
+:::
+
+---
+
+## Teil 6: RSF mit Tageszeit *(Zusatzaufgabe)*
+
+In diesem Teil erweitern wir das RSF-Modell um die Tageszeit als Interaktionsterm. Die Idee: Tiere könnten tagsüber und nachts unterschiedliche Habitate bevorzugen.
+
+Für die Zufallspunkte ist keine echte Uhrzeit vorhanden — wir weisen ihnen deshalb zufällig Tag oder Nacht zu (`sample(c("day", "night"), ...)`). Für die beobachteten Punkte verwenden wir `time_of_day()` aus `amt`.
+
+#### Aufgaben
+
+1. Erstellen Sie den kombinierten Datensatz `dat` wie im Coderahmen gezeigt (Zufallspunkte mit zufälliger Tageszeit + beobachtete Punkte mit berechneter Tageszeit). Stellen Sie die Verteilung der Kovariate `wald` getrennt nach Tageszeit mit `facet_wrap(~ tod_)` dar.
+
+2. Passen Sie ein Modell mit Interaktionstermen an:
+   - `m3a`: `case_ ~ wald + wald:tod_ + log1p(dsiedlung) + log1p(dsiedlung):tod_`
+   
+   Vergleichen Sie `m3a` mit `m2a` aus Teil 5 mit `AIC()`. Verbessert die Berücksichtigung der Tageszeit die Modellanpassung?
+
+```{r}
+#| eval: false
+
+# 1: Datensatz mit Tageszeit zusammenstellen
+dat <- bind_rows(
+  # Zufallspunkte: Tageszeit zufällig zuweisen
+  deer |> random_points() |> filter(!case_) |>
+    mutate(tod_ = sample(c("day", "night"), size = n(), replace = TRUE)) |>
+    extract_covariates(env),
+  # Beobachtete Punkte: Tageszeit aus Zeitstempel berechnen
+  deer |> time_of_day() |> dplyr::select(-t_) |>
+    mutate(case_ = TRUE) |>
+    extract_covariates(env)
+)
+
+# Verteilung Wald nach Tageszeit
+dat |> ggplot(aes(factor(___), fill = case_)) +
+  geom_bar(position = "fill") +
+  facet_wrap(~ ___) +
+  labs(x = "Wald", y = "Anteil")
+
+# 2: Modell mit Interaktionstermen
+m3a <- glm(case_ ~ wald + wald:___ + log1p(dsiedlung) + log1p(dsiedlung):___,
+           data = dat, family = binomial())
+
+AIC(___, ___)
+summary(m3a)
+```
+
+::: {.callout-note collapse="true"}
+### Lösungsvorschlag
+
+```{r}
+#| eval: true
+
+# 1: Datensatz mit Tageszeit
+dat <- bind_rows(
+  deer |> random_points() |> filter(!case_) |>
+    mutate(tod_ = sample(c("day", "night"), size = n(), replace = TRUE)) |>
+    extract_covariates(env),
+  deer |> time_of_day() |> dplyr::select(-t_) |>
+    mutate(case_ = TRUE) |>
+    extract_covariates(env)
+)
+
+# Verteilung Wald nach Tageszeit
+dat |> ggplot(aes(factor(wald), fill = case_)) +
+  geom_bar(position = "fill") +
+  facet_wrap(~ tod_) +
+  labs(x = "Wald", y = "Anteil")
+
+# 2: Modell mit Interaktionstermen
+m3a <- glm(case_ ~ wald + wald:tod_ + log1p(dsiedlung) + log1p(dsiedlung):tod_,
+           data = dat, family = binomial())
+
+AIC(m2a, m3a)
+summary(m3a)
+```
+:::

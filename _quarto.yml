@@ -37,7 +37,8 @@ website:
             text: "09. Einführung"
           - href: content/vorlesungen/10-vorlesung.qmd
             text: "10. Streifgebiete"
-          - text: "11. Habitatselektion 1"
+          - href: content/vorlesungen/11-vorlesung.qmd
+            text: "11. Habitatselektion 1"
           - text: "12. Habitatselektion 2"
       - text: Übungen
         menu:
@@ -64,6 +65,8 @@ website:
             text: "9. Bewegungsökologie 1"
           - href: content/uebungen/ue_w11_hr.qmd
             text: "10. Streifgebiete"
+          - href: content/uebungen/ue_w11_hr.qmd
+            text: "11. & 12. Habitatselektion"
       - text: Prüfungsleistungen
         href: content/pruefung/pruefungen.qmd
 
