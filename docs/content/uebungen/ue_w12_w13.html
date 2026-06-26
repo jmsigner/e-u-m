@@ -844,8 +844,8 @@ Lösungsvorschlag
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(m1, m2)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   df      AIC
-m1  3 8830.412
-m2  3 8405.657</code></pre>
+m1  3 8840.437
+m2  3 8408.106</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4: Modell mit log1p-Transformation</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># log1p vermeidet log(0) und gewichtet kleine Distanzen stärker</span></span>
@@ -854,9 +854,9 @@ m2  3 8405.657</code></pre>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(m1, m2, m2a)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    df      AIC
-m1   3 8830.412
-m2   3 8405.657
-m2a  3 8171.138</code></pre>
+m1   3 8840.437
+m2   3 8408.106
+m2a  3 8167.905</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2a)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -867,17 +867,17 @@ glm(formula = case_ ~ wald + log1p(dsiedlung), family = binomial(),
 
 Coefficients:
                  Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)      -9.01950    0.30190  -29.88   &lt;2e-16 ***
-wald              1.16509    0.06579   17.71   &lt;2e-16 ***
-log1p(dsiedlung)  0.97891    0.04756   20.58   &lt;2e-16 ***
+(Intercept)      -9.07433    0.30112  -30.14   &lt;2e-16 ***
+wald              1.15453    0.06565   17.59   &lt;2e-16 ***
+log1p(dsiedlung)  0.98870    0.04737   20.87   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
     Null deviance: 9550.3  on 15674  degrees of freedom
-Residual deviance: 8165.1  on 15672  degrees of freedom
-AIC: 8171.1
+Residual deviance: 8161.9  on 15672  degrees of freedom
+AIC: 8167.9
 
 Number of Fisher Scoring iterations: 6</code></pre>
 </div>
@@ -970,8 +970,8 @@ Lösungsvorschlag
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(m2a, m3a)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    df      AIC
-m2a  3 8171.138
-m3a  5 7783.024</code></pre>
+m2a  3 8167.905
+m3a  5 7791.134</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3a)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -982,19 +982,19 @@ glm(formula = case_ ~ wald + wald:tod_ + log1p(dsiedlung) + log1p(dsiedlung):tod
 
 Coefficients:
                            Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)                -9.37707    0.30558  -30.69   &lt;2e-16 ***
-wald                        3.26302    0.17677   18.46   &lt;2e-16 ***
-log1p(dsiedlung)            0.76032    0.04820   15.77   &lt;2e-16 ***
-wald:tod_night             -3.27868    0.19965  -16.42   &lt;2e-16 ***
-tod_night:log1p(dsiedlung)  0.37139    0.02804   13.24   &lt;2e-16 ***
+(Intercept)                -9.46194    0.30781  -30.74   &lt;2e-16 ***
+wald                        3.23220    0.17433   18.54   &lt;2e-16 ***
+log1p(dsiedlung)            0.77898    0.04838   16.10   &lt;2e-16 ***
+wald:tod_night             -3.21219    0.19710  -16.30   &lt;2e-16 ***
+tod_night:log1p(dsiedlung)  0.36071    0.02765   13.04   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
     Null deviance: 9550.3  on 15674  degrees of freedom
-Residual deviance: 7773.0  on 15670  degrees of freedom
-AIC: 7783
+Residual deviance: 7781.1  on 15670  degrees of freedom
+AIC: 7791.1
 
 Number of Fisher Scoring iterations: 7</code></pre>
 </div>

@@ -188,6 +188,31 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 :::
 :::
 
+::: {.columns}
+::: {.column width="50%"}
+
+### Einheit 11 (Woche 12)
+
+1. Habitat
+2. Skalen der Habtiatselekt
+3. Burst
+4. Jacobs-Index
+5. Methode von Neu
+6. $\chi^2$-Test
+7. p-Wert
+8. Genutztes vs. verfübares Habitat
+
+:::
+
+::: {.column width="50%"}
+### Einheit 12 (Woche 13)
+
+
+
+:::
+:::
+
+
 
 ## Statistik
 Es werden **keine** R-Kenntnisse abgefragt, lediglich die Interpretation von Ergebnissen. 
@@ -366,8 +391,8 @@ Man kann die Daten herunterladen. Dann wären die nächsten Schritte wären:
 - The body size and temperature dependence of organismal locomotion: <https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.3114>
 - Petroni et al. 2025 (Occupancy) Recolonization pattern of wolves in Northern Apennines, Central Italy: a Bayesian analysis using opportunistic and systematic data <https://cdnsciencepub.com/doi/10.1139/cjz-2025-0010>. *Daten und Code sind im Anhang*. 
 - Hobson et al. 2026 (SCR; Baumarder) Both forest cover and land management practices explain variation in recovering pine marten densities <https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1002/wlb3.01594>
-
-- Moll et al. 2021 (Telmetrie) A 'landscape of fear' during dispersal? The case of an exploratory white-tailed deer. *Ecology and Evolution*, 11, 3641–3652. <https://doi.org/10.1002/ece3.7354>
+- Moll et al. 2021 (Telemetrie) A 'landscape of fear' during dispersal? The case of an exploratory white-tailed deer. *Ecology and Evolution*, 11, 3641–3652. <https://doi.org/10.1002/ece3.7354>
+- Pop et al. 2018 (Telemetrie) Movement ecology of brown bears (Ursus arctos) in the Romanian Eastern Carpathians <https://www.sciencedirect.com/org/science/article/pii/S1314694718000222>. 
 
 
 #### Datenbanken
