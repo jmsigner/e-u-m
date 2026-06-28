@@ -20,9 +20,9 @@ knitr::opts_knit$set(root.dir = here::here())
 
 ## Hintergrund
 
-In dieser Übung analysieren wir die Habitatselektion von Rotwild (*Cervus elaphus*) anhand von GPS-Telemetriedaten und einer Landbedeckungskarte. Wir berechnen zunächst den **Jacobs-Index** und einen **χ²-Test**, um zu prüfen, ob Wald präferiert oder gemieden wird. Anschließend passen wir eine **Resource Selection Function (RSF)** an — ein logistisches Regressionsmodell, das beobachtete Positionen mit zufällig gezogenen Hintergrundpunkten vergleicht.
+In dieser Übung analysieren wir die Habitatselektion von Rotwild (*Cervus elaphus*) anhand von GPS-Telemetriedaten und einer Landbedeckungskarte. Wir berechnen zunächst den **Jacobs-Index** und einen **χ²-Test**, um zu prüfen, ob Wald präferiert oder gemieden wird (Eineit 11). In der nächsten Woche (Einheit 12) passen wir eine **Resource Selection Function (RSF)** an — ein logistisches Regressionsmodell, das beobachtete Positionen mit zufällig gezogenen Hintergrundpunkten vergleicht.
 
-Die Daten sind bei StudIP unter `uebungen/woche_14_rsf/` verfügbar:
+Die Daten sind bei StudIP unter `daten` verfügbar:
 
 - `landcover.tif` — Landbedeckungsraster (ESA WorldCover, 10 m Auflösung, EPSG:3035)
 - `reddeer.csv` — GPS-Positionen eines Rotwildindividuums (EPSG:3035)
@@ -66,6 +66,47 @@ Die Funktion `distance()` aus `terra` berechnet für jede Rasterzelle die Distan
 2. Erstellen Sie die drei Kovariaten `wald`, `siedlung` und `dsiedlung` wie im Coderahmen gezeigt. Fassen Sie alle drei mit `rast(list(...))` zu einem gemeinsamen Raster-Stack zusammen und vergeben Sie die Namen `"wald"`, `"siedlung"` und `"dsiedlung"`.
 
 3. Lesen Sie die Telemetriedaten (`reddeer.csv`) ein und erstellen Sie mit `make_track()` einen Track (CRS: EPSG:3035).
+
+::: {.callout-note collapse="true"}
+### Kurze Einführung in `terra`
+
+`terra` ist das Standard-R-Paket für die Arbeit mit Rasterdaten (z.B. Satellitenbild, Geländemodell, Landbedeckungskarte). Die wichtigsten Konzepte für diese Übung:
+
+**Raster laden und anzeigen**
+
+```r
+lc <- rast("daten/landcover.tif")  # Raster einlesen
+plot(lc)                     # Darstellen
+```
+
+Ein `SpatRaster`-Objekt speichert neben den Zellwerten auch Ausdehnung, Auflösung und Koordinatensystem.
+
+**Logische Operationen auf Rastern**
+
+Auf einem `SpatRaster` können Sie direkt rechnen — das gilt zellenweise für alle Pixel:
+
+```r
+wald <- as.numeric(lc == 10)  # 1 wo Klasse 10, sonst 0
+```
+
+**`NA`-Werte setzen und Distanz berechnen**
+
+`distance()` berechnet für jede Zelle die Distanz zur nächsten Nicht-`NA`-Zelle. Um die Distanz zur Siedlung zu erhalten, setzen wir alle Nicht-Siedlungs-Zellen auf `NA`:
+
+```r
+dsiedlung[] <- ifelse(dsiedlung[], 1, NA)
+dsiedlung <- distance(dsiedlung)
+```
+
+**Mehrere Raster zu einem Stack zusammenfassen**
+
+```r
+env <- rast(list(wald, siedlung, dsiedlung))
+names(env) <- c("wald", "siedlung", "dsiedlung")
+```
+
+Danach kann man mit `env[["wald"]]` oder `env$wald` auf einzelne Schichten zugreifen.
+:::
 
 ```{r}
 #| eval: false
