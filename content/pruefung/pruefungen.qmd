@@ -206,6 +206,12 @@ Ich erwarte, dass Sie die alle Begriffe dieser Liste kennen und verwenden könne
 
 ::: {.column width="50%"}
 ### Einheit 12 (Woche 13)
+1. RSF - die Idee
+2. RSF - Vorteile gegenüber Jacobs Index oder $\chi^2$-Test
+3. RSS
+4. Interpretation von RSS
+5. Interaktionen
+6. SSF
 
 
 

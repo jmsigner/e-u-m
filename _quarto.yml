@@ -39,7 +39,8 @@ website:
             text: "10. Streifgebiete"
           - href: content/vorlesungen/11-vorlesung.qmd
             text: "11. Habitatselektion 1"
-          - text: "12. Habitatselektion 2"
+          - href: content/vorlesungen/12-vorlesung.qmd
+            text: "12. Habitatselektion 2"
       - text: Übungen
         menu:
           - text: "**Grundlagen in R**"
@@ -57,15 +58,19 @@ website:
 #            text: "5. Generalisiertes Lineares Model"
           - href: content/uebungen/ue_w6_amseln.qmd
             text: "6. Occupancy Model"
+          - text: "-----"
+          - text: "**Abundanz**"
           - href: content/uebungen/ue_w8_katzen.qmd
             text: "7. Distance Sampling"
           - href: content/uebungen/ue_w9_scr.qmd
             text: "8. Fang-Wiederfang"
+          - text: "-----"
+          - text: "**Bewegung**"
           - href: content/uebungen/ue_w9_deer.qmd
             text: "9. Bewegungsökologie 1"
           - href: content/uebungen/ue_w11_hr.qmd
             text: "10. Streifgebiete"
-          - href: content/uebungen/ue_w11_hr.qmd
+          - href: content/uebungen/ue_w12_w13_hr.qmd
             text: "11. & 12. Habitatselektion"
       - text: Prüfungsleistungen
         href: content/pruefung/pruefungen.qmd
