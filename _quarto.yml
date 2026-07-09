@@ -70,7 +70,7 @@ website:
             text: "9. Bewegungsökologie 1"
           - href: content/uebungen/ue_w11_hr.qmd
             text: "10. Streifgebiete"
-          - href: content/uebungen/ue_w12_w13_hr.qmd
+          - href: content/uebungen/ue_w12_w13.qmd
             text: "11. & 12. Habitatselektion"
       - text: Prüfungsleistungen
         href: content/pruefung/pruefungen.qmd
