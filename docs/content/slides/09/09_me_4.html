@@ -341,12 +341,12 @@ w(\mathbf{X}(s); \mathbf{\beta}) = \exp(X_1(s)\beta_1 + \dots + X_k(s)\beta_k)
 <pre><code># A tibble: 6 × 4
   case_       x_       y_ elevation
 * &lt;lgl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-1 FALSE 1783768. 2403218.      96.4
-2 FALSE 1783687. 2402264.     103. 
-3 FALSE 1782870. 2404125.      98.0
-4 FALSE 1783202. 2401597.     103. 
-5 FALSE 1782254. 2402336.      99.9
-6 FALSE 1783692. 2403179.      97.8</code></pre>
+1 FALSE 1781787. 2403007.      98.1
+2 FALSE 1782727. 2403151.      97.7
+3 FALSE 1781411. 2404122.     103. 
+4 FALSE 1781886. 2404161.     107. 
+5 FALSE 1781049. 2403096.      95.0
+6 FALSE 1783035. 2402731.     105. </code></pre>
 </div>
 </div>
 </section>
@@ -371,16 +371,16 @@ glm(formula = case_ ~ elevation, family = binomial(), data = m3)
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -7.430957   0.331289  -22.43   &lt;2e-16 ***
-elevation    0.050019   0.003205   15.61   &lt;2e-16 ***
+(Intercept) -7.515044   0.329143  -22.83   &lt;2e-16 ***
+elevation    0.050852   0.003184   15.97   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
     Null deviance: 20133  on 33043  degrees of freedom
-Residual deviance: 19899  on 33042  degrees of freedom
-AIC: 19903
+Residual deviance: 19888  on 33042  degrees of freedom
+AIC: 19892
 
 Number of Fisher Scoring iterations: 5</code></pre>
 </div>
@@ -408,7 +408,7 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)   elevation 
--7.43095690  0.05001906 </code></pre>
+-7.51504373  0.05085177 </code></pre>
 </div>
 </div>
 <p>Nehmen wir für Punkt <span class="math inline">\(s_1\)</span> eine Seehöhe von 100 m und für Punkt <span class="math inline">\(s_2\)</span> eine Seehöhe von 101 m an. Die Relative Selektionsstärke für Punkt <span class="math inline">\(s_2\)</span> gegenüber Punkte <span class="math inline">\(s_1\)</span> ist dann:</p>
@@ -437,7 +437,7 @@ RSS(s_2, s_1) &amp;=\frac{w(s_2)}{w(s_1)} = \frac{\exp(101 \beta_\text{dem})}{\e
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(mod1)[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>elevation 
- 1.051291 </code></pre>
+ 1.052167 </code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -446,7 +446,7 @@ RSS(s_2, s_1) &amp;=\frac{w(s_2)}{w(s_1)} = \frac{\exp(101 \beta_\text{dem})}{\e
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(mod1)[<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">101</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">coef</span>(mod1)[<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>elevation 
- 1.051291 </code></pre>
+ 1.052167 </code></pre>
 </div>
 </div>
 </div>
@@ -493,17 +493,17 @@ glm(formula = case_ ~ elevation + elevation:tod_, family = binomial(),
 
 Coefficients:
                       Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)         -7.3279163  0.3466605 -21.139  &lt; 2e-16 ***
-elevation            0.0255878  0.0034715   7.371  1.7e-13 ***
-elevation:tod_night  0.0297296  0.0008671  34.287  &lt; 2e-16 ***
+(Intercept)         -7.3012688  0.3501598 -20.851  &lt; 2e-16 ***
+elevation            0.0252818  0.0035048   7.213 5.45e-13 ***
+elevation:tod_night  0.0298061  0.0008671  34.374  &lt; 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
     Null deviance: 20133  on 33043  degrees of freedom
-Residual deviance: 17059  on 33041  degrees of freedom
-AIC: 17065
+Residual deviance: 17045  on 33041  degrees of freedom
+AIC: 17051
 
 Number of Fisher Scoring iterations: 7</code></pre>
 </div>
